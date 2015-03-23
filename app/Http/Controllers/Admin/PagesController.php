@@ -46,6 +46,14 @@ class PagesController extends Controller {
 
 	}
 
+    /**
+     * 查看
+     */
+    public function show($id)
+    {
+		return view('admin.pages.show')->withPage(Page::find($id));
+    }
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
