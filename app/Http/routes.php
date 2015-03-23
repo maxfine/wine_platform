@@ -32,5 +32,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
   Route::get('/', 'AdminHomeController@index');
   Route::resource('pages', 'PagesController');
   Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
-  Route::get('pages/{id?}/edit', 'PagesController@edit')->where(array('id'=>'[0-9]+'));
 });
