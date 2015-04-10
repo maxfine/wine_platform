@@ -19,8 +19,8 @@ class CreateOrdersTable extends Migration {
             $table->tinyInteger('shipping_status')->default(0);
             $table->tinyInteger('order_status')->default(0);
             $table->tinyInteger('pay_status')->default(0);
-            $table->tinyInteger('shipping_id')->default(0);
-            $table->tinyInteger('pay_id')->default(0);
+            $table->integer('shipping_id')->default(0)->unsigned();
+            $table->integer('pay_id')->default(0)->unsigned();
             $table->string('consignee',60)->default('');
             $table->string('address')->default('');
             $table->decimal('goods_amout',10,2)->default(0.00);
@@ -32,6 +32,13 @@ class CreateOrdersTable extends Migration {
             $table->string('mobile',60)->default('');
             $table->string('email',60)->default('');
 			$table->timestamps();
+
+            $table->index('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->index('pay_id');
+            $table->foreign('pay_id')->references('id')->on('payments');
+            $table->index('shipping_id');
+            $table->foreign('shipping_id')->references('id')->on('shippings');
 		});
 	}
 
