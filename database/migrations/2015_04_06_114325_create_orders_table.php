@@ -31,6 +31,7 @@ class CreateOrdersTable extends Migration {
             $table->string('tel',60)->default('');
             $table->string('mobile',60)->default('');
             $table->string('email',60)->default('');
+            $table->integer('store_id')->default(0)->unsigned();
 			$table->timestamps();
 
             $table->index('user_id');
@@ -39,6 +40,8 @@ class CreateOrdersTable extends Migration {
             $table->foreign('pay_id')->references('id')->on('payments');
             $table->index('shipping_id');
             $table->foreign('shipping_id')->references('id')->on('shippings');
+            $table->index('store_id');
+            $table->foreign('store_id')->references('id')->on('store');
 		});
 	}
 

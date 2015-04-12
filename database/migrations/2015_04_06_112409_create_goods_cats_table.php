@@ -16,7 +16,7 @@ class CreateGoodsCatsTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('goods_id')->default(0)->unsigned();
-            $table->smallInteger('cat_id')->default(0)->unsigned();
+            $table->integer('cat_id')->default(0)->unsigned();
 			$table->timestamps();
 
             $table->index('goods_id');

@@ -15,7 +15,15 @@ class CreateRequirementGoodsAttrsTable extends Migration {
 		Schema::create('requirement_goods_attrs', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('goods_id')->default(0)->unsigned();
+            $table->integer('attr_id')->default(0)->unsigned();
+            $table->decimal('attr_price',10,2)->default(0.00);
 			$table->timestamps();
+
+            $table->index('goods_id');
+            $table->foreign('goods_id')->references('id')->on('requirement_goods');
+            $table->index('attr_id');
+            $table->foreign('attr_id')->references('id')->on('attributes');
 		});
 	}
 

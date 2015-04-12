@@ -15,7 +15,16 @@ class CreateGoodsAttrsTable extends Migration {
 		Schema::create('goods_attrs', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('goods_id')->default(0)->unsigned();
+            $table->integer('attr_id')->default(0)->unsigned();
+            $table->string('attr_value')->default('');
+            $table->decimal('attr_price',10,2)->default(0.00);
 			$table->timestamps();
+
+            $table->index('goods_id');
+            $table->foreign('goods_id')->references('id')->on('goods')->onDelete('cascade');
+            $table->index('attr_id');
+            $table->foreign('attr_id')->references('id')->on('attributes')->onDelete('cascade');
 		});
 	}
 
