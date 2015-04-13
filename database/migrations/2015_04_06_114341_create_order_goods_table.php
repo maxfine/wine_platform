@@ -16,7 +16,7 @@ class CreateOrderGoodsTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('order_id')->default(0)->unsigned();
-            $table->integer('goods_id')->default(0)->unsigned();
+            $table->integer('goods_id')->default(0)->nullable()->unsigned();
             $table->string('order_sn',60)->default('');
             $table->smallInteger('goods_number')->default(1);
             $table->decimal('goods_price',10,2)->default(0.00);
@@ -27,7 +27,7 @@ class CreateOrderGoodsTable extends Migration {
             $table->index('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->index('goods_id');
-            $table->foreign('goods_id')->references('id')->on('goods')->onDelete('set default');
+            $table->foreign('goods_id')->references('id')->on('goods')->onDelete('set null');
 		});
 	}
 

@@ -17,6 +17,8 @@ class CreateOffersTable extends Migration {
 			$table->increments('id');
             $table->integer('require_id')->default(0)->unsigned();
             $table->integer('store_id')->default(0)->unsigned();
+            $table->text('note')->nullable();
+            $table->decimal('price',10,2)->default(0.00);
 			$table->timestamps();
 
             $table->index('require_id');

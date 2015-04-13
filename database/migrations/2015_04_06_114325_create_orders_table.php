@@ -41,7 +41,7 @@ class CreateOrdersTable extends Migration {
             $table->index('shipping_id');
             $table->foreign('shipping_id')->references('id')->on('shippings');
             $table->index('store_id');
-            $table->foreign('store_id')->references('id')->on('store');
+            $table->foreign('store_id')->references('id')->on('stores');
 		});
 	}
 
