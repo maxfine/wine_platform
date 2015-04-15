@@ -1,6 +1,4 @@
 <?php
-
-//echo config_path('administrator');
 //echo config_path('administrator/settings');
 //die();
 return array(
@@ -34,27 +32,18 @@ return array(
 	'settings_config_path' => config_path('administrator/settings'),
 
 	/**
-	 * The menu structure of the site. For models, you should either supply the name of a model config file or an array of names of model config
-	 * files. The same applies to settings config files, except you must prepend 'settings.' to the settings config file name. You can also add
-	 * custom pages by prepending a view path with 'page.'. By providing an array of names, you can group certain models or settings pages
-	 * together. Each name needs to either have a config file in your model config path, settings config path with the same name, or a path to a
-	 * fully-qualified Laravel view. So 'users' would require a 'users.php' file in your model config path, 'settings.site' would require a
-	 * 'site.php' file in your settings config path, and 'page.foo.test' would require a 'test.php' or 'test.blade.php' file in a 'foo' directory
-	 * inside your view directory.
+	 * The menu structure of the site. Each item should either be the name of the model's config file or an array of names of model config files.
+	 * By doing the latter, you can group certain models together. Each name needs to have a config file in your model config path with the same
+	 * name. So 'users' would require a 'users.php' file in your model config path.
 	 *
 	 * @type array
 	 *
 	 * 	array(
-	 *		'E-Commerce' => array('collections', 'products', 'product_images', 'orders'),
-	 *		'homepage_sliders',
+	 *		'Products' => array('products', 'product_images', 'orders'),
 	 *		'users',
-	 *		'roles',
-	 *		'colors',
-	 *		'Settings' => array('settings.site', 'settings.ecommerce', 'settings.social'),
-	 * 		'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
 	 *	)
 	 */
-    'menu' => array(
+	'menu' => array(
 		'Films' => array('films', 'boxoffice'),
 		'actors',
 		'directors',
@@ -70,7 +59,8 @@ return array(
 	 */
 	'permission'=> function()
 	{
-		return Auth::check();
+		return true;
+		//return Auth::user()->hasRole('admin');
 	},
 
 	/**
@@ -93,40 +83,37 @@ return array(
 	 *
 	 * @type string
 	 */
-	'home_page' => 'administrator',
+	'home_page' => 'settings.site',
 
 	/**
-	 * The route to which the user will be taken when they click the "back to site" button
+	 * This is the path where Administrator will send the user if they are not logged in (!Auth::check())
 	 *
 	 * @type string
 	 */
-	'back_to_site_path' => '/',
-
-	/**
-	 * The login path is the path where Administrator will send the user if they fail a permission check
-	 *
-	 * @type string
-	 */
-	'login_path' => 'auth/login',
+	'login_path' => 'user/login',
 
 	/**
 	 * The logout path is the path where Administrator will send the user when they click the logout link
 	 *
 	 * @type string
 	 */
-	'logout_path' => false,
+	'logout_path' => 'user/logout',
 
 	/**
-	 * This is the key of the return path that is sent with the redirection to your login_action. Session::get('redirect') will hold the return URL.
+	 * Redirect key
 	 *
 	 * @type string
+	 *
+	 * This comes with the redirection to your login_action. Input::get('redirect') will hold the return URL.
 	 */
 	'login_redirect_key' => 'redirect',
 
 	/**
-	 * Global default rows per page
+	 * Global items per page
 	 *
 	 * @type NULL|int
+	 *
+	 * If you set this to an integer value greater than 0, it will override the $per_page static property in ALL of your models
 	 */
 	'global_rows_per_page' => 20,
 
