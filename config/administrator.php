@@ -1,5 +1,8 @@
 <?php
 
+echo config_path('administrator');
+echo config_path('administrator/settings');
+die();
 return array(
 
 	/**
@@ -7,7 +10,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'uri' => 'admin',
+	'uri' => 'administrator',
 
 	/**
 	 * Page title
@@ -51,7 +54,7 @@ return array(
 	 * 		'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
 	 *	)
 	 */
-	'menu' => array(),
+    'menu' => array(),
 
 	/**
 	 * The permission option is the highest-level authentication check that lets you define a closure that should return true if the current user
@@ -84,7 +87,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'home_page' => '',
+	'home_page' => 'admin',
 
 	/**
 	 * The route to which the user will be taken when they click the "back to site" button

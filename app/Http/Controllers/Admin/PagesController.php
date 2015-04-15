@@ -11,6 +11,16 @@ use Redirect, Input, Auth;
 
 class PagesController extends Controller {
 
+    /**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+        return view('AdminHome')->withPages(Page::all());
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
