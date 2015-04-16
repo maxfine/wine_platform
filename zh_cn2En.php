@@ -30,4 +30,5 @@ return
     ['en'=>'shift', 'zh_cn'=>'开头去掉'],
     ['en'=>'unsigned', 'zh_cn'=>'无符号'],
     ['en'=>'category', 'zh_cn'=>'栏目'],
+    ['en'=>'set_include_path', 'zh_cn'=>'设置路径'],
 ] 

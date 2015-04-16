@@ -10,7 +10,7 @@ return array(
 
 	'single' => 'take',
 
-	'model' => 'BoxOffice',
+	'model' => 'App\BoxOffice',
 
 	/**
 	 * The display columns

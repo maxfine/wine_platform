@@ -10,7 +10,7 @@ return array(
 
 	'single' => 'Theater',
 
-	'model' => 'Theater',
+	'model' => 'App\Theater',
 
 	/**
 	 * The display columns
