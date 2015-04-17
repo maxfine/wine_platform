@@ -8,7 +8,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader
+| Register The Auto Loader 自动载入服务
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
@@ -22,7 +22,7 @@ require __DIR__.'/../bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Turn On The Lights
+| Turn On The Lights 创建IOC容器 
 |--------------------------------------------------------------------------
 |
 | We need to illuminate PHP development, so let us turn on the lights.
@@ -36,7 +36,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
-| Run The Application
+| Run The Application 运行app
 |--------------------------------------------------------------------------
 |
 | Once we have the application, we can handle the incoming request
@@ -46,12 +46,12 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
-$kernel = $app->make('Illuminate\Contracts\Http\Kernel');
+$kernel = $app->make('Illuminate\Contracts\Http\Kernel'); //访问对象,如同$this->app['xxx']
 
 $response = $kernel->handle(
 	$request = Illuminate\Http\Request::capture()
 );
 
-$response->send();
+$response->send(); //发送
 
-$kernel->terminate($request, $response);
+$kernel->terminate($request, $response); //终止

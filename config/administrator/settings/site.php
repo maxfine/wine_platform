@@ -11,7 +11,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'title' => 'Site Settings',
+	'title' => 'Site Settings2',
 
 	/**
 	 * The edit fields array
