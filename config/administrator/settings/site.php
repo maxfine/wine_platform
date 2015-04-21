@@ -11,7 +11,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'title' => 'Site Settings2',
+	'title' => '站点设置',
 
 	/**
 	 * The edit fields array
@@ -32,7 +32,7 @@ return array(
 			'title' => 'Image (200 x 150)',
 			'type' => 'image',
 			'naming' => 'random',
-			'location' => public_path(),
+			'location' => public_path().'/uploadfile/',
 			'size_limit' => 2,
 			'sizes' => array(
 		 		array(200, 150, 'crop', public_path() . '/resize/', 100),
