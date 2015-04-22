@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 class Theater extends Model{
@@ -11,11 +11,11 @@ class Theater extends Model{
 
 	public function films()
 	{
-		return $this->belongsToMany('Film', 'films_theaters');
+		return $this->belongsToMany('App\\Models\\Film', 'films_theaters');
 	}
 
 	public function boxOffice()
 	{
-		return $this->hasMany('BoxOffice');
+		return $this->hasMany('App\\Models\\BoxOffice');
 	}
 }

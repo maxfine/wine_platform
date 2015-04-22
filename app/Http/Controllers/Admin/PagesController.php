@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Page;
+use App\Models\Page;
 
 use Redirect, Input, Auth;
 

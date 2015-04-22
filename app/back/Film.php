@@ -13,22 +13,22 @@ class Film extends Model{
 
 	public function director()
 	{
-		return $this->belongsTo('Director');
+		return $this->belongsTo('App\\Director');
 	}
 
 	public function actors()
 	{
-		return $this->belongsToMany('Actor', 'actors_films');
+		return $this->belongsToMany('App\\Actor', 'actors_films');
 	}
 
 	public function theaters()
 	{
-		return $this->belongsToMany('Theater', 'films_theaters');
+		return $this->belongsToMany('App\\Theater', 'films_theaters');
 	}
 
 	public function boxOffice()
 	{
-		return $this->hasMany('BoxOffice');
+		return $this->hasMany('App\\BoxOffice');
 	}
 
 	public function getDirectorNameAttribute()

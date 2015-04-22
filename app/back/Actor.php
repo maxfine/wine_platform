@@ -14,7 +14,7 @@ class Actor extends Model {
 
 	public function films()
 	{
-		return $this->belongsToMany('Film', 'actors_films');
+		return $this->belongsToMany('App\\Film', 'actors_films');
 	}
 
 	public function getFormattedBirthDateAttribute()

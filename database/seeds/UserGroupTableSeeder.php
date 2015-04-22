@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Database\Seeder;
-use App\UserGroup;
+use App\Models\UserGroup;
 
 class UserGroupTableSeeder extends Seeder {
 

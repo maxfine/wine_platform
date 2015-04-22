@@ -1,5 +1,4 @@
-<?php
-namespace App;
+<?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 class Director extends Model {
@@ -15,7 +14,7 @@ class Director extends Model {
 
 	public function films()
 	{
-		return $this->hasMany('Film');
+		return $this->hasMany('App\\Models\\Film');
 	}
 
 	public function getNameAttribute()

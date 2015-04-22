@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,12 +16,12 @@ class BoxOffice extends Model{
 
 	public function film()
 	{
-		return $this->belongsTo('Film');
+		return $this->belongsTo('App\\Models\\Film');
 	}
 
 	public function theater()
 	{
-		return $this->belongsTo('Theater');
+		return $this->belongsTo('App\\Models\\Theater');
 	}
 
 	public function getFormattedRevenueAttribute()
