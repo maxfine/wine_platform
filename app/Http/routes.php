@@ -31,7 +31,8 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
-  Route::get('/', 'AdminHomeController@index');
-  Route::resource('pages', 'PagesController');
-  //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
+    Route::get('/', 'AdminHomeController@index');
+    Route::resource('pages', 'PagesController');
+    //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
 });
+Route::get('admin/login', 'Auth\AuthController@getAdminLogin');

@@ -35,4 +35,17 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+
+    /**
+     * ----------------------------------------
+     * 会员登录页面,管理员登陆页面
+     * ----------------------------------------
+     * 
+     */
+    public function getAdminLogin()
+	{
+        //return 'hello';
+		return view('auth.adminLogin');
+	}
+
 }
