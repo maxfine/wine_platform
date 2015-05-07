@@ -35,4 +35,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('pages', 'PagesController');
     //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
 });
-Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
+//Route::get('admin/login', 'Auth\AuthController@getAdminLogin');

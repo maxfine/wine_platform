@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration {
 			$table->rememberToken();
 			$table->timestamps();
 
-            $table->index('group_id');
-            $table->foreign('group_id')->references('id')->on('user_groups');
+            //$table->index('group_id');
+            //$table->foreign('group_id')->references('id')->on('user_groups');
 		});
 	}
 

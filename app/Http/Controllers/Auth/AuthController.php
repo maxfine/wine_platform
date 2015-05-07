@@ -44,8 +44,34 @@ class AuthController extends Controller {
      */
     public function getAdminLogin()
 	{
-        //return 'hello';
-		return view('auth.adminLogin');
+		return view('admin.login');
 	}
+
+    /**
+     * ----------------------------------------
+     * 会员登录,管理员登陆
+     * ----------------------------------------
+     */
+    /*
+    public function postLogin(Request $request)
+	{
+		$this->validate($request, [
+			'email' => 'required|email', 'password' => 'required',
+		]);
+
+		$credentials = $request->only('email', 'password');
+
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended($this->redirectPath());
+		}
+
+		return redirect($this->loginPath())
+					->withInput($request->only('email', 'remember'))
+					->withErrors([
+						'email' => $this->getFailedLoginMessage(),
+					]);
+    }
+    */
 
 }

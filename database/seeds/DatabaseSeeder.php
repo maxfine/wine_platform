@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,9 +13,9 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		$this->call('UserGroupTableSeeder');
-		//$this->call('UserTableSeeder');
-		//$this->call('PageTableSeeder');
+		$this->call('UsersTableSeeder');
+		//$this->call('RolesTableSeeder');
+		//$this->call('PermissionsTableSeeder');
 	}
 
 }
