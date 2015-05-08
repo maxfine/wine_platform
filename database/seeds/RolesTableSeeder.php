@@ -1,5 +1,6 @@
 <?php
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder {
@@ -12,7 +13,7 @@ class RolesTableSeeder extends Seeder {
         $adminRole->name = 'admin';
         $adminRole->save();
 
-        $user = User::where('username','=','admin')->first();
+        $user = User::where('name','=','admin')->first();
         $user->attachRole($adminRole);
     }
 
