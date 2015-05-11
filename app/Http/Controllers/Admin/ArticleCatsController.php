@@ -49,7 +49,7 @@ class ArticleCatsController extends Controller {
 		//$article_cat->user_id = \Auth::user()->id;//Auth::user()->id;
 
 		if ($article_cat->save()) {
-			return Redirect::to('admin');
+			return Redirect::to('admin.article_cats.index');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
