@@ -28,7 +28,9 @@ class ArticleCatsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.article_cats.create');
+        //栏目select数据
+        $cats = ArticleCat::getSelectCats();
+		return view('admin.article_cats.create')->with('articleCats',$cats);
 	}
 
 	/**
@@ -45,11 +47,12 @@ class ArticleCatsController extends Controller {
 
 		$article_cat= new ArticleCat;
 		$article_cat->cat_name = Input::get('cat_name');
+		$article_cat->parent_id = Input::get('parent_id');
 		$article_cat->cat_brief= Input::get('cat_brief');
 		//$article_cat->user_id = \Auth::user()->id;//Auth::user()->id;
 
 		if ($article_cat->save()) {
-			return Redirect::to('admin');
+			return Redirect::to('admin/article/cats');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
