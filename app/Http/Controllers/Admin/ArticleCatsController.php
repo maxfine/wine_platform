@@ -18,7 +18,7 @@ class ArticleCatsController extends Controller {
 	 */
 	public function index()
 	{
-        return view('admin.article_cats.index')->withPages(ArticleCat::all());
+        return view('admin.article_cats.index')->with('articleCats',ArticleCat::all());
 	}
 
 	/**
@@ -29,7 +29,9 @@ class ArticleCatsController extends Controller {
 	public function create()
 	{
         //栏目select数据
+        //dump(ArticleCat::getChilds(0));
         $cats = ArticleCat::getSelectCats();
+        //$cats = ArticleCat::all();
 		return view('admin.article_cats.create')->with('articleCats',$cats);
 	}
 
@@ -52,11 +54,7 @@ class ArticleCatsController extends Controller {
 		//$article_cat->user_id = \Auth::user()->id;//Auth::user()->id;
 
 		if ($article_cat->save()) {
-<<<<<<< HEAD
-			return Redirect::to('admin.article_cats.index');
-=======
 			return Redirect::to('admin/article/cats');
->>>>>>> origin/master
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
@@ -79,7 +77,8 @@ class ArticleCatsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('admin.pages.edit')->withPage(Page::find($id));
+        $cats = ArticleCat::getSelectCats();
+		return view('admin.article_cats.edit')->with('articleCat',ArticleCat::find($id))->with('articleCats', $cats);
 	}
 
 	/**
@@ -89,16 +88,22 @@ class ArticleCatsController extends Controller {
 	 * @return Response
 	 */
 	public function update(Request $request,$id)
-	{
-		$this->validate($request, [
-			'title' => 'required|unique:pages,title,'.$id.'|max:255',
-			'body' => 'required',
+    {
+        $this->validate($request, [
+			'cat_name' => 'required|unique:article_cats|max:255',
+			'cat_brief' => 'required',
 		]);
+		
+		$articleCat = ArticleCat::find($id);
+		$article_cat->cat_name = Input::get('cat_name');
+		$article_cat->parent_id = Input::get('parent_id');
+		$article_cat->cat_brief= Input::get('cat_brief');
 
-		$page = Page::find($id);
-		$page->title = Input::get('title');
-		$page->body = Input::get('body');
-		$page->user_id = 1;//Auth::user()->id;
+        if ($article_cat->save()) {
+			return Redirect::to('admin/article/cats');
+		} else {
+			return Redirect::back()->withInput()->withErrors('保存失败！');
+		}
 
 		if ($page->save()) {
 			return Redirect::to('admin');
@@ -115,10 +120,10 @@ class ArticleCatsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$page = Page::find($id);
-		$page->delete();
+		$articleCat = ArticleCat::find($id);
+		$articleCat->delete();
 
-		return Redirect::to('admin');
+		return Redirect::to('admin/article/cats');
 	}
 
 }

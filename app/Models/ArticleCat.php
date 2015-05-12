@@ -26,7 +26,7 @@ class ArticleCat extends Model {
 
     /**
      * -----------------------------------------------------
-     * 获取所有栏目
+     * 获取所有栏目,多维数组
      * -----------------------------------------------------
      * return [[id=>4, cat_name=>'xxx', childs=>[
      *      [id=>6, cat_name=>'xxx', childs=>[]], []
@@ -43,25 +43,25 @@ class ArticleCat extends Model {
 
     /**
      * -----------------------------------------------------
-     * 获取所有栏目
+     * 获取所有栏目,二维数组
      * -----------------------------------------------------
-     * return [[id=>4, cat_name=>'xxx', childs=>[
-     *      [id=>6, cat_name=>'xxx', childs=>[]], []
-     * ]
-     * ]]
+     * return [['id'=>1, 'cat_name'=>'xxx', ...], ['id'=>3, 'cat_name'=>'xxx', ..]]
      */
-    public static function getChilds($id){
+    public static function getChilds($id, &$list=[]){
         $cats = self::getSonCats($id);
+
         foreach($cats as $k=>$cat){
-            $cats[] = self::getChilds($cat['id']);
+            $list[] = $cat;
+            self::getChilds($cat['id'],$list);
         }
-        return $cats;
+        return $list;
     }
 
     /**
      * -----------------------------------------------------
      * 获取栏目深度
      * -----------------------------------------------------
+     * 顶级栏目深度为1
      */
     public static function getLevel($id){
         $n = 0;
@@ -81,19 +81,15 @@ class ArticleCat extends Model {
      */
     public static function getSelectCats($selectedId=0){
         $cats = self::getChilds(0);
-        dump($cats);
 
         foreach($cats as $cat){
             $cat_name = $cat['cat_name'];
-            $cat_name2 = '';
+            $prefix = '';
             //&nbsp;├ 
             $n = self::getLevel($cat['id']);
-            while($n>1){
-                $cat_name2 .= '&nbsp;';
-                $n--;
-            }
-            if(self::getLevel($cat['id'])>1) $cat_name2 .= '├ ';
-            $cat['cat_name'] = $cat_name2.$cat_name;
+            $prefix = str_repeat('&nbsp;&nbsp;', $n-1);
+            if(self::getLevel($cat['id'])>1) $cat_name2 .= '├--';
+            $cat['cat_name'] = $prefix.$cat_name;
         }
 
         return $cats;

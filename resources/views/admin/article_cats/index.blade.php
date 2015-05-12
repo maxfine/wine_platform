@@ -11,24 +11,32 @@
 
         <a href="{{ URL('admin/article/cats/create') }}" class="btn btn-lg btn-primary">新增</a>
 
-          @foreach ($pages as $page)
+          @foreach ($articleCats as $articleCat)
             <hr>
             <div class="page">
-              <h4>{{ $page->cat_name }}</h4>
+              <h4>{{ $articleCat->cat_name }}</h4>
               <div class="content">
                 <p>
-                  {{ $page->cat_brief }}
+                  {{ $articleCat->cat_brief }}
                 </p>
               </div>
             </div>
-            <a href="{{ URL('admin/article/cats/'.$page->id.'/edit') }}" class="btn btn-success">编辑</a>
+            <a href="{{ URL('admin/article/cats/'.$articleCat->id.'/edit') }}" class="btn btn-success">编辑</a>
 
-            <form action="{{ URL('admin/article/cats/'.$page->id) }}" method="POST" style="display: inline;">
+            <form action="{{ URL('admin/article/cats/'.$articleCat->id) }}" method="POST" style="display: inline;">
               <input name="_method" type="hidden" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <button type="submit" class="btn btn-danger">删除</button>
+              <button onClick="delcfm()" type="submit" class="btn btn-danger">删除</button>
             </form>
           @endforeach
+
+        <script>
+                function delcfm() {
+                    if (!confirm("确认要删除？")) {
+                        window.event.returnValue = false;
+                    }
+                }
+        </script>
 
         </div>
       </div>
