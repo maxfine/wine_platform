@@ -90,23 +90,17 @@ class ArticleCatsController extends Controller {
 	public function update(Request $request,$id)
     {
         $this->validate($request, [
-			'cat_name' => 'required|unique:article_cats|max:255',
+			'cat_name' => 'required|max:255',
 			'cat_brief' => 'required',
 		]);
 		
 		$articleCat = ArticleCat::find($id);
-		$article_cat->cat_name = Input::get('cat_name');
-		$article_cat->parent_id = Input::get('parent_id');
-		$article_cat->cat_brief= Input::get('cat_brief');
+		$articleCat->cat_name = Input::get('cat_name');
+		$articleCat->parent_id = Input::get('parent_id');
+		$articleCat->cat_brief= Input::get('cat_brief');
 
-        if ($article_cat->save()) {
+        if ($articleCat->save()) {
 			return Redirect::to('admin/article/cats');
-		} else {
-			return Redirect::back()->withInput()->withErrors('保存失败！');
-		}
-
-		if ($page->save()) {
-			return Redirect::to('admin');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}

@@ -88,7 +88,7 @@ class ArticleCat extends Model {
             //&nbsp;├ 
             $n = self::getLevel($cat['id']);
             $prefix = str_repeat('&nbsp;&nbsp;', $n-1);
-            if(self::getLevel($cat['id'])>1) $cat_name2 .= '├--';
+            if(self::getLevel($cat['id'])>1) $prefix .= '├--';
             $cat['cat_name'] = $prefix.$cat_name;
         }
 

@@ -23,7 +23,7 @@
           <form action="{{ URL('admin/article/cats/'.$articleCat->id) }}" method="POST">
             <input name="_method" type="hidden" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="text" name="title" class="form-control" required="required" value="{{ $articleCat->cat_name }}">
+            <input type="text" name="cat_name" class="form-control" required="required" value="{{ $articleCat->cat_name }}">
             <br>
             <select name="parent_id" id="parentid" class="form-control">
                 <option value="0">≡ 作为一级栏目 ≡</option>
@@ -33,7 +33,7 @@
                 <!--<option value="11">&nbsp;├ 产品限定及服务范围</option>;-->
             </select>
             <br>
-            <textarea name="body" rows="10" class="form-control" required="required">{{ $articleCat->cat_brief }}</textarea>
+            <textarea name="cat_brief" rows="10" class="form-control" required="required">{{ $articleCat->cat_brief }}</textarea>
             <br>
             <button class="btn btn-lg btn-info">修改</button>
           </form>
