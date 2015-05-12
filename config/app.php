@@ -137,6 +137,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
         //'Frozennode\Administrator\AdministratorServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -195,6 +196,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        'Form'=> 'Illuminate\Html\FormFacade',
+        'HTML'=> 'Illuminate\Html\HtmlFacade',
 
 	],
 
