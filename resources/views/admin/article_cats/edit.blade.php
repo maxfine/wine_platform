@@ -32,6 +32,10 @@
                 @endforeach
                 <!--<option value="11">&nbsp;├ 产品限定及服务范围</option>;-->
             </select>
+
+            <br>
+            <input type="file" name="image"  required="required"><img src="{{ URL($articleCat->image) }}" width="100" height="100">
+            
             <br>
             <textarea name="cat_brief" rows="10" class="form-control" required="required">{{ $articleCat->cat_brief }}</textarea>
             <br>

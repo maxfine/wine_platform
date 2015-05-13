@@ -34,3 +34,4 @@ class A{
 
 $a = new A(); echo $a->t;
 ***********END*************/
+phpinfo();
