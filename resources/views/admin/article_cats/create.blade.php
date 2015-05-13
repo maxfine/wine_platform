@@ -20,7 +20,7 @@
             </div>
           @endif
 
-          <form action="{{ URL('admin/article/cats') }}" method="POST">
+          <form action="{{ URL('admin/article/cats') }}" method="POST" enctype="muitipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="text" name="cat_name" class="form-control" required="required">
             <br>
@@ -32,9 +32,15 @@
                 <!--<option value="11">&nbsp;├ 产品限定及服务范围</option>;-->
             </select>
             <br/>
+
+            <input type="file" name="f_img"  required="required">
+            
+
+            <br/>
             <textarea name="cat_brief" rows="10" class="form-control" required="required"></textarea>
             <br>
             <button class="btn btn-lg btn-info">新增 栏目</button>
+            <input type="submit" class="form-control" value="提交">
           </form>
 
         </div>

@@ -42,16 +42,38 @@ class ArticleCatsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+        if ($file = Input::file('f_img')) {
+            return 'upload';
+        }else{
+            return 'noUpload';
+        }
    		$this->validate($request, [
 			'cat_name' => 'required|unique:article_cats|max:255',
 			'cat_brief' => 'required',
 		]);
 
 		$article_cat= new ArticleCat;
-		$article_cat->cat_name = Input::get('cat_name');
+		$article_cat->cat_name = $request->input('cat_name');
 		$article_cat->parent_id = Input::get('parent_id');
 		$article_cat->cat_brief= Input::get('cat_brief');
-		//$article_cat->user_id = \Auth::user()->id;//Auth::user()->id;
+
+        if ($file = Input::file('f_img')) {
+            $allowed_extensions = ["png", "jpg", "gif"];
+            if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
+            {
+                return ['error' => 'You may only upload png, jpg or gif.'];
+            }
+            $fileName        = $file->getClientOriginalName();
+            $extension       = $file->getClientOriginalExtension() ?: 'png';
+            $folderName      = 'uploads/images/' . date("Ym", time()) .'/'.date("d", time());
+            $destinationPath = public_path() . '/' . $folderName;
+            $safeName        = str_random(10).'.'.$extension;
+            $file->move($destinationPath, $safeName);
+        }
+        else
+        {
+            return "error!";
+        }
 
 		if ($article_cat->save()) {
 			return Redirect::to('admin/article/cats');
@@ -91,14 +113,15 @@ class ArticleCatsController extends Controller {
     {
         $this->validate($request, [
 			'cat_name' => 'required|max:255',
-			'cat_brief' => 'required',
+			//'cat_brief' => 'required',
 		]);
 		
 		$articleCat = ArticleCat::find($id);
 		$articleCat->cat_name = Input::get('cat_name');
 		$articleCat->parent_id = Input::get('parent_id');
 		$articleCat->cat_brief= Input::get('cat_brief');
-
+        //$articleCat->image = Input::file('image');
+        
         if ($articleCat->save()) {
 			return Redirect::to('admin/article/cats');
 		} else {
