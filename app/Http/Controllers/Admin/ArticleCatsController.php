@@ -18,7 +18,8 @@ class ArticleCatsController extends Controller {
 	 */
 	public function index()
 	{
-        return view('admin.article_cats.index')->with('articleCats',ArticleCat::all());
+        $articleCats = ArticleCat::paginate(10);
+        return view('admin.article_cats.index')->with('articleCats',$articleCats);
 	}
 
 	/**
@@ -50,6 +51,7 @@ class ArticleCatsController extends Controller {
 
 		$articleCat= new ArticleCat;
 		$articleCat->cat_name = $request->input('cat_name');
+        //$post->slug = Str::slug(Input::get('title'));
 		$articleCat->parent_id = Input::get('parent_id');
 		$articleCat->cat_brief= Input::get('cat_brief');
 
@@ -121,7 +123,7 @@ class ArticleCatsController extends Controller {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
-                return ['error' => 'You may only upload png, jpg or gif.'];
+                return ['error' => '只支持上传png, jpg,  gif格式'];
             }
             $fileName        = $file->getClientOriginalName();
             $extension       = $file->getClientOriginalExtension() ?: 'png';
@@ -131,11 +133,6 @@ class ArticleCatsController extends Controller {
             $file->move($destinationPath, $safeName);
             $articleCat->image = $folderName.'/'.$safeName;
         }
-        else
-        {
-            return "error!";
-        }
-
         
         if ($articleCat->save()) {
 			return Redirect::to('admin/article/cats');

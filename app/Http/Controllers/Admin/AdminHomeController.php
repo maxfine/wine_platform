@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Page;
 use App\Models\ArticleCat;
+use App\Models\Article;
 
 class AdminHomeController extends Controller {
 
@@ -17,7 +18,7 @@ class AdminHomeController extends Controller {
 	 */
 	public function index()
 	{
-        return view('AdminHome')->with('pages',Page::all())->with('articleCats',ArticleCat::all());
+        return view('AdminHome')->with('pages',Page::all())->with('articleCats',ArticleCat::all())->with('articles', Article::all());
 	}
 
 	/**

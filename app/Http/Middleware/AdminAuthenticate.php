@@ -1,6 +1,7 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
+use Entrust;
 
 class AdminAuthenticate {
 	/**
@@ -12,7 +13,7 @@ class AdminAuthenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
-        if(!\Entrust::hasRole('admin')){
+        if(!Entrust::hasRole('admin')){
             if ($request->ajax())
 			{
 				return response('Unauthorized.', 401);

@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 {
     Route::get('/', 'AdminHomeController@index');
     Route::resource('article/cats', 'ArticleCatsController');
+    Route::resource('articles', 'ArticlesController');
     Route::resource('pages', 'PagesController');
     //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
 });

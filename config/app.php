@@ -198,6 +198,7 @@ return [
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
         'Form'=> 'Illuminate\Html\FormFacade',
         'HTML'=> 'Illuminate\Html\HtmlFacade',
+        'Str'       => 'Illuminate\Support\Str',
 
 	],
 

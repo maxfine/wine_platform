@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
-        <div class="panel-heading">添加文章栏目</div>
+        <div class="panel-heading">添加文章</div>
 
         <div class="panel-body">
 
@@ -20,11 +20,11 @@
             </div>
           @endif
 
-          <form action="{{ URL('admin/article/cats') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ URL('admin/articles') }}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="text" name="cat_name" class="form-control" required="required">
+            <input type="text" name="title" class="form-control" required="required">
             <br>
-            <select name="parent_id" id="parentid" class="form-control">
+            <select name="cat_id" id="cat_id" class="form-control">
                 <option value="0">≡ 作为一级栏目 ≡</option>
                 @foreach ($articleCats as $articleCat)
                 <option value="{{ $articleCat->id }}">{{ $articleCat->cat_name }}</option>
@@ -37,9 +37,9 @@
             
 
             <br/>
-            <textarea name="cat_brief" rows="10" class="form-control" required="required"></textarea>
+            <textarea name="body" rows="10" class="form-control" required="required"></textarea>
             <br>
-            <button class="btn btn-lg btn-info">新增 栏目</button>
+            <button class="btn btn-lg btn-info">新增文章</button>
           </form>
 
         </div>
