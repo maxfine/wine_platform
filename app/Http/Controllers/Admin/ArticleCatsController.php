@@ -69,10 +69,6 @@ class ArticleCatsController extends Controller {
             $file->move($destinationPath, $safeName);
             $articleCat->image = $folderName.'/'.$safeName;
         }
-        else
-        {
-            return "error!";
-        }
 
 		if ($articleCat->save()) {
 			return Redirect::to('admin/article/cats');
@@ -149,8 +145,9 @@ class ArticleCatsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$articleCat = ArticleCat::find($id);
-		$articleCat->delete();
+        //删除所有文章,包括子栏目文章
+        //删除所有子栏目
+        ArticleCat::delCat($id);
 
 		return Redirect::to('admin/article/cats');
 	}

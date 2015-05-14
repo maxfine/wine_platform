@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration {
             $table->index('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->index('cat_id');
-            $table->foreign('cat_id')->references('id')->on('article_cats');
+            $table->foreign('cat_id')->references('id')->on('article_cats')->onDelete('cascade'); //当删除栏目时,同时删除栏目下的文章
 		});
 	}
 

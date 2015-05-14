@@ -63,10 +63,6 @@ class ArticlesController extends Controller {
             $file->move($destinationPath, $safeName);
             $article->image = $folderName.'/'.$safeName;
         }
-        else
-        {
-            return "error!";
-        }
 
 		if ($article->save()) {
 			return Redirect::to('admin/articles');

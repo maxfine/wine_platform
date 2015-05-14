@@ -95,4 +95,29 @@ class ArticleCat extends Model {
         return $cats;
     }
 
+    /**
+     * -----------------------------------------------------
+     * 删除栏目
+     * -----------------------------------------------------
+     * 删除所有文章,包括子栏目文章, 删除所有子栏目
+     */
+    public static function delCat($id){
+        $cats = self::getChilds($id);
+        foreach($cats as $cat){
+            //删除文章
+            $cat->articles->delete();
+
+            //删除栏目
+            $cat->delete();
+        }
+
+        //删除自身
+        $articleCat = self::find($id);
+		$articleCat->delete();
+    }
+
+
+    public function articles(){
+        return $this->hasMany('Article');
+    }
 }
