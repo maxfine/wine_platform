@@ -83,7 +83,7 @@ class ArticleCatsController extends Controller {
      */
     public function show($id)
     {
-        return view('admin.pages.show')->withPage(Page::find($id)); 
+        return view('admin.article_cats.show')->with('articleCat', ArticleCat::find($id))->with('articls', ArticleCat::paginate(10)); 
     }
 
 	/**

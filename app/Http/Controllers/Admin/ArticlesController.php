@@ -79,7 +79,9 @@ class ArticlesController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+
+        $article = Article::find($id);
+        return view('admin.articles.show')->with('article', $article)->with('comments', $article->comments()); 
 	}
 
 	/**
@@ -90,7 +92,10 @@ class ArticlesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        $article = Article::find($id);
+        //栏目下拉框
+        $articleCats = ArticleCat::getSelectCats(); 
+        return view('admin.articles.edit')->with('article', $article)->with('articleCats',$articleCats);
 	}
 
 	/**
@@ -99,9 +104,39 @@ class ArticlesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		//
+		$this->validate($request, [
+			'title' => 'required|max:255',
+		]);
+
+		$article= Article::find($id);
+		$article->title = $request->input('title');
+        //$post->slug = Str::slug(Input::get('title'));
+		$article->cat_id = Input::get('cat_id');
+		$article->body = Input::get('body');
+		$article->user_id = Auth::user()->id;
+
+        if ($file = Input::file('image')) {
+            $allowed_extensions = ["png", "jpg", "gif"];
+            if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
+            {
+                return ['error' => 'You may only upload png, jpg or gif.'];
+            }
+            $fileName        = $file->getClientOriginalName();
+            $extension       = $file->getClientOriginalExtension() ?: 'png';
+            $folderName      = 'uploads/images/' . date("Ym", time()) .'/'.date("d", time());
+            $destinationPath = public_path() . '/' . $folderName;
+            $safeName        = str_random(10).'.'.$extension;
+            $file->move($destinationPath, $safeName);
+            $article->image = $folderName.'/'.$safeName;
+        }
+
+		if ($article->save()) {
+			return Redirect::to('admin/articles');
+		} else {
+			return Redirect::back()->withInput()->withErrors('保存失败！');
+		}
 	}
 
 	/**
@@ -109,10 +144,12 @@ class ArticlesController extends Controller {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
-	public function destroy($id)
+     */
+    public function destroy($id)
 	{
-		//
-	}
+        //同时删除所有评论
+        Article::del($id);
 
+		return Redirect::to('admin/articles');
+	}
 }

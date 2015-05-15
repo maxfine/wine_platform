@@ -111,11 +111,23 @@ class ArticleCat extends Model {
             $cat->delete();
         }
 
-        //删除自身
-        $articleCat = self::find($id);
-		$articleCat->delete();
+        //删除本身
+        Parent::delete();
     }
+    
+    public function delete(){
+        $cats = self::getChilds($this->id);
+        foreach($cats as $cat){
+            //删除文章
+            $cat->articles->delete();
 
+            //删除栏目
+            $cat->delete();
+        }
+
+        //删除本身
+        Parent::delete();
+    }
 
     public function articles(){
         return $this->hasMany('Article');
