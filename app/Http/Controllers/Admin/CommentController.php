@@ -4,11 +4,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Models\ArticleCat;
+use App\Models\Comment;
 use App\Models\Article;
 use Redirect, Input, Auth;
 
-class ArticlesController extends Controller {
+class CommentsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,7 +17,7 @@ class ArticlesController extends Controller {
 	 */
 	public function index()
 	{
-        return view('admin.articles.index')->with('articles',Article::paginate(10));
+        return view('admin.comments.index')->with('comments',Comment::paginate(10));
 	}
 
 	/**
@@ -27,8 +27,8 @@ class ArticlesController extends Controller {
 	 */
 	public function create()
 	{
-        $articleCats = ArticleCat::getSelectCats();
-		return view('admin.articles.create')->with('articleCats', $articleCats);
+        //$articleCats = ArticleCat::getSelectCats();
+		//return view('admin.comments.create')->with('articleCats', $articleCats);
 	}
 
 	/**
