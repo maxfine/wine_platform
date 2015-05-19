@@ -40,6 +40,7 @@ class Comment extends Model {
         //方法二,服务器控制
         if($type==1)return Goods::find($post_id);
         elseif($type==2)return Article::find($post_id);
+        elseif($type==3)return Page::find($post_id);
         return null;
     }
 

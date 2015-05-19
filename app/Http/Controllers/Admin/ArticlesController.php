@@ -20,6 +20,13 @@ class ArticlesController extends Controller {
         return view('admin.articles.index')->with('articles',Article::paginate(10));
 	}
 
+    public function getList($catId)
+    {
+        $articleCat = ArticleCat::find($catId);
+        $articles = Article::whereIn('cat_id', $articleCat->allCatIds())->paginate(10);
+        return view('admin.articles.list')->with('articles', $articles);
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

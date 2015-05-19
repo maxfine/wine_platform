@@ -130,6 +130,24 @@ class ArticleCat extends Model {
     }
 
     public function articles(){
-        return $this->hasMany('Article');
+        return $this->hasMany('App\Models\Article','cat_id');
     }
+
+    
+    /**
+     * ----------------------------------------
+     * 获取所有子栏目id,包括本身
+     * ----------------------------------------
+     */
+    public function allCatIds(){
+        $catIds = [];
+        $catIds[] = $this->id;
+        //获取所有子栏目
+        $childCats = $this::getChildCats($this->id);       
+        foreach($childCats as $cat){
+            $catIds[] = $cat->id;
+        }
+        return $catIds;
+    }
+
 }

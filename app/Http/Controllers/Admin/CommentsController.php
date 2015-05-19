@@ -21,6 +21,17 @@ class CommentsController extends Controller {
     }
 
     /**
+     * -------------------------------------------
+     * 查询某篇文章或某个商品下的评论
+     * -------------------------------------------
+     */
+    public function commentList($post_id, $type)
+    {
+        $comments = Comment::where(['post_id'=>$post_id, 'type'=>$type])->paginate(10);
+        return view('admin.comments.list')->with('comments', $comments);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response

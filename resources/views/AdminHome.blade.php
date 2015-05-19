@@ -23,12 +23,15 @@
               </div>
             </div>
             <a href="{{ URL('admin/pages/'.$page->id.'/edit') }}" class="btn btn-success">编辑</a>
+            
 
             <form action="{{ URL('admin/pages/'.$page->id) }}" method="POST" style="display: inline;">
               <input name="_method" type="hidden" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <button type="submit" class="btn btn-danger">删除</button>
             </form>
+            <a href="{{ URL('admin/comments/'.$page->id.'/'.$page::commentType.'/list') }}" class="btn btn-success">评论列表</a>
+            <a href="{{ URL('admin/comments/'.$page->id.'/'.$page::commentType().'/create') }}" class="btn btn-success">添加评论</a>
           @endforeach
 
         </div>
@@ -65,6 +68,7 @@
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <button type="submit" class="btn btn-danger">删除</button>
                 </form>
+                <a href="{{ URL('admin/articles/'.$articleCat->id.'/list') }}" class="btn btn-success">文章列表</a>
               @endforeach
 
             </div>
@@ -93,13 +97,14 @@
                   </div>
                 </div>
                 <a href="{{ URL('admin/articles/'.$article->id.'/edit') }}" class="btn btn-success">编辑</a>
-                <a href="{{ URL('admin/comments/'.$article->id.'/'.$article::type().'/create') }}" class="btn btn-success">添加评论</a>
 
                 <form action="{{ URL('admin/articles/'.$article->id) }}" method="POST" style="display: inline;">
                   <input name="_method" type="hidden" value="DELETE">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <button type="submit" class="btn btn-danger">删除</button>
                 </form>
+                <a href="{{ URL('admin/comments/'.$article->id.'/'.$article::commentType.'/list') }}" class="btn btn-success">评论列表</a>
+                <a href="{{ URL('admin/comments/'.$article->id.'/'.$article::commentType().'/create') }}" class="btn btn-success">添加评论</a>
               @endforeach
 
             </div>
