@@ -34,6 +34,7 @@ class A{
 
 $a = new A(); echo $a->t;
 ***********END*************/
+<<<<<<< HEAD
 
 //phpinfo();
 
@@ -68,3 +69,36 @@ foreach ($params as $param)
       }
       echo "<BR>=================<BR>";
 }
+=======
+//phpinfo();
+
+/**
+ * --------------------------------------------------------
+ * 静态常量与静态变量,静态方法
+ * --------------------------------------------------------
+ * 都可以使用的调用方式self/this::type
+ * 静态常量的值是不能修改的
+ * 静态方法中不能出现$this
+ *
+class Test{
+    const type = 2; 
+
+    public function __construct(){
+        echo '调用静态常量$this::type='.$this::type;
+        echo '<br/>';
+        $this::getST(); //等同于Test::getST()
+        echo '<br/>';
+    }
+
+    public function getType(){
+        echo '调用静态常量self::type='.self::type;
+    }
+
+    public static function getST(){
+        echo '调用了静态方法';
+    }
+}
+
+$test = new Test;
+************END**************/
+>>>>>>> origin/master

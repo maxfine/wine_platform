@@ -93,6 +93,7 @@
                   </div>
                 </div>
                 <a href="{{ URL('admin/articles/'.$article->id.'/edit') }}" class="btn btn-success">编辑</a>
+                <a href="{{ URL('admin/comments/'.$article->id.'/'.$article::type().'/create') }}" class="btn btn-success">添加评论</a>
 
                 <form action="{{ URL('admin/articles/'.$article->id) }}" method="POST" style="display: inline;">
                   <input name="_method" type="hidden" value="DELETE">

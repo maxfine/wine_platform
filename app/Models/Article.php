@@ -3,13 +3,14 @@
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model {
+    const commentType = 2;
 
     public function articleCat(){
-        return $this->belongsTo('ArticleCat');
+        return $this->belongsTo('App\Models\ArticleCat');
     }
 
     public function comments(){
-        return $this->hasMany('Comment')->where(['type'=>2])->get();
+        return $this->hasMany('App\Models\Comment','post_id')->where(['type'=>$this::commentType()])->get();
     }
 
     public function delete(){
@@ -17,5 +18,13 @@ class Article extends Model {
         $this->comments()->delete();
         //删除自身
         Parent::delete();
+    }
+
+    public static function commentType(){
+        return self::commentType;
+    }
+
+    public function type(){
+        return 2;
     }
 }
