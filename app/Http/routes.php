@@ -35,6 +35,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('article/cats', 'ArticleCatsController');
     Route::resource('articles', 'ArticlesController');
     Route::resource('pages', 'PagesController');
+    Route::resource('comments', 'CommentsController');
+    Route::get('comments/{id}/{type}/create', 'CommentsController@create');
     //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
 });
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
