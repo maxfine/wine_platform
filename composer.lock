@@ -4,8 +4,58 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f0a8c23fb79a284510f37490e0452cd9",
+    "hash": "79d83d7cb640a8350179fcdf026c80f7",
     "packages": [
+        {
+            "name": "blueimp/jquery-file-upload",
+            "version": "9.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vkhramtsov/jQuery-File-Upload.git",
+                "reference": "7b2d91569c3cfead24d63adedd4d7ae9477ee4d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vkhramtsov/jQuery-File-Upload/zipball/7b2d91569c3cfead24d63adedd4d7ae9477ee4d2",
+                "reference": "7b2d91569c3cfead24d63adedd4d7ae9477ee4d2",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Tschan",
+                    "homepage": "https://blueimp.net"
+                }
+            ],
+            "description": "File Upload widget for jQuery.",
+            "homepage": "https://github.com/blueimp/jQuery-File-Upload",
+            "keywords": [
+                "bootstrap",
+                "chunk",
+                "cross-domain",
+                "cross-site",
+                "drag",
+                "drop",
+                "file",
+                "gae",
+                "go",
+                "jquery",
+                "multiple",
+                "php",
+                "preview",
+                "progress",
+                "python",
+                "resume",
+                "selection",
+                "upload",
+                "widget"
+            ],
+            "time": "2015-02-06 05:47:47"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.3.0",
