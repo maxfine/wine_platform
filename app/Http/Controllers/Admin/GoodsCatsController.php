@@ -5,11 +5,11 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Models\ArticleCat;
+use App\Models\Category;
 
 use Redirect, Input, Auth;
 
-class ArticleCatsController extends Controller {
+class GoodsCatsController extends Controller {
 
     /**
 	 * Display a listing of the resource.
@@ -18,8 +18,8 @@ class ArticleCatsController extends Controller {
 	 */
 	public function index()
 	{
-        $articleCats = ArticleCat::paginate(10);
-        return view('admin.article_cats.index')->with('articleCats',$articleCats);
+        $cats = Category::paginate(10);
+        return view('admin.goods_cats.index')->with('cats',$cats);
 	}
 
 	/**
@@ -30,10 +30,8 @@ class ArticleCatsController extends Controller {
 	public function create()
 	{
         //栏目select数据
-        //dump(ArticleCat::getChilds(0));
-        $cats = ArticleCat::getSelectCats();
-        //$cats = ArticleCat::all();
-		return view('admin.article_cats.create')->with('articleCats',$cats);
+        $cats = Category::getSelectCats();
+		return view('admin.goods_cats.create')->with('cats',$cats);
 	}
     
     
@@ -45,15 +43,15 @@ class ArticleCatsController extends Controller {
 	public function store(Request $request)
 	{
    		$this->validate($request, [
-			'cat_name' => 'required|unique:article_cats|max:255',
+			'cat_name' => 'required|unique:categories|max:255',
 			//'cat_brief' => 'required',
 		]);
 
-		$articleCat= new ArticleCat;
-		$articleCat->cat_name = $request->input('cat_name');
+		$cat= new Category;
+		$cat->cat_name = $request->input('cat_name');
         //$post->slug = Str::slug(Input::get('title'));
-		$articleCat->parent_id = Input::get('parent_id');
-		$articleCat->cat_brief= Input::get('cat_brief');
+		$cat->parent_id = Input::get('parent_id');
+		$cat->cat_brief= Input::get('cat_brief');
 
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -67,11 +65,11 @@ class ArticleCatsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $articleCat->image = $folderName.'/'.$safeName;
+            $cat->image = $folderName.'/'.$safeName;
         }
 
-		if ($articleCat->save()) {
-			return Redirect::to('admin/article/cats');
+		if ($cat->save()) {
+			return Redirect::to('admin/goods/cats');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
@@ -83,7 +81,7 @@ class ArticleCatsController extends Controller {
      */
     public function show($id)
     {
-        return view('admin.article_cats.show')->with('articleCat', ArticleCat::find($id))->with('articls', ArticleCat::paginate(10)); 
+        return view('admin.goods_cats.show')->with('cat', Category::find($id)); 
     }
 
 	/**
@@ -94,8 +92,8 @@ class ArticleCatsController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $cats = ArticleCat::getSelectCats();
-		return view('admin.article_cats.edit')->with('articleCat',ArticleCat::find($id))->with('articleCats', $cats);
+        $cats = Category::getSelectCats();
+		return view('admin.goods_cats.edit')->with('cat',Category::find($id))->with('cats', $cats);
 	}
 
 	/**
@@ -111,10 +109,10 @@ class ArticleCatsController extends Controller {
 			//'cat_brief' => 'required',
 		]);
 		
-		$articleCat = ArticleCat::find($id);
-		$articleCat->cat_name = Input::get('cat_name');
-		$articleCat->parent_id = Input::get('parent_id');
-		$articleCat->cat_brief= Input::get('cat_brief');
+		$cat = Category::find($id);
+		$cat->cat_name = Input::get('cat_name');
+		$cat->parent_id = Input::get('parent_id');
+		$cat->cat_brief= Input::get('cat_brief');
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
@@ -127,11 +125,11 @@ class ArticleCatsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $articleCat->image = $folderName.'/'.$safeName;
+            $cat->image = $folderName.'/'.$safeName;
         }
         
-        if ($articleCat->save()) {
-			return Redirect::to('admin/article/cats');
+        if ($cat->save()) {
+			return Redirect::to('admin/goods/cats');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
@@ -147,10 +145,10 @@ class ArticleCatsController extends Controller {
 	{
         //删除所有文章,包括子栏目文章
         //删除所有子栏目
-        $cat = ArticleCat::find($id);
+        $cat = Category::find($id);
         $cat->delete();
 
-		return Redirect::to('admin/article/cats');
+		return Redirect::to('admin/goods/cats');
 	}
 
 }

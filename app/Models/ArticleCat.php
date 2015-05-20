@@ -112,7 +112,7 @@ class ArticleCat extends Model {
         }
 
         //删除本身
-        Parent::delete();
+        parent::delete();
     }
     
     public function delete(){
@@ -125,8 +125,9 @@ class ArticleCat extends Model {
             $cat->delete();
         }
 
+        $this->articles->delete();
         //删除本身
-        Parent::delete();
+        parent::delete();
     }
 
     public function articles(){

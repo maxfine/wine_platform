@@ -31,14 +31,31 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function()
 {
+    //后台首页
     Route::get('/', 'AdminHomeController@index');
+    //文章栏目
     Route::resource('article/cats', 'ArticleCatsController');
+    //文章
     Route::resource('articles', 'ArticlesController');
     Route::get('articles/{catId}/list', 'ArticlesController@getList');
+    //单页
     Route::resource('pages', 'PagesController');
+    //评论
     Route::resource('comments', 'CommentsController');
     Route::get('comments/{post_id}/{type}/create', 'CommentsController@create');
     Route::get('comments/{post_id}/{type}/list', 'CommentsController@commentList');
     //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
+
+    //商品栏目
+    Route::resource('goods/cats', 'GoodsCatsController');
+    //商品
+    Route::resource('goods', 'GoodsController');
+    //品牌
+    Route::resource('brands', 'BrandsController');
+    //商品类型
+    Route::resource('goods/types', 'GoodsTypesController');
+    //商品属性
+    Route::resource('attrs', 'AttrsController');
+    Route::resource('goods/attrs', 'GoodsAttrsController');
 });
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');

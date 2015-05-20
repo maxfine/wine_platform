@@ -16,7 +16,7 @@ class CreatePagesTable extends Migration {
 		{
 			$table->increments('id');
             $table->string('title')->default('');
-            $table->string('image',90);
+            $table->string('image',90)->default('');
             $table->string('slug')->default('');
             $table->text('body')->nullable();
             $table->integer('user_id')->default(0)->unsigned();

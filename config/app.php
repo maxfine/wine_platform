@@ -138,6 +138,7 @@ return [
         //'Frozennode\Administrator\AdministratorServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
+        //'Intervention\Image\ImageServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -199,6 +200,7 @@ return [
         'Form'=> 'Illuminate\Html\FormFacade',
         'HTML'=> 'Illuminate\Html\HtmlFacade',
         'Str'       => 'Illuminate\Support\Str',
+        //'Image' => 'Intervention\Image\Facades\Image',
 
 	],
 

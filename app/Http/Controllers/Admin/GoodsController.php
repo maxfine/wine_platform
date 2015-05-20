@@ -4,23 +4,28 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-
-use App\Models\ArticleCat;
-
+use App\Models\Category;
+use App\Models\Goods;
 use Redirect, Input, Auth;
 
-class ArticleCatsController extends Controller {
+class GoodsController extends Controller {
 
-    /**
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-        $articleCats = ArticleCat::paginate(10);
-        return view('admin.article_cats.index')->with('articleCats',$articleCats);
+        return view('admin.goods.index')->with('goods',Article::paginate(10));
 	}
+
+    public function getList($catId)
+    {
+        $articleCat = ArticleCat::find($catId);
+        $goods = Article::whereIn('cat_id', $articleCat->allCatIds())->paginate(10);
+        return view('admin.goods.list')->with('goods', $goods);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -29,31 +34,27 @@ class ArticleCatsController extends Controller {
 	 */
 	public function create()
 	{
-        //栏目select数据
-        //dump(ArticleCat::getChilds(0));
-        $cats = ArticleCat::getSelectCats();
-        //$cats = ArticleCat::all();
-		return view('admin.article_cats.create')->with('articleCats',$cats);
+        $cats = Category::getSelectCats();
+		return view('admin.goods.create')->with('cats', $cats);
 	}
-    
-    
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
 	public function store(Request $request)
-	{
-   		$this->validate($request, [
-			'cat_name' => 'required|unique:article_cats|max:255',
-			//'cat_brief' => 'required',
+    {
+        $this->validate($request, [
+			'title' => 'required|unique:goods|max:255',
 		]);
 
-		$articleCat= new ArticleCat;
-		$articleCat->cat_name = $request->input('cat_name');
+		$article= new Article;
+		$article->title = $request->input('title');
         //$post->slug = Str::slug(Input::get('title'));
-		$articleCat->parent_id = Input::get('parent_id');
-		$articleCat->cat_brief= Input::get('cat_brief');
+		$article->cat_id = Input::get('cat_id');
+		$article->body = Input::get('body');
+		$article->user_id = Auth::user()->id;
 
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -67,24 +68,28 @@ class ArticleCatsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $articleCat->image = $folderName.'/'.$safeName;
+            $article->image = $folderName.'/'.$safeName;
         }
 
-		if ($articleCat->save()) {
-			return Redirect::to('admin/article/cats');
+		if ($article->save()) {
+			return Redirect::to('admin/goods');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
-
 	}
 
-    /**
-     * 查看
-     */
-    public function show($id)
-    {
-        return view('admin.article_cats.show')->with('articleCat', ArticleCat::find($id))->with('articls', ArticleCat::paginate(10)); 
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+
+        $article = Article::find($id);
+        return view('admin.goods.show')->with('article', $article)->with('comments', $article->comments()); 
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -94,8 +99,10 @@ class ArticleCatsController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $cats = ArticleCat::getSelectCats();
-		return view('admin.article_cats.edit')->with('articleCat',ArticleCat::find($id))->with('articleCats', $cats);
+        $article = Article::find($id);
+        //栏目下拉框
+        $articleCats = ArticleCat::getSelectCats(); 
+        return view('admin.goods.edit')->with('article', $article)->with('articleCats',$articleCats);
 	}
 
 	/**
@@ -104,22 +111,24 @@ class ArticleCatsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request,$id)
-    {
-        $this->validate($request, [
-			'cat_name' => 'required|max:255',
-			//'cat_brief' => 'required',
+	public function update(Request $request, $id)
+	{
+		$this->validate($request, [
+			'title' => 'required|max:255',
 		]);
-		
-		$articleCat = ArticleCat::find($id);
-		$articleCat->cat_name = Input::get('cat_name');
-		$articleCat->parent_id = Input::get('parent_id');
-		$articleCat->cat_brief= Input::get('cat_brief');
+
+		$article= Article::find($id);
+		$article->title = $request->input('title');
+        //$post->slug = Str::slug(Input::get('title'));
+		$article->cat_id = Input::get('cat_id');
+		$article->body = Input::get('body');
+		$article->user_id = Auth::user()->id;
+
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
-                return ['error' => '只支持上传png, jpg,  gif格式'];
+                return ['error' => 'You may only upload png, jpg or gif.'];
             }
             $fileName        = $file->getClientOriginalName();
             $extension       = $file->getClientOriginalExtension() ?: 'png';
@@ -127,11 +136,11 @@ class ArticleCatsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $articleCat->image = $folderName.'/'.$safeName;
+            $article->image = $folderName.'/'.$safeName;
         }
-        
-        if ($articleCat->save()) {
-			return Redirect::to('admin/article/cats');
+
+		if ($article->save()) {
+			return Redirect::to('admin/goods');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
@@ -142,15 +151,13 @@ class ArticleCatsController extends Controller {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
-	public function destroy($id)
+     */
+    public function destroy($id)
 	{
-        //删除所有文章,包括子栏目文章
-        //删除所有子栏目
-        $cat = ArticleCat::find($id);
-        $cat->delete();
+        //同时删除所有评论
+        $article = Article::find($id);
+        $article->delete();
 
-		return Redirect::to('admin/article/cats');
+		return Redirect::to('admin/goods');
 	}
-
 }
