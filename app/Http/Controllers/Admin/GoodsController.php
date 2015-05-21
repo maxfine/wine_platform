@@ -40,10 +40,12 @@ class GoodsController extends Controller {
 
     /**
      * --------------------------------------------
-     * 上传
+     * 上传图片
      * --------------------------------------------
      */
     public function uploadImage($fileName){
+        $upload_handler = new \App\Handlers\Commands\UploadHandler;
+        /**
         if ($file = Input::file($fileName)) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
@@ -53,14 +55,15 @@ class GoodsController extends Controller {
             $fileName        = $file->getClientOriginalName();
             $extension       = $file->getClientOriginalExtension() ?: 'png';
             $folderName      = 'uploads/images/' . date("Ym", time()) .'/'.date("d", time());
-            $destinationPath = public_path() . '/' . $folderName;
+            $destinationPath = public_path() . '/' . $folderName; //本地路径
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $imageUrl = $folderName.'/'.$safeName;
+            $imageUrl = $folderName.'/'.$safeName; //图片url
             echo $imageUrl;
         }else{
             echo 0;
         }
+        **/
     }
 
 	/**

@@ -18,7 +18,8 @@ $(function () {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'server/php/'
+        url: 'http://jiu.znyes.com/admin/goods/upload_image/files'
+        //url: 'server/php/'
     });
 
     // Enable iframe cross-domain access via redirect option:
@@ -31,10 +32,13 @@ $(function () {
         )
     );
 
-    if (window.location.hostname === 'blueimp.github.io') {
+    //if (window.location.hostname === 'blueimp.github.io') {
+    if (window.location.hostname === 'jiu.znyes.com') {
+    //if (window.location.hostname === 'blueimp.github.io') {
         // Demo settings:
         $('#fileupload').fileupload('option', {
-            url: '//jquery-file-upload.appspot.com/',
+            url: '//jiu.znyes.com/',
+            //url: '//jquery-file-upload.appspot.com/',
             // Enable image resizing, except for Android and Opera,
             // which actually support image resizing, but fail to
             // send Blob objects via XHR requests:
@@ -46,7 +50,8 @@ $(function () {
         // Upload server status check for browsers with CORS support:
         if ($.support.cors) {
             $.ajax({
-                url: '//jquery-file-upload.appspot.com/',
+                url: '//jiu.znyes.com/',
+                //url: '//jquery-file-upload.appspot.com/',
                 type: 'HEAD'
             }).fail(function () {
                 $('<div class="alert alert-danger"/>')

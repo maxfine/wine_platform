@@ -42,8 +42,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('pages', 'PagesController');
     //评论
     Route::resource('comments', 'CommentsController');
-    Route::get('comments/{post_id}/{type}/create', 'CommentsController@create');
-    Route::get('comments/{post_id}/{type}/list', 'CommentsController@commentList');
+    Route::get('comments/{post_id}/{type}/create', 'CommentsController@create')->where(['id'=>'[0-9]+']);
+    Route::get('comments/{post_id}/{type}/list', 'CommentsController@commentList')->where(['post_id'=>'[0-9]+']);
     //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
 
     //商品栏目
@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     //商品
     Route::resource('goods', 'GoodsController');
     //商品图册
-    Route::post('goods/{fileName}/uploadImage', 'GoodsController@uploadImage')
+    Route::match(['get', 'post'], 'goods/upload_image/{file_name}', 'GoodsController@uploadImage');
     //品牌
     Route::resource('brands', 'BrandsController');
     //商品类型
