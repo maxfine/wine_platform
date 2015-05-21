@@ -38,6 +38,31 @@ class GoodsController extends Controller {
 		return view('admin.goods.create')->with('cats', $cats);
 	}
 
+    /**
+     * --------------------------------------------
+     * 上传
+     * --------------------------------------------
+     */
+    public function uploadImage($fileName){
+        if ($file = Input::file($fileName)) {
+            $allowed_extensions = ["png", "jpg", "gif"];
+            if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
+            {
+                return ['error' => 'You may only upload png, jpg or gif.'];
+            }
+            $fileName        = $file->getClientOriginalName();
+            $extension       = $file->getClientOriginalExtension() ?: 'png';
+            $folderName      = 'uploads/images/' . date("Ym", time()) .'/'.date("d", time());
+            $destinationPath = public_path() . '/' . $folderName;
+            $safeName        = str_random(10).'.'.$extension;
+            $file->move($destinationPath, $safeName);
+            $imageUrl = $folderName.'/'.$safeName;
+            echo $imageUrl;
+        }else{
+            echo 0;
+        }
+    }
+
 	/**
 	 * Store a newly created resource in storage.
 	 *

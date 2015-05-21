@@ -50,6 +50,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('goods/cats', 'GoodsCatsController');
     //商品
     Route::resource('goods', 'GoodsController');
+    //商品图册
+    Route::post('goods/{fileName}/uploadImage', 'GoodsController@uploadImage')
     //品牌
     Route::resource('brands', 'BrandsController');
     //商品类型
