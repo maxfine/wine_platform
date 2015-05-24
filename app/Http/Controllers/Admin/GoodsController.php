@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Goods;
 use Redirect, Input, Auth;
+use App\Handlers\Commands\UploadHandler;
 
 class GoodsController extends Controller {
 
@@ -44,7 +45,21 @@ class GoodsController extends Controller {
      * --------------------------------------------
      */
     public function uploadImage($fileName){
-        $upload_handler = new \App\Handlers\Commands\UploadHandler;
+        $options = null;
+        $initialize = false;
+        $error_messages = null;
+        $options = [
+            'script_url' => URL('/').'/admin/goods/delete_image/image_url',
+            'upload_dir' => public_path().'/uploads/images/',
+            'upload_url' => URL('/').'/uploads/images/',
+            'user_dirs' => false,
+            'mkdir_mode' => 0755,
+            'param_name' => $fileName,
+        ];
+        $upload = new UploadHandler($options, $initialize, $error_messages);
+        $upload->initialize();
+        
+        //Input::file($fileName);
         /**
         if ($file = Input::file($fileName)) {
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -64,6 +79,27 @@ class GoodsController extends Controller {
             echo 0;
         }
         **/
+    }
+
+    /**
+     * ----------------------------------------------------
+     * 删除图片
+     * ----------------------------------------------------
+     */
+    public function deleteImage($imageUrl){
+        $options = null;
+        $initialize = false;
+        $error_messages = null;
+        $options = [
+            'script_url' => URL('/').'/admin/goods/delete_image/image_url',
+            'upload_dir' => public_path().'/uploads/images/',
+            'upload_url' => URL('/').'/uploads/images/',
+            'user_dirs' => false,
+            'mkdir_mode' => 0755,
+            'param_name' => $fileName,
+        ];
+        $upload = new UploadHandler($options, $initialize, $error_messages);
+        $upload->initialize();
     }
 
 	/**

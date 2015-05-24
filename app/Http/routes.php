@@ -61,3 +61,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('goods/attrs', 'GoodsAttrsController');
 });
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
+//文件上传
+Route::resource('files', 'FilesController');
