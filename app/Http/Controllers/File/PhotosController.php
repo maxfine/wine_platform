@@ -25,7 +25,7 @@ class PhotosController extends Controller{
             'script_url' => $this->script_url,
             'upload_dir' => $this->upload_dir,
             'upload_url' => $this->upload_url,
-            'user_dirs' => false,
+            'user_dirs' => true,
             'mkdir_mode' => 0755,
             'param_name' => $this->fileName,
         ];

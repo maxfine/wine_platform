@@ -198,9 +198,15 @@ class UploadHandler
             substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
     }
 
+    /**
+     * ------------------------------------------------------
+     * 目录结构:201505/25
+     * ------------------------------------------------------
+     */
     protected function get_user_id() {
-        @session_start();
-        return session_id();
+        //@session_start();
+        //return session_id();
+        return date("Ym", time()) .'/'.date("d", time());
     }
 
     protected function get_user_path() {

@@ -54,20 +54,20 @@
                         <!-- The fileinput-button span is used to style the file input field as button -->
                         <span class="btn btn-success fileinput-button">
                             <i class="glyphicon glyphicon-plus"></i>
-                            <span>Add files...</span>
+                            <span>添加文件...</span>
                             <input type="file" name="files[]" multiple>
                         </span>
                         <button type="submit" class="btn btn-primary start">
                             <i class="glyphicon glyphicon-upload"></i>
-                            <span>Start upload</span>
+                            <span>开始上传</span>
                         </button>
                         <button type="reset" class="btn btn-warning cancel">
                             <i class="glyphicon glyphicon-ban-circle"></i>
-                            <span>Cancel upload</span>
+                            <span>取消上传</span>
                         </button>
                         <button type="button" class="btn btn-danger delete">
                             <i class="glyphicon glyphicon-trash"></i>
-                            <span>Delete</span>
+                            <span>删除</span>
                         </button>
                         <input type="checkbox" class="toggle">
                         <!-- The global file processing state -->
@@ -115,13 +115,13 @@
                         {% if (!i && !o.options.autoUpload) { %}
                             <button class="btn btn-primary start" disabled>
                                 <i class="glyphicon glyphicon-upload"></i>
-                                <span>Start</span>
+                                <span>开始</span>
                             </button>
                         {% } %}
                         {% if (!i) { %}
                             <button class="btn btn-warning cancel">
                                 <i class="glyphicon glyphicon-ban-circle"></i>
-                                <span>Cancel</span>
+                                <span>取消</span>
                             </button>
                         {% } %}
                     </td>
@@ -135,6 +135,8 @@
                     <td>
                         <span class="preview">
                             {% if (file.thumbnailUrl) { %}
+                                <input type="hidden" name="imageUrl[]" value="{%=file.url%}"/>
+                                <input type="hidden" name="thumbUrl[]" value="{%=file.thumbnailUrl%}"/>
                                 <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
                             {% } %}
                         </span>
@@ -158,7 +160,7 @@
                         {% if (file.deleteUrl) { %}
                             <button class="btn btn-danger delete" data-_token="{{ csrf_token() }}" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}&_token={{ csrf_token() }}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                                 <i class="glyphicon glyphicon-trash"></i>
-                                <span>Delete</span>
+                                <span>删除</span>
                             </button>
                             <input type="checkbox" name="delete" value="1" class="toggle">
                         {% } else { %}
