@@ -39,69 +39,7 @@ class GoodsController extends Controller {
 		return view('admin.goods.create')->with('cats', $cats);
 	}
 
-    /**
-     * --------------------------------------------
-     * 上传图片
-     * --------------------------------------------
-     */
-    public function uploadImage($fileName){
-        $options = null;
-        $initialize = false;
-        $error_messages = null;
-        $options = [
-            'script_url' => URL('/').'/admin/goods/delete_image/image_url',
-            'upload_dir' => public_path().'/uploads/images/',
-            'upload_url' => URL('/').'/uploads/images/',
-            'user_dirs' => false,
-            'mkdir_mode' => 0755,
-            'param_name' => $fileName,
-        ];
-        $upload = new UploadHandler($options, $initialize, $error_messages);
-        $upload->initialize();
-        
-        //Input::file($fileName);
-        /**
-        if ($file = Input::file($fileName)) {
-            $allowed_extensions = ["png", "jpg", "gif"];
-            if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
-            {
-                return ['error' => 'You may only upload png, jpg or gif.'];
-            }
-            $fileName        = $file->getClientOriginalName();
-            $extension       = $file->getClientOriginalExtension() ?: 'png';
-            $folderName      = 'uploads/images/' . date("Ym", time()) .'/'.date("d", time());
-            $destinationPath = public_path() . '/' . $folderName; //本地路径
-            $safeName        = str_random(10).'.'.$extension;
-            $file->move($destinationPath, $safeName);
-            $imageUrl = $folderName.'/'.$safeName; //图片url
-            echo $imageUrl;
-        }else{
-            echo 0;
-        }
-        **/
-    }
-
-    /**
-     * ----------------------------------------------------
-     * 删除图片
-     * ----------------------------------------------------
-     */
-    public function deleteImage($imageUrl){
-        $options = null;
-        $initialize = false;
-        $error_messages = null;
-        $options = [
-            'script_url' => URL('/').'/admin/goods/delete_image/image_url',
-            'upload_dir' => public_path().'/uploads/images/',
-            'upload_url' => URL('/').'/uploads/images/',
-            'user_dirs' => false,
-            'mkdir_mode' => 0755,
-            'param_name' => $fileName,
-        ];
-        $upload = new UploadHandler($options, $initialize, $error_messages);
-        $upload->initialize();
-    }
-
+    
 	/**
 	 * Store a newly created resource in storage.
 	 *

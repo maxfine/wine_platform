@@ -163,7 +163,7 @@ class UploadHandler
         }
     }
 
-    public function initialize() {
+    protected function initialize() {
         switch ($this->get_server_var('REQUEST_METHOD')) {
             case 'OPTIONS':
             case 'HEAD':
@@ -253,11 +253,6 @@ class UploadHandler
             .$version_path.rawurlencode($file_name);
     }
 
-    /**
-     * -------------------------------------------------------------
-     * 删除链接
-     * -------------------------------------------------------------
-     */
     protected function set_additional_file_properties($file) {
         $file->deleteUrl = $this->options['script_url']
             .$this->get_query_separator($this->options['script_url'])

@@ -51,15 +51,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     //商品
     Route::resource('goods', 'GoodsController');
     //商品图册
-    Route::match(['get', 'post'], 'goods/upload_image/{file_name}', 'GoodsController@uploadImage');
+    //Route::match(['get', 'post'], 'goods/upload_image/{file_name}', 'GoodsController@uploadImage');
     //品牌
-    Route::resource('brands', 'BrandsController');
+    //Route::resource('brands', 'BrandsController');
     //商品类型
-    Route::resource('goods/types', 'GoodsTypesController');
+    //Route::resource('goods/types', 'GoodsTypesController');
     //商品属性
-    Route::resource('attrs', 'AttrsController');
-    Route::resource('goods/attrs', 'GoodsAttrsController');
+    //Route::resource('attrs', 'AttrsController');
+    //Route::resource('goods/attrs', 'GoodsAttrsController');
 });
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
 //文件上传
-Route::resource('files', 'FilesController');
+Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
+    //Route::resource('photos', 'PhotosController');
+    //Route::match(['get', 'post'], 'photos/upload_image/{fileName}', 'PhotosController@uploadImage');
+    Route::delete('photos/delete_image', 'PhotosController@deleteImage');
+    Route::get('photos/delete_image', 'PhotosController@deleteImage');
+    Route::resource('photos', 'PhotosController');
+});
