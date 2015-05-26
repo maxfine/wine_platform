@@ -20,7 +20,7 @@
             </div>
           @endif
 
-         <form id="fileupload" action="{{ URL('admin/goods') }}" method="post" enctype="multipart/form-data">
+         <form action="{{ URL('admin/goods') }}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="text" name="goods_name" class="form-control" required="required" placeholder="商品名">
             <br>
@@ -47,136 +47,23 @@
             
             {{-- 上传 --}}
             <br/>
-            <!-- The file upload form used as target for the file upload widget -->
-            <!-- Redirect browsers with JavaScript disabled to the origin page -->
-            <noscript><input type="hidden" name="redirect" value="{{ URL('file/photos') }}"></noscript>
-            <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-            <div class="row fileupload-buttonbar">
-                <div class="col-lg-7">
-                    <!-- The fileinput-button span is used to style the file input field as button -->
-                    <span class="btn btn-success fileinput-button">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        <span>添加文件...</span>
-                        <input id="photos" type="file" name="files[]" multiple>
-                    </span>
-                    <button type="submit" class="btn btn-primary start">
-                        <i class="glyphicon glyphicon-upload"></i>
-                        <span>开始上传</span>
-                    </button>
-                    <button type="reset" class="btn btn-warning cancel">
-                        <i class="glyphicon glyphicon-ban-circle"></i>
-                        <span>取消上传</span>
-                    </button>
-                    <button type="button" class="btn btn-danger delete">
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span>删除</span>
-                    </button>
-                    <input type="checkbox" class="toggle">
-                    <!-- The global file processing state -->
-                    <span class="fileupload-process"></span>
-                </div>
-                <!-- The global progress state -->
-                <div class="col-lg-5 fileupload-progress fade">
-                    <!-- The global progress bar -->
-                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar progress-bar-success" style="width:0%;"></div>
-                    </div>
-                    <!-- The extended global progress state -->
-                    <div class="progress-extended">&nbsp;</div>
-                </div>
-            </div>
-            <!-- The table listing the files available for upload/download -->
-            <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+            <span class="btn btn-success fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>添加文件...</span>
+                <!-- The file input field used as target for the file upload widget -->
+                <input id="fileupload" type="file" name="files[]" multiple>
+            </span>
             <br>
-            <button class="btn btn-lg btn-info">添加商品</button>
-         </form>
-            <!-- The blueimp Gallery widget -->
-            <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
-                <div class="slides"></div>
-                <h3 class="title"></h3>
-                <a class="prev">‹</a>
-                <a class="next">›</a>
-                <a class="close">×</a>
-                <a class="play-pause"></a>
-                <ol class="indicator"></ol>
+            <br>
+            <!-- The global progress bar -->
+            <div id="progress" class="progress">
+                <div class="progress-bar progress-bar-success"></div>
             </div>
-            <!-- The template to display files available for upload -->
-            <script id="template-upload" type="text/x-tmpl">
-            {% for (var i=0, file; file=o.files[i]; i++) { %}
-                <tr class="template-upload fade">
-                    <td>
-                        <span class="preview"></span>
-                    </td>
-                    <td>
-                        <p class="name">{%=file.name%}</p>
-                        <strong class="error text-danger"></strong>
-                    </td>
-                    <td>
-                        <p class="size">Processing...</p>
-                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
-                    </td>
-                    <td>
-                        {% if (!i && !o.options.autoUpload) { %}
-                            <button class="btn btn-primary start" disabled>
-                                <i class="glyphicon glyphicon-upload"></i>
-                                <span>开始</span>
-                            </button>
-                        {% } %}
-                        {% if (!i) { %}
-                            <button class="btn btn-warning cancel">
-                                <i class="glyphicon glyphicon-ban-circle"></i>
-                                <span>取消</span>
-                            </button>
-                        {% } %}
-                    </td>
-                </tr>
-            {% } %}
-            </script>
-            <!-- The template to display files available for download -->
-            <script id="template-download" type="text/x-tmpl">
-            {% for (var i=0, file; file=o.files[i]; i++) { %}
-                <tr class="template-download fade">
-                    <td>
-                        <span class="preview">
-                            {% if (file.thumbnailUrl) { %}
-                                <input type="hidden" name="originalUrls[]" value="{%=file.url%}"/>
-                                <input type="hidden" name="thumbUrls[]" value="{%=file.thumbnailUrl%}"/>
-                                <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
-                            {% } %}
-                        </span>
-                    </td>
-                    <td>
-                        <p class="name">
-                            {% if (file.url) { %}
-                                <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
-                            {% } else { %}
-                                <span>{%=file.name%}</span>
-                            {% } %}
-                        </p>
-                        {% if (file.error) { %}
-                            <div><span class="label label-danger">Error</span> {%=file.error%}</div>
-                        {% } %}
-                    </td>
-                    <td>
-                        <span class="size">{%=o.formatFileSize(file.size)%}</span>
-                    </td>
-                    <td>
-                        {% if (file.deleteUrl) { %}
-                            <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}&_token={{ csrf_token() }}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-                                <i class="glyphicon glyphicon-trash"></i>
-                                <span>删除</span>
-                            </button>
-                            <input type="checkbox" name="delete" value="1" class="toggle">
-                        {% } else { %}
-                            <button class="btn btn-warning cancel">
-                                <i class="glyphicon glyphicon-ban-circle"></i>
-                                <span>Cancel</span>
-                            </button>
-                        {% } %}
-                    </td>
-                </tr>
-            {% } %}
-            </script>
+            <!-- The container for the uploaded files -->
+            <div id="files" class="files"></div>
+            <br/>
+            <button class="btn btn-lg btn-info">确认</button>
+         </form>
         </div>
       </div>
     </div>
@@ -187,29 +74,22 @@
 @section('footer')
 <!-- Generic page styles -->
 <link rel="stylesheet" href="{{ URL('/') }}/css/fileupload//style.css">
-<!-- blueimp Gallery styles -->
-<link rel="stylesheet" href="{{ URL('/') }}/css/fileupload/blueimp-gallery.min.css">
-<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 <link rel="stylesheet" href="{{ URL('/') }}/css/fileupload/jquery.fileupload.css">
-<link rel="stylesheet" href="{{ URL('/') }}/css/fileupload/jquery.fileupload-ui.css">
-<!-- CSS adjustments for browsers with JavaScript disabled -->
-<noscript><link rel="stylesheet" href="{{ URL('/') }}/css/fileupload/jquery.fileupload-noscript.css"></noscript>
-<noscript><link rel="stylesheet" href="{{ URL('/') }}/css/fileupload/jquery.fileupload-ui-noscript.css"></noscript>
-
+<style>
+#files{overflow:hidden; zoom:1;}
+#files .img-box{float:left;}
+</style>
 
 <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="{{ URL('/') }}/js/fileupload/vendor/jquery.ui.widget.js"></script>
-<!-- The Templates plugin is included to render the upload/download listings -->
-<script src="{{ URL('/') }}/js/fileupload/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
 <script src="{{ URL('/') }}/js/fileupload/load-image.all.min.js"></script>
 <!-- The Canvas to Blob plugin is included for image resizing functionality -->
 <script src="{{ URL('/') }}/js/fileupload/canvas-to-blob.min.js"></script>
 <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
-<!-- blueimp Gallery script -->
-<script src="{{ URL('/') }}/js/fileupload/jquery.blueimp-gallery.min.js"></script>
+<!--<script src="{{ URL('/') }}/js/fileupload/vendor/bootstrap.min.js"></script>-->
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
 <script src="{{ URL('/') }}/js/fileupload/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->
 <script src="{{ URL('/') }}/js/fileupload/jquery.fileupload.js"></script>
@@ -222,15 +102,115 @@
 <!-- The File Upload video preview plugin -->
 <script src="{{ URL('/') }}/js/fileupload/jquery.fileupload-video.js"></script>
 <!-- The File Upload validation plugin -->
-<script src="{{ URL('/') }}/js/jquery.fileupload-validate.js"></script>
-<!-- The File Upload user interface plugin -->
-<script src="{{ URL('/') }}/js/fileupload/jquery.fileupload-ui.js"></script>
-<!-- The main application script -->
-<script src="{{ URL('/') }}/js/fileupload/main.js"></script>
-<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
-<!--[if (gte IE 8)&(lt IE 10)]>
-<script src="{{ URL('/') }}/js/fileupload/cors/jquery.xdr-transport.js"></script>
-<![endif]-->
+<script src="{{ URL('/') }}/js/fileupload/jquery.fileupload-validate.js"></script>
+<script>
+/*jslint unparam: true, regexp: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = window.location.hostname === 'jiu.znyes.com' ?
+                '//jiu.znyes.com/file/photos' : '/file/photos',
+        uploadButton = $('<button/>')
+            .addClass('btn btn-primary')
+            .prop('disabled', true)
+            .text('Processing...')
+            .on('click', function () {
+                var $this = $(this),
+                    data = $this.data();
+                $this
+                    .off('click')
+                    .text('Abort')
+                    .on('click', function () {
+                        $this.remove();
+                        data.abort();
+                    });
+                data.submit().always(function () {
+                    $this.remove();
+                });
+            });
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        autoUpload: false,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        maxFileSize: 5000000, // 5 MB
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator.userAgent),
+        previewMaxWidth: 100,
+        previewMaxHeight: 100,
+        previewCrop: true
+    }).on('fileuploadadd', function (e, data) {
+        data.context = $('<div class="img-box"/>').appendTo('#files');
+        $.each(data.files, function (index, file) {
+            var node = $('<p/>')
+                    .append($('<span/>').text(file.name));
+            if (!index) {
+                node
+                    .append('<br>')
+                    .append(uploadButton.clone(true).data(data));
+            }
+            node.appendTo(data.context);
+        });
+    }).on('fileuploadprocessalways', function (e, data) {
+        var index = data.index,
+            file = data.files[index],
+            node = $(data.context.children()[index]);
+        if (file.preview) {
+            node
+                .prepend('<br>')
+                .prepend(file.preview);
+        }
+        if (file.error) {
+            node
+                .append('<br>')
+                .append($('<span class="text-danger"/>').text(file.error));
+        }
+        if (index + 1 === data.files.length) {
+            data.context.find('button')
+                .text('Upload')
+                .prop('disabled', !!data.files.error);
+        }
+    }).on('fileuploadprogressall', function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .progress-bar').css(
+            'width',
+            progress + '%'
+        );
+    }).on('fileuploaddone', function (e, data) {
+        $.each(data.result.files, function (index, file) {
+            if (file.url) {
+                var link = $('<a>')
+                    .attr('target', '_blank')
+                    .prop('href', file.url);
+                $(data.context.children()[index])
+                    .wrap(link);
+                    $(data.context.children()[index])
+                    .append($('<input type="hidden" name="originalUrls[]"/>').attr('value', file.url))
+                    .append($('<input type="hidden" name="thumbUrls[]"/>').attr('value', file.thumbnailUrl));
+                //link.append('<input type="hidden" name="originalUrls[]"/>').attr('value', file.url);
+                //link.append('<input type="hidden" name="thumbUrls[]"/>').attr('value', file.thumbnailUrl);
+            } else if (file.error) {
+                var error = $('<span class="text-danger"/>').text(file.error);
+                $(data.context.children()[index])
+                    .append('<br>')
+                    .append(error);
+            }
+        });
+    }).on('fileuploadfail', function (e, data) {
+        $.each(data.files, function (index) {
+            var error = $('<span class="text-danger"/>').text('File upload failed.');
+            $(data.context.children()[index])
+                .append('<br>')
+                .append(error);
+        });
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
 @endsection
 
             
