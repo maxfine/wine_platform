@@ -73,6 +73,7 @@ class PhotosController extends Controller{
 	 */
 	public function store()
 	{
+        $this->fileName = 'files';
         $this->setUpload();
 	}
 

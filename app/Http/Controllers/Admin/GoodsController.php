@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Goods;
+use App\Models\Photo;
 use Redirect, Input, Auth;
 use App\Handlers\Commands\UploadHandler;
 
@@ -48,15 +49,19 @@ class GoodsController extends Controller {
 	public function store(Request $request)
     {
         $this->validate($request, [
-			'title' => 'required|unique:goods|max:255',
+			'goods_name' => 'required|unique:goods|max:255',
+            'store_price' => 'required|numeric',
 		]);
 
-		$article= new Article;
-		$article->title = $request->input('title');
+		$goods= new Goods;
+		$goods->goods_name= $request->input('goods_name');
+		$goods->store_price= $request->input('store_price');
         //$post->slug = Str::slug(Input::get('title'));
-		$article->cat_id = Input::get('cat_id');
-		$article->body = Input::get('body');
-		$article->user_id = Auth::user()->id;
+		$goods->cat_id = Input::get('cat_id');
+		$goods->desc = Input::get('desc');
+		$goods->user_id = Auth::user()->id;
+		$goods->type_id= 1; //to-do
+		$goods->brand_id= 1; //to-do
 
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -70,10 +75,21 @@ class GoodsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $article->image = $folderName.'/'.$safeName;
+            $goods->image = $folderName.'/'.$safeName;
         }
 
-		if ($article->save()) {
+		if ($goods->save()) {
+            $thumbUrls = Input::get('thumbUrls');
+            $originalUrls = Input::get('originalUrls');
+            if(is_array($originalUrls)){
+                foreach($originalUrls as $k=>$originalUrl){
+                    $photo = new Photo();
+                    $photo->goods_id = $goods->id; 
+                    $photo->original_url = $originalUrls[$k];
+                    $photo->thumb_url = $thumbUrls[$k];
+                    $photo->save();
+                }
+            }
 			return Redirect::to('admin/goods');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');

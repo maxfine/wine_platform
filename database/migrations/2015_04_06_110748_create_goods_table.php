@@ -17,7 +17,7 @@ class CreateGoodsTable extends Migration {
 			$table->increments('id');
             $table->integer('type_id')->default(0)->unsigned();
             $table->integer('cat_id')->default(0)->unsigned();
-            $table->integer('store_id')->default(0)->unsigned();
+            $table->integer('user_id')->default(0)->unsigned();
             $table->string('goods_sn',60)->default('');
             $table->string('goods_name',120)->default('');
             $table->decimal('market_price',10,2)->default(0.00);
@@ -37,7 +37,7 @@ class CreateGoodsTable extends Migration {
             $table->index('brand_id');
             $table->foreign('type_id')->references('id')->on('goods_types');
             $table->foreign('cat_id')->references('id')->on('categories');
-            $table->foreign('store_id')->references('id')->on('stores');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('brand_id')->references('id')->on('brands');
 		});
 	}

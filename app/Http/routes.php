@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 //文件上传
 Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
     //Route::resource('photos', 'PhotosController');
-    //Route::match(['get', 'post'], 'photos/upload_image/{fileName}', 'PhotosController@uploadImage');
+    Route::match(['get', 'post'], 'photos/upload_image/{fileName}', 'PhotosController@uploadImage');
     Route::delete('photos/delete_image', 'PhotosController@deleteImage');
     Route::get('photos/delete_image', 'PhotosController@deleteImage');
     Route::resource('photos', 'PhotosController');
