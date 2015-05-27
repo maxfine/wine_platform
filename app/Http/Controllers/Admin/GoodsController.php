@@ -123,7 +123,7 @@ class GoodsController extends Controller {
         $cats = Category::getSelectCats(); 
         $photos = $goods->photos;
         //to-do
-        return view('admin.goods.edit')->with('goods', $goods)->with('cats',$cats);
+        return view('admin.goods.edit')->with('goods', $goods)->with('cats',$cats)->with('photos', $photos);
 	}
 
 	/**
@@ -135,7 +135,7 @@ class GoodsController extends Controller {
 	public function update(Request $request, $id)
 	{
         $this->validate($request, [
-			'goods_name' => 'required|unique:goods|max:255',
+			'goods_name' => 'required|max:255',
             'store_price' => 'required|numeric|min:0',
 		]);
 

@@ -46,6 +46,12 @@
             <textarea name="desc" rows="10" class="form-control" required="required">{{ $goods->desc}}</textarea>
             {{-- 上传 --}}
             <br/>
+            <ul class="row list-unstyled">
+            @foreach($photos as $photo)
+                <li class="col-xs-4 col-md-2"> <img src="{{ $photo->thumb_url }}" width="100" height="100"/> </li>
+            @endforeach
+            </ul>
+            <br/>
             <span class="btn btn-success fileinput-button">
                 <i class="glyphicon glyphicon-plus"></i>
                 <span>添加文件...</span>
@@ -78,6 +84,8 @@
 <style>
 #files{overflow:hidden; zoom:1;}
 #files .img-box{float:left;}
+#photos{overflow:hidden; zoom:1;}
+#photos li{float:left; width:100px; height:100px;}
 </style>
 
 <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->

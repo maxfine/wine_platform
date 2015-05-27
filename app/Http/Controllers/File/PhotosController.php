@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Handlers\Commands\UploadHandler;
+use App\Models\Photo;
 
 class PhotosController extends Controller{
     private $upload;
@@ -120,6 +121,8 @@ class PhotosController extends Controller{
 	 */
 	public function destroy($id)
 	{
-        $this->setUpload();
+        $photo = Photo::find($id);
+        $photo->delete();
+        //$this->setUpload();
 	} 
 }
