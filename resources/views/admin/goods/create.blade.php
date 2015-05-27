@@ -110,17 +110,17 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'jiu.znyes.com' ?
-                '//jiu.znyes.com/file/photos' : '/file/photos',
+                '/file/photos' : '/file/photos',
         uploadButton = $('<button/>')
-            .addClass('btn btn-primary')
+            .addClass('btn btn-primary hidden')
             .prop('disabled', true)
-            .text('Processing...')
+            .text('上传')
             .on('click', function () {
                 var $this = $(this),
                     data = $this.data();
                 $this
                     .off('click')
-                    .text('Abort')
+                    .text('取消')
                     .on('click', function () {
                         $this.remove();
                         data.abort();
@@ -132,7 +132,7 @@ $(function () {
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
-        autoUpload: false,
+        autoUpload: true,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         maxFileSize: 5000000, // 5 MB
         // Enable image resizing, except for Android and Opera,
@@ -153,6 +153,7 @@ $(function () {
                     .append('<br>')
                     .append(uploadButton.clone(true).data(data));
             }
+            //console.log(data.context);
             node.appendTo(data.context);
         });
     }).on('fileuploadprocessalways', function (e, data) {
@@ -171,7 +172,7 @@ $(function () {
         }
         if (index + 1 === data.files.length) {
             data.context.find('button')
-                .text('Upload')
+                .text('上传')
                 .prop('disabled', !!data.files.error);
         }
     }).on('fileuploadprogressall', function (e, data) {
@@ -191,8 +192,6 @@ $(function () {
                     $(data.context.children()[index])
                     .append($('<input type="hidden" name="originalUrls[]"/>').attr('value', file.url))
                     .append($('<input type="hidden" name="thumbUrls[]"/>').attr('value', file.thumbnailUrl));
-                //link.append('<input type="hidden" name="originalUrls[]"/>').attr('value', file.url);
-                //link.append('<input type="hidden" name="thumbUrls[]"/>').attr('value', file.thumbnailUrl);
             } else if (file.error) {
                 var error = $('<span class="text-danger"/>').text(file.error);
                 $(data.context.children()[index])
@@ -202,7 +201,7 @@ $(function () {
         });
     }).on('fileuploadfail', function (e, data) {
         $.each(data.files, function (index) {
-            var error = $('<span class="text-danger"/>').text('File upload failed.');
+            var error = $('<span class="text-danger"/>').text('文件上传失败.');
             $(data.context.children()[index])
                 .append('<br>')
                 .append(error);

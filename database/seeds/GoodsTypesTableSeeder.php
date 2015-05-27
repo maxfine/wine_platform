@@ -10,8 +10,8 @@ class GoodsTypesTableSeeder extends Seeder {
 
         $datas = array(
             array(
-                'type_name'      => '电脑',
-                'enabled'      => 1,
+                'type_name'  => '电脑',
+                'enabled'    => 1,
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             )

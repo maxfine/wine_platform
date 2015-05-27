@@ -108,6 +108,7 @@ class PhotosController extends Controller{
 	 */
 	public function update($id)
 	{
+        $this->fileName = 'files';
         $this->setUpload();
 	}
 

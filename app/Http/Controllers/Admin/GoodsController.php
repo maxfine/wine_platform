@@ -19,13 +19,13 @@ class GoodsController extends Controller {
 	 */
 	public function index()
 	{
-        return view('admin.goods.index')->with('goods',Article::paginate(10));
+        return view('admin.goods.index')->with('goods',Goods::paginate(10));
 	}
 
     public function getList($catId)
     {
-        $articleCat = ArticleCat::find($catId);
-        $goods = Article::whereIn('cat_id', $articleCat->allCatIds())->paginate(10);
+        $cat = Category::find($catId);
+        $goods = Goods::whereIn('cat_id', $cat->allCatIds())->paginate(10);
         return view('admin.goods.list')->with('goods', $goods);
     }
 
@@ -50,7 +50,7 @@ class GoodsController extends Controller {
     {
         $this->validate($request, [
 			'goods_name' => 'required|unique:goods|max:255',
-            'store_price' => 'required|numeric',
+            'store_price' => 'required|numeric|min:0',
 		]);
 
 		$goods= new Goods;
@@ -96,6 +96,7 @@ class GoodsController extends Controller {
 		}
 	}
 
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -105,8 +106,8 @@ class GoodsController extends Controller {
 	public function show($id)
 	{
 
-        $article = Article::find($id);
-        return view('admin.goods.show')->with('article', $article)->with('comments', $article->comments()); 
+        $goods = Goods::find($id);
+        return view('admin.goods.show')->with('goods', $goods)->with('comments', $goods->comments()); 
 	}
 
 	/**
@@ -117,10 +118,12 @@ class GoodsController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $article = Article::find($id);
+        $goods = Goods::find($id);
         //栏目下拉框
-        $articleCats = ArticleCat::getSelectCats(); 
-        return view('admin.goods.edit')->with('article', $article)->with('articleCats',$articleCats);
+        $cats = Category::getSelectCats(); 
+        $photos = $goods->photos;
+        //to-do
+        return view('admin.goods.edit')->with('goods', $goods)->with('cats',$cats);
 	}
 
 	/**
@@ -131,16 +134,20 @@ class GoodsController extends Controller {
 	 */
 	public function update(Request $request, $id)
 	{
-		$this->validate($request, [
-			'title' => 'required|max:255',
+        $this->validate($request, [
+			'goods_name' => 'required|unique:goods|max:255',
+            'store_price' => 'required|numeric|min:0',
 		]);
 
-		$article= Article::find($id);
-		$article->title = $request->input('title');
+		$goods= Goods::find($id);
+		$goods->goods_name= $request->input('goods_name');
+		$goods->store_price= $request->input('store_price');
         //$post->slug = Str::slug(Input::get('title'));
-		$article->cat_id = Input::get('cat_id');
-		$article->body = Input::get('body');
-		$article->user_id = Auth::user()->id;
+		$goods->cat_id = Input::get('cat_id');
+		$goods->desc = Input::get('desc');
+		$goods->user_id = Auth::user()->id;
+		//$goods->type_id= 1; //to-do
+		//$goods->brand_id= 1; //to-do
 
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -154,10 +161,21 @@ class GoodsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $article->image = $folderName.'/'.$safeName;
+            $goods->image = $folderName.'/'.$safeName;
         }
 
-		if ($article->save()) {
+		if ($goods->save()) {
+            $thumbUrls = Input::get('thumbUrls');
+            $originalUrls = Input::get('originalUrls');
+            if(is_array($originalUrls)){
+                foreach($originalUrls as $k=>$originalUrl){
+                    $photo = new Photo();
+                    $photo->goods_id = $goods->id; 
+                    $photo->original_url = $originalUrls[$k];
+                    $photo->thumb_url = $thumbUrls[$k];
+                    $photo->save();
+                }
+            }
 			return Redirect::to('admin/goods');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
@@ -173,8 +191,8 @@ class GoodsController extends Controller {
     public function destroy($id)
 	{
         //同时删除所有评论
-        $article = Article::find($id);
-        $article->delete();
+        $goods = Goods::find($id);
+        $goods->delete();
 
 		return Redirect::to('admin/goods');
 	}

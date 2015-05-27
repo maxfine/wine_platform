@@ -17,6 +17,10 @@ class Goods extends Model {
         return $this->belongsTo('App\Models\Store');
     }
 
+    public function photos(){
+        return $this->hasMany('App\Models\Photo');
+    }
+
     /**
      * -------------------------------------------
      * 评论类型

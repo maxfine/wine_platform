@@ -160,3 +160,47 @@ print_r($a1);
 print_r($a3);
 ***********************END***********************************/
 
+/**
+ * ---------------------------------------------------------
+ * 序列化数组serialize, unserialize
+ * ---------------------------------------------------------
+ * 教程:http://blog.csdn.net/21aspnet/article/details/6908318
+$array = array();
+$array['key'] = 'website';
+$array['value']='www.isoji.org';
+$array['value2']='测试';
+$a = serialize($array);
+echo $a;
+unset($array);
+$a = unserialize($a);
+echo '<hr>';
+print_r($a);
+***********************END***********************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
