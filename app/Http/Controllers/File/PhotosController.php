@@ -121,8 +121,22 @@ class PhotosController extends Controller{
 	 */
 	public function destroy($id)
 	{
+        //$this->setUpload();
         $photo = Photo::find($id);
         $photo->delete();
-        //$this->setUpload();
 	} 
+
+    public function ajaxDel(Request $request,$id)
+	{
+        if( $request->ajax() ){
+            $photo = Photo::find($id);
+            $photo->delete();
+            //unlink( imageURLToName($image_file->uri) );
+            $json = ['status' => 1, 'info' => '删除成功'];
+            return response()->json($json);
+        }else{
+            return '';
+            //return response()->json($json);
+        }
+	}
 }

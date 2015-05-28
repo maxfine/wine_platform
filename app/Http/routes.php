@@ -68,5 +68,6 @@ Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
     Route::match(['get', 'post'], 'photos/upload_image/{fileName}', 'PhotosController@uploadImage');
     Route::delete('photos/delete_image', 'PhotosController@deleteImage');
     Route::get('photos/delete_image', 'PhotosController@deleteImage');
+    Route::post('photos/ajax_del/{id}', 'PhotosController@ajaxDel');
     Route::resource('photos', 'PhotosController');
 });

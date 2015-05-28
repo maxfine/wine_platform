@@ -40,7 +40,8 @@
 
             <br>
             <input type="file" name="image">
-            @if ($goods->image)<img src="{{ URL($goods->image) }}" width="100" height="100">@endif
+            
+            @if ($goods->image)<div class=""><img src="{{ URL($goods->image) }}" width="100" height="100"><span Class="btn del_image btn-primary" data-delid="{{ $goods->id }}">删除图片</span></div>@endif
             
             <br>
             <textarea name="desc" rows="10" class="form-control" required="required">{{ $goods->desc}}</textarea>
@@ -48,7 +49,7 @@
             <br/>
             <ul class="row list-unstyled">
             @foreach($photos as $photo)
-                <li class="col-xs-4 col-md-2"> <img src="{{ $photo->thumb_url }}" width="100" height="100"/> </li>
+                <li class="col-xs-4 col-md-2"> <img src="{{ $photo->thumb_url }}" width="100" height="100"/><br/><span Class="btn del_photo btn-primary" data-delid="{{ $photo->id }}">删除图片</span> </li>
             @endforeach
             </ul>
             <br/>
@@ -216,6 +217,26 @@ $(function () {
         });
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+<script>
+$(function(){
+    $('span.del_photo').on('click', function(e){
+        del_id = $(this).attr('data-delid'); 
+        $.ajax({
+          type: 'POST',
+          url: '/file/photos/ajax_del/'+del_id,
+          dataType:'JSON',
+          data: {'_token':'{{ csrf_token() }}'},
+          success: function(response){
+             var json = eval('(' + response+ ')');
+             alert(json);
+          },
+          error: function(response){
+             //alert(response);
+          }
+        });
+    });
 });
 </script>
 @endsection

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\GoodsType;
 use App\Models\Goods;
 use App\Models\Photo;
 use Redirect, Input, Auth;
@@ -37,7 +38,8 @@ class GoodsController extends Controller {
 	public function create()
 	{
         $cats = Category::getSelectCats();
-		return view('admin.goods.create')->with('cats', $cats);
+        $types = GoodsType::all(); //获取所有types
+		return view('admin.goods.create')->with('cats', $cats)->with('types', $types);
 	}
 
     
