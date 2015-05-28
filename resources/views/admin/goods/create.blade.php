@@ -39,12 +39,15 @@
             </select>
             <br>
             <select name="type_id" id="type_id" class="form-control">
-                <option value="0">≡ ≡ ≡ ≡ 选择类型≡ ≡ ≡ ≡ </option>
+                <option value="0">≡ ≡ ≡ 选择类型≡ ≡ ≡ </option>
                 @foreach ($types as $r)
                 <option value="{{ $r->id }}">{{ $r->type_name }}</option>
                 @endforeach
                 <!--<option value="11">&nbsp;├ 产品限定及服务范围</option>;-->
             </select>
+            <br/>
+<div class="attrs">
+</div>
             <br/>
             <input type="file" name="image" id="image">
             

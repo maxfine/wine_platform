@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     //品牌
     //Route::resource('brands', 'BrandsController');
     //商品类型
-    //Route::resource('goods/types', 'GoodsTypesController');
+    Route::resource('goods_types', 'GoodsTypesController');
     //商品属性
     //Route::resource('attrs', 'AttrsController');
     //Route::resource('goods/attrs', 'GoodsAttrsController');
