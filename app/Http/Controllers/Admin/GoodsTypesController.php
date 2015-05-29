@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\GoodsType;
+use App\Models\Attribute;
 
 use Redirect, Input, Auth;
 
@@ -18,8 +19,9 @@ class GoodsTypesController extends Controller {
 	 */
 	public function index()
 	{
-        return view('AdminHome')->withPages(Page::all());
+        return view('admin.goods_types.index')->withTypes(GoodsType::all());
 	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -58,7 +60,7 @@ class GoodsTypesController extends Controller {
      */
     public function show($id)
     {
-        return view('admin.pages.show')->withPage(Page::find($id)); 
+        return view('admin.goods_types.show')->withType(GoodsType::find($id)); 
     }
 
 	/**
@@ -69,7 +71,7 @@ class GoodsTypesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('admin.pages.edit')->withPage(Page::find($id));
+		return view('admin.goods_types.edit')->withType(GoodsType::find($id));
 	}
 
 	/**
@@ -80,18 +82,15 @@ class GoodsTypesController extends Controller {
 	 */
 	public function update(Request $request,$id)
 	{
-		$this->validate($request, [
-			'title' => 'required|unique:pages,title,'.$id.'|max:255',
-			'body' => 'required',
+   		$this->validate($request, [
+			'type_name' => 'required|max:255',
 		]);
 
-		$page = Page::find($id);
-		$page->title = Input::get('title');
-		$page->body = Input::get('body');
-		$page->user_id = Auth::user()->id;
+        $goodsType = GoodsType::find($id);
+		$goodsType->type_name = Input::get('type_name');
 
-		if ($page->save()) {
-			return Redirect::to('admin');
+		if ($goodsType->save()) {
+			return Redirect::to('admin/goods_types');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
@@ -105,10 +104,10 @@ class GoodsTypesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$page = Page::find($id);
-		$page->delete();
+        $type = GoodsType::find($id);
+		$type->delete();
 
-		return Redirect::to('admin');
+		return Redirect::to('admin/goods_types');
 	}
 
 }

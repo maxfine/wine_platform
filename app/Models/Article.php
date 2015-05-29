@@ -15,7 +15,9 @@ class Article extends Model {
 
     public function delete(){
         //删除此文章下的所有评论
-        $this->comments()->delete();
+        foreach($this->comments() as $comment){
+            $comment->delete();
+        }
         //删除自身
         Parent::delete();
     }

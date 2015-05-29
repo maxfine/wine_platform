@@ -23,6 +23,11 @@ class GoodsController extends Controller {
         return view('admin.goods.index')->with('goods',Goods::paginate(10));
 	}
 
+    /**
+     * -------------------------------------------------------------------
+     * 商品列表
+     * -------------------------------------------------------------------
+     */
     public function getList($catId)
     {
         $cat = Category::find($catId);

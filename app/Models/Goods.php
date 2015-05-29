@@ -20,6 +20,19 @@ class Goods extends Model {
     public function photos(){
         return $this->hasMany('App\Models\Photo');
     }
+    
+    public function comments(){
+        return $this->hasMany('App\Models\Comment','post_id')->where(['type'=>$this::commentType()])->get();
+    }
+
+    public function delete(){
+        //删除此文章下的所有评论
+        foreach($this->comments() as $comment){
+            $comment->delete();
+        }
+        //删除自身
+        Parent::delete();
+    }
 
     /**
      * -------------------------------------------

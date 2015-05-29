@@ -105,8 +105,9 @@ class ArticleCat extends Model {
         $cats = self::getChilds($id);
         foreach($cats as $cat){
             //删除文章
-            $cat->articles->delete();
-
+            foreach($cat->articles as $_v){
+                $_v->delete();
+            }
             //删除栏目
             $cat->delete();
         }
@@ -119,13 +120,17 @@ class ArticleCat extends Model {
         $cats = self::getChilds($this->id);
         foreach($cats as $cat){
             //删除文章
-            $cat->articles->delete();
+            foreach($cat->articles as $_v){
+                $_v->delete();
+            }
 
             //删除栏目
             $cat->delete();
         }
 
-        $this->articles->delete();
+        foreach($this->articles as $_v){
+            $_v->delete();
+        }
         //删除本身
         parent::delete();
     }

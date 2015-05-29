@@ -30,8 +30,8 @@
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <button type="submit" class="btn btn-danger">删除</button>
             </form>
-            <a href="{{ URL('admin/comments/'.$page->id.'/'.$page::commentType.'/list') }}" class="btn btn-success">评论列表</a>
-            <a href="{{ URL('admin/comments/'.$page->id.'/'.$page::commentType().'/create') }}" class="btn btn-success">添加评论</a>
+            <a href="{{ URL('admin/comments/list/'.$page->id.'/'.$page::commentType) }}" class="btn btn-success">评论列表</a>
+            <a href="{{ URL('admin/comments/create/'.$page->id.'/'.$page::commentType()) }}" class="btn btn-success">添加评论</a>
           @endforeach
 
         </div>

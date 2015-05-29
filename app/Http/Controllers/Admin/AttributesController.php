@@ -5,11 +5,12 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Models\Page;
+use App\Models\GoodsType;
+use App\Models\Attribute;
 
 use Redirect, Input, Auth;
 
-class PagesController extends Controller {
+class AttributesController extends Controller {
 
     /**
 	 * Display a listing of the resource.
@@ -18,17 +19,30 @@ class PagesController extends Controller {
 	 */
 	public function index()
 	{
-        return view('AdminHome')->withPages(Page::all());
+        return view('attrs.index')->withPages(Attribute::all());
 	}
+
+    /**
+     * --------------------------------------------------------
+     * 属性列表
+     * --------------------------------------------------------
+     */
+    public function getList($typeId){
+        $type = GoodsType::find($typeId);
+        $attrs = Attribute::where('type_id', $type->id)->paginate(10);
+        return view('admin.attrs.list')->with('attrs', $attrs)->with('typeId', $typeId);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($typeId)
 	{
-		return view('admin.pages.create');
+        $type = GoodsType::find($typeId);
+        $types = GoodsType::all(); //获取所有types
+		return view('admin.attrs.create')->with('types', $types)->with('type', $type);
 	}
 
 	/**
@@ -39,18 +53,23 @@ class PagesController extends Controller {
 	public function store(Request $request)
 	{
    		$this->validate($request, [
-			'title' => 'required|unique:pages|max:255',
-			'body' => 'required',
+			'attr_name' => 'required|unique:attributes|max:255',
+            'type_id' => 'required|numeric'
 		]);
 
-		$page = new Page;
-		$page->title = Input::get('title');
-		$page->image= Input::get('image')?Input::get('image'):'';
-		$page->body = Input::get('body');
-		$page->user_id = Auth::user()->id;
+		$attr = new Attribute;
+		$attr->attr_name = Input::get('attr_name');
+		$attr->type_id = Input::get('type_id');
+		$attr->attr_index = Input::get('attr_index'); //是否需要检索
+		$attr->attr_type = Input::get('attr_type'); //属性是否可选
+		$attr->attr_input_type = Input::get('attr_input_type'); //录入方式
 
-		if ($page->save()) {
-			return Redirect::to('admin');
+        //序列化属性值
+        $attr_vale = explode('\n\r', Input::get('attr_value'));
+        $attr->attr_value = serialize($attr_vale);
+
+		if ($attr->save()) {
+			return Redirect::to('admin/goods_types');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}
@@ -62,7 +81,7 @@ class PagesController extends Controller {
      */
     public function show($id)
     {
-        return view('admin.pages.show')->withPage(Page::find($id)); 
+        return view('admin.attrs.show')->withPage(Attribute::find($id)); 
     }
 
 	/**

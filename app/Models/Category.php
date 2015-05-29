@@ -104,9 +104,10 @@ class Category extends Model {
     public static function delCat($id){
         $cats = self::getChilds($id);
         foreach($cats as $cat){
-            //删除文章
-            $cat->goods->delete();
-
+            //删除商品
+            foreach($cat->goods as $_v){
+                $_v->delete();
+            }
             //删除栏目
             $cat->delete();
         }
@@ -118,14 +119,17 @@ class Category extends Model {
     public function delete(){
         $cats = self::getChilds($this->id);
         foreach($cats as $cat){
-            //删除文章
-            $cat->goods->delete();
-
+            //删除商品
+            foreach($cat->goods as $_v){
+                $_v->delete();
+            }
             //删除栏目
             $cat->delete();
         }
 
-        $this->goods->delete();
+        foreach($this->goods as $_v){
+            $_v->delete();
+        }
         //删除本身
         parent::delete();
     }

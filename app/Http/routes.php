@@ -42,8 +42,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('pages', 'PagesController');
     //评论
     Route::resource('comments', 'CommentsController');
-    Route::get('comments/{post_id}/{type}/create', 'CommentsController@create')->where(['id'=>'[0-9]+']);
-    Route::get('comments/{post_id}/{type}/list', 'CommentsController@commentList')->where(['post_id'=>'[0-9]+']);
+    Route::get('comments/create/{post_id}/{type}', 'CommentsController@create')->where(['id'=>'[0-9]+']);
+    Route::get('comments/list/{post_id}/{type}', 'CommentsController@commentList')->where(['post_id'=>'[0-9]+']);
     //Route::get('pages/{id?}', 'PagesController@show')->where(array('id'=>'[0-9]+'));
 
     //商品栏目
@@ -58,8 +58,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     //商品类型
     Route::resource('goods_types', 'GoodsTypesController');
     //商品属性
-    //Route::resource('attrs', 'AttrsController');
-    //Route::resource('goods/attrs', 'GoodsAttrsController');
+    Route::get('attrs/list/{typeId}', 'AttributesController@getList');
+    Route::get('attrs/create/{typeId?}', 'AttributesController@create');
+    Route::resource('attrs', 'AttributesController');
+    //Route::resource('goods_attrs', 'GoodsAttrsController');
 });
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
 //文件上传
