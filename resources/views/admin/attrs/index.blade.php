@@ -5,25 +5,20 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
-        <div class="panel-heading">文章管理</div>
+        <div class="panel-heading">属性管理</div>
 
         <div class="panel-body">
 
-        <a href="{{ URL('admin/article/cats/create') }}" class="btn btn-lg btn-primary">新增</a>
+        <a href="{{ URL('admin/attrs/create') }}" class="btn btn-lg btn-primary">新增</a>
 
-          @foreach ($articles as $article)
+          @foreach ($attrs as $r)
             <hr>
             <div class="page">
-              <h4>{{ $article->title }}</h4>
-              <div class="content">
-                <p>
-                  {{ $article->body }}
-                </p>
-              </div>
+              <h4>{{ $r->attr_name }}</h4>
             </div>
-            <a href="{{ URL('admin/articles/'.$article->id.'/edit') }}" class="btn btn-success">编辑</a>
+            <a href="{{ URL('admin/attrs/'.$r->id.'/edit') }}" class="btn btn-success">编辑</a>
 
-            <form action="{{ URL('admin/articles/'.$article->id) }}" method="POST" style="display: inline;">
+            <form action="{{ URL('admin/attrs/'.$r->id) }}" method="POST" style="display: inline;">
               <input name="_method" type="hidden" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <button onClick="delcfm()" type="submit" class="btn btn-danger">删除</button>

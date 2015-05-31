@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('goods_types', 'GoodsTypesController');
     //商品属性
     Route::get('attrs/list/{typeId}', 'AttributesController@getList');
+    Route::match(['get', 'post'], 'attrs/ajax_list/{typeId}/{goodsId?}', 'AttributesController@ajaxList');
     Route::get('attrs/create/{typeId?}', 'AttributesController@create');
     Route::resource('attrs', 'AttributesController');
     //Route::resource('goods_attrs', 'GoodsAttrsController');

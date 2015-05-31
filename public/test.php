@@ -178,10 +178,38 @@ print_r($a);
 ***********************END***********************************/
 
 
+/**
+ * -----------------------------------------------------
+ * 一行一个值
+ * -----------------------------------------------------
+$str = 'aaaa
+        bbbb
+        ccccc
+        
+        dddd';
+$arr = explode(PHP_EOL, $str); //PHP_EOL
+var_dump($arr);
+
+var_dump(array_filter(array_map("myfun", $arr)));
+
+function myfun($v){
+    if(trim($v)){
+        return trim($v); 
+    }
+}
+*************************END*****************************/
 
 
-
-
+/**
+ * -----------------------------------------------------
+ * array_map
+ * -----------------------------------------------------
+$attrIdList = [1, 2, 3];
+$attrValueList = ['aaa', 'bbb', 'ccc'];
+$attrPriceList = [100, 200, 300];
+$attrs = array_map('myfun', $attrIdList, $attrValueList, $attrPriceList);
+var_dump($attrs);
+**********************END*********************************/
 
 
 

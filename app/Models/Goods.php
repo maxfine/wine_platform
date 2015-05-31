@@ -25,6 +25,14 @@ class Goods extends Model {
         return $this->hasMany('App\Models\Comment','post_id')->where(['type'=>$this::commentType()])->get();
     }
 
+    public function attrs(){
+        return $this->belongsToMany('App\Models\Attribute', 'goods_attrs', 'goods_id', 'attr_id');
+    }
+
+    public function goodsAttrs(){
+        return $this->hasMany('App\Models\GoodsAttr', 'goods_id');
+    }
+
     public function delete(){
         //删除此文章下的所有评论
         foreach($this->comments() as $comment){

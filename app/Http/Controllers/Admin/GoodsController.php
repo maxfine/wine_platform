@@ -8,8 +8,10 @@ use App\Models\Category;
 use App\Models\GoodsType;
 use App\Models\Goods;
 use App\Models\Photo;
+use App\Models\GoodsAttr;
 use Redirect, Input, Auth;
 use App\Handlers\Commands\UploadHandler;
+use Illuminate\Support\Facades\DB;
 
 class GoodsController extends Controller {
 
@@ -67,7 +69,7 @@ class GoodsController extends Controller {
 		$goods->cat_id = Input::get('cat_id');
 		$goods->desc = Input::get('desc');
 		$goods->user_id = Auth::user()->id;
-		$goods->type_id= 1; //to-do
+		$goods->type_id= Input::get('type_id'); //to-do
 		$goods->brand_id= 1; //to-do
 
         if ($file = Input::file('image')) {
@@ -85,23 +87,45 @@ class GoodsController extends Controller {
             $goods->image = $folderName.'/'.$safeName;
         }
 
-		if ($goods->save()) {
-            $thumbUrls = Input::get('thumbUrls');
-            $originalUrls = Input::get('originalUrls');
-            if(is_array($originalUrls)){
-                foreach($originalUrls as $k=>$originalUrl){
-                    $photo = new Photo();
-                    $photo->goods_id = $goods->id; 
-                    $photo->original_url = $originalUrls[$k];
-                    $photo->thumb_url = $thumbUrls[$k];
-                    $photo->save();
+        //开始事务
+        DB::beginTransaction();
+        try{
+            if ($goods->save()) {
+                $thumbUrls = Input::get('thumbUrls');
+                $originalUrls = Input::get('originalUrls');
+                if(is_array($originalUrls)){
+                    foreach($originalUrls as $k=>$originalUrl){
+                        $photo = new Photo();
+                        $photo->goods_id = $goods->id; 
+                        $photo->original_url = $originalUrls[$k];
+                        $photo->thumb_url = $thumbUrls[$k];
+                        $photo->save();
+                    }
                 }
+
+                //商品关联属性
+                $attrIdList = Input::get('attr_id_list');
+                $attrValueList = Input::get('attr_value_list');
+                $attrPriceList = Input::get('attr_price_list');
+                $attrs = array_map(null, $attrIdList, $attrValueList, $attrPriceList);
+                foreach($attrs as $_v){
+                    $attr = new GoodsAttr;
+                    $attr->goods_id = $goods->id;
+                    $attr->attr_id = $_v[0];
+                    $attr->attr_value = $_v[1];
+                    $attr->attr_price = $_v[2]; //如果为字符串attr_price存入数据库为0
+                    if($attr->goods_id && $attr->attr_id && $attr->attr_value) $attr->save();
+                }
+                DB::commit();
+                return Redirect::to('admin/goods');
+            } else {
+                return Redirect::back()->withInput()->withErrors('保存失败！');
             }
-			return Redirect::to('admin/goods');
-		} else {
-			return Redirect::back()->withInput()->withErrors('保存失败！');
-		}
-	}
+        }catch (\Exception $e){
+             DB::rollBack();
+             throw $e;
+        }
+    }
 
 
 	/**
@@ -128,9 +152,10 @@ class GoodsController extends Controller {
         $goods = Goods::find($id);
         //栏目下拉框
         $cats = Category::getSelectCats(); 
+        $types = GoodsType::all(); //获取所有types
         $photos = $goods->photos;
         //to-do
-        return view('admin.goods.edit')->with('goods', $goods)->with('cats',$cats)->with('photos', $photos);
+        return view('admin.goods.edit')->with('goods', $goods)->with('types', $types)->with('cats',$cats)->with('photos', $photos);
 	}
 
 	/**
@@ -171,22 +196,61 @@ class GoodsController extends Controller {
             $goods->image = $folderName.'/'.$safeName;
         }
 
-		if ($goods->save()) {
-            $thumbUrls = Input::get('thumbUrls');
-            $originalUrls = Input::get('originalUrls');
-            if(is_array($originalUrls)){
-                foreach($originalUrls as $k=>$originalUrl){
-                    $photo = new Photo();
-                    $photo->goods_id = $goods->id; 
-                    $photo->original_url = $originalUrls[$k];
-                    $photo->thumb_url = $thumbUrls[$k];
-                    $photo->save();
+        //开始事务
+        DB::beginTransaction();
+        try{
+            if ($goods->save()) {
+                $thumbUrls = Input::get('thumbUrls');
+                $originalUrls = Input::get('originalUrls');
+                if(is_array($originalUrls)){
+                    foreach($originalUrls as $k=>$originalUrl){
+                        $photo = new Photo();
+                        $photo->goods_id = $goods->id; 
+                        $photo->original_url = $originalUrls[$k];
+                        $photo->thumb_url = $thumbUrls[$k];
+                        $photo->save();
+                    }
                 }
+
+                //商品关联属性
+                $attrIdList = Input::get('attr_id_list');
+                $attrValueList = Input::get('attr_value_list');
+                $attrPriceList = Input::get('attr_price_list');
+                $attrs = array_map(null, $attrIdList, $attrValueList, $attrPriceList);
+                for($i=0; $i<count($attrs); $i++){
+                    for($j=$i+1; $j<count($attrs); $j++){
+                        if($attrs[$i][0] ==  $attrs[$j][0] && $attrs[$i][1] == $attrs[$j][1]){
+                            unset($attrs[$i]);
+                        }
+                    }
+                }
+                
+                //清除goodsAttrs
+                foreach($goods->goodsAttrs as $_v){
+                    $_v->delete();
+                }
+                foreach($attrs as $_v){
+                    $attr = new GoodsAttr;
+                    $attr->goods_id = $goods->id;
+                    $attr->attr_id = $_v[0];
+                    $attr->attr_value = $_v[1];
+                    $attr->attr_price = $_v[2]; //如果为字符串attr_price存入数据库为0
+                    if($attr->goods_id && $attr->attr_id && $attr->attr_value) {
+                        //删除存在的 
+                        //$attrs::where(['goods_id'=>$attr->goods_id, 'attr_id'=>$attr->attr_id, 'attr_value'=>$attr->attr_value]);
+                        //保存
+                        $attr->save();   
+                    }
+                }
+                DB::commit();
+                return Redirect::to('admin/goods');
+            } else {
+                return Redirect::back()->withInput()->withErrors('保存失败！');
             }
-			return Redirect::to('admin/goods');
-		} else {
-			return Redirect::back()->withInput()->withErrors('保存失败！');
-		}
+        }catch (\Exception $e){
+             DB::rollBack();
+             throw $e;
+        }
 	}
 
 	/**
