@@ -53,7 +53,13 @@ class AttributesController extends Controller {
                 foreach($attrs as $v){
                     $v->attr_value = unserialize($v->attr_value);
                     $v->list = GoodsAttr::where(['attr_id'=>$v['id'], 'goods_id'=>$goodsId])->select('attr_value', 'attr_price')->get(); //[['attr_value'=>'', 'attr_price'=>''],...];
+                    if(!$v->list->first()){
+                        $v->list = [['attr_value'=>'', 'attr_price'=>0]];
+
+                    }
+
                 }
+                //dump($attrs);
 
 
                 /************************
@@ -70,6 +76,7 @@ class AttributesController extends Controller {
                 ******************************/
                 return  response()->json($attrs);
             }else{
+                $attrs = [];
                 $type = GoodsType::find($typeId);
                 $attrs = Attribute::where('type_id', $type->id)->get();
                 //属性值去序列化
@@ -79,6 +86,7 @@ class AttributesController extends Controller {
                 return  response()->json($attrs);
             }
         }else{
+            $attrs = ['error'];
             return  response()->json($attrs);
         }
     }

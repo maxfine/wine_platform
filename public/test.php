@@ -213,11 +213,51 @@ var_dump($attrs);
 
 
 
+/**
+ * -----------------------------------------------------------------
+ * 双数组查询是否有相同值
+ * -----------------------------------------------------------------
+$gAttrs = [
+            ['id'=>1, 'goods_id'=>1, 'attr_id'=>1, 'attr_value'=>'aaa'],
+            ['id'=>2, 'goods_id'=>1, 'attr_id'=>1, 'attr_value'=>'bbb'],
+            ['id'=>3, 'goods_id'=>1, 'attr_id'=>1, 'attr_value'=>'eee'],
+        ];
+
+$iAttrs = [
+            ['goods_id'=>1, 'attr_id'=>1, 'attr_value'=>'aaa'],
+            ['goods_id'=>1, 'attr_id'=>1, 'attr_value'=>'bbb'],
+            ['goods_id'=>1, 'attr_id'=>1, 'attr_value'=>'ccc'],
+        ];
+
+foreach($gAttrs as $v){
+    $isDel = true;
+    foreach($iAttrs as $_v){
+        if($v['goods_id'] == $_v['goods_id'] && $v['attr_id'] == $_v['attr_id'] && $v['attr_value'] == $_v['attr_value']){
+            $isDel = false;
+        }
+    }
+    if($isDel){
+        $v['sign'] = 'delete'; $attrs[] = $v;
+    }
+}
+
+var_dump($attrs);
+*****************************END**************************************/
 
 
 
+/**
+ * ------------------------------------------------------------
+ * 循环中添加数据是否能添加上
+ * ------------------------------------------------------------
+$arr = [['aaa', 'bbb'], ['ccc', 'ddd']];
+foreach($arr as $_v){
+    $_v[] = 'fff';
+    var_dump($_v);
+}
+var_dump($arr);
 
-
+***************************END********************************/
 
 
 

@@ -19,7 +19,7 @@ class Article extends Model {
             $comment->delete();
         }
         //删除自身
-        Parent::delete();
+        parent::delete();
     }
 
     public static function commentType(){

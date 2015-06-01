@@ -39,7 +39,7 @@ class Goods extends Model {
             $comment->delete();
         }
         //删除自身
-        Parent::delete();
+        parent::delete();
     }
 
     /**

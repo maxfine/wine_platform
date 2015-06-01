@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
-        <div class="panel-heading">编辑文章</div>
+        <div class="panel-heading">编辑商品</div>
 
         <div class="panel-body">
 
@@ -331,7 +331,7 @@ $(function(){
                 <br/>
                 <input type="number" name="attr_price_list[]" class="form-control" value="{<# if(d[i]['list'][0]['attr_price']){ >}{< d[i]['list'][0]['attr_price'] >}{<# }else{  >}0{<# } >}" placeholder="属性价格">
             {<# }else if(d[i]['attr_input_type']==1){ >}
-                {<# if(d[i]['list'][0]['attr_value']){ >}
+                {<# if(d[i]['list']){ >}
                     
                     {<# for(var f = 0, leng = d[i]['list'].length; f < leng; f++){ >}
                     <input type="hidden" name="attr_id_list[]" value="{< d[i]['id'] >}">

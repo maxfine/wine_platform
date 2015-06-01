@@ -40,6 +40,7 @@
                 <lable class="checkbox-inline"><input name="attr_index" value="1" type="radio" @if ($attr->attr_index == 1 ) checked="true" @endif/>关键字检索</lable>
                 <lable class="checkbox-inline"><input name="attr_index" value="2" type="radio" @if ($attr->attr_index == 2 ) checked="true" @endif/>范围检索</lable>
             </div>
+            <!--
             <br/>
             <div class="form-inline">
                 <lable class="checkbox-inline col-sm-2">属性是否可选:</lable>
@@ -47,12 +48,13 @@
                 <lable class="checkbox-inline"><input name="attr_type" value="1" type="radio" @if ($attr->attr_type == 1 ) checked="true" @endif/>单选属性</lable>
                 <lable class="checkbox-inline"><input name="attr_type" value="2" type="radio" @if ($attr->attr_type == 2 ) checked="true" @endif/>多选属性</lable>
             </div>
+            -->
             <br/>
             <div class="form-inline">
                 <lable class="checkbox-inline col-sm-2">该属性值的录入方式:</lable>
                 <lable class="checkbox-inline"><input name="attr_input_type" value="0" type="radio" @if ($attr->attr_input_type == 0 ) checked="true" @endif/>手工录入</lable>
                 <lable class="checkbox-inline"><input name="attr_input_type" value="1" type="radio" @if ($attr->attr_input_type == 1 ) checked="true" @endif/>从下面的列表中选择（一行代表一个可选值）</lable>
-                <lable class="checkbox-inline"><input name="attr_input_type" value="2" type="radio" @if ($attr->attr_input_type == 2 ) checked="true" @endif/>多行文本框</lable>
+                <!--<lable class="checkbox-inline"><input name="attr_input_type" value="2" type="radio" @if ($attr->attr_input_type == 2 ) checked="true" @endif/>多行文本框</lable>-->
             </div>
             <br/>
                 <lable class="checkbox-inline col-sm-2">可选值列表:</lable>

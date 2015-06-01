@@ -178,8 +178,8 @@ class GoodsController extends Controller {
 		$goods->cat_id = Input::get('cat_id');
 		$goods->desc = Input::get('desc');
 		$goods->user_id = Auth::user()->id;
-		//$goods->type_id= 1; //to-do
-		//$goods->brand_id= 1; //to-do
+		$goods->type_id= Input::get('type_id'); //to-do
+		$goods->brand_id= 1; //to-do
 
         if ($file = Input::file('image')) {
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -213,6 +213,7 @@ class GoodsController extends Controller {
                 }
 
                 //商品关联属性
+                //删除重复,goods_id,attr_id,attr_value
                 $attrIdList = Input::get('attr_id_list');
                 $attrValueList = Input::get('attr_value_list');
                 $attrPriceList = Input::get('attr_price_list');
@@ -225,21 +226,48 @@ class GoodsController extends Controller {
                     }
                 }
                 
-                //清除goodsAttrs
-                foreach($goods->goodsAttrs as $_v){
-                    $_v->delete();
+
+                //数据标记
+                foreach($attrs as $_k=>$_v){
+                    if(!GoodsAttr::where(['goods_id'=>$goods->id, 'attr_id'=>$_v[0], 'attr_value'=>$_v[1]])->first()){
+                        $attrs[$_k]['sign'] = 'insert';
+                    }elseif(GoodsAttr::where(['goods_id'=>$goods->id, 'attr_id'=>$_v[0], 'attr_value'=>$_v[1]])->first()){
+                        $attrs[$_k]['sign'] = 'update';
+                    }
                 }
+
+                //数据标记
+                foreach($goods->goodsAttrs as $v){
+                    $isDel = true;
+                    foreach($attrs as $_v){
+                        if($v['attr_id'] == $_v[0] && $v['attr_value'] == $_v[1]){
+                            $isDel = false;
+                        }
+                    }
+                    if($isDel){
+                        $attrs[] = [$v['attr_id'], $v['attr_value'], 'sign'=>'delete'];
+                    }
+                }
+
+                //数据操作
                 foreach($attrs as $_v){
-                    $attr = new GoodsAttr;
-                    $attr->goods_id = $goods->id;
-                    $attr->attr_id = $_v[0];
-                    $attr->attr_value = $_v[1];
-                    $attr->attr_price = $_v[2]; //如果为字符串attr_price存入数据库为0
-                    if($attr->goods_id && $attr->attr_id && $attr->attr_value) {
-                        //删除存在的 
-                        //$attrs::where(['goods_id'=>$attr->goods_id, 'attr_id'=>$attr->attr_id, 'attr_value'=>$attr->attr_value]);
-                        //保存
-                        $attr->save();   
+                    if($_v['sign'] == 'insert'){
+                        $attr = new GoodsAttr;
+                        $attr->goods_id = $goods->id;
+                        $attr->attr_id = $_v[0];
+                        $attr->attr_value = $_v[1];
+                        $attr->attr_price = $_v[2]; //如果为字符串attr_price存入数据库为0
+                        if($attr->goods_id && $attr->attr_id && $attr->attr_value) {
+                            //删除存在的 
+                            //$attrs::where(['goods_id'=>$attr->goods_id, 'attr_id'=>$attr->attr_id, 'attr_value'=>$attr->attr_value]);
+                            //保存
+                            $attr->save();   
+                        }
+
+                    }elseif($_v['sign'] == 'update'){
+                        GoodsAttr::where(['goods_id'=>$goods->id, 'attr_id'=>$_v[0], 'attr_value'=>$_v[1]])->update(['attr_price'=>$_v[2]]);
+                    }elseif($_v['sign'] == 'delete'){
+                        $attr = GoodsAttr::where(['goods_id'=>$goods->id, 'attr_id'=>$_v[0], 'attr_value'=>$_v[1]])->delete();
                     }
                 }
                 DB::commit();
