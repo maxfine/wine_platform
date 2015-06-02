@@ -139,6 +139,8 @@ return [
         'Zizaco\Entrust\EntrustServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -201,6 +203,7 @@ return [
         'HTML'=> 'Illuminate\Html\HtmlFacade',
         'Str'       => 'Illuminate\Support\Str',
         'Image' => 'Intervention\Image\Facades\Image',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
 	],
 

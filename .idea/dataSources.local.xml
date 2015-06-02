@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - wine_platform@localhost" uuid="c6b3bca3-be9f-401c-a6cf-8f5b3ee46723">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>wine_platform.*</schema-pattern>
+      <default-schemas>fang_com.*</default-schemas>
+    </data-source>
+  </component>
+</project>

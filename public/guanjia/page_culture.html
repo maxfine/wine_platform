@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>管家服务</title>
+<meta name="Keywords" content="点点客微伙伴、微信营销、微信代运营、微信定制开发、微网站、微营销">
+<meta name="Description" content="点点客微伙伴，国内最大的微信公众智能服务平台，点点客微伙伴十大功能体系：。">
+
+<!-- 移动设备支持 -->
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<!--手机端重置样式-->
+<link href="css/mod82.css" rel="stylesheet" type="text/css">
+<!--微网站模板106样式-->
+<link rel="stylesheet" href="css/menu.css" type="text/css" />
+<!--按钮导航样式-->
+<script type="text/javascript" src="js/jquery-1.js"></script>
+<script>
+$(function(){
+	var winheight=$(window).height();
+	$('#wrap').css('min-height',winheight-28+'px');//footer居底
+	$('.blankwhite').css('height','0px');
+});
+</script>
+</head>
+
+<body onselectstart="return true;" ondragstart="return false;">
+<div id="wrap" class="clr" style="background:#f4f3f3 ;">
+  <div class="banner_lc"> <img src="images/1cb2a363f40f9e7c9c6b10.jpg" alt=""> </div>
+  <div class="pro_tit" style="font-size:18px; border-bottom:3px solid #000; padding:2.3% 0 0.6% 0%;">
+    <h2><img style="padding-right:1%;" src="css/images/shu2.png">管家服务</h2>
+  </div>
+  <div class="menu106">
+    <dl>
+      <dt class="dt1">管家缘起<i></i></dt>
+      <dd> <a href="javascript:;" onclick="tongji(385735,0);">
+        <p>窗户是建筑的眼睛，无论是极品豪宅。</p>
+        </a> </dd>
+    </dl>
+    <dl>
+      <dt class="dt2">服务模式<i></i></dt>
+      <dd> <a href="javascript:;" onclick="tongji(385736,0);">
+        <p>好马配好鞍，好房配好窗。</p>
+        </a> </dd>
+    </dl>
+    <dl>
+      <dt class="dt3">服务理念<i></i></dt>
+      <dd> <a href="javascript:;" onclick="tongji(385737,0);">
+        <p>服务理念：华加日西林——门窗管家，“一心换三心”。</p>
+        </a> </dd>
+    </dl>
+    <dl>
+      <dt class="dt4">服务目标<i></i></dt>
+      <dd> <a href="javascript:;" onclick="tongji(385738,0);">
+        <p>华加日西林认为，中国市场上单纯的系统门窗产品及其对应的服务方式并不能保障最终的门窗品质。</p>
+        </a> </dd>
+    </dl>
+    <dl>
+      <dt class="dt5">服务模式<i></i></dt>
+      <dd> <a href="javascript:;" onclick="tongji(385739,0);">
+        <p>华加日西林以项目管理制为核心，提供以下七大服务模块。</p>
+        </a> </dd>
+    </dl>
+  </div>
+  
+  <!-- 代码 开始 --> 
+  
+  <script src="js/jquery.menu.js"></script> 
+  <script src="js/jquery-ui-1.8.20.custom.min.js"></script>
+  <div class="demo">
+    <div id="outer_container" class="outer_container" > <a class="menu_button" href="javascript:void(0);" title="Toggle"><span>Menu Toggle</span></a>
+      <ul class="menu_option">
+        <li><a href="#" target="_blank"><span class="sp1">Item</span></a></li>
+        <li><a href="#" target="_blank"><span class="sp2">Item</span></a></li>
+        <li><a href="#" target="_blank"><span class="sp3">Item</span></a></li>
+        <li><a href="#" target="_blank"><span class="sp4">Item</span></a></li>
+        <li><a href="#" target="_blank"><span class="sp5">Item</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  
+  <!-- 代码 结束 --> 
+  <script>
+function PieMenuInit(){		
+	$("#outer_container").PieMenu({
+		"starting_angel":0, //起始角度
+		"angel_difference" : 90, //散开角度
+		"radius":100, //圆形弧度
+	});			
+}
+$(function() {          
+	PieMenuInit();			
+});
+</script> 
+</div>
+<script type="text/javascript">
+	</script> 
+<script>
+ $(".menu106 dt").click(function(){
+	 var $that = $(this);
+	 if($that.find("p").length>0){return;}
+	 var zt = $that.parent().attr("class");
+	 if(zt!="list_now"){
+		 $(".menu106 dl").removeClass("list_now");
+		 $that.parent().addClass("list_now");
+		 $(".menu106 dd").slideUp(300);
+		 $that.next().slideDown(300);
+	 }else{
+		 $that.parent().removeClass("list_now"); 
+		 $that.next().slideUp(300);
+	 }
+ })
+</script>
+</body>
+</html>

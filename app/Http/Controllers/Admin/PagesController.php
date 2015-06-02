@@ -43,6 +43,7 @@ class PagesController extends Controller {
 			'body' => 'required',
 		]);
 
+
 		$page = new Page;
 		$page->title = Input::get('title');
 		$page->image= Input::get('image')?Input::get('image'):'';

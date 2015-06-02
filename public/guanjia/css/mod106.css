@@ -1,0 +1,26 @@
+@charset "utf-8";
+/*手机端样式*/
+#wrap {display:block;min-width: 320px; margin:0 auto; max-width:740px; width: 100%;overflow: hidden;-webkit-box-sizing: border-box; -moz-box-sizing:border-box; background:#000; }
+.banner{display:block; with:100%; max-width:740px;}
+.banner img{display:block; with:100%;}
+.menu106 dl{overflow:hidden;position:relative;display:block;background-color:#FFF;width:93%;min-height:50px;margin:10px auto 0;-ms-border-radius:10px; -o-border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;-webkit-box-shadow: 1px 1px 3px rgba(185,185,185,1);-moz-box-shadow: 1px 1px 3px rgba(185,185,185,1);box-shadow:1px 1px 3px rgba(185,185,185,1);margin-bottom:10px;}
+.menu106 dl dt{position:relative;height:60px;line-height:60px; background:#f0f0f0;color:#5f5f5f;font-size:16px;-ms-border-radius:10px; -o-border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;text-indent:20px;background-image:url(images/ico2.png);background-repeat:no-repeat; background-position:95% 50%;background-size:9px 13px;}
+.menu106 dl dt i{display:block; width:15px;height:9px;position:absolute;bottom:-1px;left:30px;}
+
+.menu106 dl.list_now dt{-ms-border-radius:10px 10px 0px 0px; -o-border-radius:10px 10px 0px 0px;-webkit-border-radius:10px 10px 0px 0px;-moz-border-radius:10px 10px 0px 0px;border-radius:10px 10px 0px 0px;border-bottom: 1px solid #dcdbdc;background-image:url(images/ico1.png);background-repeat:no-repeat; background-position:95% 50%;background-size:13px 9px;}
+.menu106 dl.list_now dt i{background-image: url(images/ico33.png);}
+.menu106 dl.list_now{background-color:#fff; padding-bottom:4px;}
+
+.menu106 dl dd{width:100%;overflow:hidden;display:none}
+.menu106 dl dd p{display:block; padding:8px 3.5%;min-height:45px;line-height:22px;color:#9d9d9d;font-size:14px; text-align:justify;}
+.menu106 dl dt.no_b{border:0px !important;}
+footer{display:block;width:100%;line-height:30px; background:#1f1f1f; color:#fff; font-size:1.4em; text-align:center;}
+.menu106 dl .dt1{ background:url(images/t1.jpg) no-repeat;}
+.menu106 dl .dt2{ background:url(images/t2.jpg) no-repeat;}
+.menu106 dl .dt3{ background:url(images/t3.jpg) no-repeat;}
+.menu106 dl .dt4{ background:url(images/t4.jpg) no-repeat;}
+.menu106 dl .dt5{ background:url(images/t5.jpg) no-repeat;}
+
+
+.banner_lc img{ width:100%;}
+

@@ -12,6 +12,8 @@
         "blueimp/jquery-file-upload": "9.9.3"
 	},
 	"require-dev": {
+        "barryvdh/laravel-ide-helper":"2.0.3",
+        "barryvdh/laravel-debugbar": "~2.0",
 		"phpunit/phpunit": "~4.0",
 		"phpspec/phpspec": "~2.1"
 	},
@@ -35,6 +37,7 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
+            "php artisan ide-helper:generate",
 			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
