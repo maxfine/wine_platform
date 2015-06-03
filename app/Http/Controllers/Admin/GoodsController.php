@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class GoodsController extends Controller {
 
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -107,14 +108,16 @@ class GoodsController extends Controller {
                 $attrIdList = Input::get('attr_id_list');
                 $attrValueList = Input::get('attr_value_list');
                 $attrPriceList = Input::get('attr_price_list');
-                $attrs = array_map(null, $attrIdList, $attrValueList, $attrPriceList);
-                foreach($attrs as $_v){
-                    $attr = new GoodsAttr;
-                    $attr->goods_id = $goods->id;
-                    $attr->attr_id = $_v[0];
-                    $attr->attr_value = $_v[1];
-                    $attr->attr_price = $_v[2]; //如果为字符串attr_price存入数据库为0
-                    if($attr->goods_id && $attr->attr_id && $attr->attr_value) $attr->save();
+                if(is_array($attrIdList)){
+                    $attrs = array_map(null, $attrIdList, $attrValueList, $attrPriceList);
+                    foreach($attrs as $_v){
+                        $attr = new GoodsAttr;
+                        $attr->goods_id = $goods->id;
+                        $attr->attr_id = $_v[0];
+                        $attr->attr_value = $_v[1];
+                        $attr->attr_price = $_v[2]; //如果为字符串attr_price存入数据库为0
+                        if($attr->goods_id && $attr->attr_id && $attr->attr_value) $attr->save();
+                    }
                 }
                 DB::commit();
                 return Redirect::to('admin/goods');
