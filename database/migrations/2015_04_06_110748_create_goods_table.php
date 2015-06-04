@@ -15,7 +15,7 @@ class CreateGoodsTable extends Migration {
 		Schema::create('goods', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('type_id')->default(0)->unsigned();
+            $table->integer('type_id')->nullable()->default(null)->unsigned();
             $table->integer('cat_id')->default(0)->unsigned();
             $table->integer('user_id')->default(0)->unsigned();
             $table->string('goods_sn',60)->default('');

@@ -70,7 +70,7 @@ class GoodsController extends Controller {
 		$goods->cat_id = Input::get('cat_id');
 		$goods->desc = Input::get('desc');
 		$goods->user_id = Auth::user()->id;
-		$goods->type_id= Input::get('type_id'); //to-do
+		$goods->type_id= Input::get('type_id')?Input::get('type_id'):null; //外键可以为空
 		$goods->brand_id= 1; //to-do
 
         if ($file = Input::file('image')) {

@@ -7,5 +7,10 @@
       <schema-pattern>jiu_znyes_com.*</schema-pattern>
       <default-schemas>jiu_znyes_com.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - jiu_znyes_com@localhost" uuid="e0e268c6-80e6-43d4-908d-32f1d5288639">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
   </component>
 </project>

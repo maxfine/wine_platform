@@ -453,4 +453,7 @@
       <index name="users_email_unique" unique="true" columns="email"/>
     </table>
   </data-source>
+  <data-source name="MySQL - jiu_znyes_com@localhost" uuid="e0e268c6-80e6-43d4-908d-32f1d5288639">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
