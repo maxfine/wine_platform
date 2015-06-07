@@ -33,7 +33,6 @@ class GoodsController extends Controller {
      */
     public function getList($catId)
     {
-        $cat = Category::find($catId);
         $goods = Goods::whereIn('cat_id', $cat->allCatIds())->paginate(10);
         return view('admin.goods.list')->with('goods', $goods);
     }

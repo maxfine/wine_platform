@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+!function(){
+	var key,
+		$img;
+	$("#upload").on("change",function(){
+		if(!this.value) return ;
+		this.form.submit();
+	});
+	$("#uploadtarget").on("load",function(){
+		var txt=$('#uploadtarget').contents().find('body').text();
+		txt=$.parseJSON(txt);
+        //异常
+		if(!txt.key){
+			alert("错误");
+			return ;
+		}
+
+		!$img&&($img=$('.avator-inner img'));
+		$img.attr("src",txt.imgpath);
+		postData.imgname=txt.key;
+		postData.imgpath=txt.imgpath;
+
+	});
+}();
+
+</script>
+</body>
