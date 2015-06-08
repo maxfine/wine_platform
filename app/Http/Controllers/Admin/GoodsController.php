@@ -77,7 +77,7 @@ class GoodsController extends Controller {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
-                return ['error' => 'You may only upload png, jpg or gif.'];
+                return ['error' => '只能上传png, jpg, gif格式'];
             }
             $fileName        = $file->getClientOriginalName();
             $extension       = $file->getClientOriginalExtension() ?: 'png';
