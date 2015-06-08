@@ -22,6 +22,8 @@ class ArticlesController extends Controller {
 
     public function getList($catId)
     {
+        $cat = ArticleCat::find($catId);
+        dump(ArticleCat::with('articles')->get());
         $articleCat = ArticleCat::find($catId);
         $articles = Article::whereIn('cat_id', $articleCat->allCatIds())->paginate(10);
         return view('admin.articles.list')->with('articles', $articles);

@@ -5,6 +5,14 @@ class MyTest extends TestCase {
     public function setUp()
     {
         parent::setUp();
+
+        $this->testFile = array(
+            'name'=>'2012-04-20 21.13.42.jpg',
+            'tmp_name'=>'C:\wamp\tmp\php8D20.tmp',
+            'type'=>'image/jpeg',
+            'size'=>1472190,
+            'error'=>0
+        );
     }
 
 	/**
