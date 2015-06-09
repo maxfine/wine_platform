@@ -20,7 +20,7 @@ class Goods extends Model {
     public function photos(){
         return $this->hasMany('App\Models\Photo');
     }
-    
+
     public function comments(){
         return $this->hasMany('App\Models\Comment','post_id')->where(['type'=>$this::commentType()])->get();
     }
