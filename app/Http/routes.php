@@ -15,6 +15,38 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('test', function(){
+    $parentArr = [];
+    $arr =
+        [
+            1=>['id'=>1, 'parentid'=>0, 'name'=>'一级栏目一'],
+            2=>['id'=>2, 'parentid'=>0, 'name'=>'一级栏目二'],
+            3=>['id'=>3, 'parentid'=>1, 'name'=>'二级栏目一'],
+            4=>['id'=>4, 'parentid'=>1, 'name'=>'二级栏目二'],
+            5=>['id'=>5, 'parentid'=>4, 'name'=>'三级栏目一'],
+        ];
+    $tree = new App\Extensions\CategoryTree($arr);
+    $myid = 1;
+
+    if(null !== $tree->getParent($myid)) {
+        $parentArr = $tree->getParent($myid);
+    }else{
+        return false;
+    }
+
+    dump($parentArr);
+});
+
+Route::get('/test2', function(){
+    DB::listen(function($sql, $bindings, $time)
+    {
+        dump($sql);
+    });
+    $data = \App\Model\Tag::find(68262);
+    dump($data);
+
+    //return $data;
+});
 
 /**
 Route::controllers([

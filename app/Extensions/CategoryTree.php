@@ -7,7 +7,7 @@
  * 树结构
  */
 
-namespace App\Exceptions;
+namespace App\Extensions;
 
 
 class CategoryTree {
@@ -25,15 +25,17 @@ class CategoryTree {
      * @param array $arr
      * $arr =
      * [
- *          1=>['id'=>1, 'parentid'=0, 'name'=>'一级栏目一'],
- *          2=>['id'=>2, 'parentid'=0, 'name'=>'一级栏目二'],
- *          3=>['id'=>3, 'parentid'=1, 'name'=>'二级栏目一'],
- *          4=>['id'=>4, 'parentid'=1, 'name'=>'二级栏目二'],
- *          5=>['id'=>5, 'parentid'=4, 'name'=>'三级栏目一'],
+     *          1=>['id'=>1, 'parentid'=0, 'name'=>'一级栏目一'],
+     *          2=>['id'=>2, 'parentid'=0, 'name'=>'一级栏目二'],
+     *          3=>['id'=>3, 'parentid'=1, 'name'=>'二级栏目一'],
+     *          4=>['id'=>4, 'parentid'=1, 'name'=>'二级栏目二'],
+     *          5=>['id'=>5, 'parentid'=4, 'name'=>'三级栏目一'],
      * ]
      */
     public function __construct($arr = []){
         $this->arr = $arr;
+        $this->ret = '';
+        return is_array($arr);
     }
 
     /**
@@ -43,7 +45,19 @@ class CategoryTree {
      * @param $myid
      */
     public function getParent($myid){
+        $newArr = [];
 
+        if(!isset($this->arr[$myid]))return false;
+        $pid = $this->arr[$myid]['parentid'];
+        if(!isset($this->arr[$pid]))return false;
+        $pid = $this->arr[$pid]['parentid'];
+        if(is_array($this->arr)){
+            foreach($this->arr as $id=>$a){
+                if($a['parentid'] === $pid)$newArr[] = $this->arr[$id];
+            }
+        }
+
+        return $newArr;
     }
 
     /**
@@ -53,7 +67,6 @@ class CategoryTree {
      * @param $myid
      */
     public function getChild($myid){
-
     }
 
     /**
