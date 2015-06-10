@@ -16,25 +16,26 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('test', function(){
-    $parentArr = [];
+    $a = [];
     $arr =
         [
-            1=>['id'=>1, 'parentid'=>0, 'name'=>'一级栏目一'],
-            2=>['id'=>2, 'parentid'=>0, 'name'=>'一级栏目二'],
-            3=>['id'=>3, 'parentid'=>1, 'name'=>'二级栏目一'],
-            4=>['id'=>4, 'parentid'=>1, 'name'=>'二级栏目二'],
-            5=>['id'=>5, 'parentid'=>4, 'name'=>'三级栏目一'],
+            1=>['id'=>1, 'parent_id'=>0, 'cat_name'=>'一级栏目一'],
+            2=>['id'=>2, 'parent_id'=>0, 'cat_name'=>'一级栏目二'],
+            3=>['id'=>3, 'parent_id'=>1, 'cat_name'=>'二级栏目一'],
+            4=>['id'=>4, 'parent_id'=>1, 'cat_name'=>'二级栏目二'],
+            5=>['id'=>5, 'parent_id'=>4, 'cat_name'=>'三级栏目一'],
         ];
-    $tree = new App\Extensions\CategoryTree($arr);
-    $myid = 1;
+    $tree = new App\Extensions\CategoryTree($arr, 'parent_id', 'cat_name');
+    $myid = 5;
+    $newArr = [];
 
-    if(null !== $tree->getParent($myid)) {
-        $parentArr = $tree->getParent($myid);
+    if(null !== $tree->getPos($myid, $newArr)) {
+        $a = $tree->getPos($myid, $newArr);
     }else{
         return false;
     }
 
-    dump($parentArr);
+    dump($a);
 });
 
 Route::get('/test2', function(){
