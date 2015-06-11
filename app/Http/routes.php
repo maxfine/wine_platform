@@ -26,16 +26,12 @@ Route::get('test', function(){
             5=>['id'=>5, 'parent_id'=>4, 'cat_name'=>'三级栏目一'],
         ];
     $tree = new App\Extensions\CategoryTree($arr, 'parent_id', 'cat_name');
-    $myid = 5;
+    $myid = 1;
     $newArr = [];
 
-    if(null !== $tree->getPos($myid, $newArr)) {
-        $a = $tree->getPos($myid, $newArr);
-    }else{
-        return false;
-    }
-
+    $a = $tree->getTree2($arr, $myid);
     dump($a);
+
 });
 
 Route::get('/test2', function(){

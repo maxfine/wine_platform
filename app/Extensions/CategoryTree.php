@@ -72,7 +72,7 @@ class CategoryTree {
      * ---------------------------------------------------------
      * 获取子级数组
      * ---------------------------------------------------------
-     * @param $myid
+     * @param $myid == $arr[$k][id]
      * @return array|bool
      */
     public function getChild($myid){
@@ -126,7 +126,42 @@ class CategoryTree {
      * 获取树形结构数组
      * ---------------------------------------------------------
      */
-    public function getTree(){
+    public function getTree($myid){
+        $a = [];
+        $arr = $this->arr;
+        $pIdName = $this->pIdName;
+        $idName = 'id';
+        $childsName = 'childs';
+
+        if(!isset($arr[$myid])) return false;
+        foreach($arr as $v){
+            if(isset($arr[$v[$pIdName]])){
+                $arr[$v[$pIdName]][$childsName][] = &$arr[$v[$idName]];
+            }else{
+                $a[] = &$arr[$v[$idName]];
+            }
+        }
+
+        return $arr;
+    }
+
+    public function getTree2(&$data, $myid=0){
+        $a = [];
+        $pIdName = $this->pIdName;
+        $idName = 'id';
+        $childsName = 'childs';
+
+        foreach($data as $k=>$v){
+            if($v[$pIdName] == $myid){
+                //删除
+                unset($data[$k]);
+                $v[$childsName] = $this->getTree2($data, $v['id']);
+                $a[] = $v;
+                dump($a);
+            }
+        }
+
+        return $a;
     }
 
     public function getChildJson(){
