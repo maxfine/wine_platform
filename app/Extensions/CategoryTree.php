@@ -75,7 +75,7 @@ class CategoryTree {
      * @param $myid == $arr[$k][id]
      * @return array|bool
      */
-    public function getChild($myid){
+    public function getChilds($myid){
         $newArr = [];
         $pIdName = $this->pIdName;
 
@@ -121,48 +121,31 @@ class CategoryTree {
         return $a;
     }
 
+
     /**
-     * ---------------------------------------------------------
-     * 获取树形结构数组
-     * ---------------------------------------------------------
+     * ----------------------------------------------------------
+     * 递归建树
+     * ----------------------------------------------------------
+     * @param $root_id
+     * @return null
      */
-    public function getTree($myid){
-        $a = [];
-        $arr = $this->arr;
+    public function getTree($rootId){
         $pIdName = $this->pIdName;
         $idName = 'id';
         $childsName = 'childs';
+        $funName = __FUNCTION__;
 
-        if(!isset($arr[$myid])) return false;
-        foreach($arr as $v){
-            if(isset($arr[$v[$pIdName]])){
-                $arr[$v[$pIdName]][$childsName][] = &$arr[$v[$idName]];
-            }else{
-                $a[] = &$arr[$v[$idName]];
+        $childs = $this->getChilds($rootId);
+        if(empty($childs)) return null;
+        foreach ($childs as $k => $v){
+            $rescurTree = $this->$funName($v[$idName]);
+            if( null !=   $rescurTree){
+                $childs[$k][$childsName] = $rescurTree;
             }
         }
-
-        return $arr;
+        return $childs;
     }
 
-    public function getTree2(&$data, $myid=0){
-        $a = [];
-        $pIdName = $this->pIdName;
-        $idName = 'id';
-        $childsName = 'childs';
-
-        foreach($data as $k=>$v){
-            if($v[$pIdName] == $myid){
-                //删除
-                unset($data[$k]);
-                $v[$childsName] = $this->getTree2($data, $v['id']);
-                $a[] = $v;
-                dump($a);
-            }
-        }
-
-        return $a;
-    }
 
     public function getChildJson(){
 

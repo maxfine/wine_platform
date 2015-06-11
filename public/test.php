@@ -292,9 +292,67 @@ class Test{
 }
 
 Test::sT();
--------------------------END-------------------------------------/
+-------------------------END-------------------------------------*/
 
+/**
+ * 如果a引用b,b又引用c,则a直接引用c, 如果此时b不是引用而是具体值或者null,则a引用b(引用是不可被引用的）
+ *
+//深入理解PHP对象赋值
+//如果a引用b,b又引用c,则a直接引用c, 如果此时b不是引用而是具体值或者null,则a引用b(引用是不可被引用的）
+echo '<pre>';
 
+$obj = new StdClass;
+$obj->name = 'Pig';
+var_dump($obj); //object(stdClass)#1 (1) { ["name"]=> string(3) "Pig" }
+
+$copy = $obj; // $obj ,$copy都是new StdClass返回的同一个标识符的拷贝
+var_dump($copy); //object(stdClass)#1 (1) { ["name"]=>string(3) "Pig" }
+
+$copy->name = 'dog';
+var_dump($obj); //充分证明对象赋值是引用传递
+
+$objRef = &$obj; // 此时会将$obj转换成引用，然后赋值给$objRef，因此$obj,$objRef都为引用
+var_dump($objRef);                  //object(stdClass)#1 (1) { ["name"]=>string(3) "Pig" }
+$obj = 'ddd';
+var_dump($obj);                    //object(stdClass)#2 (1) { ["name"]=>&string(11) "After Clone" }
+var_dump($objRef); //如果a引用b,b又引用c,则a直接引用c, 如果此时b不是引用而是具体值或者null,则a引用b(引用是不可被引用的）
+var_dump($copy);
+die();
+
+$objClone = clone $obj;             //新空间
+$obj->name = 'After Clone';
+var_dump($objClone); //object(stdClass)#1 (1) { ["name"]=>string(3) "Pig" }
+var_dump($obj);                    //object(stdClass)#1 (1) { ["name"]=>string(11) "After Clone" }
+
+//unset是删除引用效果
+$nameRef = &$obj->name;            //$obj->name被转换成引用（& string），然后赋给$nameRef
+var_dump($obj);                    //object(stdClass)#2 (1) { ["name"]=>&string(11) "After Clone" }
+
+unset($nameRef); //删除引用
+var_dump($obj);                    //object(stdClass)#1 (1) { ["name"]=>string(11) "After Clone" }
+
+//null是赋值效果
+$nameRef = &$obj->name;            //恢复name的引用
+var_dump($obj);                    //object(stdClass)#2 (1) { ["name"]=>&string(11) "After Clone" }
+$nameRef = null;
+var_dump($obj);                    //object(stdClass)#2 (1) { ["name"]=>&NULL }
+
+unset($objRef);                    //仅仅删除了引用
+var_dump($obj);                    //object(stdClass)#1 (1) { ["name"]=>&NULL }
+
+$objRef = &$obj; //恢复对象引用
+$obj->name = 'Lucy';
+$obj = null; //赋值$obj为null，$obj只是new StdClass的标识拷贝，不会影响其内容。
+//$objRef做为$obj的引用，会同时被赋值null
+//等价 $objRef = null;
+
+var_dump($obj,$copy,$objRef,$objClone);
+// NULL,
+// object(stdClass)#1 (1) { ["name"]=>&string(4) "Lucy" },
+// NULL,
+// object(stdClass)#1 (1) { ["name"]=>string(3) "Pig" }
+
+ * *********************************END************************************************/
 
 
 

@@ -57,8 +57,8 @@ class TreeTest extends TestCase{
         $tree = new App\Extensions\CategoryTree($arr, 'parent_id', 'cat_name');
         $myid = 1;
 
-        if(null !== $tree->getChild($myid)) {
-            $childArr = $tree->getChild($myid);
+        if(null !== $tree->getChilds($myid)) {
+            $childArr = $tree->getChilds($myid);
         }else{
             return false;
         }

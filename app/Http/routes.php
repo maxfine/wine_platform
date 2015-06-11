@@ -29,9 +29,8 @@ Route::get('test', function(){
     $myid = 1;
     $newArr = [];
 
-    $a = $tree->getTree2($arr, $myid);
+    $a = $tree->getTree($myid);
     dump($a);
-
 });
 
 Route::get('/test2', function(){
