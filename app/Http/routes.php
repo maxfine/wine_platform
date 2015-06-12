@@ -19,18 +19,20 @@ Route::get('test', function(){
     $a = [];
     $arr =
         [
-            1=>['id'=>1, 'parent_id'=>0, 'cat_name'=>'一级栏目一'],
-            2=>['id'=>2, 'parent_id'=>0, 'cat_name'=>'一级栏目二'],
-            3=>['id'=>3, 'parent_id'=>1, 'cat_name'=>'二级栏目一'],
-            4=>['id'=>4, 'parent_id'=>1, 'cat_name'=>'二级栏目二'],
-            5=>['id'=>5, 'parent_id'=>4, 'cat_name'=>'三级栏目一'],
+            ['id'=>1, 'parent_id'=>0, 'cat_name'=>'一级栏目一'],
+            ['id'=>3, 'parent_id'=>0, 'cat_name'=>'一级栏目二'],
+            ['id'=>4, 'parent_id'=>1, 'cat_name'=>'二级栏目一'],
+            ['id'=>6, 'parent_id'=>1, 'cat_name'=>'二级栏目二'],
+            ['id'=>8, 'parent_id'=>6, 'cat_name'=>'三级栏目一'],
+            ['id'=>12, 'parent_id'=>8, 'cat_name'=>'四级栏目一'],
+            ['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],
         ];
     $tree = new App\Extensions\CategoryTree($arr, 'parent_id', 'cat_name');
     $myid = 1;
-    $newArr = [];
+    $newArr = [['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],];
 
-    $a = $tree->getTree($myid);
-    dump($a);
+    $aaa = $tree->getChildsJson(1);
+    dump($aaa);
 });
 
 Route::get('/test2', function(){
