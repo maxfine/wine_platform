@@ -31,8 +31,12 @@ Route::get('test', function(){
     $myid = 1;
     $newArr = [['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],];
 
-    $aaa = $tree->getChildsJson(1);
-    dump($aaa);
+    $str = "<option value='\$id' \$selected >\$spacer\$cat_name</option>";
+    $aaa = $tree->getTreeCategory(1, $str, $str, 6);
+    echo '<select name="cat">';
+    echo "<option value='0'>顶级栏目</option>";
+    echo $aaa;
+    echo '</select>';
 });
 
 Route::get('/test2', function(){
@@ -41,7 +45,9 @@ Route::get('/test2', function(){
         dump($sql);
     });
     $data = \App\Model\Tag::find(68262);
-    dump($data);
+    echo '<select name="cat">';
+    echo $data;
+    echo '</select>';
 
     //return $data;
 });

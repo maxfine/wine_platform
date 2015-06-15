@@ -20,6 +20,8 @@ class CategoryTree {
     //空格
     public $nbsp = '&nbsp;';
 
+    public $idName = '';
+
     public $pIdName = '';
 
     public $catName = '';
@@ -31,15 +33,16 @@ class CategoryTree {
      * @param array $arr
      * $arr =
      * [
-     *          1=>['id'=>1, 'parentid'=0, 'name'=>'一级栏目一'],
-     *          2=>['id'=>2, 'parentid'=0, 'name'=>'一级栏目二'],
-     *          3=>['id'=>3, 'parentid'=1, 'name'=>'二级栏目一'],
-     *          4=>['id'=>4, 'parentid'=1, 'name'=>'二级栏目二'],
-     *          5=>['id'=>5, 'parentid'=4, 'name'=>'三级栏目一'],
+     *          1=>['id'=>1, 'parent_id'=0, 'cat_name'=>'一级栏目一'],
+     *          2=>['id'=>2, 'parent_id'=0, 'cat_name'=>'一级栏目二'],
+     *          3=>['id'=>3, 'parent_id'=1, 'cat_name'=>'二级栏目一'],
+     *          4=>['id'=>4, 'parent_id'=1, 'cat_name'=>'二级栏目二'],
+     *          5=>['id'=>5, 'parent_id'=4, 'cat_name'=>'三级栏目一'],
      * ]
      */
-    public function __construct($arr = [], $pIdName = 'parent_id', $catName = 'cat_name'){
+    public function __construct($arr = [], $pIdName = 'parent_id', $catName = 'cat_name', $idName = 'id'){
         $this->arr = $arr;
+        $this->idName = $idName;
         $this->pIdName = $pIdName;
         $this->catName = $catName;
         $this->ret = '';
@@ -101,7 +104,7 @@ class CategoryTree {
      */
     public function getPos($myid, &$newArr = []){
         $a = [];
-        $idName = 'id';
+        $idName = $this->idName;
         $pIdName = $this->pIdName;
         $arr = $this->arr;
         $funName = __FUNCTION__;
@@ -137,7 +140,7 @@ class CategoryTree {
     public function getTree($rootId){
         $pIdName = $this->pIdName;
         //字段名
-        $idName = 'id';
+        $idName = $this->idName;
         $childsName = 'childs';
         //本方法,递归使用,避免修改了方法名时递归方法名也要修改
         $funName = __FUNCTION__;
@@ -153,11 +156,21 @@ class CategoryTree {
         return $childs;
     }
 
-    public function getTreeCategory($myid, $str, $str2, $sid = 0, $adds = ''){
-        static $ret = '';
+    /**
+     * -----------------------------------------------------------------------
+     * 获取栏目tree(html)
+     * -----------------------------------------------------------------------
+     * @param $myid
+     * @param $str = '<option value="$id" $selected >$spacer.$cat_name</option>'
+     * @param $str2
+     * @param int $sid
+     * @param string $adds
+     * @return bool|string
+     */
+    public function getTreeCategory($myid, $str = '', $str2 = '', $sid = 0, $adds = ''){
         $pIdName = $this->pIdName;
         //字段名
-        $idName = 'id';
+        $idName = $this->idName;
         $childsName = 'childs';
         //本方法,递归使用,避免修改了方法名时递归方法名也要修改
         $funName = __FUNCTION__;
@@ -170,17 +183,41 @@ class CategoryTree {
             foreach ($childs as $k=>$v) {
                 $nstr = '';
 
-                $selected = $this->have($sid, $id) ? 'selected' : '';
-                @extract($v);
-                if(empty($html_disabled)){
-                    $nstr = eval("\$nstr = \"$str\"");
+                $j=$k='';
+                if($number==$total){
+                    $j .= $this->icon[2];
                 }else{
-                    $nstr = eval("\$nstr = \"$str2\"");
+                    $j .= $this->icon[1];
+                    $k = $adds ? $this->icon[0] : '';
                 }
-                $ret .= $nstr;
-                $this->$funName($v[$idName]);
+                $spacer = $adds ? $adds.$j : '';
+
+
+                $selected = $this->have($sid, $v[$idName]) ? 'selected' : '';
+                @extract($v); //['id'=> $id, 'parent_id'=>$parent_id, 'cat_name'=>$cat_name]
+                if(!isset($html_disabled) || empty($html_disabled)){
+                    eval("\$nstr = \"$str\";");
+                }else{
+                    eval("\$nstr = \"$str2\";");
+                }
+                $this->ret .= $nstr;
+                $this->$funName($v[$idName], $str, $str2, $sid, $adds.$k.'&nbsp');
             }
         }
+
+        return $this->ret;
+    }
+
+    /**
+     * ---------------------------------------------------------------------------------
+     * 是否选中
+     * ---------------------------------------------------------------------------------
+     * @param $list = '0,1,2,5'
+     * @param $item = '2'
+     * @return bool|int = 5
+     */
+    private  function have($list, $item){
+        return(strpos(',,'.$list.',', ','.$item.',')); //',,'避免返回0, 如果$item为空, 则返回0
     }
 
     /**
@@ -195,7 +232,7 @@ class CategoryTree {
         $pIdName = $this->pIdName;
         $catName = $this->catName;
         //字段名
-        $idName = 'id';
+        $idName = $this->idName;
 
         $childs = $this->getChilds($myid);
         $n = 0;
@@ -231,7 +268,7 @@ class CategoryTree {
     public function getKeyById($myid){
         $key = false;
         $arr = $this->arr;
-        $idName = 'id';
+        $idName = $this->idName;
         $pIdName = $this->pIdName;
 
         if(is_array($arr)){
