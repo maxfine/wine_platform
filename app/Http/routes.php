@@ -27,7 +27,7 @@ Route::get('test', function(){
             ['id'=>12, 'parent_id'=>8, 'cat_name'=>'四级栏目一'],
             ['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],
         ];
-    $tree = new App\Extensions\CategoryTree($arr, 'parent_id', 'cat_name');
+    $tree = new App\Extensions\Tree($arr, 'parent_id', 'cat_name');
     $myid = 1;
     $newArr = [['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],];
 

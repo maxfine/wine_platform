@@ -354,5 +354,96 @@ var_dump($obj,$copy,$objRef,$objClone);
 
  * *********************************END************************************************/
 
+/**
+ * ---------------------------------------------------------------------
+ * php正则
+ * ---------------------------------------------------------------------
+ * 字符串查找：preg_match, preg_match_all 区别preg_match查找出第一个,preg_match_all查找所有, 两个函数都把查找的结果引用传递给第三个参数
+ * 数组查找：preg_grep匹配数组
+ * 字符串与数组替换：preg_replace, preg_filter, 相同点：三参数都可为数组, 第一和第二个参数数组长度一样, 不同点：preg_filter会过滤掉没有匹配的数据列
+ * 整体装换：preg_split
+ * 正则符号: ^(![.\-]{?+*}|)$=<>:
+ */
+$pattern = '/[0-9]/';
+$subject = 'abc123def321ghi4';
+
+$j = preg_match($pattern, $subject, $arr1);
+$k = preg_match_all($pattern, $subject, $arr2);
+
+show($arr1);
+show($arr2);
+show($j);
+show($k);
+
+$pattern = ['/[0-3]/', '/[4-7]/', '/[8-9]/'];
+$replaceMent = ['孔', '思', '凡'];
+//$subject = 'abc123def321ghi4';
+$subject = ['abc', 'bcd1', 'efg5', 'h4hh8'];
+
+$str1 = preg_replace($pattern, $replaceMent, $subject);
+$str2 = preg_filter($pattern, $replaceMent, $subject);
+show($str1);
+show($str2);
+
+$pattern = '/[0-9]{1,}/';
+$subject = 'abc12bcd6ff';
+
+$arr = preg_split($pattern, $subject);
+
+show($arr);
+
+//修正模式
+$pattern = '/[iy].*[01]/';
+$subject = 'i like you 520520520 you like me 520520520';
+
+$j = preg_match($pattern, $subject, $arr1);
+$k = preg_match_all($pattern, $subject, $arr2);
+
+show($arr1);
+show($arr2);
+
+function show($v){
+    static $n = 0;
+
+    if($n>0){
+        echo '<br/>';
+        echo '<br/>';
+    }
+    echo '*****************';
+        echo '<br/>';
+    echo $n++;
+        echo '<br/>';
+    echo '*****************';
+    echo '<pre>';
+    print_r($v);
+    echo '</pre>';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
