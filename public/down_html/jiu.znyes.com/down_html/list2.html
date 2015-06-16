@@ -1,0 +1,1154 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>
+        主机管理-会员专区-万网(www.net.cn)
+    </title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="data-spm" content="5176">
+    <meta name="_ww_csrf_header" content="ce49df15-03e7-4b4e-a05a-0e9da7c9a5f3" />
+    <link rel="shortcut icon" href="//www.aliyun.com/favicon.ico" type="image/x-icon">
+    <!--静态资源公共部分-开始-->
+    <link rel="stylesheet" href="http://g.alicdn.com/aliyun/console/1.3.19/styles/??bootstrap/bootstrap.css,angular-growl.min.css,console1412.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/hichina/user-center/1.0.0/style/huc.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/hichina/user-center/1.0.0/vendor/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/hichina/user-center/1.0.0/dpl/style/base.css"><!--[if lt IE 8]>
+    <script src="//g.alicdn.com/aliyun/console/1.3.19/scripts/browser-not-supported.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="//g.alicdn.com/aliyun/console/1.3.19/vendor/html5shiv/dist/html5shiv.js"></script>
+    <script src="//g.alicdn.com/aliyun/console/1.3.19/vendor/respond/dest/respond.min.js"></script>
+    <link id="respond-proxy" href="//g.alicdn.com/aliyun/console/1.3.19/vendor/respond/cross-domain/respond-proxy.html" rel="respond-proxy">
+    <link id="respond-redirect" href="/js/console/respond.proxy.gif" rel="respond-redirect">
+    <script src="/js/console/respond.proxy.js"></script><![endif]-->
+    <script src="http://g.alicdn.com/hichina/user-center/1.0.0/vendor/jquery-1.7.1.min.js"></script>
+    <!--静态资源公共部分-结束-->
+    
+</head>
+<body data-spm="200021"><script type="text/javascript">
+(function (d) {
+var t=d.createElement("script");t.type="text/javascript";t.async=true;t.id="tb-beacon-aplus";
+t.setAttribute("exparams","category=&userid=&aplus&yunid=%22max%5ffine%40qq%2ecom%22");
+t.src=("https:"==d.location.protocol?"https://s":"http://a")+".tbcdn.cn/s/aplus_v2.js";
+d.getElementsByTagName("head")[0].appendChild(t);
+})(document);
+</script>
+
+<!--页面主体部分-开始-->
+<div style="z-index: 99" class="viewFramework-body viewFramework-sidebar-mini">
+    <div class="viewFramework-sidebar"></div>
+    <div class="viewFramework-product viewFramework-product-col-1">
+        <div class="viewFramework-product-navbar" data-spm="n1">
+            
+
+
+
+
+<!--product nav-->
+<div class="product-nav-stage product-nav-stage-main">
+    <div class="product-nav-scene product-nav-main-scene">
+        <div class="product-nav-title">万网主机</div>
+        <div class="product-nav-list">
+            <ul class="top-level">
+                <li><a href="/core/host/list2" class="active">
+                    <div class="nav-icon"></div>
+                    <div class="nav-title">云虚拟主机</div></a></li>
+                <li><a href="/core/host/list3">
+                    <div class="nav-icon"></div>
+                    <div class="nav-title">锋云/翔云/独享主机</div></a></li>
+                <li><a href="/core/host/operaterecords">
+                    <div class="nav-icon"></div>
+                    <div class="nav-title">操作记录</div></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var TOPBAR_CONFIG={};
+    TOPBAR_CONFIG.productId="hosting";
+</script>
+        </div>
+        <div class="viewFramework-product-body">
+            <!--product body-->
+            <div class="console-container" data-spm="n2">
+                <div class="row">
+                    <div class="col-sm-12">
+                        
+
+
+
+
+
+<div id="table" class="console-title console-title-border clearfix">
+  <div class="pull-left">
+    <h5>主机列表</h5>
+  </div>
+    <div class="pull-right">
+        <a style="padding-top: 30px;" class="btn btn-link" href="http://tb.cn/tsDzl6y" target="_blank">新版反馈</a>
+        <a style="padding-top: 30px;padding-left: 5px;" class="btn btn-link" href="http://www.net.cn/core/host/list2?nfrb=1">返回旧版万网会员中心&gt;&gt;</a>
+    </div>
+</div>
+<div class="margin-top-2"></div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="/core/host/list2">全部主机</a></li>
+    <li><a href="/core/host/needpayhost2list">急需续费主机    </a></li>
+      <li class="pull-right" style="border:none">
+          <div class="margin-top"><a href="/core/host/onlinerefund" class="btn btn-link" target="_blank">5天无理由退款</a>
+              <a id="toExcel" href="javascript:;" class="btn btn-link" data-spm-click="gostr=/aliyun;locaid=d2">导出列表</a></div>
+      </li>
+  </ul>
+  <div class="search-form margin-top-1"></div>
+
+<div id="tabPanelContent">
+<form id="Host_List_SearchForm" class="form-inline" action="/core/host/list2" method="post">
+  
+    <div class="form-group">
+      <label class="control-label">主机名:</label>
+      <input id="saleKey" name="saleKey" type="text"  placeholder="例如：hyw15312" class="form-control ipt">
+    </div>
+    <div class="form-group">
+      <label class="control-label">主机域名:</label>
+      <input id="relatedName" name="relatedName" type="text" placeholder="例如：mydomain.com" class="ipt form-control" style="width:145px;">
+    </div>
+    <div class="form-group">
+      <label class="control-label">到期日:</label>
+      <input name="startDate" id="startDate" id="J_iptDatepicker" readonly="" class="ipt form-control"><span class="date-step-span">&nbsp;&nbsp;至&nbsp;</span>
+      <input name="endDate" id="endDate"  id="J_iptDatepickerUnit" readonly="" class="ipt form-control">
+      <button type="button" id="btnSearch" name=" btnSearch" class="btn btn-default" data-spm-click="gostr=/aliyun;locaid=d1">搜索    </button>
+    </div>
+    
+  <input type="hidden" name="_ww_csrf_token" value="ce49df15-03e7-4b4e-a05a-0e9da7c9a5f3"></input>
+</form>
+
+<div class="margin-top-1"></div>
+  <form id="gridForm" action="/core/host/list2" method="post">
+  <table class="table table-hover">
+  <thead>
+  <tr>
+    <th width="3%">
+      <input type="checkbox" name="ckSelectAll" class="ckSelectAll"  autocomplete="off" />
+    </th>
+    <th width="20%">主机名/主机类型</th>
+    <th width="7%">配置</th>
+    <th width="22%">主机域名</th>
+    <th width="15%">IP地址</th>
+    <th width="10%">到期日</th>
+    <th width="18%" class="text-right">操作</th>
+  </tr>
+  </thead>
+  <tbody  id="tbinfo">
+
+  <tr>
+    <td colspan="7" align="center"><span>正在加载数据...</span></td>
+  </tr>
+
+  </tbody>
+    <tfoot>
+    <tr>
+      <td>
+        <input type="checkbox" name="ckSelectAll" class="ckSelectAll"  autocomplete="off" />
+      </td>
+      <td colspan="6">
+        <div class="pull-left">
+              <button id="autoRenew" type="button" class="btn btn-default" data-spm-click="gostr=/aliyun;locaid=d3">设置自动续费</button>
+              <button id="renew" type="button" class="btn btn-default" data-spm-click="gostr=/aliyun;locaid=d4">主机续费</button>
+              <button id="transferID" type="button" class="btn btn-default" data-spm-click="gostr=/aliyun;locaid=d5">转至其他账号          </button>
+        </div>
+        <div class="pull-right" id="pagerDiv" >
+          <div class="pagination-info"></div>
+          <ul class="pagination"></ul>
+          <div class="pagination-goto">
+            <input name="gPage" id="gPage" type="text" class="ipt form-control">
+            <button type="button" class="btn btn-default" onclick="helper.gotoPage();"  data-spm-click="gostr=/aliyun;locaid=d6">GO</button>
+          </div>
+        </div>
+
+        <input type="hidden" id="pageIndex" name="pageIndex" value="1" />
+        <input type="hidden" id="totalCount" name="totalCount" value="0" />
+        <input type="hidden" id="totalPage" name="totalPage" value="1" />
+      </td>
+    </tr>
+    </tfoot>
+
+</table>
+  <input type="hidden" name="_ww_csrf_token" value="ce49df15-03e7-4b4e-a05a-0e9da7c9a5f3"></input>
+</form>
+</div>
+  <div class="margin-top-2">
+    <div class="new-hand-box">
+      <p>新手必读：<a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5868510&categoryId=8311129" target="_blank">主机使用指南</a>&nbsp;&nbsp;&nbsp;<a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5867957&categoryId=8311122" target="_blank">网站如何开通</a></p>
+      <div class="margin-top-2 clearfix">
+        <div class="new-hand-step step-col-5">
+          <dl class="clearfix">
+            <dt>1</dt>
+            <dd> <span>获取主机信息</span><br><a href="http://help.www.net.cn/KnowledgeDetail.html?knowledgeId=5868508&categoryId=8311129" target="_blank">如何获取主机信息？              </a></dd>
+          </dl>
+        </div>
+        <div class="new-hend-arr host-hend"></div>
+        <div class="new-hand-step step-col-5">
+          <dl class="clearfix">
+            <dt>2</dt>
+            <dd> <span>网站备案（申请接入）</span><br><a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5868507&categoryId=8311129" target="_blank">如何进行网站备案？</a></dd>
+          </dl>
+        </div>
+        <div class="new-hend-arr host-hend"></div>
+        <div class="new-hand-step step-col-5">
+          <dl class="clearfix">
+            <dt>3</dt>
+            <dd> <span>上传网站/数据库数据</span><br><a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5868398" target="_blank">如何上传FTP网站程序</a><br><a href="http://help.www.net.cn/KnowledgeDetail.html?knowledgeId=5868475&categoryId=8311130" target="_blank">如何进行数据库信息上传？</a></dd>
+          </dl>
+        </div>
+        <div class="new-hend-arr host-hend"></div>
+        <div class="new-hand-step step-col-5">
+          <dl class="clearfix">
+            <dt>4</dt>
+            <dd> <span>网站调试</span><br><a href="http://help.www.net.cn/knowledge_detail.htm?categoryId=8311130&knowledgeId=5868482" target="_blank">如何进行网站调试？              </a></dd>
+          </dl>
+        </div>
+        <div class="new-hend-arr host-hend"></div>
+        <div class="new-hand-step step-col-5">
+          <dl class="clearfix">
+            <dt>5</dt>
+            <dd> <span>域名解析、域名绑定</span><br><a href="http://help.www.net.cn/KnowledgeDetail.html?knowledgeId=5867822&categoryId=8311104" target="_blank">如何设置域名信息？</a><br><a href="http://help.www.net.cn/KnowledgeDetail.html?knowledgeId=5868509&categoryId=8311129" target="_blank">如何绑定主机域名？  </a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="margin-top-1"></div>
+  <div class="col-padding-2 host-qa"><b>常见问题：</b>
+    <a href="http://help.www.net.cn/knowledge_detail.htm?categoryId=8311131&knowledgeId=5868520" target="_blank" class="col-padding-1">管理控制台使用帮助？</a>
+    <a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5868381&categoryId=8311136" target="_blank" class="col-padding-1">FTP上传注意事项？</a>
+    <a href="http://help.www.net.cn/KnowledgeDetail.html?knowledgeId=5868377" target="_blank" class="col-padding-1">网站无法访问常见问题？</a>
+    <a href="http://help.www.net.cn/knowledge_detail.htm?categoryId=8311132&knowledgeId=5868431" target="_blank" class="col-padding-1">网站文件备份？</a>
+    <a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5868496&categoryId=8311129" target="_blank" class="col-padding-1">如何更换操作系统？</a>
+    <a href="http://help.www.net.cn/knowledge_detail.htm?knowledgeId=5868182&categoryId=8311126" target="_blank" class="col-padding-1">如何升级？</a>
+    <a href="http://help.www.net.cn/" target="_blank" class="col-padding-1">更多>></a></div>
+  <div class="margin-top-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页面topbar-结束-->
+<!--页面主体部分-开始-->
+<!--页面主体部分-结束-->
+<!--页面底部公用JS-开始-->
+<script>window.activeProductNav='云虚拟主机';</script>
+<script src="//g.alicdn.com/hichina/user-center/1.0.0/vendor/jquery.json-2.3.js"></script>
+<script src="//g.alicdn.com/hichina/user-center/1.0.0/vendor/jquery.cookie.js"></script>
+<script src="//g.alicdn.com/hichina/user-center/1.0.0/dpl/script/all.js"></script>
+<script src="//g.alicdn.com/hichina/home/2.0.5/dpl/vendor/script/aplus.js"></script>
+
+
+
+<script>
+    window.SIDEBAR_CONFIG ={
+        appendNode:".viewFramework-sidebar"
+    };
+</script>
+<script src="//g.alicdn.com/aliyun/console/1.3.19/scripts/thirdparty/jquery-sidebar.js"></script>
+<script src="//g.alicdn.com/aliyun/console/1.3.19/scripts/thirdparty/jquery-topbar.js"></script>
+<!--页面底部公用JS-结束-->
+<script src="http://netcn.console.aliyun.com/js/csrftoken.js" type="text/javascript"></script>
+<script src="http://netcn.console.aliyun.com/js/console-guide.js" type="text/javascript"></script>
+<script>
+    $(function() {
+        csrfToken.init();
+    });
+    var alertDef = function(msg){
+        HichinaConsole.popup.alert({
+            title:'',
+            contTitle:'',
+            contMsg: msg,
+            btnYes: '确定',
+            btnNo: ''
+        });
+    }
+    var alertUnPay = function(msg){
+        HichinaConsole.popup.confirm({
+            title:'',
+            contTitle:'',
+            contMsg:msg,
+            btnYesClick:function(dialog,instance,opts){
+                window.location.href="/core/sale/unpaidlist";
+            }
+        });
+    }
+</script>
+
+
+
+
+
+<script	src="//netcn.console.aliyun.com/js/jquery.ui/jquery-ui-min.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/hichina.validator.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/utils.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/jquery.loadmask.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/utils/pager.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/hichina.customercenter.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/jquery.json-2.3.js" type="text/javascript"></script>
+<script src="//netcn.console.aliyun.com/js/jquery.cookie/jquery.cookie.js" type="text/javascript"></script>
+<script src="/js/csrftoken.js" type="text/javascript"></script>
+<script type="text/javascript">
+//修改版  js
+$(function() {
+    //加引导
+    ConsoleGuide.showGuide();
+    csrfToken.init();
+    window.hichina.customercenter.SetCustomerCenterMenuA("我的主机");
+	$("#startDate").datepicker();
+  $("#endDate").datepicker();
+  helper.init();
+  functionMenuModule.init();
+});
+
+var host2ProductInfo = {
+		vHostSellings : '["19362", "19382", "19383", "19402", "19422", "19442", "19462", "19463", "19464", "19792", "19482", "29001", "29002", "29003", "29004"]',
+		vHostStopped : '["10201", "10202", "10204", "10205", "10842", "11181", "11502", "11541", "12061", "12062", "12063", "13081", "13101", "13401", "14401", "14661", "14662", "14941", "14961", "15741", "16021", "16022", "16041", "16541", "17182", "17202", "19384", "19542"]',
+		cloudHostSellings : '["19753", "25001", "25002", "27001", "27002", "30001", "30002", "30003", "30004", "30005"]',
+		cloudHostStopped : '["17402", "19751", "19752", "19754"]',
+    hkCloudHostSellings : '["28001", "28002", "28003", "28004"]',
+		
+		getProductInfo: function(productId) {
+			var me = host2ProductInfo;
+			
+			var info = '';
+			if($.inArray(productId, JSON.parse(me.vHostSellings)) != -1) {
+				info = 'vsellings';
+			} else if($.inArray(productId, JSON.parse(me.vHostStopped)) != -1) {
+				info = 'vstopped';
+			} else if($.inArray(productId, JSON.parse(me.cloudHostSellings)) != -1) {
+				info = 'cselling';
+			} else if($.inArray(productId, JSON.parse(me.cloudHostStopped)) != -1) {
+                info = 'cstopped';
+			} else if($.inArray(productId, JSON.parse(me.hkCloudHostSellings)) != -1) {
+                info = 'hkhost';
+            }
+
+            return info;
+		}
+};
+
+var helper = {
+		
+		init: function() {
+			var me = helper;
+			
+			me.getDataFunc(1);
+			$('#btnSearch').click(function() {
+				me.getDataFunc(1);
+			});
+			
+			$(".ckSelectAll").click(me.checkedAll);
+			$(".time-tip-close").click(me.hideTimeTips);
+			
+			$("#endDate").focus(function() {
+				$(".time-tip-cont").hide();
+			});
+            
+		},
+		
+		hideTimeTips: function() {
+			$(".time-tip-cont").hide();
+		},
+		
+		PAGE_SIZE : 10,
+		url : "/core/host/gethost2data",
+		createParams : function(pageIndex) {
+				var me = helper;
+				
+				var params = {
+						relatedName :  $.trim($("#relatedName").val()),
+						saleKey :  encodeURIComponent($.trim($("#saleKey").val())),
+// 						orderGroupID :  $("#orderGroupID").val(),
+						startDate :  $.trim($("#startDate").val()),
+						endDate :  $.trim($("#endDate").val()),
+						pageSize : me.PAGE_SIZE,
+						pageIndex : pageIndex
+				};
+
+				return params;
+		},
+		
+		getDataFunc: function(pageIndex) {
+			var me = helper;
+			
+			$(".time-tip-cont").hide();
+			
+			var startDate = $.trim($("#startDate").val());
+			var endDate = $.trim($("#endDate").val());
+			if(startDate != '' && !me.isDateValid(startDate)) {
+				$("#startDate").select().focus();
+				return;
+			}
+			if(endDate != '' && !me.isDateValid(endDate)) {
+				$("#endDate").select().focus();
+				return;
+			}
+			
+			if(startDate != '' && endDate != '' && endDate < startDate) {
+				$(".time-tip-cont").show();
+				return;
+			}
+			
+			$("#tabPanelContent").mask('');
+			$.post(me.url, me.createParams(pageIndex), function(result) {
+				$("#tabPanelContent").unmask();
+				//result为一个长度为2的数组，如果只有一个数据，说明来自主机的数据列表有问题或者为空，导致没有读取saleProduct数据
+				if(result.length == 1) {
+					//说明数据读取ok，但是数据数量为空
+					var info = "<tr> \
+										<td colspan=\"7\" align=\"center\" class=\"no-hover-white\"> \
+											 <div class=\"none-data-info text-center\"><span class=\"text-primary icon-info-1 margin-right\"></span>没有查询到符合条件的产品，请尝试更改关键词或其他选项</div>\
+										</td> \
+            					</tr>";
+					$("#tbinfo").empty();
+					$("#tbinfo").html(info);
+				} else {
+					//这里需要从result[0] 里获取主机数据，从result[1]里获取saleProduct信息
+					me.renderTBody(result);
+//					me.showPager(result[0].data.page.currentIndex, result[0].data.page.pageSize, result[0].data.page.totalCount);
+					me.renderPagedLinks(result[0].data);
+				}
+			}).error(function() {
+				$("#tabPanelContent").unmask();
+                alertDef('error');
+			});
+		},
+		
+		isDateValid: function(str) {
+			var reg = /^(\d{4})-(\d{2})-(\d{2})$/;  
+	      	if (!(reg.test(str) && RegExp.$2 <= 12 && RegExp.$3 <= 31)){
+	        	alertDef("请输入正确的日期格式，例如1990-01-23!");
+	        	return false;
+	      	}  
+	        return true;  
+		},
+		
+		renderTBody : function(data) {
+				var me = helper;
+				
+				var hostInfos = data[0].data.list;
+				var sps = data[1];
+				
+				var info = "";
+			$.each(hostInfos, function(index, entity) {
+					var ckboxValue = entity.instanceId;
+					var sp = sps[ckboxValue];
+					var isSpOk = me.isSpOk(sp);
+					
+                    var deadDateStr = me.getDeadDate(entity.expireTime, sp);
+                    var opStr = me.getOpStr(entity.instanceId, sp, entity.hostName);
+                    var orderSourceStr = isSpOk?sp.orderSource:"";
+                    if(orderSourceStr == 'AC'){
+                        $('#acToBc').show();
+                    }
+					var cpuAndMemInfo = '&lt;span class=&quot;host-pop-text&quot;&gt;CPU：&lt;/span&gt;'+entity.cpu+' &lt;span class=&quot;host-pop-text&quot;&gt;内存：&lt;/span&gt;'+entity.memory+'&lt;br&gt;';
+					var daikuanInfo = '&nbsp;&nbsp;&nbsp;&lt;span class=&quot;host-pop-text&quot;&gt;带宽：&lt;/span&gt;'+entity.bandWidth;
+					var spaceInfo = '&lt;span class=&quot;host-pop-text&quot;&gt;空间：&lt;/span&gt;'+entity.space;
+                    if(entity.bandWidth == null || entity.bandWidth == '') {
+                    	daikuanInfo = '&nbsp;&nbsp;&nbsp;&lt;span class=&quot;host-pop-text&quot;&gt;流量：&lt;/span&gt;'+entity.flow;
+                    	cpuAndMemInfo = '';
+                    }
+
+                    var moreOpt = me.getMoreOpt(isSpOk, sp, ckboxValue,entity.hostName);
+
+					var isFreeHost = false;
+                    if(sp !== undefined && sp.saleProductInfo != undefined && sp.saleProductInfo.saleInfoMap != undefined && sp.saleProductInfo.saleInfoMap !== null) {
+                        isFreeHost = sp.saleProductInfo.saleInfoMap.isFreeHost;
+                    }
+
+					var checkboxHtml = me.getCheckBoxHtml(entity.hostName,ckboxValue,isFreeHost);
+
+					var domains = '';
+					if(entity.domains){
+						for(var i=0; i<entity.domains.length;i++){
+							domains += "<span>"+entity.domains[i] + "</span><br/>";
+						}
+					}
+				   if(domains == ''){
+					   domains = entity.domain;
+				   }
+
+					info += '<tr>'+
+      			            '  <td>'+ checkboxHtml +'</td>'+
+      			            ' <td>'+
+      			            '    <a href="/core/sso/login?saleID=' + entity.instanceId + '&tk=c2dd42e14e57b6f4f18372014d5c92f3&bucUrl=http://cp.hichina.com%3Fsiteid=' + entity.hostName + '%26url=index" class="link_bluel" target="_blank"  data-spm-click="gostr=/aliyun;locaid=d9"><span>' + entity.hostName + '</span></a>'+
+      			            '    <br /><span>'+ entity.hostType + '</span>'+
+      			            '  </td>'+
+      			            '  <td>'+
+							'<span popover="'+cpuAndMemInfo+spaceInfo+daikuanInfo+'" popover-offset-x="-10" class="host-pz icon-detail"></span>'+
+      			            '  </td>'+
+      			            '  <td ><span>' + domains + '</span></td>'+
+      			            '  <td><span>' + entity.ip + '</span></td>'+
+      			            '  <td><span>' + deadDateStr + '</span></td>'+
+//                            '  <td>' + orderSourceStr + '</td>'+
+      			            '  <td>'+
+      			            '    <div class="text-right">' + opStr + '</div>' + moreOpt +
+      			            '  </td>'+
+      			            '</tr>';
+
+						if(!isSpOk || sp.actionType == "probation")
+							info = info.replace("DISABLED", "disabled=\"disabled\"");
+						else
+							info = info.replace("DISABLED", "");
+				});
+				$("#tbinfo").empty();
+				$("#tbinfo").html(info);
+				
+				//更多操作
+				  var m = null; 
+				  $(".manageMore").click(function(){
+				      window.clearTimeout(m);
+				      $(this).children(".manageInfo").removeClass("manageShow").hide();
+				      $(this).siblings(".manageInfo").addClass("manageShow").show();
+				  });
+				  
+				  $(".manageMore,.manageInfo").mouseover(function(){ window.clearTimeout(m);}).mouseleave(function(){
+				    m=window.setTimeout(function(){
+				    $(".manageShow").removeClass("manageShow").hide();
+				  },200);  
+				  });
+		},
+		
+	isSpOk: function(sp) {
+		if(sp === undefined || sp === null || sp === '') {
+			return false;
+		}else {
+			return true;
+		}
+	},
+	
+	getMoreOpt: function(isSpOk, sp, saleID,domain) {
+		if(!isSpOk) {
+			return '';
+		}
+        var orderSource = sp.orderSource;
+        if(orderSource != null && orderSource != '' && orderSource != 'BC' && orderSource != 'API') {
+            return '';
+        }
+        var overDays = sp.saleProductInfo.saleInfoMap.overDays;
+        if(overDays > 0){
+            //已过期
+            return '';
+        }
+        //已失败
+        if(sp.bizStatus == 1) {
+            return '';
+        }
+		var isProbation = sp.actionType == "probation" ? true : false;
+		if(isProbation) {
+			return '<div class="manage text-right">'+
+                    '      <div class="manageMore"><a href="#">更多操作</a></div>'+
+                    '        <div class="manageInfo host-Poprace" style="display: none;">'+
+                	'          	 <a onclick="resetPwd(\''+domain+'\',\''+saleID+'\');" href="#" data-spm-click="gostr=/aliyun;locaid=d7">重置管理密码</a><br>'+
+                    '        </div>'+
+                    '    </div>';
+		}
+		
+		var productInfo = host2ProductInfo.getProductInfo(sp.productID);
+		var optionalOpts = '';
+		if(productInfo == 'vsellings') {
+			optionalOpts += '            <a href="/core/host/addspace?saleID=' + saleID + '">增加空间</a><br>'+
+                            '            <a class="cur" href="/core/host/addflux?saleID=' + saleID + '">购买流量</a><br>'+
+                            '            <a href="javascript:upgrade(2,\''+saleID+'\')">更改主机机房</a><br>'+
+                            '            <a class="cur" href="javascript:upgrade(3,\''+saleID+'\')"> 更改操作系统</a><br>';
+		} else if(productInfo == 'vstopped') {
+			optionalOpts += '            <a href="/core/host/addspace?saleID=' + saleID + '">增加空间</a><br>'+
+                            '            <a class="cur" href="/core/host/addflux?saleID=' + saleID + '">购买流量</a><br>';
+        } else if(productInfo == 'cselling') {
+        	optionalOpts += '            <a href="/core/host/addbandwidth?saleID=' + saleID + '">增加带宽</a><br>'+
+                            '            <a href="javascript:upgrade(2,\''+saleID+'\')">更改主机机房</a><br>'+
+                            '            <a class="cur" href="javascript:upgrade(3,\''+saleID+'\')"> 更改操作系统</a><br>';
+        } else if(productInfo == 'cstopped') {
+            optionalOpts += '            <a href="/core/host/addbandwidth?saleID=' + saleID + '">增加带宽</a><br>';
+        } else if(productInfo == 'hkhost') {
+            optionalOpts += '            <a href="/core/host/addbandwidth?saleID=' + saleID + '">增加带宽</a><br>';
+        }
+
+        var moreOpt = '<div class="manage text-right">'+
+                    '      <div class="manageMore"><a href="#">更多操作</a></div>'+
+                    '        <div class="manageInfo host-Poprace" style="display: none;">'+
+                	'          	 <a onclick="resetPwd(\''+domain+'\',\''+saleID+'\');" href="#" data-spm-click="gostr=/aliyun;locaid=d7">重置管理密码</a><br>'+
+                    '            <a class="cur beianclick" href="javascript:void();"  data-spm-click="gostr=/aliyun;locaid=d10">备案</a><br>'+ optionalOpts +
+                    '        </div>'+
+                    '    </div>';
+		if(productInfo == 'hkhost'){
+            moreOpt = '<div class="manage text-right">'+
+            '      <div class="manageMore"><a href="#">更多操作</a></div>'+
+            '        <div class="manageInfo host-Poprace" style="display: none;">'+
+            '          	 <a onclick="resetPwd(\''+domain+'\',\''+saleID+'\');"  href="#" data-spm-click="gostr=/aliyun;locaid=d7">重置管理密码</a><br>'+ optionalOpts +
+            '        </div>'+
+            '    </div>';
+        }
+       	return moreOpt;
+	},
+
+    getDeadDate: function(deadDate, sp) {
+    	var me = helper;
+    	
+    	var isSpOk = me.isSpOk(sp);
+    	if(!isSpOk) {
+    		return new Date(deadDate).format("yyyy-MM-dd");
+    	} else {
+    		var overDays = sp.saleProductInfo.saleInfoMap.overDays;
+            if(overDays > 0){
+                return "<span class=\"text-danger\">已过期" + overDays + "天</span>";
+            }else if(overDays > -30){
+                return "<span class=\"text-danger\">还有" + (0 - overDays) + "天到期</span>";
+            }else{
+                return new Date(deadDate).format("yyyy-MM-dd");
+            }
+    	}
+    },
+
+	getCheckBoxHtml: function(hostName, saleId,isFree) {
+		var checkboxHtml = '';
+		if(!isFree){
+			checkboxHtml = '<input type="checkbox" name="ckbox" id="ckbox" salekey="' + hostName + '" value="' + saleId + '" DISABLED autocomplete="off" onclick="helper.showClickRow(\'' + saleId + '\')"></td>';
+		}
+		return checkboxHtml;
+	},
+
+    getOpStr : function(saleID, sp, saleKey) {
+    	var me = helper;
+    	
+    	var opStr = "";
+    	var isSpOk = me.isSpOk(sp);
+    	if(!isSpOk || sp.bizStatus == 1) {
+    		opStr = '<a href="/core/sso/login?saleID=' + saleID + '&tk=c2dd42e14e57b6f4f18372014d5c92f3&bucUrl=http://cp.hichina.com%3Fsiteid=' + saleKey + '%26url=index"  target="_blank" data-spm-click="gostr=/aliyun;locaid=d9">管理</a>';
+    	}
+    	else {
+        	var orderSource = sp.orderSource;
+        	var isProbation = sp.actionType == "probation" ? true : false;
+			var isFreeHost = sp.saleProductInfo.saleInfoMap.isFreeHost;
+			var overDays = sp.saleProductInfo.saleInfoMap.overDays;
+      	
+          if(orderSource == '' || orderSource == 'BC' || orderSource == 'API') {
+              if(!isProbation) {
+				if(!isFreeHost){
+                	opStr += '<a href="/core/sale/confirmrenew?saleID=' + saleID + '&v='+new Date()+'" >续费</a><span class="sprt">|</span>';
+				}
+                  if(overDays < 0){
+                      //未过期
+                	  opStr += '<a id="upgrade" href="javascript:upgrade(1,\''+saleID+'\')" >升级</a><span class="sprt">|</span>';
+                  }
+                } else {
+                opStr += '<a href="/core/sale/confirmswitch?saleID=' + saleID + '">转正</a><span class="sprt">|</span>';
+              }
+              opStr += '<a href="/core/sso/login?saleID=' + saleID + '&tk=c2dd42e14e57b6f4f18372014d5c92f3&bucUrl=http://cp.hichina.com%3Fsiteid=' + saleKey + '%26url=index" target="_blank" data-spm-click="gostr=/aliyun;locaid=d9">管理</a>';
+          }else{
+              opStr = '<a href="/core/host/changehostpassword?saleID=' + saleID +'" >重置密码</a><span class="sprt">|</span>';
+              opStr += '<a href="/core/sso/login?saleID=' + saleID + '&tk=c2dd42e14e57b6f4f18372014d5c92f3&bucUrl=http://cp.hichina.com%3Fsiteid=' + saleKey + '%26url=index"  target="_blank" data-spm-click="gostr=/aliyun;locaid=d9">管理</a>';
+          }
+    	}
+        
+        return opStr;
+    },
+
+		
+	getDetailLink : function(saleID, saleKey) {				
+			return "<a href=\"/core/host/detail?saleID=" + saleID 
+					+ "\" class=\"link_bluel\">" + saleKey + "</a>";
+	},
+	
+	getManageLink : function(saleID, orderSource) {		
+			if(orderSource == '' || orderSource == 'BC' || orderSource == 'AC' || orderSource == 'API') {
+				return "<a href=\"/core/host/detail?saleID=" + saleID 
+				+ "\" class=\"link_bluel\">管理</a>";
+			} else {
+				return orderSource;	
+			}
+	},
+	
+	getSwitchHostLink : function(saleID, isProbation) {
+		if(isProbation) {
+			return "<a href=\"/core/sale/confirmswitch?saleID=" + saleID 
+					+ "\" class=\"link_bluel\">转正</a>";
+		} else {
+			return "";
+		}
+	},
+	
+	checkedAll : function() {
+		
+		if($('.ckSelectAll').is(":checked")) {
+			$("input:enabled[name='ckbox']").each(function() {
+				$(this).attr("checked", true);
+				var p=$(this).parent().parent(".row");
+		      	$(p).addClass("active2");
+			});
+		} else {
+			$("input:enabled[name='ckbox']").each(function() {
+				$(this).attr("checked", false);
+				var p=$(this).parent().parent(".row");
+		      	$(p).removeClass("active2");
+			});
+		}
+	},
+	
+	showClickRow: function(saleID) {
+		var o = $('input[name="ckbox"][value="' + saleID + '"]');
+  		var p = $(o).parent().parent();
+			if ($(o).is(':checked')) {
+				$(p).addClass("active2");
+			} else {
+				$(p).removeClass("active2");
+			}
+	},
+	
+	getSelectedIDs : function() {
+		var checkedIDs = [];
+		$("input:checked[name='ckbox']").each(function() {
+			checkedIDs.push($(this).val());
+		});
+		
+		return checkedIDs;
+	},
+	
+	renderPagedLinks : function(pagedList) {
+		var me = pager;
+
+		me.pageIndex = pagedList.page.currentIndex;
+		me.totalPageCount = (pagedList.page.totalCount % helper.PAGE_SIZE == 0) ? (pagedList.page.totalCount / helper.PAGE_SIZE) : (parseInt(pagedList.page.totalCount / helper.PAGE_SIZE) + 1);
+//		me.totalPageCount = pagedList.page.pageSize;
+		//fix bug: 共0页，第一页。
+		if(me.totalPageCount==0){
+			me.totalPageCount = 1;
+		}
+
+		$('#totalPage').val(me.totalPageCount);
+		$('#totalCount').val(pagedList.page.totalCount);
+		$('#pageIndex').val(me.pageIndex);
+
+		$(".pagination-info").html("共有"+pagedList.page.totalCount+"条，每页显示："+pagedList.page.pageSize+"条");
+		$("#totalCount").val(pagedList.page.totalCount);
+
+		var paginationHtml = new Array();
+		paginationHtml.push('<li '+(me.pageIndex <= 1?'class="disabled"':'')+' page-index="1"><a>«</a></li>');
+		paginationHtml.push('<li '+(me.pageIndex <= 1?'class="disabled"':'')+' page-index="'+(me.pageIndex-1)+'"><a>‹</a></li>');
+
+		var minPageIndex = me.pageIndex - parseInt(me.showPageIndexItem/2);
+		if(minPageIndex < 1){
+			minPageIndex = 1;
+		}
+
+		var maxPageIndex = minPageIndex + me.showPageIndexItem;
+		if(maxPageIndex > me.totalPageCount){
+			maxPageIndex = me.totalPageCount;
+		}
+
+		for(var i = minPageIndex; i <= maxPageIndex; i ++){
+			paginationHtml.push('<li '+(i == me.pageIndex ? 'class="active"':' ')+' page-index="'+i+'"><a >'+i+'</a></li>')
+		}
+
+		paginationHtml.push('<li'+(me.pageIndex >= me.totalPageCount?' class="disabled"':'')+'  page-index="'+(me.pageIndex+1)+'"><a>›</a></li>');
+		paginationHtml.push('<li'+(me.pageIndex >= me.totalPageCount?' class="disabled"':'')+' page-index="'+me.totalPageCount+'"><a>»</a></li>');
+
+		$(".pagination").html(paginationHtml.join(''));
+
+		$(".pagination li").click(function(){
+			var pageIndex = parseInt($(this).attr("page-index"));
+			if(pageIndex!=me.pageIndex && pageIndex > 0 && pageIndex<=me.totalPageCount){
+				helper.getDataFunc(pageIndex);
+			}
+		});
+
+	},
+
+	gotoPage: function() {
+		var gotoPage = parseInt($('#pageIndex').val());
+		var totalPage = $('#totalPage').val();
+		var gPage = $.trim($('#gPage').val());
+		if(gPage == '') {
+			return;
+		}
+
+		var isNum = $.isNumeric(gPage);
+		if(isNum) {
+			if(parseInt(gPage) < 1 || parseInt(gPage) > parseInt(totalPage)) {
+				alertDef('请输入正确的数字页码');
+				$('#gPage').select().focus();
+				return;
+			} else {
+				gotoPage = gPage;
+			}
+		} else {
+            alertDef('请输入正确的数字页码');
+			$('#gPage').select().focus();
+			return;
+		}
+		helper.getDataFunc(gotoPage);
+	}
+
+};
+
+
+//控制功能按钮菜单
+var functionMenuModule = {
+		autoRenew : null,
+		renew : null,
+		uprenew : null,
+		transferID : null,
+		logincp : null,
+		beian : null,
+		toExcel : null,
+		acToBc : null,
+		
+		gridForm : null,
+
+		init : function() {
+			var me = functionMenuModule;
+			
+			me.autoRenew = $("#autoRenew");
+			me.autoRenew.click(me.autoRenewClickHandler);
+			
+			me.renew = $("#renew");
+			me.renew.click(me.renewClickHandler);
+			
+			me.uprenew = $("#uprenew");
+			me.uprenew.click(me.uprenewClickHandler);
+			
+			me.transferID = $("#transferID");
+			me.transferID.click(me.transferIDClickHandler);
+			
+			me.logincp = $("#logincp");
+			me.logincp.click(me.logincpClickHandler);
+			
+			me.beian = $("#beianID");
+			me.beian.click(me.beianClickHandler);
+            $(".beianclick").live("click",me.beianClickHandler);
+			
+			me.acToBc = $("#acToBc");
+			me.acToBc.click(me.acToBcClickHandler);
+			
+			me.toExcel = $("#toExcel");
+			me.toExcel.click(me.toExcelClickHandler);
+			
+			
+			me.gridForm = $("#gridForm");
+		},
+
+		autoRenewClickHandler : function() {
+			var me = functionMenuModule;
+			
+			var ids = helper.getSelectedIDs();
+			if(ids.length <= 0) {
+				alertDef("请至少选择一个产品!");
+				return;
+			}
+
+			me.gridForm.attr("action","/core/sale/confirmautorenew?source=host&saleIDs=" + ids);				
+			me.gridForm.submit();	
+			
+			return false;
+		},
+		
+		renewClickHandler : function() {
+			var me = functionMenuModule;
+			
+			var ids = helper.getSelectedIDs();
+			if(ids.length <= 0) {
+                alertDef("请至少选择一个产品!");
+				return;
+			}
+			
+			if(ids.length == 1)
+				me.gridForm.attr("action","/core/sale/confirmrenew?saleID=" + ids[0]);
+			else
+				me.gridForm.attr("action","/core/sale/showbatchrenew?classID=host&saleIDs=" + ids);
+														
+			me.gridForm.submit();
+			
+			return false;
+		},
+		
+		uprenewClickHandler : function() {
+			var me = functionMenuModule;
+			
+			var ids = helper.getSelectedIDs();
+			if(ids.length <= 0) {
+                alertDef("请至少选择一个产品!");
+				return;
+			}
+			
+			if(ids.length > 1) {
+                alertDef("目前不支持多主机同时升级，请选择一个主机继续!");
+				return;
+			}
+			
+			me.gridForm.attr("action","/core/sale/uprenewinfo?classID=host&saleID=" + ids[0]);				
+			me.gridForm.submit();
+			
+			return false;
+		},
+		
+		transferIDClickHandler : function() {
+			var me = functionMenuModule;
+			
+			var ids = helper.getSelectedIDs();
+			if(ids.length <= 0) {
+                alertDef("请至少选择一个产品!");
+				return;
+			}				
+			
+			me.gridForm.attr("action","/core/sale/pretransferid?source=host&IDType=saleID&saleIDs=" + ids);				
+			me.gridForm.submit();
+			
+			return false;
+		}, 
+		
+		logincpClickHandler : function() {
+
+			var ids = helper.getSelectedIDs();
+			if(ids.length <= 0) {
+                alertDef("请至少选择一个产品!");
+				return;
+			}
+			
+			if(ids.length > 1) {
+                alertDef("只能选择一款主机进行管理，请重新选择!");
+				return;
+			}
+
+//            依赖只能选择一款主机
+            //var siteid =$('[name="ckbox"]:checked').parents('tr').find('td:eq(3)').text();
+            var siteid = $('[name="ckbox"]:checked').attr("saleKey");
+			//var url = "/core/host/logincontrolpanel?saleID=" + ids;
+            var url = "/core/sso/login?saleID=" + ids + "&tk=c2dd42e14e57b6f4f18372014d5c92f3&bucUrl=http://cp.hichina.com%3Fsiteid=" + siteid + "%26url=index";
+			window.open(url);
+			
+			return false;
+		},
+		beianClickHandler : function(){
+			var userLevel='1';
+			if(userLevel == 29){
+                window.open('http://login.1688.com/member/sso/sso.do?to_url=http://beian.gein.cn/sso/chinaAlibabaValidateLogin');
+			}else{
+				window.open('http://beian.gein.cn/sso/noLoginFromAliyun');
+			}
+		},
+		
+		acToBcClickHandler : function() {
+
+			var ids = helper.getSelectedIDs();
+			if(ids.length <= 0) {
+                alertDef("请至少选择一个产品!");
+				return;
+			}
+			
+			if(!confirm("只有来源是AC的业务才能进行转入BC操作，请确认所选择的业务均为AC业务?")) {
+				return;
+			}
+			
+			$.post("/core/sale/actobc?saleIDs=" + ids,
+					null, function(result) {
+						if(result.msg == "OK") {
+							var tips = "AC转入BC操作结束，结果如下：\n\n";
+							$.each(result.model, function(index, msg) {
+								tips += msg + "\n";
+							});
+
+                            alertDef(tips);
+							
+							pager.getData(1);
+							
+							return true;
+						} else {
+                            alertDef(result.msg);
+							return false;
+						}
+					});
+			
+			return false;
+		},
+		
+		toExcelClickHandler : function() {
+			$("#Host_List_SearchForm").attr("action","/core/host/tohost2excel?totalCount=" + $("#totalCount").val());				
+			$("#Host_List_SearchForm").submit();
+			
+			return false;
+		}
+};
+
+//点击升级按钮需要判断主机站点的备份状态(如果状态为空，说明可以正常跳转，否则提示相关信息，不能跳转)
+//参数：type:1-升级;2-更改主机机房;3-更改操作系统
+function upgrade(type,saleID){
+	//判断主机信息的状态(备份中和恢复中不允许更改主机服务器，否则可以进行)
+		var data={saleID:saleID};
+		$.post('/core/host/searchhostinfo',data,function(result){
+			if(result.msg=="OK"){
+				//备份中
+				if(result.model=="inBackup"){
+                    alertDef("系统检测到您有一条备份任务正在进行中。请在当前任务完成之后，再进行此操作");
+					return;
+				}else if(result.model=="inRestore"){ //恢复中
+                    alertDef("系统检测到您有一条恢复任务正在进行中。请在当前任务完成之后，再进行此操作");
+					return;
+				}else{
+					 //点击升级跳转
+					  if(type==1){
+						  var url = "/core/sale/uprenewinfo?classID=host&saleID=" + saleID + "&v=" + new Date() + "";
+//						  window.open(url);
+                          window.location.href = url;
+                      }
+					  //点击更改主机机房跳转
+					  if(type==2){
+						  var url = "/core/host/changehostidc?classID=host&saleID=" + saleID + "";
+//						  window.open(url);
+                          window.location.href = url;
+                      }
+					  //点击更改操作系统跳转
+					  if(type==3){
+						  var url = "/core/host/changehostos?classID=host&saleID=" + saleID + "";
+//						  window.open(url);
+                          window.location.href = url;
+                      }
+				}
+			}else{
+                alertDef("获取主机信息异常");
+				return;
+			}
+		});    
+}
+var hiValidator;
+function resetPwd(domain,saleID){
+    $.post("/core/host/changehostpassword_check?saleID=" + saleID,
+            null, function(result) {
+                if(result.errorMsg != "") {
+                    alertUnPay(result.errorMsg)
+                } else {
+                    window.resetPwdDialog = HichinaConsole.popup.dialog({
+                        title:'重置管理密码',
+                        contHtml:'<div class="form-horizontal">\
+			<form action="" id="Host_ChangePassword_Form" method="post">\
+						<input type="hidden" id="saleID" value="'+saleID+'">\
+            <div class="form-group"><label class="col-sm-3 control-label">主机名：</label>\
+              <div class="col-sm-9 batch-top7">'+domain+'</div></div>\
+            <div class="form-group"><label class="col-sm-3 control-label">新密码：</label>\
+              <div class="col-sm-9"><input id="NewPassword68" name="NewPassword68" type="password">\
+              <span id="NewPassword68_tips"></span>\
+                <span class="help-block">密码由大小写字母、数字混合组成，8~20个字符</span></div></div>\
+            <div class="form-group"><label class="col-sm-3 control-label">再次输入新密码：</label>\
+              <div class="col-sm-9"><input type="password" id="ConfirmPassword" name="ConfirmPassword" type="password">\
+             <span id="ConfirmPassword_tips"></span> \
+              </div></div>\
+				</form>\
+          </div>',
+                        btnYes: '确认',
+                        contEventHandler:function(dialog,instance,opts){
+                            hiValidator = $("#Host_ChangePassword_Form").validate({
+                                rules : {
+                                    "NewPassword68" : {
+                                        required : true,
+                                        regular : /^(?![a-zA-Z]*$)(?![0-9]*$)[a-zA-Z0-9]{8,20}$/
+                                    },
+                                    "ConfirmPassword" : {
+                                        required : true,
+                                        equalTo : "#NewPassword68"
+                                    }
+                                },
+                                messages : {
+                                    "NewPassword68" : {
+                                        required : "新密码格式不对",
+                                        regular : "新密码格式不对"
+                                    },
+                                    "ConfirmPassword" : {
+                                        required : "请再次输入新密码",
+                                        equalTo : "两次密码输入的不一样"
+                                    }
+                                },
+                                tips : {
+                                    "NewPassword68" : {
+                                        tips : "请输入您的新密码"
+                                    },
+                                    "ConfirmPassword" : {
+                                        tips : "请再次输入密码"
+                                    }
+                                },
+                                alertError: false,
+                                submitHandler : function(form) {
+
+                                }
+                            });
+                            $("#NewPassword68").change(function() {
+                                $("#NewPassword").val($(this).val());
+                            });
+                        },
+                        btnYesClick: function (dialog, instance, opts) {
+                            $(dialog).find(".J_btnYes").attr("data-spm-click","gostr=/aliyun;locaid=d8")
+                            var ret = hiValidator.form();
+                            if(ret){
+                                $(".J_btnYes").attr("disabled","disabled");
+                                hostManagerPage.changeClickHandler();
+                            }
+                        }
+                    });
+                }
+            });
+}
+
+
+var hostManagerPage = {
+	changeClickHandler : function() {
+		var sale = {
+			saleID : $("#saleID").val(),
+			password : $("#NewPassword68").val()
+		};
+		var rs = $.post("changehostpwd", sale, function(result) {
+			if (result.msg == "OK") {
+				if(window.resetPwdDialog && typeof window.resetPwdDialog.close=='function'){
+					window.resetPwdDialog.close();
+				}
+				HichinaConsole.popup.dialog({
+					contTitle:'业务提交成功！',
+					contIcon:'icon-yes-1',
+					contIconColor:'text-success',
+					btnNo: ''
+				});
+			} else if(result.msg == "INVALID_INPUT") {
+                alertDef("操作失败");
+				return;
+			} else if(result.msg == "ACTION_NOT_DEFINE") {
+                alertDef("不允许进行该操作");
+				return;
+			} else {
+				if(result.tips){
+                    alertDef(result.tips);
+					return false;
+				}
+                alertDef("操作失败，请联系万网客服");
+				return;
+			}
+		});
+
+		rs.error(function() {
+            alertDef("操作失败");
+			return;
+		});
+	}
+};
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
