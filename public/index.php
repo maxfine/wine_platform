@@ -50,7 +50,8 @@ $kernel = $app->make('Illuminate\Contracts\Http\Kernel'); //访问对象,如同$
 $response = $kernel->handle(
 	$request = Illuminate\Http\Request::capture()
 );
-
+dump($app);
+die();
 $response->send(); //发送
 
 $kernel->terminate($request, $response); //终止
