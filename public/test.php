@@ -363,7 +363,6 @@ var_dump($obj,$copy,$objRef,$objClone);
  * 字符串与数组替换：preg_replace, preg_filter, 相同点：三参数都可为数组, 第一和第二个参数数组长度一样, 不同点：preg_filter会过滤掉没有匹配的数据列
  * 整体装换：preg_split
  * 正则符号: ^(![.\-]{?+*}|)$=<>:
- */
 $pattern = '/[0-9]/';
 $subject = 'abc123def321ghi4';
 
@@ -418,8 +417,23 @@ function show($v){
     print_r($v);
     echo '</pre>';
 }
+*****************************END*********************************/
 
+/**
+ * ----------------------------------------------------------------
+ * 过滤
+ * ----------------------------------------------------------------
+ */
+$email = "som&#e*8-one@example.com";
 
+if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+{
+    echo "E-mail is not valid";
+}
+else
+{
+    echo "E-mail is valid";
+}
 
 
 
