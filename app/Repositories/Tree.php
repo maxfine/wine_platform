@@ -142,7 +142,7 @@ class Tree {
      */
     public function getTree($rootId){
         $pIdName = $this->pIdName;
-        //字段名
+        //主键字段名
         $idName = $this->idName;
         $childsName = $this->childsName;
         //本方法,递归使用,避免修改了方法名时递归方法名也要修改
