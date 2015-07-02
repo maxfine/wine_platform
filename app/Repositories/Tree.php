@@ -9,7 +9,7 @@
  * 整体: 获取树结构数组, 获取树结构html
  */
 
-namespace App\Repositorise;
+namespace App\Repositories;
 
 
 class Tree {

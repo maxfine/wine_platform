@@ -1,17 +1,18 @@
 <?php
 /**
+ * 验证工具类
  * Created by 正言网络科技
  * User: max_fine@qq.com
  * Date: 2015/6/30
  * Time: 16:07
- * 验证工具类
- * 验证规则集合
- * 需要验证的字符串
+ * 输入:匹配目标, 匹配正则或类型, 追加修正模式
+ * 逻辑处理:返回结果类型
+ * 输出:结果集or是否匹配
  * 用法: $regex = new RegexToll(true, 'g');
  * $regex->isEmail($str);
  */
 
-namespace App\Repositorise;
+namespace App\Repositories;
 
 class RegexTool {
     private $validate = [
@@ -21,7 +22,7 @@ class RegexTool {
         'double' => '/^[\-\+]?\d+(\.\d+)?$/',
         'qq' => '/^\d{5,11}$/',
         'english' => '/^[a-zA-Z]+$/',
-        'eamil' => '/^\w+(\-\w+|\.\w+)*\@[a-zA-Z0-9]+((\.|\-)[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/',
+        'email' => '/^\w+(\-\w+|\.\w+)*\@[a-zA-Z0-9]+((\.|\-)[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/',
         'mobile' => '/^0?(13|14|15|17|18)\d{9}$/',
         'url' => '/^https?://([\w-]+\.)+[\w-]+(/+[\w\-\.?=&%]*)*$/',
     ];
@@ -68,6 +69,8 @@ class RegexTool {
     /**
      * @param null $bool
      * 改变返回结果类型
+     * 没有传参则改变当前类型,true改为false,false改为true
+     * 如果传参了,则改变成参数的bool值,参数不是bool型需要先转为bool型
      */
     public function toggleReturnType($bool = null){
         if(isset($bool)){
@@ -75,6 +78,14 @@ class RegexTool {
         }else{
             $this->returnMatchResult = !$this->returnMatchResult;
         }
+    }
+
+    /**
+     * @param $fixMod
+     * 设置修正模式
+     */
+    public function setFixMod($fixMod){
+        $this->fixMod = $fixMod;
     }
 
     /**
@@ -112,4 +123,16 @@ class RegexTool {
     public function noEmpty($str){
         return $this->regex('require', $str);
     }
+
+    /**
+     * @param $pattern
+     * @param $subject
+     * @return array|bool
+     * 检查是否匹配
+     */
+    public function check($pattern, $subject){
+        return $this->regex($pattern, $subject);
+    }
+
+    //...
 }

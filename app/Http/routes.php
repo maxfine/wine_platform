@@ -16,27 +16,8 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('test', function(){
-    $a = [];
-    $arr =
-        [
-            ['id'=>1, 'parent_id'=>0, 'cat_name'=>'一级栏目一'],
-            ['id'=>3, 'parent_id'=>0, 'cat_name'=>'一级栏目二'],
-            ['id'=>4, 'parent_id'=>1, 'cat_name'=>'二级栏目一'],
-            ['id'=>6, 'parent_id'=>1, 'cat_name'=>'二级栏目二'],
-            ['id'=>8, 'parent_id'=>6, 'cat_name'=>'三级栏目一'],
-            ['id'=>12, 'parent_id'=>8, 'cat_name'=>'四级栏目一'],
-            ['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],
-        ];
-    $tree = new App\Extensions\Tree($arr, 'parent_id', 'cat_name');
-    $myid = 1;
-    $newArr = [['id'=>14, 'parent_id'=>3, 'cat_name'=>'二级级栏目一'],];
-
-    $str = "<option value='\$id' \$selected >\$spacer\$cat_name</option>";
-    $aaa = $tree->getTreeCategory(1, $str, $str, 6);
-    echo '<select name="cat">';
-    echo "<option value='0'>顶级栏目</option>";
-    echo $aaa;
-    echo '</select>';
+    $regexTool = new \App\Repositories\RegexTool();
+    dump($regexTool->isEmail('max_fine@qq.com'));
 });
 
 Route::get('/test2', function(){
