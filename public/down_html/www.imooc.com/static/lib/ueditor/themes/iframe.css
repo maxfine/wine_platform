@@ -1,0 +1,16 @@
+/*可以在这里添加你自己的css*/
+body{color: #14191e;line-height: 1.76em;font-size: 14px;font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "å¾®è½¯é›…é»‘", Tahoma, Arial, sans-serif;}
+h1,h2,h3{line-height: 1em;margin: 0.67em 0;}
+h1{font-size: 24px;}
+h2{font-size: 20px;}
+h3{font-size: 16px;}
+ol,ul,p{margin: 1em 0 ;}
+strong, b {font-weight: bold;}
+i, cite, em, var, address, dfn {font-style: italic;font-weight: inherit;}
+ol{list-style:decimal;padding-left: 30px;}
+ul{list-style: disc;padding-left: 30px;}
+ol p,ul p{margin: 0.6em 0;}
+a:link,a:visited{color: #0088cc;text-decoration: none;}
+a:hover,a:active{text-decoration: underline;}
+blockquote{padding:1px 20px;margin:1em 0;border-left: 4px solid #ccc;color:#787d82;background-color: #f5f5f5;}
+pre{margin:.5em 0;padding:.4em .6em;line-height:1.5;border-radius:3px;background:#eee;}

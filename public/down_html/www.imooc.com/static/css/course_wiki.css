@@ -1,0 +1,83 @@
+#course_wiki{
+	padding:0 20px;
+}
+#course_wiki li{
+	border-bottom:1px solid #e3e5e5;
+	overflow:hidden;
+	*zoom:1;
+	padding:10px 0 25px 0;
+}
+#course_wiki .wikilist_headpic{
+	float:left;
+	width:40px;
+	margin-right:10px;
+	margin-top:6px
+}
+#course_wiki .wikilist_headpic img{
+	display:block;
+	-moz-border-radius:20px;;
+	-webkit-border-radius:20px;
+	-o-border-radius:20px;
+	-ms-border-radius:20px;
+	border-radius:20px;
+}
+.wikilist_content{
+	margin-left:60px;
+}
+.wikilist_content .u_name{
+	font-size:12px;
+	color:#303538;
+}
+.wikilist_content .u_name a{
+	color:#303538;
+}
+.wikilist_content .u_name a:hover{
+	color:#cc3333;
+}
+.wikilist_content h1{
+	font-size:18px;
+	color:#303538;
+	line-height: 28px;
+}
+.wikilist_content p{
+	font-size:12px;
+	line-height:28px;
+	color:#60686b;
+}
+#create_wiki:link,#create_wiki:visited{
+	color:#fff;
+	height:48px;
+	display:block;
+	text-align:center;
+	line-height:48px;
+	font-size:16px;
+	font-style:normal;
+	margin:0 0 20px;
+	background:url('../img/icon_add.png') 26px 15px no-repeat #39b94e;
+	width: inherit;
+}
+#create_wiki:hover{
+	background:url('../img/icon_add.png') 26px 15px no-repeat #33a646
+}
+.unwiki{
+	color:#d0d6d9;
+	font-size:14px;
+	text-align:center;
+	padding:80px 0 30px 0;
+}	
+.unwiki p{
+	
+	text-align:center;
+}
+.unwiki span{
+	background:url(../img/unwiki.png) no-repeat;
+	width:96px; 
+	height:128px;
+	display:block; 
+	margin:0 auto 30px;
+}	
+.wiki-time{
+	padding-top:10px;
+	color: #999;
+	font-size: 12px;
+}
