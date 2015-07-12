@@ -18,7 +18,7 @@ class PagesController extends Controller {
 	 */
 	public function index()
 	{
-        return view('AdminHome')->withPages(Page::all());
+        return view('admin.pages.index')->withPages(Page::all());
 	}
 
 	/**
@@ -91,12 +91,12 @@ class PagesController extends Controller {
 		]);
 
 		$page = Page::find($id);
-		$page->title = Input::get('title');
-		$page->body = Input::get('body');
+		$page->title = e(Input::get('title'));
+		$page->body = e(Input::get('body'));
 		$page->user_id = Auth::user()->id;
 
 		if ($page->save()) {
-			return Redirect::to('admin');
+			return Redirect::to('admin/pages');
 		} else {
 			return Redirect::back()->withInput()->withErrors('保存失败！');
 		}

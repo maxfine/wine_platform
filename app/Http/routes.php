@@ -49,7 +49,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function()
 {
     //后台首页
-    Route::get('/', 'AdminHomeController@index');
+    Route::get('/', ['as' => 'admin', 'uses' => 'AdminHomeController@index']);
     //文章栏目
     Route::resource('article/cats', 'ArticleCatsController');
     //文章
