@@ -10,14 +10,29 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
 Route::get('test', function(){
+    //\Omnipay::setGateway('alipay');
+    //dd(\Omnipay::getParameters());
+    $this->options = array(
+        'out_trade_no' => '2014010122390001',
+        'subject'      => 'test',
+        'price'        => '0.01',
+        'quantity'     => '2',
+    );
+    $response = \Omnipay::purchase($this->options)->send();
+    dd($response);
+    $redirectData = $response->getRedirectData();
+    dd($redirectData);
+
+    /**
+     *正则匹配工具类测试
     $regexTool = new \App\Repositories\RegexTool();
     dump($regexTool->isEmail('max_fine@qq.com'));
+    */
 });
 
 Route::get('/test2', function(){

@@ -152,7 +152,7 @@ return [
         'Intervention\Image\ImageServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-
+        'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
 	],
 
 	/*
@@ -167,7 +167,6 @@ return [
 	*/
 
 	'aliases' => [
-
 		'App'       => 'Illuminate\Support\Facades\App',
 		'Artisan'   => 'Illuminate\Support\Facades\Artisan',
 		'Auth'      => 'Illuminate\Support\Facades\Auth',
@@ -208,7 +207,7 @@ return [
         'Str'       => 'Illuminate\Support\Str',
         'Image' => 'Intervention\Image\Facades\Image',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
-
+        'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
 	],
 
 ];

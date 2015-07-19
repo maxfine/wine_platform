@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34533bedca95ca94341174a41cf52d14",
+    "hash": "c65f706fb6f968492d2974886cdf2c0f",
     "packages": [
         {
             "name": "blueimp/jquery-file-upload",
@@ -938,6 +938,55 @@
                 "storage"
             ],
             "time": "2015-07-13 09:25:28"
+        },
+        {
+            "name": "lokielse/omnipay-alipay",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lokielse/omnipay-alipay.git",
+                "reference": "998515e173b3ebf164c32b97909c556fdd97325a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lokielse/omnipay-alipay/zipball/998515e173b3ebf164c32b97909c556fdd97325a",
+                "reference": "998515e173b3ebf164c32b97909c556fdd97325a",
+                "shasum": ""
+            },
+            "require": {
+                "omnipay/common": "~2.0"
+            },
+            "require-dev": {
+                "omnipay/tests": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Omnipay\\Alipay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Loki Else",
+                    "email": "lokielse@gmail.com"
+                }
+            ],
+            "description": "Alipay gateway for Omnipay payment processing library",
+            "homepage": "https://github.com/lokielse/omnipay-alipay",
+            "keywords": [
+                "alipay",
+                "gateway",
+                "merchant",
+                "omnipay",
+                "pay",
+                "payment",
+                "purchase"
+            ],
+            "time": "2015-06-23 06:17:00"
         },
         {
             "name": "monolog/monolog",
@@ -3717,7 +3766,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zizaco/entrust": 20
+        "zizaco/entrust": 20,
+        "lokielse/omnipay-alipay": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
