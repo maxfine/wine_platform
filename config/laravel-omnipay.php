@@ -27,13 +27,13 @@ return [
         'alipay' => [
             'driver'  => 'Alipay_Secured', //支付宝担保交易接口
             'options' => [
-                'partner' => '20880127040',
-                'key' => 'sc1n78r0faswga7jjrpf6o',
-                'sellerEmail' => 'max_fine@qq.com',
+                'partner' => '2088002529453464',
+                'key' => 'osfvviymykc4pc6i1dvn4cf68rc5j2qj',
+                'sellerEmail' => '1526469221@qq.com',
                 'notifyUrl' => 'https://www.example.com/notify',
                 'returnUrl' => 'https://www.example.com/return',
                 //logisticsInfo
-                'logisticsFee' => 8,
+                'logisticsFee' => 0.01,
                 'logisticsType' => 'EXPRESS',
                 'logisticsPayment' => 'BUYER_PAY',
                 //receiveInfo

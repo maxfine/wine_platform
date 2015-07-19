@@ -15,18 +15,17 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('test', function(){
+    //进行第三方支付网站跳转
     //\Omnipay::setGateway('alipay');
-    //dd(\Omnipay::getParameters());
-    $this->options = array(
+    $options = array(
         'out_trade_no' => '2014010122390001',
         'subject'      => 'test',
         'price'        => '0.01',
         'quantity'     => '2',
     );
-    $response = \Omnipay::purchase($this->options)->send();
-    dd($response);
-    $redirectData = $response->getRedirectData();
-    dd($redirectData);
+    $response = \Omnipay::purchase($options)->send();
+    $response->redirect();
+    //$redirectData = $response->getRedirectData();
 
     /**
      *正则匹配工具类测试
