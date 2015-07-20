@@ -16,16 +16,20 @@ Route::get('home', 'HomeController@index');
 
 Route::get('test', function(){
     //进行第三方支付网站跳转
-    //\Omnipay::setGateway('alipay');
+    \Omnipay::setGateway('Alipay_Bank');
+
     $options = array(
-        'out_trade_no' => '2014010122390001',
-        'subject'      => 'test',
-        'price'        => '0.01',
-        'quantity'     => '2',
+        'out_trade_no' => '2014010122390002', //共有
+        'subject'      => 'test', //共有
+        'total_fee' => 0.03, //即时支付接口总费用
+        'price'        => '0.01', //担保交易商品单价
+        'quantity'     => '2', //担保交易商品数量
+        'defaultBank' => 'CCB', //网银支付网关
     );
-    $response = \Omnipay::purchase($options)->send();
+    $response = \Omnipay::purchase($options)->send(); //request->response
     $response->redirect();
     //$redirectData = $response->getRedirectData();
+    //dd($redirectData);
 
     /**
      *正则匹配工具类测试
