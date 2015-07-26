@@ -13,7 +13,7 @@ class PaymentsController extends Controller {
     private $price;
     private $sn;
     private $subject;
-    private $bank;
+    private $bankcode;
     private $quantity;
 
 	/**
@@ -49,24 +49,16 @@ class PaymentsController extends Controller {
             'price' => 'required|min:1',
         ]);
 
-        $payway = Input::get('payway');
-        $price = Input::get('price');
-        $sn = $this->createSn();
-        $subject = $this->getSubject();
-        $bank = 'CCB';
-        $quantity = Input::get('quantity');
+        $this->price = Input::get('price');
+        $this->sn = $this->createSn();
+        $this->subject = $this->getSubject();
+        $this->bankcode = Input::get('bankcode');
+        $this->quantity = Input::get('quantity');
+        $this->setPayway(Input::get('payway'), $this->bankcode);
 
         //进行第三方支付网站跳转
-        \Omnipay::setGateway($payway);
-
-        $options = array(
-            'out_trade_no' => $sn, //共有
-            'subject'      => $subject ? $subject : '产品支付', //共有
-            'total_fee'    => $price, //即时支付接口总费用
-            'price'        => $price, //担保交易商品单价
-            'quantity'     => $quantity ? $quantity : 1, //担保交易商品数量
-            'defaultBank'  => $bank ? $bank : 'CCB', //网银支付网关
-        );
+        \Omnipay::setGateway($this->payway);
+        $options = $this->getOptions();
         $response = \Omnipay::purchase($options)->send(); //request->response
         $response->redirect();
 	}
@@ -119,7 +111,92 @@ class PaymentsController extends Controller {
         return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     }
 
+    /**
+     * --------------------------------------------------------------
+     * 获取产品名称
+     * --------------------------------------------------------------
+     * @return string
+     */
     private function getSubject(){
         return '产品支付';
     }
+
+    /**
+     * --------------------------------------------------------------
+     * 设置支付接口
+     * --------------------------------------------------------------
+     */
+    private function setPayway($paywayTemp, $bankcode = ''){
+        $payway = '';
+
+        if(!$paywayTemp) return $payway;
+
+        if($paywayTemp == 'Alipay_Bank' && !$bankcode){
+            $payway = 'Alipay_Express';
+        }else{
+            $payway = $paywayTemp;
+        }
+
+        $this->payway = $payway;
+    }
+
+    /**
+     * --------------------------------------------------------------
+     * 获取支付接口
+     * --------------------------------------------------------------
+     * @return mixed
+     */
+    private function getPayway(){
+        return $this->payway;
+    }
+
+    /**
+     * --------------------------------------------------------------
+     * 设置配置项
+     * --------------------------------------------------------------
+     */
+    private function getOptions(){
+        $payway = $this->getPayway();
+        $options = [];
+
+        if(!$payway)return false;
+
+        if($payway == 'Alipay_Bank'){
+            $options = [
+                'out_trade_no' => $this->sn, //共有
+                'subject'      => $this->subject ? $this->subject : '产品支付', //共有
+                'total_fee'    => $this->price, //即时支付接口总费用
+                'defaultBank'  => $this->bankcode ? $this->bankcode : '', //网银支付网关
+            ];
+        }elseif($payway == 'Alipay_Express'){
+            $options = [
+                'out_trade_no' => $this->sn, //共有
+                'subject'      => $this->subject ? $this->subject : '产品支付', //共有
+                'total_fee'    => $this->price, //即时支付接口总费用
+            ];
+        }elseif($payway == 'Alipay_Secured'){
+            $options = array(
+                'out_trade_no' => $this->sn, //共有
+                'subject'      => $this->subject ? $this->subject : '产品支付', //共有
+                'price'        => $this->price, //担保交易商品单价
+                'quantity'     => $this->quantity ? $this->quantity : 1, //担保交易商品数量
+            );
+        }
+
+        return $options;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
