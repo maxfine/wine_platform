@@ -84,6 +84,7 @@ Route::get('/', 'HomeController@index');
 Route::group(['prefix' => 'dome', 'namespace' => 'Dome'], function()
 {
     //支付模块dome
+    Route::get('payments/check', 'PaymentsController@check');
     Route::resource('payments', 'PaymentsController');
 });
 

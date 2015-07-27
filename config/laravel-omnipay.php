@@ -48,9 +48,9 @@ return [
         'Alipay_Express' => [
             'driver'  => 'Alipay_Express', //支付宝担保交易接口
             'options' => [
-                'partner' => '2088002529453464',
-                'key' => 'osfvviymykc4pc6i1dvn4cf68rc5j2qj',
-                'sellerEmail' => '1526469221@qq.com',
+                'partner' => '2088021297824829',
+                'key' => 'y7ltjfmpkfosn5vbi69a5080kcb96nz7',
+                'sellerEmail' => '437630959@qq.com',
                 'notifyUrl' => 'https://www.example.com/notify',
                 'returnUrl' => 'https://www.example.com/return',
                 //receiveInfo
@@ -65,9 +65,9 @@ return [
         'Alipay_Bank' => [
             'driver'  => 'Alipay_Bank', //支付宝担保交易接口
             'options' => [
-                'partner' => '2088002529453464',
-                'key' => 'osfvviymykc4pc6i1dvn4cf68rc5j2qj',
-                'sellerEmail' => '1526469221@qq.com',
+                'partner' => '2088021297824829',
+                'key' => 'y7ltjfmpkfosn5vbi69a5080kcb96nz7',
+                'sellerEmail' => '437630959@qq.com',
                 'notifyUrl' => 'https://www.example.com/notify',
                 'returnUrl' => 'https://www.example.com/return',
                 //receiveInfo

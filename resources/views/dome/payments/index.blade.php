@@ -116,20 +116,15 @@
         });
 
         $('form.form-horizontal').submit(function(e){
-            //第三方扩展皮肤
-            layer.alert('内容', {
-                icon: 1,
-                //skin: 'layer-ext-moon' //该皮肤由layer.seaning.com友情扩展。关于皮肤的扩展规则，去这里查阅
-            });
-            /**
             layer.open({
-                type: 1,
-                area: ['600px', '360px'],
+                type: 2,
+                title: '充值信息确认',
+                area: '700px',
                 shadeClose: false, //点击遮罩关闭
-                content: '\<\div style="padding:20px;">返回\<\/div>',
-                skin: 'layer-ext-moon'
+                //content: '<div style="padding:20px;">返回</div>',
+                content: ['{{URL("dome/payments/check")}}', 'no'],
+                skin: 'layui-layer-rim' //加上边框
             });
-            **/
         })
     </script>
 @endsection
