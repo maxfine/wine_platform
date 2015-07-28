@@ -486,6 +486,20 @@ var_dump($a);
 var_dump(array_merge($a,array(2=>'vvv')));
 *******************************END********************************/
 
+/**
+ * ------------------------------------------------------------------
+ * 反射参考
+ * ------------------------------------------------------------------
+$reflector = new \ReflectionClass(__CLASS__); //根据类的命名空间获取反射类
+$constructor = $reflector->getConstructor(); //根据反射类获取构造函数反射方法
+//$refFunc = new \ReflectionFunction('functionName'); //获取反射函数
+$refFunc = new \ReflectionMethod(__CLASS__, 'store'); //获取反射方法
+//dd($refFunc->getParameters()[0]->getClass()->newInstance()); //1.获取反射参数ReflectionParameter, 2.获取反射类, 3.获取实例
+foreach ($refFunc->getParameters() as $refParameter) {
+    echo $refParameter->getName(), '<br />';
+}
+*******************************END********************************/
+
 
 
 
