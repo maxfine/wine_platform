@@ -30,8 +30,8 @@ return [
                 'partner' => '2088002529453464',
                 'key' => 'osfvviymykc4pc6i1dvn4cf68rc5j2qj',
                 'sellerEmail' => '1526469221@qq.com',
-                'notifyUrl' => 'https://www.example.com/notify',
-                'returnUrl' => 'https://www.example.com/return',
+                'notifyUrl' => 'http://jiu.znyes.com/dome/payments/respond', //post
+                'returnUrl' => 'http://jiu.znyes.com/dome/payments/respond', //get
                 //logisticsInfo
                 'logisticsFee' => '0.00', //运费
                 'logisticsType' => 'EXPRESS',
@@ -51,8 +51,8 @@ return [
                 'partner' => '2088021297824829',
                 'key' => 'y7ltjfmpkfosn5vbi69a5080kcb96nz7',
                 'sellerEmail' => '437630959@qq.com',
-                'notifyUrl' => 'https://www.example.com/notify',
-                'returnUrl' => 'https://www.example.com/return',
+                'notifyUrl' => 'http://jiu.znyes.com/dome/payments/respond', //post
+                'returnUrl' => 'http://jiu.znyes.com/dome/payments/respond', //get
                 //receiveInfo
                 'receiveName' => 'konghs',
                 'receiveAddress' => 'hangzhou',
@@ -68,8 +68,8 @@ return [
                 'partner' => '2088021297824829',
                 'key' => 'y7ltjfmpkfosn5vbi69a5080kcb96nz7',
                 'sellerEmail' => '437630959@qq.com',
-                'notifyUrl' => 'https://www.example.com/notify',
-                'returnUrl' => 'https://www.example.com/return',
+                'notifyUrl' => 'http://jiu.znyes.com/dome/payments/respond', //post
+                'returnUrl' => 'http://jiu.znyes.com/dome/payments/respond', //get
                 //receiveInfo
                 'receiveName' => 'konghs',
                 'receiveAddress' => 'hangzhou',

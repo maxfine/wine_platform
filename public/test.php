@@ -486,10 +486,6 @@ var_dump($a);
 var_dump(array_merge($a,array(2=>'vvv')));
 *******************************END********************************/
 
-<<<<<<< HEAD
-var_dump(['aa', 'bb']);
-phpinfo();
-=======
 /**
  * ------------------------------------------------------------------
  * 反射参考
@@ -503,8 +499,6 @@ foreach ($refFunc->getParameters() as $refParameter) {
     echo $refParameter->getName(), '<br />';
 }
 *******************************END********************************/
->>>>>>> origin/master
-
 
 
 
