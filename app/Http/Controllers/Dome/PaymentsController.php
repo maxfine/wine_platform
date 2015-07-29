@@ -26,9 +26,8 @@ class PaymentsController extends Controller {
 	 */
 	public function index()
 	{
+        //$payments = $this->app['config']['laravel-omnipay.default']; //配置
         $payments = [
-
-
         ];
         $payments = null;
         return view('dome.payments.index')->with('payments', $payments);
@@ -138,7 +137,7 @@ class PaymentsController extends Controller {
      * --------------------------------------------------------------
      * 返回成功提示,5秒后跳转到指定页面
      */
-    public function respondGet(){
+    public function respondGet($code = ''){
         //支付宝服务器发送的数据
         /**
         $buyer_email=1526469221%40qq.com; //买家支付宝邮箱
@@ -160,6 +159,46 @@ class PaymentsController extends Controller {
         $sign_type=MD5; //签名加密方式
         **/
 
+        if(empty($code)){
+            return false;
+        }
+
+        $seller_email = rawurldecode($_GET['seller_email']);
+        $order_sn = str_replace($_GET['subject'], '', $_GET['out_trade_no']);
+        $order_sn = trim($order_sn);
+
+        /* 检查数字签名是否正确 */
+        ksort($_GET);
+        reset($_GET);
+
+        $sign = '';
+        foreach ($_GET AS $key=>$val)
+        {
+            if ($key != 'sign' && $key != 'sign_type' && $key != 'code')
+            {
+                $sign .= "$key=$val&";
+            }
+        }
+
+        $sign = substr($sign, 0, -1) . 'y7ltjfmpkfosn5vbi69a5080kcb96nz7';
+        dd(md5($sign));
+
+        $this->price = Input::get('total_fee');
+        $this->sn = Input::get('out_trade_no');
+        $this->subject = Input::get('subject');
+        $this->bankcode = Input::get('bankcode');
+        $this->quantity = Input::get('quantity');
+        $this->setPayway($code, $this->bankcode);
+
+        \Omnipay::setGateway($code);
+        $options = $this->getOptions();
+        $resquest = \Omnipay::purchase($options);
+        dd($resquest->getData());
+        $response = \Omnipay::purchase($options)->send(); //此send为父类的send方法
+        $redirectData = $response->getRedirectData();
+        dd($redirectData);
+        dd(\Omnipay::gateway());
+
         //数据
 
         //验证数据
@@ -171,6 +210,8 @@ class PaymentsController extends Controller {
             //验证失败
             dd('支付失败');
         }
+
+
     }
 
     /**

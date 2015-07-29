@@ -84,8 +84,8 @@ Route::get('/', 'HomeController@index');
 Route::group(['prefix' => 'dome', 'namespace' => 'Dome'], function()
 {
     //支付模块dome
-    Route::post('payments/respond', 'PaymentsController@respondPost');
-    Route::get('payments/respond', 'PaymentsController@respondGet');
+    Route::post('payments/respond/{code}', 'PaymentsController@respondPost');
+    Route::get('payments/respond/{code}', 'PaymentsController@respondGet');
     Route::get('payments/check', 'PaymentsController@check');
     Route::resource('payments', 'PaymentsController');
 });
