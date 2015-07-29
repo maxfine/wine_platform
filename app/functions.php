@@ -33,7 +33,7 @@ function format_json_message($messages, $json)
 {
     $reason = format_message($messages);
     $info = '失败原因为：'.$reason;
-    $json = array_replace($json, ['info' => $info]);
+    $json = array_replace($json, array('info' => $info));
     return $json;
 }
 
