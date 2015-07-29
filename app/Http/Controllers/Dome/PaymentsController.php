@@ -16,12 +16,15 @@ class PaymentsController extends Controller {
     private $bankcode;
     private $quantity;
 
+    public function __construct(){
+
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
         $payments = null;
         return view('dome.payments.index')->with('payments', $payments);
@@ -128,6 +131,13 @@ class PaymentsController extends Controller {
 
     /**
      * --------------------------------------------------------------
+     * 服务器端get响应
+     * --------------------------------------------------------------
+     */
+    public function respondGet(){
+    }
+    /**
+     * --------------------------------------------------------------
      * 更新账户余额
      * --------------------------------------------------------------
      */
@@ -146,12 +156,10 @@ class PaymentsController extends Controller {
 
     /**
      * --------------------------------------------------------------
-     * 服务器端get响应
+     * 创建订单
      * --------------------------------------------------------------
+     * @return string
      */
-    public function respondPost(){
-    }
-
     private function createSn(){
         return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     }
@@ -230,18 +238,5 @@ class PaymentsController extends Controller {
 
         return $options;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

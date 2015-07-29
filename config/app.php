@@ -153,6 +153,7 @@ return [
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
+        'App\Providers\MaxfineValidatorServiceProvider',
 	],
 
 	/*
