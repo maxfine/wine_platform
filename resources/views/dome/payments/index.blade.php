@@ -32,7 +32,8 @@
                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
                     <form action="{{URL('dome/payments')}}" method="POST" target="_blank" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="payway" value="Alipay_Secured">
+                        <input type="hidden" name="gateway" value="Alipay_Secured">
+                        <input type="hidden" name="quantity" value="1">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">支付金额 <small class="text-red">*</small></label>
                             <div class="col-sm-10">
@@ -49,11 +50,11 @@
                 <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
                     <form action="{{URL('dome/payments')}}" method="POST" target="_blank" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="payway" value="Alipay_Bank">
+                        <input type="hidden" name="gateway" value="Alipay_Bank">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">支付金额 <small class="text-red">*</small></label>
                             <div class="col-sm-10">
-                                <input type="text" name="price" class="form-control" required="required">
+                                <input type="text" name="total_fee" class="form-control" required="required">
                             </div>
                         </div>
 
@@ -61,27 +62,27 @@
                             <label class="col-sm-2 control-label">选择银行<small class="text-red">*</small></label>
                             <div class="col-sm-10">
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="bankcode" class="form-control" value="" checked>
+                                    <input type="radio" name="defaultBank" class="form-control" value="" checked>
                                     支付宝
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="bankcode" class="form-control" value="ICBCB2C">
+                                    <input type="radio" name="defaultBank" class="form-control" value="ICBCB2C">
                                     工商银行
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="bankcode" class="form-control" value="CCB">
+                                    <input type="radio" name="defaultBank" class="form-control" value="CCB">
                                     建设银行
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="bankcode" class="form-control" value="ABC">
+                                    <input type="radio" name="defaultBank" class="form-control" value="ABC">
                                     农业银行
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="bankcode" class="form-control" value="BOCB2C">
+                                    <input type="radio" name="defaultBank" class="form-control" value="BOCB2C">
                                     中国银行
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="bankcode" class="form-control" value="HZCBB2C">
+                                    <input type="radio" name="defaultBank" class="form-control" value="HZCBB2C">
                                     杭州银行
                                 </label>
                             </div>
@@ -122,7 +123,7 @@
                 area: '700px',
                 shadeClose: false, //点击遮罩关闭
                 //content: '<div style="padding:20px;">返回</div>',
-                content: ['{{URL("dome/payments/check")}}', 'no'],
+                content: ['{{URL("dome/payments/create_check_alert")}}', 'no'],
                 skin: 'layui-layer-rim' //加上边框
             });
         })

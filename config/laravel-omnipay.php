@@ -31,7 +31,7 @@ return [
                 'key' => 'osfvviymykc4pc6i1dvn4cf68rc5j2qj',
                 'sellerEmail' => '1526469221@qq.com',
                 'notifyUrl' => 'http://jiu.znyes.com/dome/payments/respond/Alipay_Secured', //post
-                'returnUrl' => 'http://jiu.znyes.com/dome/payments/respond/Alipay_Secured', //get
+                'returnUrl' => 'http://jiu.znyes.com/dome/respond/Alipay_Secured', //get
                 //logisticsInfo
                 'logisticsFee' => '0.00', //运费
                 'logisticsType' => 'EXPRESS',
@@ -51,8 +51,8 @@ return [
                 'partner' => '2088021297824829',
                 'key' => 'y7ltjfmpkfosn5vbi69a5080kcb96nz7',
                 'sellerEmail' => '437630959@qq.com',
-                'notifyUrl' => 'http://jiu.znyes.com/dome/payments/respond/Alipay_Express', //post
-                'returnUrl' => 'http://jiu.znyes.com/dome/payments/respond/Alipay_Express', //get
+                'notifyUrl' => 'http://jiu.znyes.com/dome/respond/Alipay_Express', //post
+                'returnUrl' => 'http://jiu.znyes.com/dome/respond/Alipay_Express', //get
                 //receiveInfo
                 'receiveName' => 'konghs',
                 'receiveAddress' => 'hangzhou',
@@ -68,8 +68,8 @@ return [
                 'partner' => '2088021297824829',
                 'key' => 'y7ltjfmpkfosn5vbi69a5080kcb96nz7',
                 'sellerEmail' => '437630959@qq.com',
-                'notifyUrl' => 'http://jiu.znyes.com/dome/payments/respond/Alipay_Bank', //post
-                'returnUrl' => 'http://jiu.znyes.com/dome/payments/respond/Alipay_Bank', //get
+                'notifyUrl' => 'http://jiu.znyes.com/dome/respond/Alipay_Bank', //post
+                'returnUrl' => 'http://jiu.znyes.com/dome/respond/Alipay_Bank', //get
                 //receiveInfo
                 'receiveName' => 'konghs',
                 'receiveAddress' => 'hangzhou',

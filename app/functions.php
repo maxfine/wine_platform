@@ -318,3 +318,14 @@ if (! function_exists('fragment')) {
         }
     }
 }
+
+if(! function_exists('createOrderSn')){
+    /**
+     * 创建唯一性订单号
+     *
+     * @return string
+     */
+    function createOrderSn(){
+        return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+    }
+}

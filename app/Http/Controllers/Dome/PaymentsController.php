@@ -1,78 +1,97 @@
 <?php
+/**
+ * Created by 正言网络科技
+ * User: max_fine@qq.com
+ *
+ * 心得：
+ * ## 面向对象编程:
+ * 1.目标原子化，EG: 商城=》支付系统+订单系统， 支付系统=》付款+服务端接收到支付接口成功返回信息并处理订单与账号余额,
+ * 2.编写类,单一原子目标对应单一类
+ * 3.类的具体code步骤：面向接口编程,先不写具体实现，先写好方法名->方法具体实现，文字形式流程编写
+ * 4.测试数据的预定义, return $data
+ *
+ * ## MVC分层
+ *
+ * ## 面向接口阅读，与编码
+ * ### 阅读=》code, 印象笔记, php手册, stack, google, baidu
+ * ### 编码=》
+ *
+ * ## 编码规范
+ * 1.类=>驼峰法
+ * 2.其他=>_
+ */
 namespace App\Http\Controllers\Dome;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-use Redirect, Input, Auth;
+use Input;
 
 class PaymentsController extends Controller {
-    private $payway;
-    private $price;
-    private $sn;
-    private $subject;
-    private $bankcode;
-    private $quantity;
-    public  $options;
-
-    public function __construct(){
-
-    }
 	/**
-	 * Display a listing of the resource.
+     * 选择支付接口页面
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-        //$payments = $this->app['config']['laravel-omnipay.default']; //配置
         $payments = [
-        ];
-        $payments = null;
+        ]; //可供选择的支付接口信息
         return view('dome.payments.index')->with('payments', $payments);
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+     * 创建支付表单
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		//
+		//暂时跳过这个步骤，直接进入提交支付表单环节
+
+        //创建订单...
+        $orderSn = Order::createOrderSn();
+        $out_trade_no = $orderSn;
+
+        //保存订单
+
+        //respond到页面的数据
+        $data = ['out_trade_no' => $out_trade_no, 'subject' => $out_trade_no.'号订单产品'];
+
+        //return view(...);
+        return $data; //暂时返回测试用数据, 需要调用时使用->create()返回数据;
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+     * 提交支付表单
 	 *
 	 * @return Response
 	 */
 	public function store(Request $request)
 	{
+        //验证input信息
         $this->validate($request, [
-            'payway' => 'required',
-            'price' => 'required|min:1',
+            'gateway' => 'required',
         ]);
 
-        $this->price = Input::get('price');
-        $this->sn = $this->createSn();
-        $this->subject = $this->createSubject();
-        $this->bankcode = Input::get('bankcode');
-        $this->quantity = Input::get('quantity');
-        $this->setPayway(Input::get('payway'), $this->bankcode);
-        $this->payway = Input::get('payway');
+        //信息整合,过滤
+        $data = Input::all() + $this->create();
 
-        //进行第三方支付网站跳转
-        \Omnipay::setGateway($this->payway);
-        $options = $this->getOptions();
-        $response = \Omnipay::purchase($options)->send(); //request->response
+        //创建payway
+        \Omnipay::setGateway($data['gateway']);
+
+        //获取request
+        $resquest = \Omnipay::purchase($data); //request->response
+
+        //获取respond并跳转到第三方支付平台
+        $response = $resquest->send();
         $response->redirect();
 	}
 
 	/**
-	 * Display the specified resource.
+     * 展示支付信息
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -83,7 +102,7 @@ class PaymentsController extends Controller {
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
+     * 编辑支付信息
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -94,7 +113,7 @@ class PaymentsController extends Controller {
 	}
 
 	/**
-	 * Update the specified resource in storage.
+     * 修改支付信息
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -105,7 +124,7 @@ class PaymentsController extends Controller {
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+     * 删除支付信息
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -116,140 +135,11 @@ class PaymentsController extends Controller {
 	}
 
     /**
-     * --------------------------------------------------------------
-     * 弹出层内嵌iframe-充值信息确认
-     * --------------------------------------------------------------
+     * 弹出检查充值结果跳转页面
+     *
      * @return \Illuminate\View\View
      */
-    public function check(){
-        return view('dome.payments.check');
+    public function createCheckAlert(){
+       return view('dome.payments.check_alert');
     }
-
-    /**
-     * --------------------------------------------------------------
-     * 服务器端post响应
-     * --------------------------------------------------------------
-     */
-    public function respondPost(){
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 服务器端get响应
-     * --------------------------------------------------------------
-     * 返回成功提示,5秒后跳转到指定页面
-     */
-    public function respondGet($code = ''){
-        if(empty($code))return false;
-
-        \Omnipay::setGateway($code);
-        $resquest = \Omnipay::completePurchase(['request_params' => \Input::all()]);
-        $response = $resquest->send();
-        if($response->isSuccessful()){
-            //验证成功to-done
-
-        }else{
-
-        }
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 更新账户余额
-     * --------------------------------------------------------------
-     */
-    public function updateMemberAmountBySn(){
-
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 更新订单状态
-     * --------------------------------------------------------------
-     */
-    public function updateRecodeStatusBySn(){
-
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 创建唯一订单号
-     * --------------------------------------------------------------
-     * @return string
-     */
-    private function createSn(){
-        return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 获取产品名称
-     * --------------------------------------------------------------
-     * @return string
-     */
-    private function createSubject(){
-        return '产品支付';
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 设置支付接口
-     * --------------------------------------------------------------
-     */
-    private function setPayway($paywayTemp, $bankcode = ''){
-        $payway = '';
-
-        if(!$paywayTemp) return $payway;
-
-        $payway = $paywayTemp;
-
-        $this->payway = $payway;
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 获取支付接口
-     * --------------------------------------------------------------
-     * @return mixed
-     */
-    private function getPayway(){
-        return $this->payway;
-    }
-
-    /**
-     * --------------------------------------------------------------
-     * 设置配置项
-     * --------------------------------------------------------------
-     */
-    private function getOptions(){
-        $payway = $this->getPayway();
-        $options = [];
-
-        if(!$payway)return false;
-
-        if($payway == 'Alipay_Bank'){
-            $options = [
-                'out_trade_no' => $this->sn, //共有
-                'subject'      => $this->subject ? $this->subject : '产品支付', //共有
-                'total_fee'    => $this->price, //即时支付接口总费用
-                'defaultBank'  => $this->bankcode ? $this->bankcode : '', //网银支付网关
-            ];
-        }elseif($payway == 'Alipay_Express'){
-            $options = [
-                'out_trade_no' => $this->sn, //共有
-                'subject'      => $this->subject ? $this->subject : '产品支付', //共有
-                'total_fee'    => $this->price, //即时支付接口总费用
-            ];
-        }elseif($payway == 'Alipay_Secured'){
-            $options = array(
-                'out_trade_no' => $this->sn, //共有
-                'subject'      => $this->subject ? $this->subject : '产品支付', //共有
-                'price'        => $this->price, //担保交易商品单价
-                'quantity'     => $this->quantity ? $this->quantity : 1, //担保交易商品数量
-            );
-        }
-
-        return $options;
-    }
-
 }
