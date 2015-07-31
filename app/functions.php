@@ -329,3 +329,26 @@ if(! function_exists('createOrderSn')){
         return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     }
 }
+
+
+if(! function_exists('')){
+    /**
+     * 从数组中截取指定key的值组成newKey对应的dataKey的数组
+     *
+     * @param $data
+     * @param $purchaseParamKeys EG=>['newKey' => 'dataKey', ...]
+     * @return array
+     */
+    function createNewKeyArray($data, $purchaseParamKeys){
+        $parameters = [];
+
+        foreach($purchaseParamKeys as $_k=>$fromKey){
+            if(isset($data[$fromKey])){
+                $parameters[$_k] = $data[$fromKey];
+            }
+
+        }
+
+        return $parameters;
+    }
+}

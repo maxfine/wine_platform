@@ -42,6 +42,12 @@ return [
                 'receiveZip' => '201507',
                 'receivePhone' => '15558175937',
                 'receiveMobile' => '15558175937'
+            ],
+            'purchaseParamKeys' => [
+                'out_trade_no' => 'out_trade_no',
+                'price' => 'total_fee',
+                'subject' => 'subject',
+                'quantity' => 'quantity'
             ]
         ],
 
@@ -59,6 +65,11 @@ return [
                 'receiveZip' => '201507',
                 'receivePhone' => '15558175937',
                 'receiveMobile' => '15558175937'
+            ],
+            'purchaseParamKeys' => [
+                'out_trade_no' => 'out_trade_no',
+                'total_fee' => 'total_fee',
+                'subject' => 'subject',
             ]
         ],
 
@@ -77,7 +88,14 @@ return [
                 'receivePhone' => '15558175937',
                 'receiveMobile' => '15558175937',
                 'defaultBank' => 'ICBCBTB' //网关
+            ],
+            'purchaseParamKeys' => [
+                'out_trade_no' => 'out_trade_no',
+                'total_fee' => 'total_fee',
+                'subject' => 'subject',
+                'defaultBank' => 'defaultBank'
             ]
+
         ],
 
         'paypal' => [
@@ -86,6 +104,11 @@ return [
                 'solutionType'   => '',
                 'landingPage'    => '',
                 'headerImageUrl' => ''
+            ],
+            'purchaseParamKeys' => [
+                'out_trade_no' => 'out_trade_no',
+                'total_fee' => 'total_fee',
+                'subject' => 'subject',
             ]
         ]
     ]

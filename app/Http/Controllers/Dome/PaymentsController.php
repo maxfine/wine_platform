@@ -27,7 +27,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-use Input;
+use Input, Config, Omnipay;
 
 class PaymentsController extends Controller {
 	/**
@@ -50,18 +50,6 @@ class PaymentsController extends Controller {
 	public function create()
 	{
 		//暂时跳过这个步骤，直接进入提交支付表单环节
-
-        //创建订单...
-        $orderSn = Order::createOrderSn();
-        $out_trade_no = $orderSn;
-
-        //保存订单
-
-        //respond到页面的数据
-        $data = ['out_trade_no' => $out_trade_no, 'subject' => $out_trade_no.'号订单产品'];
-
-        //return view(...);
-        return $data; //暂时返回测试用数据, 需要调用时使用->create()返回数据;
 	}
 
 	/**
@@ -76,17 +64,27 @@ class PaymentsController extends Controller {
             'gateway' => 'required',
         ]);
 
-        //信息整合,过滤
-        $data = Input::all() + $this->create();
-
+        //创建订单...
+        $orderSn = Order::createOrderSn();
+        $out_trade_no = $orderSn;
+        //保存订单
+        //TODO
+        //订单数据,暂时使用测试数据
+        $data = ['out_trade_no' => $out_trade_no, 'subject' => $out_trade_no.'号订单产品', 'total_fee' => '0.1', 'quantity' => 1, 'defaultBank' => 'CCB']; //保证金额正确性, 订单号,主题,支付金额由订单决定
+        $data = $data + Input::all();
         //创建payway
-        \Omnipay::setGateway($data['gateway']);
-
+        $gateway = Input::get('gateway');
+        Omnipay::setGateway($gateway);
+        //数据对接-按配置参数重组数组
+        //如果符合则加入进新数组
+        $gateway = Omnipay::getGateway();
+        $purchaseParamKeys = Config::get('laravel-omnipay.gateways')[$gateway]['purchaseParamKeys'];
+        $parameters = createNewKeyArray($data, $purchaseParamKeys);
         //获取request
-        $resquest = \Omnipay::purchase($data); //request->response
-
+        $resquest = Omnipay::purchase($parameters);
         //获取respond并跳转到第三方支付平台
         $response = $resquest->send();
+
         $response->redirect();
 	}
 
