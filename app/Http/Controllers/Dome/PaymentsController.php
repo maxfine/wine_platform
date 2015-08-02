@@ -13,7 +13,7 @@
  * ## MVC分层
  *
  * ## 面向接口阅读，与编码
- * ### 阅读=》code, 印象笔记, php手册, stack, google, baidu
+ * ### 阅读=》code(反射类）, 印象笔记, php手册, stack, google, baidu
  * ### 编码=》
  *
  * ## 编码规范
