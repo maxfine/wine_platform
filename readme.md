@@ -23,7 +23,6 @@ Thank you for considering contributing to the Laravel framework! The contributio
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## 编码规范
----
 ### 使用了命名空间的
 文件夹名，类名==文件名=》驼峰法，首字母大写
 变量名与函数名使用驼峰法（为兼容外部变量命名变量名可用’_'分隔, 如兼容数据库字段名），首字母小写

@@ -1,9 +1,24 @@
-@extends('app')
+@extends('layout._front')
 
-@section('content')
-<div class="container-fluid">
+@section('bootstrapContent')
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <!--<div class="panel-heading">当前位置</div>-->
+
+                <div class="panel-body">
+                    <ol class="breadcrumb">
+                        <li><a href="{{URL('/')}}">Home</a></li>
+                        <li class="active">登录</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">

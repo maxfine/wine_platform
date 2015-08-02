@@ -42,18 +42,28 @@
                         <form action="{{ URL('admin/pages') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label>正文 <small class="text-red">*</small></label>
+                                <label>标题 <small class="text-red">*</small></label>
                                 <input type="text" name="title" class="form-control" required="required">
                             </div>
 
                             <div class="form-group">
                                 <label>正文 <small class="text-red">*</small></label>
-                                <textarea class="form-control" id="ckeditor" name="content">{{ Input::old('body', isset($data) ? $data->content : null) }}</textarea>
+                                <textarea class="form-control" id="ckeditor" name="body">{{ Input::old('body', isset($data) ? $data->body : null) }}</textarea>
                                 @include('scripts.endCKEditor'){{-- 引入CKEditor编辑器相关JS依赖 --}}
                             </div>
 
-                            <textarea name="body" rows="10" class="form-control" required="required"></textarea>
-                            <br>
+                            <div class="form-group">
+                                <label>图片 </label>
+                                <!--引入CSS-->
+                                <link href="{{ asset('js/plugins/webuploader-0.1.5/webuploader.css') }}" rel="stylesheet">
+
+                                <div id="uploader-demo" class="wu-example">
+                                    <div id="fileList" class="uploader-list">
+                                    </div>
+                                    <div id="filePicker">选择图片</div>
+                                </div>
+                            </div>
+
                             <button class="btn btn-lg btn-info">新增 Page</button>
                         </form>
 
@@ -62,4 +72,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('extraPlugin')
+    <!--引入JS-->
+    <script type="text/javascript" src="{{ asset('js/plugins/webuploader-0.1.5/webuploader.js') }}"></script>
+    <script src="{{ asset('js/demo/webuploader-demo2.js') }}"></script>
 @endsection

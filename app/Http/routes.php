@@ -84,10 +84,13 @@ Route::get('/', 'HomeController@index');
 Route::group(['prefix' => 'dome', 'namespace' => 'Dome'], function()
 {
     //支付模块dome
-    Route::post('respond/{code}', 'PaymentsController@respondPost');
-    Route::get('respond/{code}', 'PaymentsController@respondGet');
+    Route::post('respond/{code}', 'RespondController@respondPost');
+    Route::get('respond/{code}', 'RespondController@respondGet');
     Route::get('payments/create_check_alert', 'PaymentsController@createCheckAlert');
     Route::resource('payments', 'PaymentsController');
+
+    //上传模块dome
+    Route::post('files/upload/{file_name}', 'FilesController@upload');
 });
 
 /**
