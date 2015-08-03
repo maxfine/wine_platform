@@ -40,9 +40,9 @@ jQuery(function() {
     // 当有文件添加进来的时候
     uploader.on( 'fileQueued', function( file ) {
         var $li = $(
-                '<div id="' + file.id + '" class="file-item thumbnail">' +
-                    '<img>' +
-                    '<div class="info">' + file.name + '</div>' +
+                '<div id="' + file.id + '" class="file-item col-sm-2 col-xs-3">' +
+                    '<img class="img-thumbnail">' +
+                    //'<div class="info">' + file.name + '</div>' +
                 '</div>'
                 ),
             $img = $li.find('img');
@@ -90,7 +90,8 @@ jQuery(function() {
             $error = $('<div class="error"></div>').appendTo( $li );
         }
 
-        $error.text('上传失败');
+        //$error.text('上传失败');
+        layer.msg('上传失败');
     });
 
     // 完成上传完了，成功或者失败，先删除进度条。

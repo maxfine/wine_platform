@@ -65,9 +65,6 @@
       <!-- Content Wrapper. Contains page content -->
       <div id="page-wrapper" class="gray-bg dashbard-1">
           @include('widgets.main-header')
-
-
-
           <!-- Content Header (Page header) -->
               @section('content-header')
               @show{{-- 内容导航头部 --}}
@@ -102,7 +99,7 @@
 
     <!-- Custom and plugin javascript -->
     <script src="{{ asset('js/hplus.js?v=2.2.0') }}"></script>
-    <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/pace/pac.min.js') }}"></script>
 
     @section('extraPlugin')
     @show{{-- 引入额外依赖JS插件 --}}

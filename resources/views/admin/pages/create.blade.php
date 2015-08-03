@@ -53,18 +53,25 @@
                             </div>
 
                             <div class="form-group">
-                                <label>图片 </label>
-                                <!--引入CSS-->
-                                <link href="{{ asset('js/plugins/webuploader-0.1.5/webuploader.css') }}" rel="stylesheet">
-
-                                <div id="uploader-demo" class="wu-example">
-                                    <div id="fileList" class="uploader-list">
+                                <div id="uploader-demo" class="wu-example row">
+                                    <div class="col-sm-2" style="width: 120px;">
+                                        <div id="filePicker">选择图片</div>
                                     </div>
-                                    <div id="filePicker">选择图片</div>
+                                    <div class="col-sm-10">
+                                        <div id="fileList" class="row">
+                                            <!--<img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=100%C3%97100&w=100&h=100">-->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <button class="btn btn-lg btn-info">新增 Page</button>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-lg btn-info">提交</button>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
 
                     </div>
@@ -75,7 +82,23 @@
 @endsection
 
 @section('extraPlugin')
-    <!--引入JS-->
+    @parent
+    <!--引入上传插件JS-->
     <script type="text/javascript" src="{{ asset('js/plugins/webuploader-0.1.5/webuploader.js') }}"></script>
     <script src="{{ asset('js/demo/webuploader-demo2.js') }}"></script>
-@endsection
+    <script src="{{ asset('js/plugins/layer-v1.9.3/layer/layer.js') }}"></script>
+    <!--引入Layer组件-->
+    <script type="text/javascript">
+        $('form.form-horizontal').submit(function(e){
+            layer.open({
+                type: 2,
+                title: '充值信息确认',
+                area: '700px',
+                shadeClose: false, //点击遮罩关闭
+                //content: '<div style="padding:20px;">返回</div>',
+                content: ['{{URL("dome/payments/create_check_alert")}}', 'no'],
+                skin: 'layui-layer-rim' //加上边框
+            });
+        })
+    </script>
+@stop
