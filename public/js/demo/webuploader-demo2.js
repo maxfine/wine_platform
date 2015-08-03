@@ -11,7 +11,6 @@ jQuery(function() {
 
         // Web Uploader实例
         uploader,
-        BASE_URL = 'http://jiu.znyes.com';
 
     // 初始化Web Uploader
     uploader = WebUploader.create({
@@ -27,14 +26,21 @@ jQuery(function() {
 
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-        pick: '#filePicker',
+        pick: {
+            id:'#filePicker',
+            multiple:false
+        },
 
         // 只允许选择文件，可选。
         accept: {
             title: 'Images',
             extensions: 'gif,jpg,jpeg,bmp,png',
             mimeTypes: 'image/*'
-        }
+        },
+        formData: {
+            _token: $('meta[name="_token"]').attr('content')
+        },
+        fileNumLimit:1
     });
 
     // 当有文件添加进来的时候
@@ -78,6 +84,10 @@ jQuery(function() {
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
     uploader.on( 'uploadSuccess', function( file ) {
         $( '#'+file.id ).addClass('upload-state-done');
+        layer.msg('图片上传成功');
+        //todo
+        //页面插入<input type="hidden" name="image" value="file.path">
+        //页面插入删除按钮, 用于删除已经上传的图片
     });
 
     // 文件上传失败，现实上传出错。
@@ -90,8 +100,8 @@ jQuery(function() {
             $error = $('<div class="error"></div>').appendTo( $li );
         }
 
-        //$error.text('上传失败');
-        layer.msg('上传失败');
+        $error.text('上传失败');
+        //layer.msg('上传失败');
     });
 
     // 完成上传完了，成功或者失败，先删除进度条。

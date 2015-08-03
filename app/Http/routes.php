@@ -90,7 +90,7 @@ Route::group(['prefix' => 'dome', 'namespace' => 'Dome'], function()
     Route::resource('payments', 'PaymentsController');
 
     //上传模块dome
-    Route::post('files/upload/{file_name}', 'FilesController@upload');
+    Route::post('files/upload', 'FilesController@upload');
 });
 
 /**

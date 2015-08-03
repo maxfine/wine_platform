@@ -9,8 +9,8 @@
 
                 <div class="panel-body">
                     <ol class="breadcrumb">
-                        <li><a href="{{URL('/')}}">Home</a></li>
-                        <li class="active">登录</li>
+                        <li><a href="{{URL('/')}}">首页</a></li>
+                        <li class="active">用户登录</li>
                     </ol>
                 </div>
             </div>
@@ -20,11 +20,11 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
+				<div class="panel-heading">用户登录</div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<strong>错误提示!</strong><br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -37,16 +37,16 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">用户名：</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input type="email" placeholder="你的邮箱" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
+							<label class="col-md-4 control-label">密码：</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+								<input type="password" placeholder="密码" class="form-control" name="password">
 							</div>
 						</div>
 
@@ -54,7 +54,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="remember"> Remember Me
+										<input type="checkbox" name="remember"> 记住用户名
 									</label>
 								</div>
 							</div>
@@ -62,9 +62,9 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary">登录</button>
 
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+								<a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码?</a>
 							</div>
 						</div>
 					</form>

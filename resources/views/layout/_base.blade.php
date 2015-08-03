@@ -11,6 +11,7 @@
     <meta name="author" content="{{ Cache::get('system_author_website') }}" />
     <meta name="renderer" content="webkit">{{-- 360浏览器使用webkit内核渲染页面 --}}
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />{{-- IE(内核)浏览器优先使用高版本内核 --}}
+    <meta name="_token" content="{{ csrf_token() }}"/>
 
     @section('meta')
     @show{{-- 添加一些额外的META申明 --}}

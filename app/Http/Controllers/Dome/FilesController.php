@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use Input;
+
 class FilesController extends Controller {
 
 	/**
@@ -87,9 +89,33 @@ class FilesController extends Controller {
      * @param $fileName
      * @return null
      */
-    public function upload($fileName){
-        $newFile = null;
+    public function upload(Request $request){
+        $path = null;
 
-        return $newFile;
+        if(Input::file('file') ){
+            $file = Input::file('file');
+            $allowed_extensions = ["png", "jpg", "gif"];
+            if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
+            {
+                return ['error' => '只能上传png, jpg, gif格式'];
+            }
+            $fileName        = $file->getClientOriginalName();
+            $extension       = $file->getClientOriginalExtension() ?: 'png';
+            $folderName      = 'uploads/images/' . date("Ym", time()) .'/'.date("d", time());
+            $destinationPath = public_path() . '/' . $folderName;
+            $safeName        = str_random(10).'.'.$extension;
+            $file->move($destinationPath, $safeName);
+
+            //$photo = Photo::find($id);
+            //$photo->delete();
+            //unlink( imageURLToName($image_file->uri) );
+            $json = ['status' => 1, 'info' => '成功'];
+            return response()->json($json);
+        }else{
+            $json = ['status' => 2, 'info' => '失败'];
+            return response()->json($json);
+        }
+
+        return $path;
     }
 }
