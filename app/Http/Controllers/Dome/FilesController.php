@@ -92,6 +92,7 @@ class FilesController extends Controller {
     public function upload(Request $request){
         $path = null;
 
+        //todo: 1. 替换'/'为跨平台分隔符
         if(Input::file('file') ){
             $file = Input::file('file');
             $allowed_extensions = ["png", "jpg", "gif"];
@@ -105,11 +106,13 @@ class FilesController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
+            $filePath = $folderName.'/'.$safeName;
+            $fileUrl = URL($filePath);
 
             //$photo = Photo::find($id);
             //$photo->delete();
             //unlink( imageURLToName($image_file->uri) );
-            $json = ['status' => 1, 'info' => '成功'];
+            $json = ['status' => 1, 'info' => '成功', 'fileUrl' => $fileUrl];
             return response()->json($json);
         }else{
             $json = ['status' => 2, 'info' => '失败'];

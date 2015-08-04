@@ -6435,3 +6435,17 @@ body.skin-3 {
     opacity: 0.6;
     pointer-events:none;
 }
+
+.file-item{position: relative; width: 110px;}
+
+.upload-state-done a.del-image{
+    display: none;
+    position: absolute;
+    top:35%;
+}
+
+.upload-state-done:hover a.del-image{
+    display: block;
+    position: absolute;
+    top:35%;
+}

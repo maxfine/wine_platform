@@ -95,14 +95,14 @@
     </div><!-- ./wrapper -->
 
     <!-- Mainly scripts -->
-    <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('http://fex.baidu.com//webuploader/js/jquery-1.10.2.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js?v=3.4.0') }}"></script>
     <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
     <!-- Custom and plugin javascript -->
     <script src="{{ asset('js/hplus.js?v=2.2.0') }}"></script>
-    <script src="{{ asset('js/plugins/pace/pac.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
 
     @section('extraPlugin')
     @show{{-- 引入额外依赖JS插件 --}}

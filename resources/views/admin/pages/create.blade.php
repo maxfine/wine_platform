@@ -54,14 +54,10 @@
 
                             <div class="form-group">
                                 <div id="uploader-demo" class="wu-example row">
-                                    <div class="col-sm-2" style="width: 120px;">
-                                        <div id="filePicker">选择图片</div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div id="fileList" class="row">
+                                        <div id="filePicker" class="col-sm-2" style="width: 120px;">选择图片</div>
+                                        <div id="fileList" class="col-sm-10">
                                             <!--<img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=100%C3%97100&w=100&h=100">-->
                                         </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -99,6 +95,9 @@
                 content: ['{{URL("dome/payments/create_check_alert")}}', 'no'],
                 skin: 'layui-layer-rim' //加上边框
             });
-        })
+        });
     </script>
+@stop
+
+@section('filledScript')
 @stop
