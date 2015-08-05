@@ -19,14 +19,14 @@
                         </div>
                     @endif
 
-                    <form action="{{ URL('admin/pages/'.$page->id) }}" method="POST">
+                    <form action="{{ URL('admin/pages/'.$data->id) }}" method="POST">
                         <input name="_method" type="hidden" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="title" class="form-control" required="required" value="{{ $page->title }}">
+                        <input type="text" name="title" class="form-control" required="required" value="{{ Input::old('title', isset($data) ? $data->title : null) }}">
                         <br>
                         <div class="form-group">
                             <label>正文 <small class="text-red">*</small></label>
-                            <textarea class="form-control" id="ckeditor" name="body">{{ $page->body }}{{-- Input::old('body', isset($data) ? $data->body: null) --}}</textarea>
+                            <textarea class="form-control" id="ckeditor" name="body">{{ Input::old('body', isset($data) ? $data->body : null) }}</textarea>
                             @include('scripts.endCKEditor'){{-- 引入CKEditor编辑器相关JS依赖 --}}
                         </div>
                         <br>

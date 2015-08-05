@@ -43,12 +43,12 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <label>标题 <small class="text-red">*</small></label>
-                                <input type="text" name="title" class="form-control" required="required">
+                                <input type="text" name="title" class="form-control" required="required" value="{{ Input::old('title') }}">
                             </div>
 
                             <div class="form-group">
                                 <label>正文 <small class="text-red">*</small></label>
-                                <textarea class="form-control" id="ckeditor" name="body">{{ Input::old('body', isset($data) ? $data->body : null) }}</textarea>
+                                <textarea class="form-control" id="ckeditor" name="body">{{ Input::old('body') }}</textarea>
                                 @include('scripts.endCKEditor'){{-- 引入CKEditor编辑器相关JS依赖 --}}
                             </div>
 

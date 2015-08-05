@@ -45,15 +45,15 @@ class PagesController extends Controller {
 
 
 		$page = new Page;
-		$page->title = Input::get('title');
-		$page->image= Input::get('image')?Input::get('image'):'';
-		$page->body = Input::get('body');
+		$page->title = e(Input::get('title'));
+		$page->image= Input::get('image')?e(Input::get('image')):'';
+		$page->body = e(Input::get('body'));
 		$page->user_id = Auth::user()->id;
 
 		if ($page->save()) {
 			return Redirect::to('admin');
 		} else {
-			return Redirect::back()->withInput()->withErrors('保存失败！');
+			return Redirect::back()->withInput($request->input())->withErrors('保存失败！');
 		}
 
 	}
@@ -74,7 +74,7 @@ class PagesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('admin.pages.edit')->withPage(Page::find($id));
+		return view('admin.pages.edit')->withData(Page::findOrFail($id));
 	}
 
 	/**
