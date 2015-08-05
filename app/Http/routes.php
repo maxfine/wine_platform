@@ -51,6 +51,14 @@ Route::get('/test2', function(){
     //return $data;
 });
 
+Route::get('/test3', function(){
+    //dd(app());
+    $class = get_class(app());
+    //$reflection = new \ReflectionClass ($class) ;
+
+    dd(print_r(pathinfo("http://jiu.znyes.com/testweb/test.txt?dd")));
+});
+
 /**
 Route::controllers([
 	'auth' => 'Auth\AuthController',

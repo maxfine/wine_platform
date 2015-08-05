@@ -92,7 +92,7 @@ class FilesController extends Controller {
     public function upload(Request $request){
         $path = null;
 
-        //todo: 1. 替换'/'为跨平台分隔符
+        //todo: 1. 替换'/'为跨平台分隔符 2. 附件管理模块 3. 图片验证用更安全方式
         if(Input::file('file') ){
             $file = Input::file('file');
             $allowed_extensions = ["png", "jpg", "gif"];
