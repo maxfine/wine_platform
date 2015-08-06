@@ -49,7 +49,7 @@
             </li>
 
             <li class="treeview">
-                <a href="{{ URL('admin/pages') }}"><i class="fa fa-columns"></i> <span class="nav-label">布局</span><span class="label label-danger pull-right">2.0</span></a>
+                <a href="#"><i class="fa fa-columns"></i> <span class="nav-label">布局</span><span class="label label-danger pull-right">2.0</span></a>
             </li>
 
             <li class="treeview">

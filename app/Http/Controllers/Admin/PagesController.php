@@ -92,6 +92,7 @@ class PagesController extends Controller {
 
 		$page = Page::find($id);
 		$page->title = e(Input::get('title'));
+        $page->image= Input::get('image')?e(Input::get('image')):'';
 		$page->body = e(Input::get('body'));
 		$page->user_id = Auth::user()->id;
 
