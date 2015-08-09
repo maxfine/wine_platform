@@ -89,7 +89,8 @@ jQuery(function() {
 
         var ismultiple = uploader.options.pick.multiple;
         var fileUrl = response.fileUrl;
-        var $imageInput = $('<input type="hidden" name="image" value="' + fileUrl + '">');
+        var thumb = 'thumb'; //缩略图字段名称, 需要与程序对接
+        var $imageInput = $('<input type="hidden" name="' +thumb+ '" value="' + fileUrl + '">');
 
         //todo: 1. 预留图片src替换成上传后的图片地址 2. 页面插入<input type="hidden" name="image" value="fileUrl">
         if(false === ismultiple){

@@ -34,11 +34,11 @@
             </select>
 
             <br>
-            <input type="file" name="image">
-            @if ($article->image)<img src="{{ URL($article->image) }}" width="100" height="100">@endif
+            <input type="file" name="thumb">
+            @if ($article->thumb)<img src="{{ URL($article->thumb) }}" width="100" height="100">@endif
             
             <br>
-            <textarea name="body" rows="10" class="form-control" required="required">{{ $article->body }}</textarea>
+            <textarea name="content" rows="10" class="form-control" required="required">{{ $article->content }}</textarea>
             <br>
             <button class="btn btn-lg btn-info">修改</button>
           </form>

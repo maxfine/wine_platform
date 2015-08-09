@@ -41,33 +41,35 @@
                     <form action="{{ URL('admin/pages/'.$data->id) }}" method="POST">
                         <input name="_method" type="hidden" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="title" class="form-control" required="required" value="{{ Input::old('title', isset($data) ? $data->title : null) }}">
-                        <br>
+
+                        <div class="form-group">
+                            <label>标题<small class="text-red">*</small></label>
+                            <input type="text" name="title" class="form-control" required="required" value="{{ Input::old('title', isset($data) ? $data->title : null) }}">
+                        </div>
 
                         <div class="form-group">
                             <label>正文 <small class="text-red">*</small></label>
-                            <textarea class="form-control" id="ckeditor" name="body">{{ Input::old('body', isset($data) ? $data->body : null) }}</textarea>
+                            <textarea class="form-control" id="ckeditor" name="content">{{ Input::old('content', isset($data) ? $data->content: null) }}</textarea>
                             @include('scripts.endCKEditor'){{-- 引入CKEditor编辑器相关JS依赖 --}}
                         </div>
 
                         <div class="form-group">
+                            <label>缩略图</label>
                             <div id="uploader-demo" class="wu-example row">
-                                <div id="filePicker" class="col-sm-2" style="width: 120px;">选择图片</div>
+                                <div id="filePicker" class="col-sm-2" style="width: 120px; @if ($data->thumb) position: absolute; z-index: -99; @endif">选择图片</div>
 
                                 <div id="fileList" class="col-sm-8">
-                                    <!--<img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=100%C3%97100&w=100&h=100">-->
+                                    @if ($data->thumb)
                                     <div id="WU_FILE_DONE" class="file-item pull-left upload-state-done">
-                                        <img src="{{ Input::old('image', isset($data) ? $data->image: null) }}" class="img-thumbnail">
+                                        <img src="{{ Input::old('thumb', isset($data) ? $data->thumb: null) }}" class="img-thumbnail">
                                         <a class="btn btn-danger btn-block dim btn-outline del-image" href="javascript:void(0);"><i class="fa fa-times"></i> 删除</a>
-                                        <input name="image" value="{{ Input::old('image', isset($data) ? $data->image: null) }}" type="hidden">
+                                        <input name="thumb" value="{{ Input::old('thumb', isset($data) ? $data->thumb: null) }}" type="hidden">
                                     </div>
+                                    @endif
                                 </div>
-
-
                             </div>
                         </div>
 
-                        <br>
                         <button class="btn btn-lg btn-info">确认提交</button>
                     </form>
 
@@ -103,8 +105,8 @@
             $( '#'+wufile+' .del-image').on('click', function(e){
                 //ajax删除图片, 如果删除成功
                 $( '#'+wufile).remove();
-                $('#filePicker').show();
-                //如果图片删除失败, 弹出层提示
+                $('#filePicker').css({'position':'relative', 'z-index':'1'}); //显示选择图片按钮
+                //todo-如果图片删除失败, 弹出层提示
             });
         });
     </script>

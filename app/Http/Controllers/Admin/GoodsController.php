@@ -68,12 +68,12 @@ class GoodsController extends Controller {
 		$goods->store_price= $request->input('store_price');
         //$post->slug = Str::slug(Input::get('title'));
 		$goods->cat_id = Input::get('cat_id');
-		$goods->desc = Input::get('desc');
+		$goods->content = Input::get('content');
 		$goods->user_id = Auth::user()->id;
 		$goods->type_id= Input::get('type_id')?Input::get('type_id'):null; //外键可以为空
 		$goods->brand_id= 1; //to-do
 
-        if ($file = Input::file('image')) {
+        if ($file = Input::file('thumb')) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
@@ -85,7 +85,7 @@ class GoodsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $goods->image = $folderName.'/'.$safeName;
+            $goods->thumb= $folderName.'/'.$safeName;
         }
 
         //开始事务
@@ -179,12 +179,12 @@ class GoodsController extends Controller {
 		$goods->store_price= $request->input('store_price');
         //$post->slug = Str::slug(Input::get('title'));
 		$goods->cat_id = Input::get('cat_id');
-		$goods->desc = Input::get('desc');
+		$goods->content = Input::get('content');
 		$goods->user_id = Auth::user()->id;
 		$goods->type_id= Input::get('type_id'); //to-do
 		$goods->brand_id= 1; //to-do
 
-        if ($file = Input::file('image')) {
+        if ($file = Input::file('thumb')) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
@@ -196,7 +196,7 @@ class GoodsController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $goods->image = $folderName.'/'.$safeName;
+            $goods->thumb = $folderName.'/'.$safeName;
         }
 
         //开始事务

@@ -33,11 +33,11 @@
             </select>
             <br/>
 
-            <input type="file" name="image">
+            <input type="file" name="thumb">
             
 
             <br/>
-            <textarea name="body" rows="10" class="form-control" required="required"></textarea>
+            <textarea name="content" rows="10" class="form-control" required="required"></textarea>
             <br>
             <button class="btn btn-lg btn-info">新增文章</button>
           </form>

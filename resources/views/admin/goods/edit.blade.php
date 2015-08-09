@@ -52,12 +52,12 @@
             </div>
 
             <br>
-            <input type="file" name="image">
+            <input type="file" name="thumb">
             
-            @if ($goods->image)<div class=""><img src="{{ URL($goods->image) }}" width="100" height="100"><span Class="btn del_image btn-primary" data-delid="{{ $goods->id }}">删除图片</span></div>@endif
+            @if ($goods->thumb)<div class=""><img src="{{ URL($goods->thumb) }}" width="100" height="100"><span Class="btn del_thumb btn-primary" data-delid="{{ $goods->id }}">删除图片</span></div>@endif
             
             <br>
-            <textarea name="desc" rows="10" class="form-control" required="required">{{ $goods->desc}}</textarea>
+            <textarea name="content" rows="10" class="form-control" required="required">{{ $goods->content}}</textarea>
             {{-- 上传 --}}
             <br/>
             <ul class="row list-unstyled">

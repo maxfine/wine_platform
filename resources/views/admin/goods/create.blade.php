@@ -51,11 +51,11 @@
             <div id="attrs_list">
             </div>
             <br/>
-            <input type="file" name="image" id="image">
+            <input type="file" name="thumb" id="thumb">
             
             <br/>
 
-            <textarea name="desc" rows="10" class="form-control" required="required"></textarea>
+            <textarea name="content" rows="10" class="form-control" required="required"></textarea>
             
             
             {{-- 上传 --}}

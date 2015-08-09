@@ -17,7 +17,7 @@
               <h4>{{ $article->title }}</h4>
               <div class="content">
                 <p>
-                  {{ $article->body }}
+                  {{ $article->content }}
                 </p>
               </div>
             </div>

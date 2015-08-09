@@ -17,7 +17,7 @@
               <h4>{{ $_v->goods_name}}</h4>
               <div class="content">
                 <p>
-                  {{ $_v->desc}}
+                  {{ $_v->content}}
                 </p>
               </div>
             </div>

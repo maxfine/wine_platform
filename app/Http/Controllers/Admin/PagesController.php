@@ -40,14 +40,14 @@ class PagesController extends Controller {
 	{
    		$this->validate($request, [
 			'title' => 'required|unique:pages|max:255',
-			'body' => 'required',
+			'content' => 'required',
 		]);
 
 
 		$page = new Page;
 		$page->title = e(Input::get('title'));
-		$page->image= Input::get('image')?e(Input::get('image')):'';
-		$page->body = e(Input::get('body'));
+		$page->thumb = Input::get('thumb')?e(Input::get('thumb')):'';
+		$page->content = e(Input::get('content'));
 		$page->user_id = Auth::user()->id;
 
 		if ($page->save()) {
@@ -87,13 +87,13 @@ class PagesController extends Controller {
 	{
 		$this->validate($request, [
 			'title' => 'required|unique:pages,title,'.$id.'|max:255',
-			'body' => 'required',
+			'content' => 'required',
 		]);
 
 		$page = Page::find($id);
 		$page->title = e(Input::get('title'));
-        $page->image= Input::get('image')?e(Input::get('image')):'';
-		$page->body = e(Input::get('body'));
+        $page->thumb = Input::get('thumb')?e(Input::get('thumb')):'';
+		$page->content = e(Input::get('content'));
 		$page->user_id = Auth::user()->id;
 
 		if ($page->save()) {

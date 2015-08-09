@@ -11,7 +11,8 @@
         "intervention/image": "2.2.1",
         "blueimp/jquery-file-upload": "9.9.3",
         "ignited/laravel-omnipay": "2.0.0",
-        "lokielse/omnipay-alipay": "dev-master"
+        "lokielse/omnipay-alipay": "dev-master",
+        "doctrine/dbal": "2.5.0"
 	},
 	"require-dev": {
         "barryvdh/laravel-ide-helper":"2.0.3",

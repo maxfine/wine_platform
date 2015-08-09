@@ -37,7 +37,7 @@
                 <div class="content">
                     <p>
                         {{-- $_v->body --}}
-                        {!! htmlspecialchars_decode($_v->body); !!}
+                        {!! htmlspecialchars_decode($_v->content); !!}
                     </p>
                 </div>
             </div>

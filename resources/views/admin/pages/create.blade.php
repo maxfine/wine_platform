@@ -48,7 +48,7 @@
 
                             <div class="form-group">
                                 <label>正文 <small class="text-red">*</small></label>
-                                <textarea class="form-control" id="ckeditor" name="body">{{ Input::old('body') }}</textarea>
+                                <textarea class="form-control" id="ckeditor" name="content">{{ Input::old('content') }}</textarea>
                                 @include('scripts.endCKEditor'){{-- 引入CKEditor编辑器相关JS依赖 --}}
                             </div>
 

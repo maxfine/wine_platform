@@ -23,7 +23,7 @@ class ArticlesController extends Controller {
     public function getList($catId)
     {
         $cat = ArticleCat::find($catId);
-        dump(ArticleCat::with('articles')->get());
+        //dump(ArticleCat::with('articles')->get());
         $articleCat = ArticleCat::find($catId);
         $articles = Article::whereIn('cat_id', $articleCat->allCatIds())->paginate(10);
         return view('admin.articles.list')->with('articles', $articles);
@@ -55,10 +55,10 @@ class ArticlesController extends Controller {
 		$article->title = $request->input('title');
         //$post->slug = Str::slug(Input::get('title'));
 		$article->cat_id = Input::get('cat_id');
-		$article->body = Input::get('body');
+		$article->content = Input::get('content');
 		$article->user_id = Auth::user()->id;
 
-        if ($file = Input::file('image')) {
+        if ($file = Input::file('thumb')) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
@@ -70,7 +70,7 @@ class ArticlesController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $article->image = $folderName.'/'.$safeName;
+            $article->thumb = $folderName.'/'.$safeName;
         }
 
 		if ($article->save()) {
@@ -123,10 +123,10 @@ class ArticlesController extends Controller {
 		$article->title = $request->input('title');
         //$post->slug = Str::slug(Input::get('title'));
 		$article->cat_id = Input::get('cat_id');
-		$article->body = Input::get('body');
+		$article->content = Input::get('content');
 		$article->user_id = Auth::user()->id;
 
-        if ($file = Input::file('image')) {
+        if ($file = Input::file('thumb')) {
             $allowed_extensions = ["png", "jpg", "gif"];
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions))
             {
@@ -138,7 +138,7 @@ class ArticlesController extends Controller {
             $destinationPath = public_path() . '/' . $folderName;
             $safeName        = str_random(10).'.'.$extension;
             $file->move($destinationPath, $safeName);
-            $article->image = $folderName.'/'.$safeName;
+            $article->thumb = $folderName.'/'.$safeName;
         }
 
 		if ($article->save()) {
