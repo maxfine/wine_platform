@@ -110,8 +110,8 @@
     <script type="text/javascript">
       $(document).ready(function(){
           //$('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active').parent('ul').addClass('in');  //二级链接高亮
-          $('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li.treeview').addClass('active').children('ul').addClass('in');  //一级栏目[含二级链接]高亮
-          $('ul#side-menu>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active');  //一级栏目[不含二级链接]高亮
+          //$('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li.treeview').addClass('active').children('ul').addClass('in');  //一级栏目[含二级链接]高亮
+          //$('ul#side-menu>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active');  //一级栏目[不含二级链接]高亮
 
           @section('filledScript')
           @show{{-- 在document ready 里面填充一些JS代码 --}}

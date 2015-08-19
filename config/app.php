@@ -154,6 +154,7 @@ return [
         'Barryvdh\Debugbar\ServiceProvider',
         'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
         'App\Providers\MaxfineValidatorServiceProvider',
+        'GrahamCampbell\Navigation\NavigationServiceProvider',
 	],
 
 	/*
@@ -209,6 +210,7 @@ return [
         'Image' => 'Intervention\Image\Facades\Image',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
+        'Navigation' => 'GrahamCampbell\Navigation\Facades\Navigation',
 	],
 
 ];

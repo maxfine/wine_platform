@@ -571,6 +571,34 @@ array_push($arr, 'ddd');
 var_dump($arr);
 *******************************END********************************/
 
+/**
+ * ---------------------------------------------------------------
+ * array_reduce
+ * ---------------------------------------------------------------
+function rsum($v, $w)
+{
+    echo '<br/>hello = '.$v.' || '.$w;
+    $v2 = $v + $w;
+    return $v2;
+}
+
+function rmul($v, $w)
+{
+    $v *= $w;
+    return $v;
+}
+
+$a = array(1, 2, 3, 4, 5);
+$x = array();
+$b = array_reduce($a, "rsum", 10);
+echo $b;
+$c = array_reduce($a, "rmul", 10);
+echo '<br/>'.$c;
+$d = array_reduce($a, "rsum", "No data to reduce");
+echo '<br/>'.$d;
+echo ('no'+2);
+*******************************END********************************/
+
 
 
 

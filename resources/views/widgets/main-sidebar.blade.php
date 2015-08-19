@@ -44,7 +44,7 @@
                 <ul class="nav nav-second-level">
                     <li><a href="{{ URL('admin/articles') }}"><i class="fa fa-circle-o"></i> 文章列表</a></li>
                     <li><a href="{{ URL('admin/article/cats') }}"><i class="fa fa-circle-o"></i> 文章分类</a></li>
-                    <li><a href="{{ URL('admin/pages') }}"><i class="fa fa-circle-o"></i> 单页列表</a></li>
+                    {!! HTML::menu_active('admin/pages','单页列表') !!}
                 </ul>
             </li>
 
