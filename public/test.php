@@ -572,7 +572,38 @@ var_dump($arr);
 *******************************END********************************/
 
 
+/**
+ * ------------------------------------------------------------------
+ * realpath
+ * ------------------------------------------------------------------
+ * 如果有此文件或目录->返回全路径,否则返回false
+die(realpath('./index.php'));
+ *******************************END********************************/
 
+
+/**
+ * ------------------------------------------------------------------
+ * 正则\z\Z
+ * ------------------------------------------------------------------
+$pattern = "\AGoogle\nApple\z";
+$value = "Google\nApple";
+echo $value;
+echo '<br/>'.str_is($pattern, $value);
+
+function str_is($pattern, $value)
+{
+    if ($pattern == $value) return true;
+
+    //$pattern = preg_quote($pattern, '#');
+    echo $pattern;
+
+    // Asterisks are translated into zero-or-more regular expression wildcards
+    // to make it convenient to check if the strings starts with the given
+    // pattern such as "library/*", making any string check convenient.
+
+    return (bool) preg_match('#^'.$pattern.'#', $value);
+}
+*******************************END********************************/
 
 
 

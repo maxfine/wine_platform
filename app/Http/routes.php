@@ -151,3 +151,14 @@ Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
     Route::post('photos/ajax_del/{id}', 'PhotosController@ajaxDel');
     Route::resource('photos', 'PhotosController');
 });
+
+HTML::macro('menu_active', function($route,$name)
+{
+    if (Request::is($route . '/*') || Request::is($route)) {
+        $active ='<li class="active"><a href="'.URL::to($route).'">'.$name.'</a></li>';
+    } else {
+        $active ='<li><a href="'.URL::to($route).'">'.$name.'</a></li>';
+    }
+
+    return $active;
+});
