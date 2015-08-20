@@ -155,9 +155,9 @@ Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
 HTML::macro('menu_active', function($route,$name)
 {
     if (Request::is($route . '/*') || Request::is($route)) {
-        $active ='<li class="active"><a href="'.URL::to($route).'">'.$name.'</a></li>';
+        $active ='<li class="active"><a href="'.URL::to($route).'"><i class="fa fa-circle-o"></i>'.$name.'</a></li>';
     } else {
-        $active ='<li><a href="'.URL::to($route).'">'.$name.'</a></li>';
+        $active ='<li><a href="'.URL::to($route).'"><i class="fa fa-circle-o"></i>'.$name.'</a></li>';
     }
 
     return $active;

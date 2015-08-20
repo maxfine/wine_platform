@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.33 on 2015-08-09.
+ * Generated for Laravel 5.0.33 on 2015-08-19.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -5732,7 +5732,7 @@ namespace {
          * @param array $cookies The COOKIE parameters
          * @param array $files The FILES parameters
          * @param array $server The SERVER parameters
-         * @param string $content The raw body data
+         * @param string|resource $content The raw body data
          * @api 
          * @static 
          */
@@ -8350,7 +8350,7 @@ namespace {
          * @param array $cookies The COOKIE parameters
          * @param array $files The FILES parameters
          * @param array $server The SERVER parameters
-         * @param string $content The raw body data
+         * @param string|resource $content The raw body data
          * @api 
          * @static 
          */
@@ -12922,6 +12922,101 @@ namespace {
          */
         public static function setGateway($name){
             return \Ignited\LaravelOmnipay\LaravelOmnipayManager::setGateway($name);
+        }
+        
+    }
+
+
+    class Navigation extends \GrahamCampbell\Navigation\Facades\Navigation{
+        
+        /**
+         * Add an item to the main navigation array.
+         *
+         * @param array $item
+         * @param string $name
+         * @param bool $first
+         * @return $this 
+         * @static 
+         */
+        public static function addToMain($item, $name = 'default', $first = false){
+            return \GrahamCampbell\Navigation\Navigation::addToMain($item, $name, $first);
+        }
+        
+        /**
+         * Add an item to the bar navigation array.
+         *
+         * @param array $item
+         * @param string $name
+         * @param bool $first
+         * @return $this 
+         * @static 
+         */
+        public static function addToBar($item, $name = 'default', $first = false){
+            return \GrahamCampbell\Navigation\Navigation::addToBar($item, $name, $first);
+        }
+        
+        /**
+         * Get the navigation bar html.
+         *
+         * @param string $mainName
+         * @param string|bool $barName
+         * @param array|null $data
+         * @return string 
+         * @static 
+         */
+        public static function render($mainName = 'default', $barName = false, $data = null){
+            return \GrahamCampbell\Navigation\Navigation::render($mainName, $barName, $data);
+        }
+        
+        /**
+         * Get the request instance.
+         *
+         * @return \Illuminate\Http\Request 
+         * @static 
+         */
+        public static function getRequest(){
+            return \GrahamCampbell\Navigation\Navigation::getRequest();
+        }
+        
+        /**
+         * Set the request instance.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return void 
+         * @static 
+         */
+        public static function setRequest($request){
+            \GrahamCampbell\Navigation\Navigation::setRequest($request);
+        }
+        
+        /**
+         * Get the events instance.
+         *
+         * @return \Illuminate\Contracts\Events\Dispatcher 
+         * @static 
+         */
+        public static function getEvents(){
+            return \GrahamCampbell\Navigation\Navigation::getEvents();
+        }
+        
+        /**
+         * Get the url instance.
+         *
+         * @return \Illuminate\Contracts\Routing\UrlGenerator 
+         * @static 
+         */
+        public static function getUrl(){
+            return \GrahamCampbell\Navigation\Navigation::getUrl();
+        }
+        
+        /**
+         * Get the view instance.
+         *
+         * @return \Illuminate\Contracts\View\Factory 
+         * @static 
+         */
+        public static function getView(){
+            return \GrahamCampbell\Navigation\Navigation::getView();
         }
         
     }
