@@ -1,12 +1,12 @@
 <?php namespace App\Http\Controllers;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommonController;
 
 use Illuminate\Http\Request;
 
 use Redirect, Input, Auth;
 
-class PaymentsController extends Controller {
+class PaymentsController extends CommonController {
 
 	/**
 	 * Display a listing of the resource.

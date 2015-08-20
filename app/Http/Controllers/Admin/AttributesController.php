@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 
 use Redirect, Input, Auth;
 
-class AttributesController extends Controller {
+class AttributesController extends BackController {
 
     /**
 	 * Display a listing of the resource.

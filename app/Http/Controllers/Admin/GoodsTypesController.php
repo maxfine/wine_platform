@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ use App\Models\Attribute;
 
 use Redirect, Input, Auth;
 
-class GoodsTypesController extends Controller {
+class GoodsTypesController extends BackController {
 
     /**
 	 * Display a listing of the resource.

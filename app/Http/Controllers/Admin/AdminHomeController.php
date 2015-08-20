@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +9,7 @@ use App\Models\Page;
 use App\Models\ArticleCat;
 use App\Models\Article;
 
-class AdminHomeController extends Controller {
+class AdminHomeController extends BackController{
 
 	/**
 	 * Display a listing of the resource.

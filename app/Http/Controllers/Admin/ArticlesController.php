@@ -1,14 +1,14 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 use App\Models\ArticleCat;
 use App\Models\Article;
 use Redirect, Input, Auth;
 
-class ArticlesController extends Controller {
+class ArticlesController extends BackController {
 
 	/**
 	 * Display a listing of the resource.

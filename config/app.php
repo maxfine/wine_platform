@@ -156,6 +156,7 @@ return [
         'App\Providers\MaxfineValidatorServiceProvider',
         'App\Providers\MaxfineHtmlServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
+        'Bootstrapper\BootstrapperL5ServiceProvider',
 	],
 
 	/*
@@ -211,7 +212,9 @@ return [
         'Image' => 'Intervention\Image\Facades\Image',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
-        'Navigation' => 'GrahamCampbell\Navigation\Facades\Navigation',
+        'Nav' => 'GrahamCampbell\Navigation\Facades\Navigation',
+        'Navbar' => 'Bootstrapper\Facades\Navbar',
+        'Navigation' => 'Bootstrapper\Facades\Navigation',
 	],
 
 ];

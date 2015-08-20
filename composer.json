@@ -13,7 +13,8 @@
         "ignited/laravel-omnipay": "2.0.0",
         "lokielse/omnipay-alipay": "dev-master",
         "doctrine/dbal": "2.5.0",
-        "graham-campbell/navigation": "~2.2"
+        "graham-campbell/navigation": "~2.2",
+        "patricktalmadge/bootstrapper": "~5"
 	},
 	"require-dev": {
         "barryvdh/laravel-ide-helper":"2.0.3",

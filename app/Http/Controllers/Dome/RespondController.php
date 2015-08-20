@@ -2,13 +2,13 @@
 namespace App\Http\Controllers\Dome;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommonController;
 
 use Illuminate\Http\Request;
 
 use Redirect, Input, Auth;
 
-class RespondController extends Controller {
+class RespondController extends CommonController {
     private $gateway;
     public  $options;
 

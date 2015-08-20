@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommonController;
 
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ use App\Models\ArticleCat;
 
 use Redirect, Input, Auth;
 
-class ArticleCatController extends BaseController {
+class ArticleCatController extends CommonController {
     
     /**
 	 * View a blog post.

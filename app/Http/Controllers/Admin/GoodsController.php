@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -13,7 +13,7 @@ use Redirect, Input, Auth;
 use App\Handlers\Commands\UploadHandler;
 use Illuminate\Support\Facades\DB;
 
-class GoodsController extends Controller {
+class GoodsController extends BackController {
 
 
 	/**

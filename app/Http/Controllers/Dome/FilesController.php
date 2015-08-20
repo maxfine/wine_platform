@@ -1,13 +1,13 @@
 <?php namespace App\Http\Controllers\Dome;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommonController;
 
 use Illuminate\Http\Request;
 
 use Input;
 
-class FilesController extends Controller {
+class FilesController extends CommonController {
 
 	/**
 	 * Display a listing of the resource.

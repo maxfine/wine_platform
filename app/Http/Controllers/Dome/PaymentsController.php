@@ -23,13 +23,13 @@
 namespace App\Http\Controllers\Dome;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommonController;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
 use Input, Config, Omnipay;
 
-class PaymentsController extends Controller {
+class PaymentsController extends CommonController {
 	/**
      * 选择支付接口页面
 	 *

@@ -1,14 +1,14 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Article;
 use Redirect, Input, Auth;
 
-class CommentsController extends Controller {
+class CommentsController extends BackController {
 
     /**
      * Display a listing of the resource.
