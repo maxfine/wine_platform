@@ -141,6 +141,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('attrs', 'AttributesController');
     //Route::resource('goods_attrs', 'GoodsAttrsController');
 });
+
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
 //文件上传
 Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
@@ -152,13 +153,3 @@ Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
     Route::resource('photos', 'PhotosController');
 });
 
-HTML::macro('menu_active', function($route,$name)
-{
-    if (Request::is($route . '/*') || Request::is($route)) {
-        $active ='<li class="active"><a href="'.URL::to($route).'"><i class="fa fa-circle-o"></i>'.$name.'</a></li>';
-    } else {
-        $active ='<li><a href="'.URL::to($route).'"><i class="fa fa-circle-o"></i>'.$name.'</a></li>';
-    }
-
-    return $active;
-});

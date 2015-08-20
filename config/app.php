@@ -154,6 +154,7 @@ return [
         'Barryvdh\Debugbar\ServiceProvider',
         'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
         'App\Providers\MaxfineValidatorServiceProvider',
+        'App\Providers\MaxfineHtmlServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
 	],
 

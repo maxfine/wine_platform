@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.33 on 2015-08-19.
+ * Generated for Laravel 5.0.33 on 2015-08-20.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12878,9 +12878,6 @@ namespace {
     class Omnipay extends \Ignited\LaravelOmnipay\Facades\OmnipayFacade{
         
         /**
-         * ------------------------------------------------------------
-         * 获取支付网关对象
-         * ------------------------------------------------------------
          * Get an instance of the specified gateway
          *
          * @param \Ignited\LaravelOmnipay\index  of config array to use
@@ -12901,11 +12898,8 @@ namespace {
         }
         
         /**
-         * -------------------------------------------------------------
-         * 获取默认gateway
-         * -------------------------------------------------------------
+         * 
          *
-         * @return mixed|string 
          * @static 
          */
         public static function getGateway(){
@@ -12913,11 +12907,8 @@ namespace {
         }
         
         /**
-         * -------------------------------------------------------------
-         * 客户端设置gateway
-         * -------------------------------------------------------------
+         * 
          *
-         * @param $name
          * @static 
          */
         public static function setGateway($name){
