@@ -3,6 +3,9 @@
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+use App\Events\ThingWasDone;
+use App\Handlers\Events\SendMailInSomeParticularContext;
+
 class EventServiceProvider extends ServiceProvider {
 
 	/**
@@ -11,9 +14,12 @@ class EventServiceProvider extends ServiceProvider {
 	 * @var array
 	 */
 	protected $listen = [
-		'event.name' => [
-			'EventListener',
-		],
+        ThingWasDone::class => [
+            SendMailInSomeParticularContext::class
+        ],
+        ThingWasDone::class => [
+            SendMailInSomeParticularContext::class
+        ],
 	];
 
 	/**

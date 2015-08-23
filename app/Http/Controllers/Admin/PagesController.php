@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 
 use App\Models\Page;
 
-use Redirect, Input, Auth;
+use Redirect, Input, Auth, BackNav, Navigation, URL;
 
 class PagesController extends BackController {
 
+    public function __construct(){
+        parent::__construct();
+
+        //导航
+        //@todo
+        //BackNav::addToMain(['title' => 'admin', 'slug' => 'admin'], 'default', false);
+        //BackNav::addToMain(['title' => 'pages', 'slug' => 'pages'], 'default', false);
+    }
     /**
 	 * Display a listing of the resource.
 	 *

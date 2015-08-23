@@ -3,7 +3,6 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
             <li class="nav-header">
-
                 <div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle" src="{{ asset('img/profile_small.jpg') }}" />
                              </span>
@@ -26,60 +25,22 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    H+
+                    ZNYES
                 </div>
-
-            </li>
-            <li class="treeview">
-                <a href="javascript:void(0);"><i class="fa fa-th-large"></i> <span class="nav-label">控制面板</span> <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="{{ route('admin') }}"><i class="fa fa-circle-o"></i> 概述</a></li>
-                    <li><a href="{{ route('admin') }}"><i class="fa fa-circle-o"></i> 个人资料</a></li>
-                    <li><a href="{{ route('admin') }}"><i class="fa fa-circle-o"></i> 重建缓存</a></li>
-                </ul>
             </li>
 
-            <li class="treeview">
-                <a href="javascript:void(0);"><i class="fa fa-edit"></i> <span class="nav-label">内容管理</span> <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="{{ URL('admin/articles') }}"><i class="fa fa-circle-o"></i> 文章列表</a></li>
-                    <li><a href="{{ URL('admin/article/cats') }}"><i class="fa fa-circle-o"></i> 文章分类</a></li>
-                    {!! HTML::menu_active('admin/pages','单页列表') !!}
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#"><i class="fa fa-columns"></i> <span class="nav-label">布局</span><span class="label label-danger pull-right">2.0</span></a>
-            </li>
-
-            <li class="treeview">
-                <a href="index.html#"><i class="fa fa-sitemap"></i> <span class="nav-label">菜单 </span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="index.html#">三级菜单 <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="index.html#">三级菜单 01</a>
-                            </li>
-                            <li>
-                                <a href="index.html#">三级菜单 01</a>
-                            </li>
-                            <li>
-                                <a href="index.html#">三级菜单 01</a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li><a href="index.html#">二级菜单</a>
-                    </li>
-                    <li>
-                        <a href="index.html#">二级菜单</a>
-                    </li>
-                    <li>
-                        <a href="index.html#">二级菜单</a>
-                    </li>
-                </ul>
-            </li>
+            @foreach($backNavs as $item)
+                <li class="treeview">
+                    <a href="javascript:void(0);"><i class="fa fa-{{$item['icon']}}"></i> <span class="nav-label">{{$item['title']}}</span> <span class="fa arrow"></span></a>
+                    @if($item['childs'] !== false)
+                    <ul class="nav nav-second-level">
+                        @foreach($item['childs'] as $child)
+                            {!! HTML::menu_active($child['slug'], $child['title']) !!}
+                        @endforeach
+                    </ul>
+                    @endif
+                </li>
+            @endforeach
         </ul>
 
     </div>
