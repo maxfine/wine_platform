@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.33 on 2015-08-20.
+ * Generated for Laravel 5.0.33 on 2015-08-24.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12878,9 +12878,6 @@ namespace {
     class Omnipay extends \Ignited\LaravelOmnipay\Facades\OmnipayFacade{
         
         /**
-         * ------------------------------------------------------------
-         * 获取支付网关对象
-         * ------------------------------------------------------------
          * Get an instance of the specified gateway
          *
          * @param \Ignited\LaravelOmnipay\index  of config array to use
@@ -12901,11 +12898,8 @@ namespace {
         }
         
         /**
-         * -------------------------------------------------------------
-         * 获取默认gateway
-         * -------------------------------------------------------------
+         * 
          *
-         * @return mixed|string 
          * @static 
          */
         public static function getGateway(){
@@ -12913,11 +12907,8 @@ namespace {
         }
         
         /**
-         * -------------------------------------------------------------
-         * 客户端设置gateway
-         * -------------------------------------------------------------
+         * 
          *
-         * @param $name
          * @static 
          */
         public static function setGateway($name){
@@ -12927,7 +12918,7 @@ namespace {
     }
 
 
-    class Navigation extends \GrahamCampbell\Navigation\Facades\Navigation{
+    class BackNav extends \GrahamCampbell\Navigation\Facades\Navigation{
         
         /**
          * Add an item to the main navigation array.
@@ -13017,6 +13008,312 @@ namespace {
          */
         public static function getView(){
             return \GrahamCampbell\Navigation\Navigation::getView();
+        }
+        
+    }
+
+
+    class Navbar extends \Bootstrapper\Facades\Navbar{
+        
+        /**
+         * Renders the navbar
+         *
+         * @return string 
+         * @static 
+         */
+        public static function render(){
+            return \Bootstrapper\Navbar::render();
+        }
+        
+        /**
+         * Sets the brand of the navbar
+         *
+         * @param string $brand The brand
+         * @param null|string $link The link. If not set we default to linking to
+         *                           '/' using the UrlGenerator
+         * @return $this 
+         * @static 
+         */
+        public static function withBrand($brand, $link = null){
+            return \Bootstrapper\Navbar::withBrand($brand, $link);
+        }
+        
+        /**
+         * Sets the brand of the navbar
+         *
+         * @param string $image The brand image
+         * @param null|string $link The link. If not set we default to linking to
+         *                             '/' using the UrlGenerator
+         * @param string $altText The alt text for the image
+         * @return $this 
+         * @static 
+         */
+        public static function withBrandImage($image, $link = null, $altText = ''){
+            return \Bootstrapper\Navbar::withBrandImage($image, $link, $altText);
+        }
+        
+        /**
+         * Adds some content to the navbar
+         *
+         * @param mixed $content Anything that can become a string! If you pass in a
+         *                       Bootstrapper\Navigation object we'll make sure
+         *                       it's a navbar on render.
+         * @return $this 
+         * @static 
+         */
+        public static function withContent($content){
+            return \Bootstrapper\Navbar::withContent($content);
+        }
+        
+        /**
+         * Sets the navbar to be inverse
+         *
+         * @param string $position
+         * @param array $attributes
+         * @return $this 
+         * @static 
+         */
+        public static function inverse($position = null, $attributes = array()){
+            return \Bootstrapper\Navbar::inverse($position, $attributes);
+        }
+        
+        /**
+         * Sets the position to top
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function staticTop(){
+            return \Bootstrapper\Navbar::staticTop();
+        }
+        
+        /**
+         * Sets the type of the navbar
+         *
+         * @param string $type The type of the navbar. Assumes that the navbar-
+         *                     prefix is there
+         * @return $this 
+         * @static 
+         */
+        public static function setType($type){
+            return \Bootstrapper\Navbar::setType($type);
+        }
+        
+        /**
+         * Sets the position of the navbar
+         *
+         * @param string $position The position of the navbar. Assumes that the
+         *                         navbar- prefix is there
+         * @return $this 
+         * @static 
+         */
+        public static function setPosition($position){
+            return \Bootstrapper\Navbar::setPosition($position);
+        }
+        
+        /**
+         * Sets the position of the navbar to the top
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function top(){
+            return \Bootstrapper\Navbar::top();
+        }
+        
+        /**
+         * Sets the position of the navbar to the bottom
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function bottom(){
+            return \Bootstrapper\Navbar::bottom();
+        }
+        
+        /**
+         * Creates a navbar with a position and attributes
+         *
+         * @param string $position The position of the navbar
+         * @param array $attributes The attributes of the navbar
+         * @return $this 
+         * @static 
+         */
+        public static function create($position, $attributes = array()){
+            return \Bootstrapper\Navbar::create($position, $attributes);
+        }
+        
+        /**
+         * Sets the navbar to be fluid
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function fluid(){
+            return \Bootstrapper\Navbar::fluid();
+        }
+        
+        /**
+         * Set the attributes of the object
+         *
+         * @param array $attributes The attributes to use
+         * @return $this 
+         * @static 
+         */
+        public static function withAttributes($attributes){
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\Navbar::withAttributes($attributes);
+        }
+        
+        /**
+         * Adds the given classes to attributes
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */
+        public static function addClass($classes){
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\Navbar::addClass($classes);
+        }
+        
+    }
+
+
+    class Navigation extends \Bootstrapper\Facades\Navigation{
+        
+        /**
+         * Renders the navigation object
+         *
+         * @return string 
+         * @static 
+         */
+        public static function render(){
+            return \Bootstrapper\Navigation::render();
+        }
+        
+        /**
+         * Creates a pills navigation block
+         *
+         * @param array $links The links
+         * @param array $attributes The attributes. Does not overwrite the
+         *                          previous values if not set
+         * @see Bootstrapper\Navigatation::$links
+         * @return $this 
+         * @static 
+         */
+        public static function pills($links = array(), $attributes = null){
+            return \Bootstrapper\Navigation::pills($links, $attributes);
+        }
+        
+        /**
+         * Sets the links of the navigation object
+         *
+         * @param array $links The links
+         * @return $this 
+         * @see Bootstrapper\Navigation::$links
+         * @static 
+         */
+        public static function links($links){
+            return \Bootstrapper\Navigation::links($links);
+        }
+        
+        /**
+         * Creates a navigation tab object.
+         *
+         * @param array $links The links to be passed in
+         * @param array $attributes The attributes of the navigation object. Will
+         *                          overwrite unless not set.
+         * @return $this 
+         * @static 
+         */
+        public static function tabs($links = array(), $attributes = null){
+            return \Bootstrapper\Navigation::tabs($links, $attributes);
+        }
+        
+        /**
+         * Sets the autorouting. Pass false to turn it off, true to turn it on
+         *
+         * @param bool $autoroute Whether the autorouting should be on
+         * @return $this 
+         * @static 
+         */
+        public static function autoroute($autoroute){
+            return \Bootstrapper\Navigation::autoroute($autoroute);
+        }
+        
+        /**
+         * Turns the navigation object into one for navbars
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function navbar(){
+            return \Bootstrapper\Navigation::navbar();
+        }
+        
+        /**
+         * Makes the navigation links justified
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function justified(){
+            return \Bootstrapper\Navigation::justified();
+        }
+        
+        /**
+         * Makes the navigation stacked
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function stacked(){
+            return \Bootstrapper\Navigation::stacked();
+        }
+        
+        /**
+         * Makes the navigation links float right
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function right(){
+            return \Bootstrapper\Navigation::right();
+        }
+        
+        /**
+         * Makes the navigation links float left
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function left(){
+            return \Bootstrapper\Navigation::left();
+        }
+        
+        /**
+         * Set the attributes of the object
+         *
+         * @param array $attributes The attributes to use
+         * @return $this 
+         * @static 
+         */
+        public static function withAttributes($attributes){
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\Navigation::withAttributes($attributes);
+        }
+        
+        /**
+         * Adds the given classes to attributes
+         *
+         * @param array $classes
+         * @return $this 
+         * @static 
+         */
+        public static function addClass($classes){
+            //Method inherited from \Bootstrapper\RenderedObject            
+            return \Bootstrapper\Navigation::addClass($classes);
         }
         
     }

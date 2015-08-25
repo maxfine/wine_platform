@@ -49,7 +49,7 @@ return [
                 'active' => false,
             ],
             [
-                'title' => '文章分类',
+                'title' => '单页列表',
                 'slug' => 'admin/pages',
                 'url' => '',
                 'icon' => '',
