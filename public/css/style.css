@@ -1,4 +1,4 @@
-@import url("http://fonts.useso.com/css?family=Open+Sans:300,400,600,700&amp;lang=en");
+/*@import url("//css/font.css");*/
 /*
  *
  *   H+ - Admin Theme
@@ -317,6 +317,11 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
     overflow: hidden;
 }
 
+/*diy修复bug-当左侧边栏为缩略模式时，hover子栏目被隐藏*/
+body.mini-navbar .slimScrollDiv >* {
+    overflow:visible;
+}
+
 .mini-navbar .nav-second-level li a {
     padding: 10px 10px 10px 15px;
 }
@@ -475,16 +480,17 @@ body.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
     width: 70px;
 }
 
-.fixed-sidebar.mini-navbar .nav li> .nav-second-level {
+.fixed-sidebar.mini-navbar .nav li > .nav-second-level {
     display: none;
 }
+
 
 .fixed-sidebar.mini-navbar .nav li.active {
     border-left-width: 0;
 }
 
-.fixed-sidebar.mini-navbar .nav li:hover > .nav-second-level,
-.canvas-menu.mini-navbar .nav li:hover > .nav-second-level {
+body.fixed-sidebar.mini-navbar .nav li:hover > .nav-second-level,
+body.canvas-menu.mini-navbar .nav li:hover > .nav-second-level {
     position: absolute;
     left: 70px;
     top: 0px;
@@ -494,6 +500,7 @@ body.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
     display: block;
     min-width: 140px;
     border-radius: 2px;
+    z-index: 2002;
 }
 
 body.fixed-sidebar.mini-navbar .navbar-default .nav > li > .nav-second-level li a {

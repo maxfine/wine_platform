@@ -1,23 +1,12 @@
 @extends('layout._back_content')
 
-@section('content-header')
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-9">
-        <h2>单页</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="{{ route('admin') }}">主页</a>
-            </li>
-            <li>
-                <a href="{{ URL('admin/pages') }}">内容管理 - 单页</a>
-            </li>
-            <li>
-                <strong>单页列表</strong>
-            </li>
-        </ol>
-    </div>
-</div>
-@endsection
+@section('head_css')
+    <link href="{{ asset('css/bootstrap.min.css?v=3.4.0') }}" rel="stylesheet">
+    <link href="{{ asset('font-awesome/css/font-awesome.css?v=4.3.0') }}" rel="stylesheet">
+    <link href="{{ asset('css/plugins/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css?v=3.0.0') }}" rel="stylesheet">
+@stop
 
 @section('content')
 <div class="wrapper wrapper-content">
@@ -66,4 +55,17 @@
 @endsection
 
 @section('extraPlugin')
+    <!-- 全局js -->
+    <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+    <script src="js/bootstrap.min.js?v=3.4.0"></script>
+
+    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+
+    <!-- 数据表 -->
+    <script src="{{ asset('js/plugins/dataTables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap.js') }}"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
 @endsection
+

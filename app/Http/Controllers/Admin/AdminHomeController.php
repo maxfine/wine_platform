@@ -9,6 +9,8 @@ use App\Models\Page;
 use App\Models\ArticleCat;
 use App\Models\Article;
 
+use Config;
+
 class AdminHomeController extends BackController{
 
     public function indexContent()
@@ -23,7 +25,9 @@ class AdminHomeController extends BackController{
 	 */
 	public function index()
 	{
-        return view('AdminHome')->with('pages',Page::all())->with('articleCats',ArticleCat::all())->with('articles', Article::all());
+        //获取导航
+        $backNavs = Config::get('back-nav');
+        return view('AdminHome')->with('backNavs', $backNavs);
 	}
 
 	/**
