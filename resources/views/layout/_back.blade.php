@@ -16,31 +16,24 @@
 @section('head_css')
     <link href="{{ asset('css/bootstrap.min.css?v=3.4.0') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.css?v=4.3.0') }}" rel="stylesheet">
-
-    <!-- Morris -->
-    <link href="{{ asset('css/plugins/morris/morris-0.4.3.min.css') }}" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="{{ asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
-
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css?v=2.2.0') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css?v=3.0.0') }}" rel="stylesheet">
 @stop
 
 @section('head_js')
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!--[if lt IE 8]>
+    <script>
+        alert('H+已不支持IE6-8，请使用谷歌、火狐等浏览器\n或360、QQ等国产浏览器的极速模式浏览本页面！');
+    </script>
     <![endif]-->
+
     <script type="text/javascript">
         var BASE_URL = "{{ \Config::get('app')['url'] }}";
     </script>
 @parent
 @stop
 
-@section('body_attr') class=""@stop
+@section('body_attr') class="fixed-sidebar full-height-layout gray-bg"@stop
 
 @section('beforeBody')
     <!--侦测是否启用JavaScript脚本-->
@@ -62,7 +55,6 @@
 @stop
 
 @section('body')
-
       @include('widgets.main-sidebar')
 
       <!-- Content Wrapper. Contains page content -->
@@ -94,14 +86,18 @@
 @section('afterBody')
     </div><!-- ./wrapper -->
 
-    <!-- Mainly scripts -->
+    <!-- 全局js -->
     <script src="{{ asset('http://fex.baidu.com//webuploader/js/jquery-1.10.2.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js?v=3.4.0') }}"></script>
     <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/layer/layer.min.js') }}"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="{{ asset('js/hplus.js?v=2.2.0') }}"></script>
+    <!-- 自定义js -->
+    <script src="{{ asset('js/hplus.js?v=3.0.0') }}"></script>
+    <script src="{{ asset('js/contabs.js') }}"></script>
+
+    <!-- 第三方插件 -->
     <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
 
     @section('extraPlugin')
@@ -110,7 +106,7 @@
     <script type="text/javascript">
       $(document).ready(function(){
           //$('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active').parent('ul').addClass('in');  //二级链接高亮
-          $('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li.treeview').addClass('active').children('ul').addClass('in');  //一级栏目[含二级链接]高亮
+          //$('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li.treeview').addClass('active').children('ul').addClass('in');  //一级栏目[含二级链接]高亮
           //$('ul#side-menu>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active');  //一级栏目[不含二级链接]高亮
 
           @section('filledScript')

@@ -2,186 +2,471 @@
 
 @section('content-header')
 @parent
-<!--
-<div class="row  border-bottom white-bg dashboard-header">
-    <div class="col-sm-12">
-                              <blockquote class="text-warning" style="font-size:14px">您是否需要自己做一款后台、会员中心等等的，但是又缺乏html等前端知识…
-                              <br>您是否一直在苦苦寻找一款适合自己的后台主题…
-                              <br>您是否想做一款自己的web应用程序…
-                              <br>…………
-                              <h4 class="text-danger">那么，现在H+来了</h4>
-                              </blockquote>
-
-                              <hr>
-                              </div>
-    <div class="col-sm-3">
-                             <h2>Hello,Guest</h2>
-                             <small>移动设备访问请扫描以下二维码：</small>
-                             <br>
-                             <br>
-                             <img src="img/qr_code.png" width="100%" style="max-width:264px;">
-                             <br>
-                             </div>
-    <div class="col-sm-5">
-                             <h2>
-                             H+ 后台主题UI框架
-                             </h2>
-                             <p>H+是一个完全响应式，基于Bootstrap3.4.0最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术，她提供了诸多的强大的可以重新组合的UI组件，并集成了最新的jQuery版本(v2.1.1)，当然，也集成了很多功能强大，用途广泛的jQuery插件，她可以用于所有的Web应用程序，如<b>网站管理后台</b>，<b>网站会员中心</b>，<b>CMS</b>，<b>CRM</b>，<b>OA</b>等等，当然，您也可以对她进行深度定制，以做出更强系统。</p>
-                             <p>
-                             <b>当前版本：</b>v2.0
-                             </p>
-                             <p>
-                             <b>定价：</b><span class="label label-warning">&yen;768（不开发票）</span>
-                             </p>
-                             <br>
-                             <p>
-                             <a class="btn btn-success btn-outline" href="http://wpa.qq.com/msgrd?v=3&uin=516477188&site=qq&menu=yes" target="_blank">
-                             <i class="fa fa-qq"> </i> 联系我
-                             </a>
-                             <a class="btn btn-white btn-bitbucket" href="http://www.zi-han.net" target="_blank">
-                             <i class="fa fa-home"></i> 访问博客
-                             </a>
-                             </p>
-                             </div>
-    <div class="col-sm-4">
-                             <h4>H+具有以下特点：</h4>
-                             <ol>
-                             <li>完全响应式布局（支持电脑、平板、手机等所有主流设备）</li>
-                             <li>基于最新版本的Bootstrap 3.3.0</li>
-                             <li>提供4套不同风格的皮肤</li>
-                             <li>支持多种布局方式</li>
-                             <li>使用最流行的的扁平化设计</li>
-                             <li>提供了诸多的UI组件</li>
-                             <li>集成多款国内优秀插件，诚意奉献</li>
-                             <li>提供盒型、全宽、响应式视图模式</li>
-                             <li>采用HTML5 & CSS3</li>
-                             <li>拥有良好的代码结构</li>
-                             <li>更多……</li>
-                             </ol>
-                             </div>
-</div>
--->
 @endsection
 
 
 @section('content')
-@parent
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-                        <div class="col-md-12">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">单页</div>
+<div class="row J_mainContent" id="content-main">
+    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{{ URL('admin/index_content') }}" frameborder="0" data-id="{{ URL('admin/index_content') }}" seamless></iframe>
+</div>
 
-                        <!-- pages -->
-                        <div class="panel-body">
+<!--右侧边栏开始-todo-->
+<div id="right-sidebar">
+    <div class="sidebar-container">
 
-                        <a href="{{ URL('admin/pages/create') }}" class="btn btn-lg btn-primary">新增</a>
+        <ul class="nav nav-tabs navs-3">
 
-                        @foreach ($pages as $page)
-                        <hr>
-                        <div class="page">
-                        <h4>{{ $page->title }}</h4>
-                        <div class="content">
-                        <p>
-                        {{ $page->body }}
-                        </p>
+            <li class="active"><a data-toggle="tab" href="#tab-1">
+                    通知
+                </a>
+            </li>
+            <li><a data-toggle="tab" href="#tab-2">
+                    项目进度
+                </a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#tab-3">
+                    <i class="fa fa-gear"></i>
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+
+            <div id="tab-1" class="tab-pane active">
+
+                <div class="sidebar-title">
+                    <h3> <i class="fa fa-comments-o"></i> 最新通知</h3>
+                    <small><i class="fa fa-tim"></i> 您当前有10条未读信息</small>
+                </div>
+
+                <div>
+
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a1.jpg">
+
+                                <div class="m-t-xs">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+
+                                据天津日报报道：瑞海公司董事长于学伟，副董事长董社轩等10人在13日上午已被控制。
+                                <br>
+                                <small class="text-muted">今天 4:21</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a2.jpg">
+                            </div>
+                            <div class="media-body">
+                                HCY48之音乐大魔王会员专属皮肤已上线，快来一键换装拥有他，宣告你对华晨宇的爱吧！
+                                <br>
+                                <small class="text-muted">昨天 2:45</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a3.jpg">
+
+                                <div class="m-t-xs">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                写的好！与您分享
+                                <br>
+                                <small class="text-muted">昨天 1:10</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a4.jpg">
+                            </div>
+
+                            <div class="media-body">
+                                国外极限小子的炼成！这还是亲生的吗！！
+                                <br>
+                                <small class="text-muted">昨天 8:37</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a8.jpg">
+                            </div>
+                            <div class="media-body">
+
+                                一只流浪狗被收留后，为了减轻主人的负担，坚持自己觅食，甚至......有些东西，可能她比我们更懂。
+                                <br>
+                                <small class="text-muted">今天 4:21</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a7.jpg">
+                            </div>
+                            <div class="media-body">
+                                这哥们的新视频又来了，创意杠杠滴，帅炸了！
+                                <br>
+                                <small class="text-muted">昨天 2:45</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a3.jpg">
+
+                                <div class="m-t-xs">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                最近在补追此剧，特别喜欢这段表白。
+                                <br>
+                                <small class="text-muted">昨天 1:10</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-message">
+                        <a href="#">
+                            <div class="pull-left text-center">
+                                <img alt="image" class="img-circle message-avatar" src="img/a4.jpg">
+                            </div>
+                            <div class="media-body">
+                                我发起了一个投票 【你认为下午大盘会翻红吗？】
+                                <br>
+                                <small class="text-muted">星期一 8:37</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tab-2" class="tab-pane">
+
+                <div class="sidebar-title">
+                    <h3> <i class="fa fa-cube"></i> 最新任务</h3>
+                    <small><i class="fa fa-tim"></i> 您当前有14个任务，10个已完成</small>
+                </div>
+
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#">
+                            <div class="small pull-right m-t-xs">9小时以后</div>
+                            <h4>市场调研</h4> 按要求接收教材；
+
+                            <div class="small">已完成： 22%</div>
+                            <div class="progress progress-mini">
+                                <div style="width: 22%;" class="progress-bar progress-bar-warning"></div>
+                            </div>
+                            <div class="small text-muted m-t-xs">项目截止： 4:00 - 2015.10.01</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="small pull-right m-t-xs">9小时以后</div>
+                            <h4>可行性报告研究报上级批准 </h4> 编写目的编写本项目进度报告的目的在于更好的控制软件开发的时间,对团队成员的 开发进度作出一个合理的比对
+
+                            <div class="small">已完成： 48%</div>
+                            <div class="progress progress-mini">
+                                <div style="width: 48%;" class="progress-bar"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="small pull-right m-t-xs">9小时以后</div>
+                            <h4>立项阶段</h4> 东风商用车公司 采购综合综合查询分析系统项目进度阶段性报告武汉斯迪克科技有限公司
+
+                            <div class="small">已完成： 14%</div>
+                            <div class="progress progress-mini">
+                                <div style="width: 14%;" class="progress-bar progress-bar-info"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="label label-primary pull-right">NEW</span>
+                            <h4>设计阶段</h4>
+                            <!--<div class="small pull-right m-t-xs">9小时以后</div>-->
+                            项目进度报告(Project Progress Report)
+                            <div class="small">已完成： 22%</div>
+                            <div class="small text-muted m-t-xs">项目截止： 4:00 - 2015.10.01</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="small pull-right m-t-xs">9小时以后</div>
+                            <h4>拆迁阶段</h4> 科研项目研究进展报告 项目编号: 项目名称: 项目负责人:
+
+                            <div class="small">已完成： 22%</div>
+                            <div class="progress progress-mini">
+                                <div style="width: 22%;" class="progress-bar progress-bar-warning"></div>
+                            </div>
+                            <div class="small text-muted m-t-xs">项目截止： 4:00 - 2015.10.01</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="small pull-right m-t-xs">9小时以后</div>
+                            <h4>建设阶段 </h4> 编写目的编写本项目进度报告的目的在于更好的控制软件开发的时间,对团队成员的 开发进度作出一个合理的比对
+
+                            <div class="small">已完成： 48%</div>
+                            <div class="progress progress-mini">
+                                <div style="width: 48%;" class="progress-bar"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="small pull-right m-t-xs">9小时以后</div>
+                            <h4>获证开盘</h4> 编写目的编写本项目进度报告的目的在于更好的控制软件开发的时间,对团队成员的 开发进度作出一个合理的比对
+
+                            <div class="small">已完成： 14%</div>
+                            <div class="progress progress-mini">
+                                <div style="width: 14%;" class="progress-bar progress-bar-info"></div>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div id="tab-3" class="tab-pane">
+
+                <div class="sidebar-title">
+                    <h3><i class="fa fa-gears"></i> 设置</h3>
+                </div>
+
+                <div class="setings-item">
+                            <span>
+                        显示通知
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
+                            <label class="onoffswitch-label" for="example">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
                         </div>
+                    </div>
+                </div>
+                <div class="setings-item">
+                            <span>
+                        隐藏聊天窗口
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="collapsemenu" checked class="onoffswitch-checkbox" id="example2">
+                            <label class="onoffswitch-label" for="example2">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
                         </div>
-                        <a href="{{ URL('admin/pages/'.$page->id.'/edit') }}" class="btn btn-success">编辑</a>
-
-
-                        <form action="{{ URL('admin/pages/'.$page->id) }}" method="POST" style="display: inline;">
-                        <input name="_method" type="hidden" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-danger">删除</button>
-                        </form>
-                        <a href="{{ URL('admin/comments/list/'.$page->id.'/'.$page::commentType) }}" class="btn btn-success">评论列表</a>
-                        <a href="{{ URL('admin/comments/create/'.$page->id.'/'.$page::commentType()) }}" class="btn btn-success">添加评论</a>
-                        @endforeach
-
+                    </div>
+                </div>
+                <div class="setings-item">
+                            <span>
+                        清空历史记录
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
+                            <label class="onoffswitch-label" for="example3">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
                         </div>
+                    </div>
+                </div>
+                <div class="setings-item">
+                            <span>
+                        显示聊天窗口
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
+                            <label class="onoffswitch-label" for="example4">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="setings-item">
+                            <span>
+                        显示在线用户
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" checked name="collapsemenu" class="onoffswitch-checkbox" id="example5">
+                            <label class="onoffswitch-label" for="example5">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="setings-item">
+                            <span>
+                        全局搜索
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" checked name="collapsemenu" class="onoffswitch-checkbox" id="example6">
+                            <label class="onoffswitch-label" for="example6">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="setings-item">
+                            <span>
+                        每日更新
+                    </span>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
+                            <label class="onoffswitch-label" for="example7">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-content">
+                    <h4>设置</h4>
+                    <div class="small">
+                        你可以从这里设置一些常用选项，当然啦，这个只是个演示的示例。
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 
-
-                        </div>
-                        </div>
-                        </div>
-
-    <div class="row">
-                        <div class="col-md-12">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">文章栏目</div>
-                        <!-- articles -->
-                        <div class="panel-body">
-
-                        <a href="{{ URL('admin/article/cats/create') }}" class="btn btn-lg btn-primary">新增栏目</a>
-
-                        @foreach ($articleCats as $articleCat)
-                        <hr>
-                        <div class="page">
-                        <h4>{{ $articleCat->cat_name }}</h4>
-                        <div class="content">
-                        <p>
-                        {{ $articleCat->cat_brief }}
-                        </p>
-                        </div>
-                        </div>
-                        <a href="{{ URL('admin/article/cats/'.$articleCat->id.'/edit') }}" class="btn btn-success">编辑</a>
-
-                        <form action="{{ URL('admin/article/cats/'.$articleCat->id) }}" method="POST" style="display: inline;">
-                        <input name="_method" type="hidden" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-danger">删除</button>
-                        </form>
-                        <a href="{{ URL('admin/articles/'.$articleCat->id.'/list') }}" class="btn btn-success">文章列表</a>
-                        @endforeach
-
-                        </div>
-
-                        </div>
-                        </div>
-                        </div>
-
-    <div class="row">
-                        <div class="col-md-12">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">文章</div>
-                        <!-- articles -->
-                        <div class="panel-body">
-
-                        <a href="{{ URL('admin/articles/create') }}" class="btn btn-lg btn-primary">新增文章</a>
-
-                        @foreach ($articles as $article)
-                        <hr>
-                        <div class="page">
-                        <h4>{{ $article->title }}</h4>
-                        <div class="content">
-                        <p>
-                        {{ $article->body }}
-                        </p>
-                        </div>
-                        </div>
-                        <a href="{{ URL('admin/articles/'.$article->id.'/edit') }}" class="btn btn-success">编辑</a>
-
-                        <form action="{{ URL('admin/articles/'.$article->id) }}" method="POST" style="display: inline;">
-                        <input name="_method" type="hidden" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-danger">删除</button>
-                        </form>
-                        <a href="{{ URL('admin/comments/'.$article->id.'/'.$article::commentType.'/list') }}" class="btn btn-success">评论列表</a>
-                        <a href="{{ URL('admin/comments/'.$article->id.'/'.$article::commentType().'/create') }}" class="btn btn-success">添加评论</a>
-                        @endforeach
-
-                        </div>
-
-                        </div>
-                        </div>
-                        </div>
 
 </div>
+<!--右侧边栏结束-->
+
+<!--mini聊天窗口开始-todo-->
+<div class="small-chat-box fadeInRight animated">
+
+    <div class="heading" draggable="true">
+        <small class="chat-date pull-right">
+            2015.9.1
+        </small> 与 Beau-zihan 聊天中
+    </div>
+
+    <div class="content">
+
+        <div class="left">
+            <div class="author-name">
+                Beau-zihan <small class="chat-date">
+                    10:02
+                </small>
+            </div>
+            <div class="chat-message active">
+                你好
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="author-name">
+                游客
+                <small class="chat-date">
+                    11:24
+                </small>
+            </div>
+            <div class="chat-message">
+                你好，请问H+有帮助文档吗？
+            </div>
+        </div>
+        <div class="left">
+            <div class="author-name">
+                Beau-zihan
+                <small class="chat-date">
+                    08:45
+                </small>
+            </div>
+            <div class="chat-message active">
+                有，购买的H+源码包中有帮助文档，位于docs文件夹下
+            </div>
+        </div>
+        <div class="right">
+            <div class="author-name">
+                游客
+                <small class="chat-date">
+                    11:24
+                </small>
+            </div>
+            <div class="chat-message">
+                那除了帮助文档还提供什么样的服务？
+            </div>
+        </div>
+        <div class="left">
+            <div class="author-name">
+                Beau-zihan
+                <small class="chat-date">
+                    08:45
+                </small>
+            </div>
+            <div class="chat-message active">
+                1. 所有源码
+                <br> 2. 必要的技术支持
+                <br> 3. 终生免费升级服务
+                <br> 4. 授权
+            </div>
+        </div>
+
+
+    </div>
+    <div class="form-chat">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control"> <span class="input-group-btn"> <button
+                        class="btn btn-primary" type="button">发送
+                </button> </span>
+        </div>
+    </div>
+
+</div>
+
+<div id="small-chat">
+    <span class="badge badge-warning pull-right">5</span>
+    <a class="open-small-chat">
+        <i class="fa fa-comments"></i>
+
+    </a>
+</div>
+<!--mini聊天窗口结束-->
 @stop
 
 @section('extraPlugin')
-    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-    <!--统计代码，可删除-->
 @endsection

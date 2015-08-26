@@ -1,26 +1,26 @@
-@extends('layout._back')
+@extends('layout._back_content')
 
 @section('content-header')
-    <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-9">
-            <h2>单页</h2>
-            <ol class="breadcrumb">
-                <li>
-                    <a href="{{ route('admin') }}">主页</a>
-                </li>
-                <li>
-                    <a href="{{ URL('admin/pages') }}">内容管理 - 单页</a>
-                </li>
-                <li>
-                    <strong>单页列表</strong>
-                </li>
-            </ol>
-        </div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>单页</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{ route('admin') }}">主页</a>
+            </li>
+            <li>
+                <a href="{{ URL('admin/pages') }}">内容管理 - 单页</a>
+            </li>
+            <li>
+                <strong>单页列表</strong>
+            </li>
+        </ol>
     </div>
+</div>
 @endsection
 
 @section('content')
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -63,4 +63,7 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('extraPlugin')
 @endsection

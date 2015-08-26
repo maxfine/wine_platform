@@ -1,31 +1,42 @@
-// Custom scripts
-$(document).ready(function () {
+//自定义js
 
+//公共配置
+layer.config({
+    extend: ['extend/layer.ext.js', 'skin/moon/style.css'],
+    skin: 'layer-ext-moon'
+});
+
+$(document).ready(function () {    
+    
     // MetsiMenu
     $('#side-menu').metisMenu();
 
-    // Collapse ibox function
-    $('.collapse-link').click( function() {
-        var ibox = $(this).closest('div.ibox');
-        var button = $(this).find('i');
-        var content = ibox.find('div.ibox-content');
-        content.slideToggle(200);
-        button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-        ibox.toggleClass('').toggleClass('border-bottom');
-        setTimeout(function () {
-            ibox.resize();
-            ibox.find('[id^=map-]').resize();
-        }, 50);
+    // 打开右侧边栏
+    $('.right-sidebar-toggle').click(function () {
+        $('#right-sidebar').toggleClass('sidebar-open');
     });
 
-    // Close ibox function
-    $('.close-link').click( function() {
-        var content = $(this).closest('div.ibox');
-        content.remove();
+    // 右侧边栏使用slimscroll
+    $('.sidebar-container').slimScroll({
+        height: '100%',
+        railOpacity: 0.4,
+        wheelStep: 10
+    });
+
+    // 打开聊天窗口
+    $('.open-small-chat').click(function () {
+        $(this).children().toggleClass('fa-comments').toggleClass('fa-remove');
+        $('.small-chat-box').toggleClass('active');
+    });
+
+    // 聊天窗口使用slimscroll
+    $('.small-chat-box .content').slimScroll({
+        height: '234px',
+        railOpacity: 0.4
     });
 
     // Small todo handler
-    $('.check-link').click( function(){
+    $('.check-link').click(function () {
         var button = $(this).find('i');
         var label = $(this).next('span');
         button.toggleClass('fa-check-square').toggleClass('fa-square-o');
@@ -33,116 +44,84 @@ $(document).ready(function () {
         return false;
     });
 
-    // Append config box / Only for demo purpose
-    $.get("/skin-config.html", function (data) {
-        $('body').append(data);
+    //固定菜单栏
+    $(function () {
+        $('.sidebar-collapse').slimScroll({
+            height: '100%',
+            railOpacity: 0.9,
+            alwaysVisible: false
+        });
     });
 
     // minimalize menu
     $('.navbar-minimalize').click(function () {
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();
-    })
+    });
 
-    // tooltips
-    $('.tooltip-demo').tooltip({
-        selector: "[data-toggle=tooltip]",
-        container: "body"
-    })
 
-    // Move modal to body
-    // Fix Bootstrap backdrop issu with animation.css
-    $('.modal').appendTo("body")
-
-    // Full height of sidebar
+    // 侧边栏高度
     function fix_height() {
         var heightWithoutNavbar = $("body > #wrapper").height() - 61;
         $(".sidebard-panel").css("min-height", heightWithoutNavbar + "px");
     }
     fix_height();
 
-    // Fixed Sidebar
-    // unComment this only whe you have a fixed-sidebar
-            //    $(window).bind("load", function() {
-            //        if($("body").hasClass('fixed-sidebar')) {
-            //            $('.sidebar-collapse').slimScroll({
-            //                height: '100%',
-            //                railOpacity: 0.9,
-            //            });
-            //        }
-            //    })
-
-    $(window).bind("load resize click scroll", function() {
-        if(!$("body").hasClass('body-small')) {
+    $(window).bind("load resize click scroll", function () {
+        if (!$("body").hasClass('body-small')) {
             fix_height();
         }
-    })
+    });
 
-    $("[data-toggle=popover]")
-        .popover();
+    //侧边栏滚动
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 0 && !$('body').hasClass('fixed-nav')) {
+            $('#right-sidebar').addClass('sidebar-top');
+        } else {
+            $('#right-sidebar').removeClass('sidebar-top');
+        }
+    });
+
+    $('.full-height-scroll').slimScroll({
+        height: '100%'
+    });
+
+    $('#side-menu>li').click(function () {
+        if ($('body').hasClass('mini-navbar')) {
+            $('.navbar-minimalize').trigger('click');
+        }
+    });
+
+    // Append config box / Only for demo purpose
+    $.get("/skin-config.html", function (data) {
+        $('body').append(data);
+    });
 });
 
-
-// For demo purpose - animation css script
-function animationHover(element, animation){
-    element = $(element);
-    element.hover(
-        function() {
-            element.addClass('animated ' + animation);
-        },
-        function(){
-            //wait for animation to finish before removing classes
-            window.setTimeout( function(){
-                element.removeClass('animated ' + animation);
-            }, 2000);
-        });
-}
-
-// Minimalize menu when screen is less than 768px
-$(function() {
-    $(window).bind("load resize", function() {
-        if ($(this).width() < 769) {
-            $('body').addClass('body-small')
-        } else {
-            $('body').removeClass('body-small')
-        }
-    })
-})
+$(window).bind("load resize", function () {
+    if ($(this).width() < 769) {
+        $('body').addClass('mini-navbar');
+        $('.navbar-static-side').fadeIn();
+    } else {
+        $('body').removeClass('mini-navbar')
+    }
+});
 
 function SmoothlyMenu() {
-    if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
-        // Hide menu in order to smoothly turn on when maximize menu
+    if (!$('body').hasClass('mini-navbar')) {
         $('#side-menu').hide();
-        // For smoothly turn on menu
         setTimeout(
             function () {
                 $('#side-menu').fadeIn(500);
             }, 100);
-    } else if ($('body').hasClass('fixed-sidebar')){
+    } else if ($('body').hasClass('fixed-sidebar')) {
         $('#side-menu').hide();
         setTimeout(
             function () {
                 $('#side-menu').fadeIn(500);
             }, 300);
     } else {
-        // Remove all inline style from jquery fadeIn function to reset menu state
         $('#side-menu').removeAttr('style');
     }
 }
-
-// Dragable panels
-function WinMove() {
-    var element = "[class*=col]";
-    var handle = ".ibox-title";
-    var connect = "[class*=col]";
-    $(element).sortable(
-        {
-            handle: handle,
-            connectWith: connect,
-            tolerance: 'pointer',
-            forcePlaceholderSize: true,
-            opacity: 0.8,
-        })
-        .disableSelection();
-};
 

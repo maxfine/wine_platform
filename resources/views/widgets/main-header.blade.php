@@ -92,6 +92,23 @@
                     <i class="fa fa-sign-out"></i> 退出
                 </a>
             </li>
+            <li>
+                <a class="right-sidebar-toggle">
+                    <i class="fa fa-tasks"></i>
+                </a>
+            </li>
         </ul>
     </nav>
+</div>
+
+<div class="row content-tabs">
+    <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-angle-double-left"></i>
+    </button>
+    <nav class="page-tabs J_menuTabs">
+        <div class="page-tabs-content">
+            <a href="javascript:;" class="active J_menuTab" data-id="{{URL('admin/index_content')}}">首页</a>
+        </div>
+    </nav>
+    <button class="roll-nav roll-right J_tabRight"><i class="fa fa-angle-double-right"></i>
+    </button>
 </div>

@@ -1,4 +1,4 @@
-@extends('layout._back')
+@extends('layout._back_content')
 
 @section('content-header')
     <div class="row wrapper border-bottom white-bg page-heading">

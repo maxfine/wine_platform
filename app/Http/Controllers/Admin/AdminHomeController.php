@@ -11,6 +11,11 @@ use App\Models\Article;
 
 class AdminHomeController extends BackController{
 
+    public function indexContent()
+    {
+        return view('admin.index_content')->with('pages',Page::all())->with('articleCats',ArticleCat::all())->with('articles', Article::all());
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *

@@ -108,8 +108,10 @@ Route::group(['prefix' => 'dome', 'namespace' => 'Dome'], function()
  */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function()
 {
-    //后台首页
+    //后台
     Route::get('/', ['as' => 'admin', 'uses' => 'AdminHomeController@index']);
+    //后台首页内容页
+    Route::get('index_content', 'AdminHomeController@indexContent');
     //文章栏目
     Route::resource('article/cats', 'ArticleCatsController');
     //文章
