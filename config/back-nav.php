@@ -42,8 +42,22 @@ return [
                 'active' => false,
             ],
             [
+                'title' => '文章添加',
+                'slug' => 'admin/articles/create',
+                'url' => '',
+                'icon' => '',
+                'active' => false,
+            ],
+            [
                 'title' => '文章分类',
                 'slug' => 'admin/article/cats',
+                'url' => '',
+                'icon' => '',
+                'active' => false,
+            ],
+            [
+                'title' => '文章分类添加',
+                'slug' => 'admin/article/cats/create',
                 'url' => '',
                 'icon' => '',
                 'active' => false,
@@ -54,7 +68,38 @@ return [
                 'url' => '',
                 'icon' => '',
                 'active' => false,
-            ]
+            ],
+            [
+                'title' => '添加单页',
+                'slug' => 'admin/pages/create',
+                'url' => '',
+                'icon' => '',
+                'active' => false,
+            ],
+            [
+                'title' => '单页',
+                'slug' => 'admin/pages',
+                'url' => '',
+                'icon' => '',
+                'active' => false,
+                'childs' =>
+                [
+                    [
+                        'title' => '单页列表',
+                        'slug' => 'admin/pages',
+                        'url' => '',
+                        'icon' => '',
+                        'active' => false,
+                    ],
+                    [
+                        'title' => '添加单页',
+                        'slug' => 'admin/pages/create',
+                        'url' => '',
+                        'icon' => '',
+                        'active' => false,
+                    ],
+                ]
+            ],
         ],
     ],
 ];

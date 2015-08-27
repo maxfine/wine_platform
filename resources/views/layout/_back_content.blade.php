@@ -53,7 +53,6 @@
     <script src="{{ asset('js/content.js') }}"></script>
 
     <!-- 第三方插件 -->
-
     @section('extraPlugin')
     @show{{-- 引入额外依赖JS插件 --}}
 
