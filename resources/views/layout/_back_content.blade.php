@@ -23,6 +23,7 @@
 @section('head_js')
     <script type="text/javascript">
         var BASE_URL = "{{ \Config::get('app')['url'] }}";
+        var ADMIN_HOME = BASE_URL + '/' + 'admin';
     </script>
 @parent
 @stop

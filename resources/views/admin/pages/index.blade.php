@@ -11,7 +11,7 @@
 @section('content-header')
 <div class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12">
-        <a href="{{ URL('admin/pages/create/') }}" class="btn btn-primary">新&nbsp&nbsp增</a>
+        <div class="pull-left"><a href="{{ URL('admin/pages/create/') }}" class="btn btn-primary">添加单页</a></div>
     </div>
 </div>
 @endsection
@@ -43,10 +43,11 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <table class="table table-striped table-bordered table-hover " id="editable">
+                    <!--<table class="table table-striped table-bordered table-hover " id="editable">-->
+                    <table class="table table-striped table-hover " id="editable">
                         <thead>
-                        <tr>
-                            <th><input type="checkbox" name="ckSelectAll" id="ckSelectAll"></th>
+                        <tr class="info">
+                            <th><input type="checkbox" name="ckSelectAll" id="checkAll"></th>
                             <th>排序</th>
                             <th>ID</th>
                             <th>标题</th>
@@ -58,7 +59,7 @@
 
                         @foreach ($pages as $item)
                         <tr class="gradeA">
-                            <td><input type="checkbox" name="ckbox" id="ckbox" category="national" value="S201312122773311|zosh.cn"></td>
+                            <td><input type="checkbox" name="checkList"></td>
                             <td>@if(isset($item->order)){{ $item->order }} @else {{ $item->id }}@endif</td>
                             <td>@if(isset($item->id)){{ $item->id}} @endif</td>
                             <td>{{ $item->title }}</td>
@@ -76,8 +77,8 @@
                         @endforeach
                         </tbody>
                         <tfoot>
-                        <tr>
-                            <th><input type="checkbox" name="ckSelectAll" id="ckSelectAll"></th>
+                        <tr class="danger">
+                            <th><input type="checkbox" name="ckSelectAll" id="checkAll"></th>
                             <th>排序</th>
                             <th>ID</th>
                             <th>标题</th>
@@ -111,32 +112,31 @@
                     "order": [[ 1, 'asc' ], [2, 'desc']],
                     "columnDefs": [
                         {
-                            "targets": [0],
-                            "searchable": false,
-                            "orderData": false
+                            targets: [0],
+                            searchable: false,
+                            orderable: false
                         },
                         {
-                            "targets": [1],
-                            "searchable": false,
-                            "orderData": [1, 2]
+                            targets: [1],
+                            searchable: false,
+                            orderData: [1, 2]
                         },
                         {
-                            "targets": [2],
-                            "searchable": true
+                            targets: [2],
+                            searchable: true
                         },
                         {
-                            "targets": [3],
-                            "searchable": true,
-                            "orderData": false
+                            targets: [3],
+                            searchable: true,
+                            orderable: false
                         },
                         {
-                            "targets": [4],
-                            "searchable": false
+                            targets: [4]
                         },
                         {
-                            "targets": [5],
-                            "searchable": false,
-                            "orderData": false
+                            targets: [5],
+                            searchable: false,
+                            orderable: false
                         }
                     ]
                 }
@@ -170,6 +170,21 @@
                 "New row",
                 "New row"]);
 
-        }
+        };
+
+        //自定义搜索
+        $('.dsearch').on('keyup click', function () {
+            var tsval = $(".dsearch").val()
+            table.search(tsval, false, false).draw();
+        });
+
+        //checkbox全选
+        $("#checkAll").on("click", function () {
+            if ($(this).prop("checked") === true) {
+                $("input[name='checkList']").prop("checked", $(this).prop("checked"));
+            } else {
+                $("input[name='checkList']").prop("checked", false);
+            }
+        });
     </script>
 @endsection
