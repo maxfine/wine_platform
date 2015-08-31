@@ -11,7 +11,7 @@
 @section('content-header')
 <div class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12">
-        <div class="pull-left"><a href="{{ URL('admin/pages/create/') }}" class="btn btn-primary">添加单页</a></div>
+        <div class="pull-left"><a href="{{ URL('admin/pages/create/') }}" class="btn btn-primary"><i class="fa fa-plus"></i> 添加单页</a></div>
     </div>
 </div>
 @endsection

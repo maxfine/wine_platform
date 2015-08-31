@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+
+  <link rel='stylesheet' href='03a03bbe34da26df16eb239ba68ecc0a.css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    @javascript html5shiv respond.min
+  <![endif]-->
+
+  <title>Responsive Admin template based on Bootstrap 3</title>
+
+</head>
+
+<body class="glossed">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42863888-4', 'pinsupreme.com');
+  ga('send', 'pageview');
+
+</script>
+<div class="all-wrapper fixed-header left-menu">
+  <div class="page-header">
+  <div class="header-links hidden-xs">
+    <div class="top-search-w pull-right">
+      <input type="text" class="top-search" placeholder="Search"/>
+    </div>
+    <div class="dropdown hidden-sm hidden-xs">
+      <a href="#" data-toggle="dropdown" class="header-link"><i class="fa fa-bolt"></i> User Alerts <span class="badge alert-animated">5</span></a>
+
+      <ul class="dropdown-menu dropdown-inbar dropdown-wide">
+        <li><a href="#"><span class="label label-warning">1 min</span> <i class="fa fa-bell"></i> New Mail Received</a></li>
+        <li><a href="#"><span class="label label-warning">4 min</span> <i class="fa fa-fire"></i> Server Crash</a></li>
+        <li><a href="#"><span class="label label-warning">12 min</span> <i class="fa fa-flag-o"></i> Pending Alert</a></li>
+        <li><a href="#"><span class="label label-warning">15 min</span> <i class="fa fa-smile-o"></i> User Signed Up</a></li>
+      </ul>
+    </div>
+    <div class="dropdown hidden-sm hidden-xs">
+      <a href="#" data-toggle="dropdown" class="header-link"><i class="fa fa-cog"></i> Settings</a>
+
+      <ul class="dropdown-menu dropdown-inbar">
+        <li><a href="#"><span class="label label-warning">2</span> <i class="fa fa-envelope"></i> Messages</a></li>
+        <li><a href="#"><span class="label label-warning">4</span> <i class="fa fa-users"></i> Friends</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
+        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <a href="#" class="header-link clearfix" data-toggle="dropdown">
+        <div class="avatar">
+          <img src="assets/images/avatar-small.jpg" alt="">
+        </div>
+        <div class="user-name-w">
+          Lionel Messi <i class="fa fa-caret-down"></i>
+        </div>
+      </a>
+      <ul class="dropdown-menu dropdown-inbar">
+        <li><a href="#"><span class="label label-warning">2</span> <i class="fa fa-envelope"></i> Messages</a></li>
+        <li><a href="#"><span class="label label-warning">4</span> <i class="fa fa-users"></i> Friends</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
+        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <a class="logo hidden-xs" href="index.html"><i class="fa fa-rocket"></i></a>
+  <a class="menu-toggler" href="#"><i class="fa fa-bars"></i></a>
+  <h1>Buttons</h1>
+</div>
+  <div class="side">
+  <div class="sidebar-wrapper">
+  <ul>
+    <li>
+      <a href="index.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+        <i class="fa fa-home"></i>
+      </a>
+    </li>
+    <li>
+      <a href="forms.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Forms">
+        <i class="fa fa-file-text-o"></i>
+      </a>
+    </li>
+    <li>
+      <a href="elements.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="UI Elements">
+        <span class="badge"></span>
+        <i class="fa fa-code-fork"></i>
+      </a>
+    </li>
+    <li>
+      <a href="charts.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Charts">
+        <i class="fa fa-bar-chart-o"></i>
+      </a>
+    </li>
+    <li>
+      <a href="table.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tables">
+        <i class="fa fa-th"></i>
+      </a>
+    </li>
+    <li>
+      <a href="grid.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Layouts">
+        <i class="fa fa-font"></i>
+      </a>
+    </li>
+    <li>
+      <a href="calendar.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Calendar">
+        <span class="badge">5</span>
+        <i class="fa fa-calendar"></i>
+      </a>
+    </li>
+    <li>
+      <a href="maps.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Maps">
+        <i class="fa fa-map-marker"></i>
+      </a>
+    </li>
+    <li>
+      <a href="page_search.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Extra Pages">
+        <i class="fa fa-trophy"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+  <div class="sub-sidebar-wrapper">
+  <ul>
+    <li><a href="elements.html"> Elements</a></li>
+    <li class='current'><a class='current' href="buttons.html"> Buttons</a></li>
+    <li><a href="icons.html"> Icons</a></li>
+    <li class="hidden-sm hidden-xs"><a href="family_tree.html"> Family Tree</a></li>
+    <li class="hidden-sm hidden-xs"><a href="#" class="pnotify-link"> Notifications</a></li>
+  </ul>
+</div>
+  </div>
+  <div class="main-content">
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Bread</a></li>
+      <li><a href="#">Crumbs</a></li>
+      <li class="active">Example</li>
+    </ol>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-bar-chart-o"></i> Regular Buttons</h3>
+          </div>
+          <div class="widget-content button-example">
+            <h4 class="widget-header">Extra Small</h4>
+            <button type="button" class="btn btn-default btn-xs">Default</button>
+            <button type="button" class="btn btn-primary btn-xs">Primary</button>
+            <button type="button" class="btn btn-success btn-xs">Success</button>
+            <button type="button" class="btn btn-info btn-xs">Info</button>
+            <button type="button" class="btn btn-warning btn-xs">Warning</button>
+            <button type="button" class="btn btn-danger btn-xs">Danger</button>
+            <h4 class="widget-header">Small</h4>
+            <button type="button" class="btn btn-default btn-sm">Default</button>
+            <button type="button" class="btn btn-primary btn-sm">Primary</button>
+            <button type="button" class="btn btn-success btn-sm">Success</button>
+            <button type="button" class="btn btn-info btn-sm">Info</button>
+            <button type="button" class="btn btn-warning btn-sm">Warning</button>
+            <button type="button" class="btn btn-danger btn-sm">Danger</button>
+            <h4 class="widget-header">Medium</h4>
+            <button type="button" class="btn btn-default">Default</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <h4 class="widget-header">Large</h4>
+            <button type="button" class="btn btn-default btn-lg">Default</button>
+            <button type="button" class="btn btn-primary btn-lg">Primary</button>
+            <button type="button" class="btn btn-success btn-lg">Success</button>
+            <button type="button" class="btn btn-info btn-lg">Info</button>
+            <button type="button" class="btn btn-warning btn-lg">Warning</button>
+            <button type="button" class="btn btn-danger btn-lg">Danger</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="widget widget-red" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-bar-chart-o"></i> Rounded Buttons</h3>
+          </div>
+          <div class="widget-content button-example">
+            <h4 class="widget-header">Extra Small</h4>
+            <button type="button" class="btn btn-round btn-default btn-xs">Default</button>
+            <button type="button" class="btn btn-round btn-primary btn-xs">Primary</button>
+            <button type="button" class="btn btn-round btn-success btn-xs">Success</button>
+            <button type="button" class="btn btn-round btn-info btn-xs">Info</button>
+            <button type="button" class="btn btn-round btn-warning btn-xs">Warning</button>
+            <button type="button" class="btn btn-round btn-danger btn-xs">Danger</button>
+            <h4 class="widget-header">Small</h4>
+            <button type="button" class="btn btn-round btn-default btn-sm">Default</button>
+            <button type="button" class="btn btn-round btn-primary btn-sm">Primary</button>
+            <button type="button" class="btn btn-round btn-success btn-sm">Success</button>
+            <button type="button" class="btn btn-round btn-info btn-sm">Info</button>
+            <button type="button" class="btn btn-round btn-warning btn-sm">Warning</button>
+            <button type="button" class="btn btn-round btn-danger btn-sm">Danger</button>
+            <h4 class="widget-header">Medium</h4>
+            <button type="button" class="btn btn-round btn-default">Default</button>
+            <button type="button" class="btn btn-round btn-primary">Primary</button>
+            <button type="button" class="btn btn-round btn-success">Success</button>
+            <button type="button" class="btn btn-round btn-info">Info</button>
+            <button type="button" class="btn btn-round btn-warning">Warning</button>
+            <button type="button" class="btn btn-round btn-danger">Danger</button>
+            <h4 class="widget-header">Large</h4>
+            <button type="button" class="btn btn-round btn-default btn-lg">Default</button>
+            <button type="button" class="btn btn-round btn-primary btn-lg">Primary</button>
+            <button type="button" class="btn btn-round btn-success btn-lg">Success</button>
+            <button type="button" class="btn btn-round btn-info btn-lg">Info</button>
+            <button type="button" class="btn btn-round btn-warning btn-lg">Warning</button>
+            <button type="button" class="btn btn-round btn-danger btn-lg">Danger</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-bar-chart-o"></i> Iconed Buttons</h3>
+          </div>
+          <div class="widget-content button-example">
+            <h4 class="widget-header">Extra Small</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-iconed btn-default btn-xs"><i class="fa fa-cog"></i> Settings</button>
+              <button type="button" class="btn btn-iconed btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</button>
+              <button type="button" class="btn btn-iconed btn-success btn-xs"><i class="fa fa-refresh"></i> Refresh</button>
+              <button type="button" class="btn btn-iconed btn-info btn-xs"><i class="fa fa-link"></i> Link</button>
+              <button type="button" class="btn btn-iconed btn-warning btn-xs"><i class="fa fa-undo"></i> Undo</button>
+              <button type="button" class="btn btn-iconed btn-danger btn-xs"><i class="fa fa-times"></i> Delete</button>
+            </div>
+            <button type="button" class="btn btn-iconed btn-round btn-default btn-xs"><i class="fa fa-cog"></i> Settings</button>
+            <button type="button" class="btn btn-iconed btn-round btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</button>
+            <button type="button" class="btn btn-iconed btn-round btn-success btn-xs"><i class="fa fa-refresh"></i> Refresh</button>
+            <button type="button" class="btn btn-iconed btn-round btn-info btn-xs"><i class="fa fa-link"></i> Link</button>
+            <button type="button" class="btn btn-iconed btn-round btn-warning btn-xs"><i class="fa fa-undo"></i> Undo</button>
+            <button type="button" class="btn btn-iconed btn-round btn-danger btn-xs"><i class="fa fa-times"></i> Delete</button>
+            <h4 class="widget-header">Small</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-iconed btn-default btn-sm"><i class="fa fa-print"></i> Print</button>
+              <button type="button" class="btn btn-iconed btn-primary btn-sm"><i class="fa fa-envelope-o"></i> Contact</button>
+              <button type="button" class="btn btn-iconed btn-success btn-sm"><i class="fa fa-upload"></i> Upload</button>
+              <button type="button" class="btn btn-iconed btn-info btn-sm"><i class="fa fa-share"></i> Share</button>
+              <button type="button" class="btn btn-iconed btn-warning btn-sm"><i class="fa fa-lock"></i> Block</button>
+              <button type="button" class="btn btn-iconed btn-danger btn-sm"><i class="fa fa-save"></i> Save</button>
+            </div>
+            <button type="button" class="btn btn-iconed btn-round btn-default btn-sm"><i class="fa fa-print"></i> Print</button>
+            <button type="button" class="btn btn-iconed btn-round btn-primary btn-sm"><i class="fa fa-envelope-o"></i> Contact</button>
+            <button type="button" class="btn btn-iconed btn-round btn-success btn-sm"><i class="fa fa-upload"></i> Upload</button>
+            <button type="button" class="btn btn-iconed btn-round btn-info btn-sm"><i class="fa fa-share"></i> Share</button>
+            <button type="button" class="btn btn-iconed btn-round btn-warning btn-sm"><i class="fa fa-lock"></i> Block</button>
+            <button type="button" class="btn btn-iconed btn-round btn-danger btn-sm"><i class="fa fa-save"></i> Save</button>
+            <h4 class="widget-header">Medium</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-iconed btn-default"><i class="fa fa-cog"></i> Settings</button>
+              <button type="button" class="btn btn-iconed btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+              <button type="button" class="btn btn-iconed btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+              <button type="button" class="btn btn-iconed btn-info"><i class="fa fa-link"></i> Link</button>
+              <button type="button" class="btn btn-iconed btn-warning"><i class="fa fa-undo"></i> Undo</button>
+              <button type="button" class="btn btn-iconed btn-danger"><i class="fa fa-times"></i> Delete</button>
+            </div>
+            <button type="button" class="btn btn-iconed btn-round btn-default"><i class="fa fa-cog"></i> Settings</button>
+            <button type="button" class="btn btn-iconed btn-round btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+            <button type="button" class="btn btn-iconed btn-round btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+            <button type="button" class="btn btn-iconed btn-round btn-info"><i class="fa fa-link"></i> Link</button>
+            <button type="button" class="btn btn-iconed btn-round btn-warning"><i class="fa fa-undo"></i> Undo</button>
+            <button type="button" class="btn btn-iconed btn-round btn-danger"><i class="fa fa-times"></i> Delete</button>
+            <h4 class="widget-header">Large</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-iconed btn-lg btn-default"><i class="fa fa-cog"></i> Settings</button>
+              <button type="button" class="btn btn-iconed btn-lg btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+              <button type="button" class="btn btn-iconed btn-lg btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+              <button type="button" class="btn btn-iconed btn-lg btn-info"><i class="fa fa-link"></i> Link</button>
+              <button type="button" class="btn btn-iconed btn-lg btn-warning"><i class="fa fa-undo"></i> Undo</button>
+              <button type="button" class="btn btn-iconed btn-lg btn-danger"><i class="fa fa-times"></i> Delete</button>
+            </div>
+            <button type="button" class="btn btn-iconed btn-lg btn-round btn-default"><i class="fa fa-cog"></i> Settings</button>
+            <button type="button" class="btn btn-iconed btn-lg btn-round btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+            <button type="button" class="btn btn-iconed btn-lg btn-round btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+            <button type="button" class="btn btn-iconed btn-lg btn-round btn-info"><i class="fa fa-link"></i> Link</button>
+            <button type="button" class="btn btn-iconed btn-lg btn-round btn-warning"><i class="fa fa-undo"></i> Undo</button>
+            <button type="button" class="btn btn-iconed btn-lg btn-round btn-danger"><i class="fa fa-times"></i> Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-bar-chart-o"></i> Action Buttons</h3>
+          </div>
+          <div class="widget-content button-example">
+            <h4 class="widget-header">Small</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-action btn-default btn-sm"><i class="fa fa-print"></i> Print</button>
+              <button type="button" class="btn btn-action btn-primary btn-sm"><i class="fa fa-envelope-o"></i> Contact</button>
+              <button type="button" class="btn btn-action btn-success btn-sm"><i class="fa fa-upload"></i> Upload</button>
+              <button type="button" class="btn btn-action btn-info btn-sm"><i class="fa fa-share"></i> Share</button>
+              <button type="button" class="btn btn-action btn-warning btn-sm"><i class="fa fa-lock"></i> Block</button>
+              <button type="button" class="btn btn-action btn-danger btn-sm"><i class="fa fa-save"></i> Save</button>
+            </div>
+            <button type="button" class="btn btn-action btn-round btn-default btn-sm"><i class="fa fa-print"></i> Print</button>
+            <button type="button" class="btn btn-action btn-round btn-primary btn-sm"><i class="fa fa-envelope-o"></i> Contact</button>
+            <button type="button" class="btn btn-action btn-round btn-success btn-sm"><i class="fa fa-upload"></i> Upload</button>
+            <button type="button" class="btn btn-action btn-round btn-info btn-sm"><i class="fa fa-share"></i> Share</button>
+            <button type="button" class="btn btn-action btn-round btn-warning btn-sm"><i class="fa fa-lock"></i> Block</button>
+            <button type="button" class="btn btn-action btn-round btn-danger btn-sm"><i class="fa fa-save"></i> Save</button>
+            <h4 class="widget-header">Medium</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-action btn-default btn-action"><i class="fa fa-cog"></i> Settings</button>
+              <button type="button" class="btn btn-action btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+              <button type="button" class="btn btn-action btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+              <button type="button" class="btn btn-action btn-info"><i class="fa fa-link"></i> Link</button>
+              <button type="button" class="btn btn-action btn-warning"><i class="fa fa-undo"></i> Undo</button>
+              <button type="button" class="btn btn-action btn-danger"><i class="fa fa-times"></i> Delete</button>
+            </div>
+            <button type="button" class="btn btn-action btn-round btn-default btn-action"><i class="fa fa-cog"></i> Settings</button>
+            <button type="button" class="btn btn-action btn-round btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+            <button type="button" class="btn btn-action btn-round btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+            <button type="button" class="btn btn-action btn-round btn-info"><i class="fa fa-link"></i> Link</button>
+            <button type="button" class="btn btn-action btn-round btn-warning"><i class="fa fa-undo"></i> Undo</button>
+            <button type="button" class="btn btn-action btn-round btn-danger"><i class="fa fa-times"></i> Delete</button>
+            <h4 class="widget-header">Large</h4>
+            <div class="bottom-margin-less">
+              <button type="button" class="btn btn-action btn-lg btn-default btn-action"><i class="fa fa-cog"></i> Settings</button>
+              <button type="button" class="btn btn-action btn-lg btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+              <button type="button" class="btn btn-action btn-lg btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+              <button type="button" class="btn btn-action btn-lg btn-info"><i class="fa fa-link"></i> Link</button>
+              <button type="button" class="btn btn-action btn-lg btn-warning"><i class="fa fa-undo"></i> Undo</button>
+              <button type="button" class="btn btn-action btn-lg btn-danger"><i class="fa fa-times"></i> Delete</button>
+            </div>
+            <button type="button" class="btn btn-action btn-lg btn-round btn-default btn-action"><i class="fa fa-cog"></i> Settings</button>
+            <button type="button" class="btn btn-action btn-lg btn-round btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+            <button type="button" class="btn btn-action btn-lg btn-round btn-success"><i class="fa fa-refresh"></i> Refresh</button>
+            <button type="button" class="btn btn-action btn-lg btn-round btn-info"><i class="fa fa-link"></i> Link</button>
+            <button type="button" class="btn btn-action btn-lg btn-round btn-warning"><i class="fa fa-undo"></i> Undo</button>
+            <button type="button" class="btn btn-action btn-lg btn-round btn-danger"><i class="fa fa-times"></i> Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row bottom-margin">
+      <div class="col-md-12">
+        <h4 class="section-title more-margin">Button Dropdowns</h4>
+        <div class="bs-example">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+            </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-bar-chart-o"></i> Button Groups</h3>
+          </div>
+          <div class="widget-content">
+            <div class="bs-example">
+              <div class="btn-toolbar">
+                <div class="btn-group btn-group-lg">
+                  <button type="button" class="btn btn-default">Left</button>
+                  <button type="button" class="btn btn-default">Middle</button>
+                  <button type="button" class="btn btn-default">Right</button>
+                </div>
+              </div>
+              <div class="btn-toolbar">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">Left</button>
+                  <button type="button" class="btn btn-default">Middle</button>
+                  <button type="button" class="btn btn-default">Right</button>
+                </div>
+              </div>
+              <div class="btn-toolbar">
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-default">Left</button>
+                  <button type="button" class="btn btn-default">Middle</button>
+                  <button type="button" class="btn btn-default">Right</button>
+                </div>
+              </div>
+              <div class="btn-toolbar">
+                <div class="btn-group btn-group-xs">
+                  <button type="button" class="btn btn-default">Left</button>
+                  <button type="button" class="btn btn-default">Middle</button>
+                  <button type="button" class="btn btn-default">Right</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-bar-chart-o"></i> Button Dropdowns</h3>
+          </div>
+          <div class="widget-content">
+          <div class="bs-example">
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+                  Large button <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                  Small button <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                  Extra small button <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src='ad67372f4b8b70896e8a596720082ac6.js'></script>
+
+
+<!-- @include _footer

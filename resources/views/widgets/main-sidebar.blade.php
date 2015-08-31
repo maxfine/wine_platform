@@ -25,15 +25,20 @@
                         </li>
                     </ul>
                 </div>
-                <div class="logo-element">H+
-                </div>
+                <div class="logo-element">ZNYES</div>
             </li>
+
+            <!-- 搜索栏目 -->
+            <li class="container-fluid">
+                <input placeholder="搜索" name="search" value="" class="form-control icon search" id="settings-search-input" autocomplete="off" data-track-input="" data-load-indicator="" data-load-indicator-opaque="" type="text">
+            </li>
+            <!-- 搜索栏目 -->
 
             @foreach($backNavs as $data)
             <li>
                 <a href="javascript:void(0);">
-                    <span class="fa arrow"></span>
-                    <i class="fa fa-{{$data['icon']}}"></i>
+                    @if($data['childs'] !== false)<span class="fa arrow"></span>@endif
+                    @if(isset($data['icon']) && $data['icon'])<i class="fa fa-{{$data['icon']}}"></i>@endif
                     <span class="nav-label">{{$data['title']}}</span>
                 </a>
                 @if($data['childs'] !== false)
@@ -43,16 +48,21 @@
                             <li>
                                 <a href="javascript:;">
                                     <span class="fa arrow"></span>
+                                    @if(isset($item['icon']) && $item['icon'])<i class="fa fa-{{$item['icon']}}"></i>@endif
                                     <span class="nav-label">{{ $item['title'] }}</span>
                                 </a>
                                 <ul class="nav nav-third-level">
                                     @foreach($item['childs'] as $row)
-                                        <li><a class="J_menuItem" href="{{ URL($row['slug']) }}">{{ $row['title'] }}</a></li>
+                                        <li>
+                                            @if(isset($row['icon']) && $row['icon'])<i class="fa fa-{{$row['icon']}}"></i>@endif
+                                            <a class="J_menuItem" href="{{ URL($row['slug']) }}">{{ $row['title'] }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
                         @else
                             <li>
+                                @if(isset($item['icon']) && $item['icon'])<i class="fa fa-{{$item['icon']}}"></i>@endif
                                 <a class="J_menuItem" href="{{ URL($item['slug']) }}">{{ $item['title'] }}</a>
                             </li>
                         @endif

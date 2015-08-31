@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+
+  <link rel='stylesheet' href='03a03bbe34da26df16eb239ba68ecc0a.css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    @javascript html5shiv respond.min
+  <![endif]-->
+
+  <title>Responsive Admin template based on Bootstrap 3</title>
+
+</head>
+
+<body class="glossed">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42863888-4', 'pinsupreme.com');
+  ga('send', 'pageview');
+
+</script>
+<div class="all-wrapper fixed-header left-menu">
+  <div class="page-header">
+  <div class="header-links hidden-xs">
+    <div class="top-search-w pull-right">
+      <input type="text" class="top-search" placeholder="Search"/>
+    </div>
+    <div class="dropdown hidden-sm hidden-xs">
+      <a href="#" data-toggle="dropdown" class="header-link"><i class="fa fa-bolt"></i> User Alerts <span class="badge alert-animated">5</span></a>
+
+      <ul class="dropdown-menu dropdown-inbar dropdown-wide">
+        <li><a href="#"><span class="label label-warning">1 min</span> <i class="fa fa-bell"></i> New Mail Received</a></li>
+        <li><a href="#"><span class="label label-warning">4 min</span> <i class="fa fa-fire"></i> Server Crash</a></li>
+        <li><a href="#"><span class="label label-warning">12 min</span> <i class="fa fa-flag-o"></i> Pending Alert</a></li>
+        <li><a href="#"><span class="label label-warning">15 min</span> <i class="fa fa-smile-o"></i> User Signed Up</a></li>
+      </ul>
+    </div>
+    <div class="dropdown hidden-sm hidden-xs">
+      <a href="#" data-toggle="dropdown" class="header-link"><i class="fa fa-cog"></i> Settings</a>
+
+      <ul class="dropdown-menu dropdown-inbar">
+        <li><a href="#"><span class="label label-warning">2</span> <i class="fa fa-envelope"></i> Messages</a></li>
+        <li><a href="#"><span class="label label-warning">4</span> <i class="fa fa-users"></i> Friends</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
+        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <a href="#" class="header-link clearfix" data-toggle="dropdown">
+        <div class="avatar">
+          <img src="assets/images/avatar-small.jpg" alt="">
+        </div>
+        <div class="user-name-w">
+          Lionel Messi <i class="fa fa-caret-down"></i>
+        </div>
+      </a>
+      <ul class="dropdown-menu dropdown-inbar">
+        <li><a href="#"><span class="label label-warning">2</span> <i class="fa fa-envelope"></i> Messages</a></li>
+        <li><a href="#"><span class="label label-warning">4</span> <i class="fa fa-users"></i> Friends</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
+        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <a class="logo hidden-xs" href="index.html"><i class="fa fa-rocket"></i></a>
+  <a class="menu-toggler" href="#"><i class="fa fa-bars"></i></a>
+  <h1>Forms</h1>
+</div>
+  <div class="side">
+  <div class="sidebar-wrapper">
+  <ul>
+    <li>
+      <a href="index.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+        <i class="fa fa-home"></i>
+      </a>
+    </li>
+    <li class='current'>
+      <a class='current' href="forms.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Forms">
+        <i class="fa fa-file-text-o"></i>
+      </a>
+    </li>
+    <li>
+      <a href="elements.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="UI Elements">
+        <span class="badge"></span>
+        <i class="fa fa-code-fork"></i>
+      </a>
+    </li>
+    <li>
+      <a href="charts.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Charts">
+        <i class="fa fa-bar-chart-o"></i>
+      </a>
+    </li>
+    <li>
+      <a href="table.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tables">
+        <i class="fa fa-th"></i>
+      </a>
+    </li>
+    <li>
+      <a href="grid.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Layouts">
+        <i class="fa fa-font"></i>
+      </a>
+    </li>
+    <li>
+      <a href="calendar.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Calendar">
+        <span class="badge">5</span>
+        <i class="fa fa-calendar"></i>
+      </a>
+    </li>
+    <li>
+      <a href="maps.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Maps">
+        <i class="fa fa-map-marker"></i>
+      </a>
+    </li>
+    <li>
+      <a href="page_search.html" data-toggle="tooltip" data-placement="right" title="" data-original-title="Extra Pages">
+        <i class="fa fa-trophy"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+  <div class="sub-sidebar-wrapper">
+  <ul>
+    <li class='current'><a class='current' href="forms.html"> Form Elements</a></li>
+    <li><a href="form_validation.html"> Form Validation</a></li>
+    <li><a href="form_file_upload.html"> File Upload</a></li>
+  </ul>
+</div>
+  </div>
+  <div class="main-content">
+    <ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Bread</a></li>
+  <li class="active">Example</li>
+</ol>
+    <div class="alert alert-warning alert-dismissable bottom-margin">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="fa fa-exclamation-circle"></i> <strong>Welcome!</strong> This is a dashboard of the powerful admin template.
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="widget widget-green">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Basic Form</h3>
+          </div>
+          <div class="widget-content">
+            <form action="" role="form">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>First Column</label>
+                    <input type="text" class="form-control" placeholder="First Name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Second Column</label>
+                    <input type="text" class="form-control" placeholder="Last Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Regular Input</label>
+                <input type="email" class="form-control" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label>Textarea</label>
+                <textarea name="" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Disabled</label>
+                <input class="form-control" disabled="disabled" placeholder="Disabled Field Value">
+              </div>
+              <div class="form-group">
+                <label>Focused</label>
+                <input class="form-control" id="focusedInput" type="text" value="This is focused...">
+              </div>
+              <div class="form-group">
+                <label>Select Box</label>
+                <select class="form-control">
+                  <option>France</option>
+                  <option>Italy</option>
+                  <option>Brazil</option>
+                  <option>Portugal</option>
+                  <option>Sweden</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Multi-Select Box</label>
+                <select class="form-control" multiple>
+                  <option>France</option>
+                  <option>Italy</option>
+                  <option>Brazil</option>
+                  <option>Portugal</option>
+                  <option>Sweden</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Horizontal Checkboxes</label><br>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Regular Checkboxes</label><br>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="inlineCheckbox1" value="option1">
+                    I absolutely love this template
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="inlineCheckbox1" value="option1">
+                    I am going to buy it right now
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Radio Buttons</label><br>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    United Kingdom
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Australia
+                  </label>
+                </div>
+              </div>
+              <button class="btn btn-primary">Primary Button</button>
+              <button class="btn btn-default">Cancel Button</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Horizontal Form</h3>
+          </div>
+          <div class="widget-content">
+            <form action="" role="form" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-md-4 control-label">Text Field</label>
+                <div class="col-md-8">
+                  <input type="email" class="form-control" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Hinted Field</label>
+                <div class="col-md-8">
+                  <input type="email" class="form-control" placeholder="Enter email">
+                  <span class="help-block">Block of help text for the field</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Password</label>
+                <div class="col-md-8">
+                  <input type="password" class="form-control" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Disabled</label>
+                <div class="col-md-8">
+                  <input class="form-control" disabled="disabled" placeholder="Disabled Field Value">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Static Control</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">test@example.com</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Select Box</label>
+                <div class="col-md-8">
+                  <select class="form-control">
+                    <option>France</option>
+                    <option>Italy</option>
+                    <option>Brazil</option>
+                    <option>Portugal</option>
+                    <option>Sweden</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Rounded</label>
+                <div class="col-md-8">
+                  <input class="form-control rounded" placeholder="Rounded input box">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Remember me
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                  <button type="submit" class="btn btn-primary">Primary Button</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="widget widget-red">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Advanced Select Boxes</h3>
+          </div>
+          <div class="widget-content">
+            <div class="form-group">
+              <label>Standard Select Box</label>
+              <select class="form-control chosen-select">
+                <option>France</option>
+                <option>Italy</option>
+                <option>Brazil</option>
+                <option>Portugal</option>
+                <option>Sweden</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="">Single Select with Groups</label>
+              <select data-placeholder="Your Favorite Football Team" class="form-control chosen-select">
+                <option value=""></option>
+                <optgroup label="NFC EAST">
+                  <option>Dallas Cowboys</option>
+                  <option>New York Giants</option>
+                  <option>Philadelphia Eagles</option>
+                  <option>Washington Redskins</option>
+                </optgroup>
+                <optgroup label="NFC NORTH">
+                  <option>Chicago Bears</option>
+                  <option>Detroit Lions</option>
+                  <option>Green Bay Packers</option>
+                  <option>Minnesota Vikings</option>
+                </optgroup>
+                <optgroup label="NFC SOUTH">
+                  <option>Atlanta Falcons</option>
+                  <option>Carolina Panthers</option>
+                  <option>New Orleans Saints</option>
+                  <option>Tampa Bay Buccaneers</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Multiple Select</label>
+              <select class="form-control chosen-select" multiple>
+                <option>France</option>
+                <option>Italy</option>
+                <option>Brazil</option>
+                <option>Portugal</option>
+                <option>Sweden</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Selected Support</label>
+              <select class="form-control chosen-select" multiple>
+                <option>France</option>
+                <option selected>Italy</option>
+                <option>Brazil</option>
+                <option selected>Portugal</option>
+                <option>Sweden</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Date/Time Elements</h3>
+          </div>
+          <div class="widget-content">
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="widget-header">Range Picker</h4>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                  <input type="text" placeholder="Select date range" class="form-control input-daterangepicker">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="widget-header">Date Picker</h4>
+                <div class="input-group">
+                  <input type="text" placeholder="01/12/2011" class="form-control input-datepicker">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4 class="widget-header">Time Picker</h4>
+                <div class="input-group">
+                  <input type="text" placeholder="1:30am" class="form-control input-timepicker">
+                  <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Color Picker</h3>
+          </div>
+          <div class="widget-content">
+            <div class="row bottom-margin">
+              <div class="col-md-6">
+                <h4 class="widget-header">Default Style</h4>
+                <div class="input-group">
+                  <span class="input-group-addon"></span>
+                  <input type="text" placeholder="#FFFFFF" class="form-control input-colorpicker">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h4 class="widget-header">Simple Style</h4>
+                <div class="input-group">
+                  <span class="input-group-addon"></span>
+                  <input type="text" placeholder="#FFFFFF" class="form-control input-colorpicker-simple">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="widget-header">Dark Style</h4>
+                <div class="input-group">
+                  <span class="input-group-addon"></span>
+                  <input type="text" placeholder="#FFFFFF" class="form-control input-colorpicker-dark">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h4 class="widget-header">Dark Simple</h4>
+                <div class="input-group">
+                  <span class="input-group-addon"></span>
+                  <input type="text" placeholder="#FFFFFF" class="form-control input-colorpicker-dark-simple">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="widget widget-green">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Modal Forms</h3>
+          </div>
+          <div class="widget-content">
+            <div class="alert alert-warning">
+              Click buttons below to see different forms in lightbox modals.
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="btn btn-primary" data-toggle="modal" data-target="#modalFormStyle1">Style 1</div>
+              </div>
+              <div class="col-md-4">
+                <div class="btn btn-primary" data-toggle="modal" data-target="#modalFormStyle2">Style 2</div>
+              </div>
+              <div class="col-md-4">
+                <div class="btn btn-primary" data-toggle="modal" data-target="#modalFormStyle3">Style 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Control Sizing</h3>
+          </div>
+          <div class="widget-content">
+            <form action="">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-4">
+                    <h4 class="widget-header">
+                      Large
+                    </h4>
+                    <div class="form-group">
+                      <input class="form-control input-lg" type="text" placeholder=".input-lg">
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control input-lg">
+                        <option>Large Select</option>
+                        <option>Italy</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h4 class="widget-header">
+                      Default
+                    </h4>
+                    <div class="form-group">
+                      <input class="form-control" type="text" placeholder="Default input">
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Default Select</option>
+                        <option>Italy</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <h4 class="widget-header">
+                      Small
+                    </h4>
+                    <div class="form-group">
+                      <input class="form-control input-sm" type="text" placeholder=".input-sm">
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control input-sm">
+                        <option>Small Select</option>
+                        <option>Italy</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Column Sizing</h3>
+          </div>
+          <div class="widget-content">
+            <div class="row bottom-margin">
+              <div class="col-xs-1">
+                <input type="text" class="form-control" placeholder=".col-xs-1">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+              <div class="col-xs-3">
+                <input type="text" class="form-control" placeholder=".col-xs-3">
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" placeholder=".col-xs-6">
+              </div>
+            </div>
+            <div class="row bottom-margin">
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder=".col-xs-2">
+              </div>
+            </div>
+            <div class="row bottom-margin">
+              <div class="col-xs-3">
+                <input type="text" class="form-control" placeholder=".col-xs-3">
+              </div>
+              <div class="col-xs-3">
+                <input type="text" class="form-control" placeholder=".col-xs-3">
+              </div>
+              <div class="col-xs-3">
+                <input type="text" class="form-control" placeholder=".col-xs-3">
+              </div>
+              <div class="col-xs-3">
+                <input type="text" class="form-control" placeholder=".col-xs-3">
+              </div>
+            </div>
+            <div class="row bottom-margin">
+              <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder=".col-xs-4">
+              </div>
+              <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder=".col-xs-4">
+              </div>
+              <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder=".col-xs-4">
+              </div>
+            </div>
+            <div class="row bottom-margin">
+              <div class="col-xs-6">
+                <input type="text" class="form-control" placeholder=".col-xs-6">
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" placeholder=".col-xs-6">
+              </div>
+            </div>
+            <div class="row bottom-margin">
+              <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder=".col-xs-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Form Validation</h3>
+          </div>
+          <div class="widget-content">
+            <h4 class="widget-header">
+              Regular Validation
+            </h4>
+            <div class="row">
+              <div class="col-md-12">
+                <form action="" role="form" class="form-horizontal bottom-margin">
+                  <div class="form-group has-success">
+                    <label class="col-md-5 control-label">Input with success</label>
+                    <div class="col-md-7">
+                      <input type="text" class="form-control">
+                      <p class="help-block">Provide a valid email.</p>
+                    </div>
+                  </div>
+                  <div class="form-group has-warning">
+                    <label class="col-md-5 control-label">Input with warning</label>
+                    <div class="col-md-7">
+                      <input type="text" class="form-control">
+                      <p class="help-block">Numbers only please.</p>
+                    </div>
+                  </div>
+                  <div class="form-group has-error">
+                    <label class="col-md-5 control-label">Input with error</label>
+                    <div class="col-md-7">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+            <h4 class="widget-header">
+              Validation with Icons
+            </h4>
+            <div class="row">
+              <div class="col-md-12">
+                <form action="" role="form" class="form-horizontal bottom-margin">
+                  <div class="form-group has-success has-iconed">
+                    <label class="col-md-5 control-label">Input with success</label>
+                    <div class="col-md-7">
+                      <div class="iconed-input"><input type="text" class="form-control"></div>
+                      <p class="help-block">Provide a valid email.</p>
+                    </div>
+                  </div>
+                  <div class="form-group has-warning has-iconed">
+                    <label class="col-md-5 control-label">Input with warning</label>
+                    <div class="col-md-7">
+                      <div class="iconed-input"><input type="text" class="form-control"></div>
+                      <p class="help-block">Numbers only please.</p>
+                    </div>
+                  </div>
+                  <div class="form-group has-error has-iconed">
+                    <label class="col-md-5 control-label">Input with error</label>
+                    <div class="col-md-7">
+                      <div class="iconed-input"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Input Masks</h3>
+          </div>
+          <div class="widget-content">
+            <form role="form" class="form-horizontal">
+              <div class="form-group">
+                <div class="row">
+                  <label class="col-md-4 control-label">Mask Money</label>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control mask_money" placeholder="Enter number">
+                    <span class="help-block">$ 999,999.99</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <label class="col-md-4 control-label">Mask Date</label>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control mask_date" placeholder="Enter number">
+                    <span class="help-block">99/99/9999</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <label class="col-md-4 control-label">Mask Phone</label>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control mask_phone" placeholder="Enter phone">
+                    <span class="help-block">(999) 999-9999</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <label class="col-md-4 control-label">Mask SSN</label>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control mask_ssn" placeholder="Enter number">
+                    <span class="help-block">999-99-9999</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <label class="col-md-4 control-label">Mask Tax ID</label>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control mask_taxid" placeholder="Enter number">
+                    <span class="help-block">99-9999999</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Input Groups</h3>
+          </div>
+          <div class="widget-content">
+            <div class="alert alert-warning">Useful input groups, can be used to provide some details for the textbox.</div>
+            <form class="" role="form">
+              <h4 class="widget-header">Basic examples</h4>
+              <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" placeholder="Username">
+              </div>
+              <br>
+              <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">.00</span>
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control">
+                <span class="input-group-addon">.00</span>
+              </div>
+            </form>
+            <h4 class="widget-header">Sizing</h4>
+            <form class="" role="form">
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" placeholder="Username">
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" placeholder="Username">
+              </div>
+              <br>
+              <div class="input-group input-group-sm">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" placeholder="Username">
+              </div>
+            </form>
+            <h4 class="widget-header">Checkboxes and Radio Buttons</h4>
+            <form class="">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox">
+                </span>
+                <input type="text" class="form-control">
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="radio">
+                </span>
+                <input type="text" class="form-control">
+              </div>
+            </form>
+            <h4 class="widget-header">Button Addons</h4>
+            <form class="">
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+                <input type="text" class="form-control nlb">
+              </div><br>
+              <div class="input-group">
+                <input type="text" class="form-control nrb">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div>
+            </form>
+              <h4 class="widget-header">Buttons with dropdowns</h4>
+            <form class="" role="form">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+                <input type="text" class="form-control nlb">
+              </div><br>
+              <div class="input-group">
+                <input type="text" class="form-control nrb">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+            <h4 class="widget-header">Segmented buttons</h4>
+            <form class="" role="form">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+                <input type="text" class="form-control nlb">
+              </div><br>
+              <div class="input-group">
+                <input type="text" class="form-control nrb">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget widget-blue" id="widget_stats">
+          <div class="widget-title">
+            <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+            <h3><i class="fa fa-ok-circle"></i> Text Editor</h3>
+          </div>
+          <div class="widget-content">
+            <div class="form-group">
+              <label>WYSIWYG Editor</label>
+              <textarea class="summernote" name="editor" rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalFormStyle1" tabindex="-1" role="dialog" aria-labelledby="modalFormStyle1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="widget widget-blue">
+        <div class="widget-title">
+          <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+          <h3><i class="fa fa-ok-circle"></i> Modal Form</h3>
+        </div>
+        <div class="widget-content">
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Regular Input</label>
+              <input type="email" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalFormStyle2" tabindex="-1" role="dialog" aria-labelledby="modalFormStyle2Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="widget widget-blue">
+        <div class="widget-title">
+          <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+          <h3><i class="fa fa-ok-circle"></i> Horizontal Form</h3>
+        </div>
+        <div class="widget-content">
+          <div class="modal-body">
+
+            <form action="" role="form" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-md-3 control-label">Username</label>
+                <div class="col-md-9">
+                  <input type="email" class="form-control" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Password</label>
+                <div class="col-md-9">
+                  <input type="password" class="form-control" placeholder="Enter password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Remember me
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                  <button type="button" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalFormStyle3" tabindex="-1" role="dialog" aria-labelledby="modalFormStyle3Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="widget widget-blue">
+        <div class="widget-title">
+          <div class="widget-controls">
+  <a href="#" class="widget-control widget-control-full-screen" data-toggle="tooltip" data-placement="top" title="" data-original-title="Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" class="widget-control widget-control-full-screen widget-control-show-when-full" data-toggle="tooltip" data-placement="left" title="" data-original-title="Exit Full Screen"><i class="fa fa-expand"></i></a>
+  <a href="#" data-toggle="dropdown" class="widget-control widget-control-settings"><i class="fa fa-cog"></i></a>
+  <div class="dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+    <ul class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">Set Widget Color</li>
+      <li><a data-widget-color="blue" class="set-widget-color" href="#">Blue</a></li>
+      <li><a data-widget-color="red" class="set-widget-color" href="#">Red</a></li>
+      <li><a data-widget-color="green" class="set-widget-color" href="#">Green</a></li>
+      <li><a data-widget-color="orange" class="set-widget-color" href="#">Orange</a></li>
+      <li><a data-widget-color="purple" class="set-widget-color" href="#">Purple</a></li>
+    </ul>
+  </div>
+  <a href="#" class="widget-control widget-control-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+  <a href="#" class="widget-control widget-control-minimize" data-toggle="tooltip" data-placement="top" title="" data-original-title="Minimize"><i class="fa fa-minus-circle"></i></a>
+  <a href="#" class="widget-control widget-control-remove" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle"></i></a>
+</div>
+          <h3><i class="fa fa-ok-circle"></i> Inline Form</h3>
+        </div>
+        <div class="widget-content">
+          <div class="modal-body">
+            <form class="form-inline" role="form">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src='ad67372f4b8b70896e8a596720082ac6.js'></script>
+
+<script src='0ecdc2a1f21af0053c8e1d78bc57a41a.js'></script>
+
+
+</body>
+
+</html>
