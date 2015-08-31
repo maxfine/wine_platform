@@ -212,7 +212,7 @@ return [
         'Image' => 'Intervention\Image\Facades\Image',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
-        'BackNav' => 'GrahamCampbell\Navigation\Facades\Navigation',
+        'Nav' => 'GrahamCampbell\Navigation\Facades\Navigation',
         'Navbar' => 'Bootstrapper\Facades\Navbar',
         'Navigation' => 'Bootstrapper\Facades\Navigation',
 	],
