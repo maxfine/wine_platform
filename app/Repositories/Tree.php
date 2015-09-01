@@ -49,6 +49,7 @@ class Tree {
         $this->pIdName = $pIdName;
         $this->catName = $catName;
         $this->ret = '';
+        $this->str = '';
         return is_array($arr);
     }
 
@@ -286,5 +287,62 @@ class Tree {
         return $key;
     }
 
+    /**
+     * @param $myid 表示获得这个ID下的所有子级
+     * @param $effected_id 需要生成treeview目录数的id
+     * @param $str 末级样式
+     * @param $str2 目录级别样式
+     * @param $showlevel 直接显示层级数，其余为异步显示，0为全部限制
+     * @param $style 目录样式 默认 filetree 可增加其他样式如'filetree treeview-famfamfam'
+     * @param $currentlevel 计算当前层级，递归使用 适用改函数时不需要用该参数
+     * @param $recursion 递归使用 外部调用时为FALSE
+     */
+    public function getTreeView($rootId, $effected_id='side-menu', $showlevel = 0, $style='nav ', $currentlevel = 1, $recursion=FALSE){
+        $pIdName = $this->pIdName;
+        //主键字段名
+        $idName = $this->idName;
+        $childsName = $this->childsName;
+        //本方法,递归使用,避免修改了方法名时递归方法名也要修改
+        $funName = __FUNCTION__;
+        if(!defined('EFFECTED_INIT')){
+            $effected = ' id="'.$effected_id.'"';
+            define('EFFECTED_INIT', 1);
+        } else {
+            $effected = '';
+        }
 
+        if(!$recursion) $this->str .='<ul'.$effected.'  class="'.$style.'">';
+
+        $childs = $this->getChilds($rootId);
+        if(empty($childs)) return false;
+        foreach ($childs as $id => $item){
+            //<ul class="nav nav-second-level">
+            $this->str .= $recursion ? '<ul class="nav nav-second-level">' : '';
+            //<li>
+            $this->str .= '<li>';
+            //<a href=""><span class="fa arrow"></span><i class="fa fa-$icon"></i><span class="nav-label">$cat_name</span></a>
+            $icon = $item['icon'] ? '<i class="fa fa-'.$item['icon'].'"></i>' : '';
+            $this->str .= '<a href="'.URL($item['slug']).'"><span class="fa arrow"></span>'.$icon.'<span class="nav-label">'.$item['title'].'</span></a>';
+
+            $this->$funName($item[$idName], $effected_id, $showlevel, $style, $currentlevel+1, TRUE);
+
+            //</li>
+            $this->str .= '</li>';
+            //</ul>
+            $this->str .= $recursion ? '</ul>' : '';
+        }
+
+        if(!$recursion)  $this->str .='</ul>';
+
+        return $this->str;
+    }
+
+    /**
+     * 获取栏目treeView的回调函数
+     */
+    function getSlice(){
+        return function(){
+
+        };
+    }
 }

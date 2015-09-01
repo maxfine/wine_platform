@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\CommonController as CommonController;
+use App\Repositories\Tree;
 use Config, BackNav;
 use View;
 
@@ -10,16 +11,23 @@ use View;
  */
 class BackController extends CommonController
 {
+    protected $items;
+    protected $navs;
     
     public function __construct()
     {
         //获取导航
-        $backNavs = Config::get('back-nav');
-        View::share('backNavs', $backNavs);
+        $backNavs = Config::get('back-nav2');
+        $tree = new Tree($backNavs, 'parent_id', 'title');
+        //$backNavs = $tree->getTreeView(1);
+        View::share('tree', $tree);
 
-        foreach($backNavs as $nav){
-            BackNav::addToMain($nav, 'back', false);
-        }
         //BackNav::render('back', false, []);
+    }
+
+    private function navs(){
+        $html = '';
+        //构建无限极导航html
+        return $html;
     }
 }
