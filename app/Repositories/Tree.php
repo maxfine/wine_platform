@@ -28,6 +28,8 @@ class Tree {
 
     public $childsName = '';
 
+    protected $callbacks = [];
+
     /**
      * ---------------------------------------------------------
      * 构造函数, 初始化
@@ -50,6 +52,8 @@ class Tree {
         $this->catName = $catName;
         $this->ret = '';
         $this->str = '';
+        $this->setHtmlBeforeCallback(null);
+        $this->setHtmlAfterCallback(null);
         return is_array($arr);
     }
 
@@ -297,52 +301,79 @@ class Tree {
      * @param $currentlevel 计算当前层级，递归使用 适用改函数时不需要用该参数
      * @param $recursion 递归使用 外部调用时为FALSE
      */
-    public function getTreeView($rootId, $effected_id='side-menu', $showlevel = 0, $style='nav ', $currentlevel = 1, $recursion=FALSE){
-        $pIdName = $this->pIdName;
+    public function getTreeView($rootId, $currentlevel = 1){
         //主键字段名
         $idName = $this->idName;
-        $childsName = $this->childsName;
         //本方法,递归使用,避免修改了方法名时递归方法名也要修改
         $funName = __FUNCTION__;
-        if(!defined('EFFECTED_INIT')){
-            $effected = ' id="'.$effected_id.'"';
-            define('EFFECTED_INIT', 1);
-        } else {
-            $effected = '';
-        }
-
-        if(!$recursion) $this->str .='<ul'.$effected.'  class="'.$style.'">';
 
         $childs = $this->getChilds($rootId);
         if(empty($childs)) return false;
         foreach ($childs as $id => $item){
-            //<ul class="nav nav-second-level">
-            $this->str .= $recursion ? '<ul class="nav nav-second-level">' : '';
-            //<li>
-            $this->str .= '<li>';
-            //<a href=""><span class="fa arrow"></span><i class="fa fa-$icon"></i><span class="nav-label">$cat_name</span></a>
-            $icon = $item['icon'] ? '<i class="fa fa-'.$item['icon'].'"></i>' : '';
-            $this->str .= '<a href="'.URL($item['slug']).'"><span class="fa arrow"></span>'.$icon.'<span class="nav-label">'.$item['title'].'</span></a>';
+            $checkHasChild = is_array($this->getChilds($item[$idName]));
+            $this->str .= call_user_func($this->callbacks['htmlBefore'], $item, $checkHasChild, $currentlevel);
 
-            $this->$funName($item[$idName], $effected_id, $showlevel, $style, $currentlevel+1, TRUE);
+            $this->$funName($item[$idName], $currentlevel+1);
 
-            //</li>
-            $this->str .= '</li>';
-            //</ul>
-            $this->str .= $recursion ? '</ul>' : '';
+            $this->str .= call_user_func($this->callbacks['htmlAfter'], $checkHasChild);
         }
-
-        if(!$recursion)  $this->str .='</ul>';
 
         return $this->str;
     }
 
     /**
-     * 获取栏目treeView的回调函数
+     * -----------------------------------------------------------
+     * 获取html的前半部分
+     * -----------------------------------------------------------
+     * @return callable
      */
-    function getSlice(){
-        return function(){
+    public function setHtmlBeforeCallback($callback){
+        if($callback instanceof Closure) {
+            $this->callbacks['htmlBefore'] = $callback;
+        }else{
+            $this->callbacks['htmlBefore'] = function($item, $checkHasChild, $currentlevel){
+                $strHtml = '';
 
-        };
+                $strHtml .= '<li class="backnav">';
+                $url = $item['slug'] ? URL($item['slug']) : ($item['url'] ? URL($item['url']) : '');
+                $aclass = !$checkHasChild ? ' class="J_menuItem"' : '';
+                $arrow = $checkHasChild ? '<span class="fa arrow"></span>' : '';
+                $icon = $item['icon'] ? '<i class="fa fa-'.$item['icon'].'"></i>' : '';
+                $classes = [1 => 'nav-second-level', 2 => 'nav-third-level'];
+                $class = array_key_exists($currentlevel, $classes) ? $classes[$currentlevel] : 'nav-third-level';
+
+                $strHtml .= '<a';
+                $strHtml .= ' href="'.$url.'"';
+                $strHtml .= $aclass.'>';
+                $strHtml .= $arrow;
+                $strHtml .= $icon;
+                $strHtml .= '<span class="nav-label">'.$item['title'].'</span>';
+                $strHtml .= '</a>';
+                $strHtml .= $checkHasChild ? '<ul class="nav '.$class.'">' : '';
+
+                return $strHtml;
+            };
+        }
+    }
+
+    /**
+     * -----------------------------------------------------
+     * 获取html的后半部分
+     * -----------------------------------------------------
+     * @return callable
+     */
+    public function setHtmlAfterCallback($callback){
+        if($callback instanceof Closure){
+            $this->callbacks['htmlAfter'] = $callback;
+        }else{
+            $this->callbacks['htmlAfter'] = function($checkHasChild){
+                $strHtml = '';
+
+                $strHtml = $checkHasChild ? '</ul>' : '';
+                $strHtml .= '</li>';
+
+                return $strHtml;
+            };
+        }
     }
 }

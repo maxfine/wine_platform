@@ -92,6 +92,7 @@
     <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('js/plugins/layer/layer.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.cookie.js') }}"></script>
 
     <!-- 自定义js -->
     <script src="{{ asset('js/hplus.js?v=3.0.0') }}"></script>

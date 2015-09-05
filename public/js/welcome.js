@@ -1,4 +1,5 @@
 //欢迎信息
+/**
 layer.ready(function () {
 
     var html = $('#welcome-template').html();
@@ -26,3 +27,4 @@ layer.ready(function () {
         }, 5000);
     }
 });
+**/

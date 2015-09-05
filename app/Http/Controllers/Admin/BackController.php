@@ -17,7 +17,7 @@ class BackController extends CommonController
     public function __construct()
     {
         //获取导航
-        $backNavs = Config::get('back-nav2');
+        $backNavs = Config::get('back-nav');
         $tree = new Tree($backNavs, 'parent_id', 'title');
         //$backNavs = $tree->getTreeView(1);
         View::share('tree', $tree);

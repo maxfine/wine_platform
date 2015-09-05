@@ -1,4 +1,4 @@
-<?php namespace October\Rain\Support\Traits;
+<?php namespace App\Traits;
 
 use InvalidArgumentException;
 
