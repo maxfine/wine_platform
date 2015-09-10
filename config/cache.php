@@ -36,6 +36,7 @@ return [
 			'driver' => 'array'
 		],
 
+        //适合数据量小并且不经常变化
 		'database' => [
 			'driver' => 'database',
 			'table'  => 'cache',
