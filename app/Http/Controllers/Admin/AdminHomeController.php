@@ -15,7 +15,7 @@ class AdminHomeController extends BackController{
 
     public function indexContent()
     {
-        return view('admin.index_content')->with('pages',Page::all())->with('articleCats',ArticleCat::all())->with('articles', Article::all());
+        return view('admin.index_content')->with('pages',Page::take(20)->get())->with('articleCats',ArticleCat::all())->with('articles', Article::all());
     }
 
 	/**
