@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.33 on 2015-08-24.
+ * Generated for Laravel 5.0.33 on 2015-09-10.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12918,7 +12918,7 @@ namespace {
     }
 
 
-    class BackNav extends \GrahamCampbell\Navigation\Facades\Navigation{
+    class Nav extends \GrahamCampbell\Navigation\Facades\Navigation{
         
         /**
          * Add an item to the main navigation array.
