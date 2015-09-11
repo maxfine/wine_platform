@@ -144,6 +144,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     //Route::resource('goods_attrs', 'GoodsAttrsController');
 });
 
+/**
+ * --------------------------------------------------------------------------------------
+ * 会员系统
+ * --------------------------------------------------------------------------------------
+ */
+Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'auth'], function(){
+    Route::resource('/', MemberController);
+});
+
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');
 //文件上传
 Route::group(['prefix' => 'file', 'namespace' => 'File'], function(){
