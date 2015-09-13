@@ -150,7 +150,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
  * --------------------------------------------------------------------------------------
  */
 Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'auth'], function(){
-    Route::resource('/', MemberController);
+    Route::resource('home', 'MemberHomeController');
+});
+
+/**
+ * --------------------------------------------------------------------------------------
+ * 主题
+ * --------------------------------------------------------------------------------------
+ */
+Route::group(['prefix' => 'theme', 'namespace' => 'Theme'], function(){
+    Route::resource('posters', 'PostersController');
 });
 
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');

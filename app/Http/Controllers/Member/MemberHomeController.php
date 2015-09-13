@@ -1,15 +1,11 @@
 <?php namespace App\Http\Controllers\Member;
 
 use App\Http\Requests;
-use App\Http\Controllers\CommonController as CommonController;
+use App\Http\Controllers\MemberController as MemberController;
 
 use Illuminate\Http\Request;
 
-class MemberController extends CommonController {
-
-    public function __construct(){
-        parent::__construct();
-    }
+class MemberHomeController extends MemberController {
 
 	/**
 	 * Display a listing of the resource.
