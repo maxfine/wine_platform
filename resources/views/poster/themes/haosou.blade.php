@@ -1,8 +1,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="shortcut icon" href="{{$setting['icon']}}" type="image/x-icon" />
-    <title>{{$setting['title']}}</title>
+    <link rel="shortcut icon" href="https://www.haosou.com/favicon.ico" type="image/x-icon" />
+    <title>好搜 — 用好搜，特顺手</title>
     <style mce_bogus="1">
         body { margin: 0px;  }
         iframe {border: 0px;}
@@ -222,7 +222,7 @@
     </style><link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/css/searchhelper.css"></head>
 <body scroll="no">
 
-<iframe id="frame3d" name="frame3d" frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; height: 985px;" onload="this.style.height=document.body.clientHeight" height="100%" src="{{$setting['iframeUrl']}}"></iframe>
+<iframe id="frame3d" name="frame3d" frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; height: 985px;" onload="this.style.height=document.body.clientHeight" height="100%" src="http://www.haosou.com/s?ie=utf-8&amp;shb=1&amp;src=360sou_newhome&amp;q="></iframe>
 
 @if(isset($posterList[0]) && $posterList[0])
 <div style="height:450px;width:100px;margin:0 auto;position:absolute;top:80px;left:70%;"><a href="{{$posterList[0]['url']}}" target="_blank"><img src="{{$posterList[0]['image']}}"  align="left" border="0" height="450" width="100"></a></div>

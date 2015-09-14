@@ -1,11 +1,11 @@
-<?php namespace App\Http\Controllers\Member;
+<?php namespace App\Http\Controllers\Member\Poster;
 
 use App\Http\Requests;
-use App\Http\Controllers\MemberController as MemberController;
+use App\Http\Controllers\Member\MemberController;
 
 use Illuminate\Http\Request;
 
-class jumpController extends MemberController {
+class ThemesController extends MemberController {
 
 	/**
 	 * Display a listing of the resource.

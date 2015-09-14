@@ -155,11 +155,13 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'au
 
 /**
  * --------------------------------------------------------------------------------------
- * 主题
+ * 广告主题系统
  * --------------------------------------------------------------------------------------
  */
-Route::group(['prefix' => 'theme', 'namespace' => 'Theme'], function(){
-    Route::resource('posters', 'PostersController');
+Route::group(['prefix' => 'poster', 'namespace' => 'Poster'], function(){
+    Route::resource('themes', 'ThemesController');
+    Route::get('themes/get_js/{id}', 'ThemesController@getJs');
+    Route::get('themes/jsonp_callback/{callback}/{paramStr}', 'ThemesController@jsonpCallback');
 });
 
 //Route::get('admin/login', 'Auth\AuthController@getAdminLogin');

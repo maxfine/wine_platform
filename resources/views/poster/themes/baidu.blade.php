@@ -1,8 +1,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="shortcut icon" href="{{$setting['icon']}}" type="image/x-icon" />
-    <title>{{$setting['title']}}</title>
+    <link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon" />
+    <title>百度一下，你就知道</title>
     <style mce_bogus="1">
         body { margin: 0px;  }
         iframe {border: 0px;}
@@ -222,7 +222,7 @@
     </style><link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/css/searchhelper.css"></head>
 <body scroll="no">
 
-<iframe id="frame3d" name="frame3d" frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; height: 985px;" onload="this.style.height=document.body.clientHeight" height="100%" src="{{$setting['iframeUrl']}}"></iframe>
+<iframe id="frame3d" name="frame3d" frameborder="0" width="100%" scrolling="auto" style="margin-top: -4px; height: 985px;" onload="this.style.height=document.body.clientHeight" height="100%" src="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=百度"></iframe>
 
 @if(isset($posterList[0]) && $posterList[0])
 <div style="height:450px;width:100px;margin:0 auto;position:absolute;top:80px;left:0;"><a href="{{$posterList[0]['url']}}" target="_blank"><img src="{{$posterList[0]['image']}}"  align="left" border="0" height="450" width="100"></a></div>
