@@ -21,10 +21,11 @@ class DatabaseSeeder extends Seeder {
 		$this->call('GoodsTypesTableSeeder');
 		$this->call('AttributesTableSeeder');
 		$this->call('GoodsAttrsTableSeeder');
-        **/
         $this->call('PagesTableSeeder');
-
         $this->command->info('Pages table seeded!');
+        **/
+        $this->call('TemplatesTableSeeder');
+        $this->call('PosterThemesTableSeeder');
 	}
 
 }

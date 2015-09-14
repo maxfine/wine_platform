@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePosterPlacesTable extends Migration {
+class CreateTemplatesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,10 @@ class CreatePosterPlacesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('poster_places', function(Blueprint $table)
+		Schema::create('templates', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->string('template')->default('');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +27,7 @@ class CreatePosterPlacesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('poster_places');
+		Schema::drop('templates');
 	}
 
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class PosterPlace extends Model {
+class PosterTheme extends Model {
 
 	//
 

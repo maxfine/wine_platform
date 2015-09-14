@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Theme extends Model {
+class Template extends Model {
 
 	//
 
