@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Member\MemberController;
 
 use Illuminate\Http\Request;
+use App\Models\PosterTheme;
 
 class ThemesController extends MemberController {
 
@@ -14,7 +15,10 @@ class ThemesController extends MemberController {
 	 */
 	public function index()
 	{
-		//
+        //todo
+        $userId = \Auth::user()->id;
+        $posterThemes = PosterTheme::where('user_id', '=', $userId)->get();
+        return view('member.poster.themes.index')->with('posterThemes', $posterThemes);
 	}
 
 	/**
@@ -24,7 +28,7 @@ class ThemesController extends MemberController {
 	 */
 	public function create()
 	{
-		//
+        return view('member.poster.themes.create');
 	}
 
 	/**
@@ -56,7 +60,7 @@ class ThemesController extends MemberController {
 	 */
 	public function edit($id)
 	{
-		//
+        return view('member.poster.themes.edit')->with('posterTheme', PosterTheme::findOrFail($id));
 	}
 
 	/**

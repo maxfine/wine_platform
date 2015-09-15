@@ -1,7 +1,7 @@
 // 图片上传demo
 jQuery(function() {
     var $ = jQuery,
-        $list = $('#fileList'),
+        $list = $('.fileList'),
     // 优化retina, 在retina下这个值是2
         ratio = window.devicePixelRatio || 1,
 
@@ -27,8 +27,8 @@ jQuery(function() {
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
             pick: {
-                id:'#filePicker',
-                multiple:true
+                id:'.filePicker',
+                multiple:false
             },
 
             // 只允许选择文件，可选。
@@ -39,8 +39,8 @@ jQuery(function() {
             },
             formData: {
                 _token: $('meta[name="_token"]').attr('content')
-            },
-            fileNumLimit:2 //不限上传次数，避免无法重新上传, 如果只允许上传一张图片, 只需要上传成功后删除前一张
+            }
+            //fileNumLimit:2 //不限上传次数，避免无法重新上传, 如果只允许上传一张图片, 只需要上传成功后删除前一张
         });
 
     // 当有文件添加进来的时候

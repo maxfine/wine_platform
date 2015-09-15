@@ -151,6 +151,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
  */
 Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'auth'], function(){
     Route::resource('home', 'MemberHomeController');
+    Route::resource('poster/themes', 'Poster\ThemesController');
 });
 
 /**

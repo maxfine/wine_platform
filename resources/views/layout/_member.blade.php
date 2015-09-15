@@ -6,7 +6,7 @@
     -->
 @stop
 
-@section('title') 后台 - 老酒交易平台 @stop
+@section('title') 会员系统 - 老酒交易平台 @stop
 
 @section('meta')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,10 +52,12 @@
 
     <!--wrapper start-->
     <div id="wrapper">
-        @stop
+@stop
 
         @section('body')
-            @include('widgets.main-sidebar')
+            @include('widgets.frontHeader')
+
+            @include('widgets.member-sidebar')
 
             <!-- Content Wrapper. Contains page content -->
             <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -69,21 +71,11 @@
                 @show{{-- 内容主体区域 --}}
                 <!-- /content -->
 
-                <!-- footer -->
-                <div class="footer">
-                    <div class="pull-right">
-                        By：<a href="http://www.znyes.com" target="_blank">正言网络科技</a>
-                    </div>
-                    <div>
-                        <strong>Copyright</strong> H+ &copy; 2015
-                    </div>
-                </div>
-                <!-- /footer -->
-
             </div><!-- /.content-wrapper -->
+            @include('widgets.frontFooter')
         @stop
 
-        @section('afterBody')
+    @section('afterBody')
     </div><!-- ./wrapper -->
 
     <!-- 全局js -->
@@ -106,9 +98,9 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        //$('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active').parent('ul').addClass('in');  //二级链接高亮
-        //$('ul.nav-second-level>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li.treeview').addClass('active').children('ul').addClass('in');  //一级栏目[含二级链接]高亮
-        //$('ul#side-menu>li').find('a[href="{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active');  //一级栏目[不含二级链接]高亮
+        //$('ul.nav-second-level>li').find('a[href="@{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active').parent('ul').addClass('in');  //二级链接高亮
+        //$('ul.nav-second-level>li').find('a[href="@{{ cur_nav(Route::currentRouteName()) }}"]').closest('li.treeview').addClass('active').children('ul').addClass('in');  //一级栏目[含二级链接]高亮
+        //$('ul#side-menu>li').find('a[href="@{{ cur_nav(Route::currentRouteName()) }}"]').closest('li').addClass('active');  //一级栏目[不含二级链接]高亮
 
         @section('filledScript')
         @show{{-- 在document ready 里面填充一些JS代码 --}}
