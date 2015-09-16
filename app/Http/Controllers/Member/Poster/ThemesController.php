@@ -5,6 +5,7 @@ use App\Http\Controllers\Member\MemberController;
 
 use Illuminate\Http\Request;
 use App\Models\PosterTheme;
+use Redirect, Input, Auth, URL;
 
 class ThemesController extends MemberController {
 
@@ -36,9 +37,27 @@ class ThemesController extends MemberController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+        $this->validate($request, [
+            'site_url' => 'required',
+        ]);
+
+        $posterTheme = new PosterTheme();
+        $posterTheme->site_url = e(Input::get('site_url'));
+        $posterTheme->image100x450 = Input::get('thumb')?e(Input::get('thumb')):'';
+        $posterTheme->image1000x90 = Input::get('thumb2')?e(Input::get('thumb2')):'';
+        $posterTheme->template_id = 1;
+        $posterTheme->status = 1;
+        $date = new \DateTime;
+        $posterTheme->end_at = $date->modify('+3 day');
+        $posterTheme->user_id = Auth::user()->id;
+
+        if ($posterTheme->save()) {
+            return Redirect::to('member/poster/themes');
+        } else {
+            return Redirect::back()->withInput($request->input())->withErrors('保存失败！');
+        }
 	}
 
 	/**

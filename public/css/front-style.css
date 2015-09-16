@@ -1,4 +1,4 @@
-@import url("http://fonts.useso.com/css?family=Open+Sans:300,400,600,700&amp;lang=en");
+/*@import url("//css/font.css");*/
 /*
  *
  *   H+ - Admin Theme
@@ -7871,4 +7871,47 @@ body.skin-3 {
 
 .gohome a:hover {
     opacity: 1;
+}
+
+/* webuploader */
+.webuploader-container {
+    position: relative;
+}
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: #00b7ee;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.webuploader-pick-hover {
+    background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+    opacity: 0.6;
+    pointer-events:none;
+}
+
+.file-item{position: relative; width: 110px;}
+
+.upload-state-done a.del-image{
+    display: none;
+    position: absolute;
+    top:35%;
+}
+
+.upload-state-done:hover a.del-image{
+    display: block;
+    position: absolute;
+    top:35%;
 }

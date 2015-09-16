@@ -9,9 +9,6 @@
                     <a href="{{ URL('member') }}">会员中心</a>
                 </li>
                 <li>
-                    <a href="{{ URL('member/poster/themes') }}">网站列表</a>
-                </li>
-                <li>
                     <strong>添加网站</strong>
                 </li>
             </ol>
@@ -39,10 +36,10 @@
                             </div>
                         @endif
 
-                        <form action="{{ URL('member/poster/themes') }}" method="POST">
+                        <form id="upload-form" action="{{ URL('member/poster/themes') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label>网址 <small class="text-red">*</small></label>
+                                <label>网址 <small class="text-red">*</small><span class="text text-warning" style="padding-left: 10px;">需要带http://, 例如:http://www.znyes.com</span></label>
                                 <input type="text" name="site_url" class="form-control" required="required" value="{{ Input::old('site_url') }}">
                             </div>
 
@@ -55,6 +52,14 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <div id="uploader-demo2" class="wu-example row uploader-demo">
+                                    <div id="filePicker2" class="col-sm-2 filePicker" style="width: 120px;">选择第二张图片</div>
+                                    <div id="fileList2" class="col-sm-10 fileList">
+                                        <!--<img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=100%C3%97100&w=100&h=100">-->
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="row">

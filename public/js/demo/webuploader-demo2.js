@@ -28,7 +28,7 @@ jQuery(function() {
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
             pick: {
                 id:'#filePicker',
-                multiple:true
+                multiple:false
             },
 
             // 只允许选择文件，可选。

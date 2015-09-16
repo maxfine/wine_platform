@@ -60,7 +60,7 @@ class ThemesController extends CommonController{
         $posterList = [];
 
         $checkShow = ($posterTheme->status == 1) && (strtotime($posterTheme->end_at) + 3*24*60*60 > time()); //是否显示广告
-        if(!$checkShow){
+        if($checkShow){
             $posterTheme['image100x450'] && $posterList[0] = ['image' => $posterTheme['image100x450'], 'url' => $posterTheme['site_url']];
             $posterTheme['image1000x90'] && $posterList[1] = ['image' => $posterTheme['image1000x90'], 'url' => $posterTheme['site_url']];
         }

@@ -1,7 +1,7 @@
 // 图片上传demo
 jQuery(function() {
     var $ = jQuery,
-        $list = $('.fileList'),
+        $list = $('#fileList2'),
     // 优化retina, 在retina下这个值是2
         ratio = window.devicePixelRatio || 1,
 
@@ -27,7 +27,7 @@ jQuery(function() {
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
             pick: {
-                id:'.filePicker',
+                id:'#filePicker2',
                 multiple:false
             },
 
@@ -89,21 +89,21 @@ jQuery(function() {
 
         var ismultiple = uploader.options.pick.multiple;
         var fileUrl = response.fileUrl;
-        var thumb = 'thumb'; //缩略图字段名称, 需要与程序对接
+        var thumb = 'thumb2'; //缩略图字段名称, 需要与程序对接
         var $imageInput = $('<input type="hidden" name="' +thumb+ '" value="' + fileUrl + '">');
 
         //todo: 1. 预留图片src替换成上传后的图片地址 2. 页面插入<input type="hidden" name="image" value="fileUrl">
         if(false === ismultiple){
             //单文件上传
-            $('#fileList .upload-state-done').remove();
-            $('#filePicker').hide();
+            $('#fileList2 .upload-state-done').remove();
+            $('#filePicker2').hide();
             $( '#'+file.id ).addClass('upload-state-done');
             $( '#'+file.id+' img.img-thumbnail').attr('src', fileUrl);
             $('#'+file.id).append($imageInput);
             $( '#'+file.id+' .del-image').on('click', function(e){
                 //ajax删除图片, 如果删除成功
                 $( '#'+file.id).remove();
-                $('#filePicker').show();
+                $('#filePicker2').show();
                 //如果图片删除失败, 弹出层提示
             });
         }else{

@@ -17,7 +17,7 @@
     <link href="{{ asset('css/bootstrap.min.css?v=3.4.0') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.css?v=4.3.0') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css?v=3.0.0') }}" rel="stylesheet">
+    <link href="{{ asset('css/front-style.css?v=2.2.0') }}" rel="stylesheet">
 @stop
 
 @section('head_js')
@@ -33,7 +33,7 @@
     @parent
 @stop
 
-@section('body_attr') class="fixed-sidebar full-height-layout gray-bg"@stop
+@section('body_attr') class="fixed-sidebar full-height-layout gray-bg" style="padding-top: 70px;"@stop
 
 @section('beforeBody')
     <!--侦测是否启用JavaScript脚本-->
@@ -55,13 +55,13 @@
 @stop
 
         @section('body')
+
             @include('widgets.frontHeader')
 
             @include('widgets.member-sidebar')
 
             <!-- Content Wrapper. Contains page content -->
             <div id="page-wrapper" class="gray-bg dashbard-1">
-                @include('widgets.main-header')
                 <!-- Content Header (Page header) -->
                 @section('content-header')
                 @show{{-- 内容导航头部 --}}
@@ -71,8 +71,8 @@
                 @show{{-- 内容主体区域 --}}
                 <!-- /content -->
 
+                @include('widgets.frontFooter')
             </div><!-- /.content-wrapper -->
-            @include('widgets.frontFooter')
         @stop
 
     @section('afterBody')
@@ -87,7 +87,7 @@
     <script src="{{ asset('js/jquery.cookie.js') }}"></script>
 
     <!-- 自定义js -->
-    <script src="{{ asset('js/hplus.js?v=3.0.0') }}"></script>
+    <script src="{{ asset('js/common.js?v=3.0.0') }}"></script>
     <script src="{{ asset('js/contabs.js') }}"></script>
 
     <!-- 第三方插件 -->

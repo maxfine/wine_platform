@@ -26,7 +26,7 @@ class PosterThemesTableSeeder extends Seeder {
                     'user_id' => $userId,
                     'template_id' => $templateId,
                     'site_url' => $faker->url,
-                    'status' => 0,
+                    'status' => 1,
                     'image100x450' => URL($urlDirPath.'/'.$faker->image($dirPath, 100, 450, null, false)),
                     'image1000x90' => URL($urlDirPath.'/'.$faker->image($dirPath, 1000, 90, null, false)),
                     'end_at' => $end_at,

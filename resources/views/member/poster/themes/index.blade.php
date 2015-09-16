@@ -5,7 +5,22 @@
 <link href="{{ asset('css/plugins/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet">
 @endsection
 
+
 @section('content-header')
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-9">
+            <h2>网站列表</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{ URL('member') }}">会员中心</a>
+                </li>
+                <li>
+                    <strong>网站列表</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+
 <div class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12">
         <div class="pull-left"><a href="{{ URL('member/poster/themes/create/') }}" class="btn btn-primary"><i class="fa fa-plus"></i> 添加网站</a></div>
