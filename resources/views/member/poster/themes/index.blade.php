@@ -123,7 +123,7 @@
             $('a.get-js').click(function () {
                 html = '<div class="border-bottom white-bg page-heading clearfix">';
                 html += '<h2>把下面的代码放入页面&lt;/body&gt;前</h2>';
-                html += '<div class="alert alert-info">&lt;script src="'+$(this).data('url')+'"&gt;&lt;/script&gt;</div>';
+                html += '<div class="alert alert-info">&lt;script type="text/javascript" src="'+$(this).data('url')+'"&gt;&lt;/script&gt;</div>';
                 html +='</div>';
                 layer.open({
                     title: '获取JS',

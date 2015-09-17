@@ -7909,7 +7909,9 @@ body.skin-3 {
     pointer-events:none;
 }
 
-.file-item{position: relative; width: 110px;}
+.file-item{position: relative; width: 110px; /*border:1px solid #EBECED;*/ text-align:center; vertical-align:middle;}
+
+.file-item .img-thumbnail{height: 100px;}
 
 .upload-state-done a.del-image{
     display: none;

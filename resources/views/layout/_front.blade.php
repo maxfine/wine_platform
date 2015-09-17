@@ -37,6 +37,8 @@ modified by max_fine(max_fine@qq.com)
 	<![endif]-->
 @stop
 
+@section('body_attr') class="" style="padding-top: 70px;"@stop
+
 @section('body')
 	@include('widgets.frontHeader'){{-- 前台bootstrap头部导航 --}}
 

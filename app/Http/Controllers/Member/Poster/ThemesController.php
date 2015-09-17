@@ -17,7 +17,7 @@ class ThemesController extends MemberController {
 	public function index()
 	{
         //todo
-        $userId = \Auth::user()->id;
+        $userId = Auth::user()->id;
         $posterThemes = PosterTheme::where('user_id', '=', $userId)->get();
         return view('member.poster.themes.index')->with('posterThemes', $posterThemes);
 	}
@@ -79,7 +79,8 @@ class ThemesController extends MemberController {
 	 */
 	public function edit($id)
 	{
-        return view('member.poster.themes.edit')->with('posterTheme', PosterTheme::findOrFail($id));
+        if($data = PosterTheme::where(['id' => $id, 'user_id' => Auth::user()->id])->first()) return view('member.poster.themes.edit')->with('data', $data);
+        return Redirect::to('member/poster/themes')->withErrors('没有权限');
 	}
 
 	/**
@@ -88,9 +89,22 @@ class ThemesController extends MemberController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		//
+        $this->validate($request, [
+            'site_url' => 'required',
+        ]);
+
+        $posterTheme = PosterTheme::where(['id' => $id, 'user_id' => Auth::user()->id])->first();
+        $posterTheme->site_url = e(Input::get('site_url'));
+        $posterTheme->image100x450 = Input::get('thumb')?e(Input::get('thumb')):'';
+        $posterTheme->image1000x90 = Input::get('thumb2')?e(Input::get('thumb2')):'';
+
+        if ($posterTheme->save()) {
+            return Redirect::to('member/poster/themes');
+        } else {
+            return Redirect::back()->withInput($request->input())->withErrors('保存失败！');
+        }
 	}
 
 	/**
@@ -101,7 +115,14 @@ class ThemesController extends MemberController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $posterTheme = PosterTheme::where(['id' => $id, 'user_id' => Auth::user()->id])->first();
+        $posterTheme->delete();
+
+        return Redirect::to('member/poster/themes');
 	}
 
+    public function multiDestroy($ids)
+    {
+        //todo
+    }
 }

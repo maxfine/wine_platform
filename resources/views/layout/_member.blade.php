@@ -88,7 +88,6 @@
 
     <!-- 自定义js -->
     <script src="{{ asset('js/common.js?v=3.0.0') }}"></script>
-    <script src="{{ asset('js/contabs.js') }}"></script>
 
     <!-- 第三方插件 -->
     <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>

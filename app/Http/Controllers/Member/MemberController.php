@@ -16,7 +16,7 @@ class MemberController extends CommonController {
     public function __construct(){
         $this->middleware('auth');
         //获取导航
-        $backNavs = Config::get('back-nav');
+        $backNavs = Config::get('member-nav');
         $tree = new Tree($backNavs, 'parent_id', 'title');
         //$backNavs = $tree->getTreeView(1);
         View::share('tree', $tree);
