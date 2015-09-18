@@ -90,15 +90,6 @@
                         </tr>
                         @endforeach
                         </tbody>
-                        <tfoot>
-                        <tr class="danger">
-                            <th><input type="checkbox" name="ckSelectAll" id="checkAll"></th>
-                            <th>ID</th>
-                            <th>网址</th>
-                            <th>添加时间</th>
-                            <th>操作</th>
-                        </tr>
-                        </tfoot>
                     </table>
 
                 </div>
@@ -156,7 +147,7 @@
                         },
                         {
                             targets: [2],
-                            searchable: false,
+                            searchable: true,
                             orderable: false
                         },
                         {

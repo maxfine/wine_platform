@@ -25,7 +25,7 @@ return [
         'title' => '网站列表',
         'slug' => '',
         'url' => '/member/poster/themes',
-        'icon' => 'edit',
+        'icon' => 'list',
         'active' => false,
     ],
     [
@@ -34,7 +34,7 @@ return [
         'title' => '添加网站',
         'slug' => '',
         'url' => '/member/poster/themes/create',
-        'icon' => 'edit',
+        'icon' => 'plus',
         'active' => false,
     ],
 ];
