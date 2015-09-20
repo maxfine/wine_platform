@@ -16,7 +16,6 @@ class ThemesController extends MemberController {
 	 */
 	public function index()
 	{
-        //todo
         $userId = Auth::user()->id;
         $posterThemes = PosterTheme::where('user_id', '=', $userId)->get();
         return view('member.poster.themes.index')->with('posterThemes', $posterThemes);

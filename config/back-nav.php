@@ -99,5 +99,32 @@ return [
         'url' => '',
         'icon' => '',
         'active' => false,
+    ],
+    [
+        'id' => 10,
+        'parent_id' => 1,
+        'title' => '用户管理',
+        'slug' => '',
+        'url' => '',
+        'icon' => 'user',
+        'active' => false,
+    ],
+    [
+        'id' => 11,
+        'parent_id' => 10,
+        'title' => '管理员',
+        'slug' => 'admin/managers',
+        'url' => '',
+        'icon' => '',
+        'active' => false,
+    ],
+    [
+        'id' => 12,
+        'parent_id' => 10,
+        'title' => '权限',
+        'slug' => 'admin/permissions',
+        'url' => '',
+        'icon' => '',
+        'active' => false,
     ]
 ];

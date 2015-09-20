@@ -142,6 +142,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::get('attrs/create/{typeId?}', 'AttributesController@create');
     Route::resource('attrs', 'AttributesController');
     //Route::resource('goods_attrs', 'GoodsAttrsController');
+
+    //用户以及权限管理
+    Route::resource('permissions', 'PermissionsController');
+    Route::resource('roles', 'RolesController');
+    Route::resource('managers', 'ManagersController');
+    Route::resource('members', 'MembersController');
 });
 
 /**
@@ -150,7 +156,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
  * --------------------------------------------------------------------------------------
  */
 Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'auth'], function(){
-    Route::resource('home', 'MemberHomeController');
+    Route::get('/', 'MemberHomeController@index');
     Route::resource('poster/themes', 'Poster\ThemesController');
 });
 

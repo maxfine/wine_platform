@@ -1,13 +1,11 @@
-<?php namespace App\Http\Controllers\Member;
+<?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Member\MemberController as MemberController;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Models\PosterTheme;
-use Auth;
 
-class MemberHomeController extends MemberController {
+class RolesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,9 +14,7 @@ class MemberHomeController extends MemberController {
 	 */
 	public function index()
 	{
-        $userId = Auth::user()->id;
-        $posterThemes = PosterTheme::where('user_id', '=', $userId)->get();
-        return view('member.index')->with('posterThemes', $posterThemes);
+		//
 	}
 
 	/**

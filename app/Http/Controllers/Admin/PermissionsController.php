@@ -1,13 +1,18 @@
-<?php namespace App\Http\Controllers\Member;
+<?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Member\MemberController as MemberController;
+use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
-use App\Models\PosterTheme;
-use Auth;
+use App\Models\Permission;
+use Redirect, Input, Auth, URL;
 
-class MemberHomeController extends MemberController {
+class PermissionsController extends BackController {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -16,9 +21,8 @@ class MemberHomeController extends MemberController {
 	 */
 	public function index()
 	{
-        $userId = Auth::user()->id;
-        $posterThemes = PosterTheme::where('user_id', '=', $userId)->get();
-        return view('member.index')->with('posterThemes', $posterThemes);
+        $permissions = Permission::all();
+        return view('admin.permissions.index')->with('permissions', $permissions);
 	}
 
 	/**
