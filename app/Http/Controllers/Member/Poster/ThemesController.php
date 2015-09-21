@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Member\MemberController;
 
+use Faker\Provider\zh_TW\DateTime;
 use Illuminate\Http\Request;
 use App\Models\PosterTheme;
 use Redirect, Input, Auth, URL;
@@ -123,5 +124,31 @@ class ThemesController extends MemberController {
     public function multiDestroy($ids)
     {
         //todo
+    }
+
+    /**
+     * 续费
+     *
+     * @param $id
+     */
+    public function renew($id)
+    {
+        $years = 1; //再续多少年
+        $posterTheme = PosterTheme::findOrFail($id);
+
+        $end_at = new \DateTime($posterTheme->end_at);
+        $now = new \DateTime();
+        if($end_at->getTimestamp() < $now->getTimestamp()){
+            $posterTheme->end_at = $now->modify('+'.$years.' Year');
+        }else{
+            $posterTheme->end_at = $end_at->modify('+'.$years.' Year');
+        }
+
+        if ($posterTheme->save()) {
+            //todo 减账户资金
+            return Redirect::to('member/poster/themes');
+        } else {
+            return Redirect::back()->withErrors('续费失败！');
+        }
     }
 }

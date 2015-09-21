@@ -29,15 +29,6 @@ return [
         'active' => false,
     ],
     [
-        'id' => 10,
-        'parent_id' => 2,
-        'title' => '文章列表',
-        'slug' => 'admin/articles',
-        'url' => '',
-        'icon' => '',
-        'active' => false,
-    ],
-    [
         'id' => 3,
         'parent_id' => 1,
         'title' => '内容管理',

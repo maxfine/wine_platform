@@ -139,5 +139,4 @@ class ThemesController extends CommonController{
     {
         echo $callback."($paramStr)";
     }
-
 }

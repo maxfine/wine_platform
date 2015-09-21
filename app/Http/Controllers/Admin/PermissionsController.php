@@ -32,7 +32,7 @@ class PermissionsController extends BackController {
 	 */
 	public function create()
 	{
-		//
+        return view('admin.permissions.create');
 	}
 
 	/**
@@ -40,9 +40,22 @@ class PermissionsController extends BackController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+        $this->validate($request, [
+            'name' => 'required|alpha_dash|unique:permissions|max:255',
+            'display_name' => 'required|max:255'
+        ]);
+
+        $permission = new Permission();
+        $permission->name = e($request->name);
+        $permission->display_name = e($request->display_name);
+
+        if($permission->save()){
+            return Redirect::to('admin/permissions');
+        }else {
+            return Redirect::back()->withInput($request->input())->withErrors('保存失败！');
+        }
 	}
 
 	/**
@@ -64,7 +77,8 @@ class PermissionsController extends BackController {
 	 */
 	public function edit($id)
 	{
-		//
+        $permission = Permission::findOrFail($id);
+        return view('admin.perssions.edit');
 	}
 
 	/**
@@ -86,7 +100,10 @@ class PermissionsController extends BackController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $permission = Permission::findOrFail($id);
+        $permission->delete();
+
+        return Redirect::to('admin/permissions');
 	}
 
 }
