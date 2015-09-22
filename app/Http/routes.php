@@ -158,7 +158,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'auth'], function(){
     Route::get('/', 'MemberHomeController@index');
     Route::resource('poster/themes', 'Poster\ThemesController');
-    Route::get('poster/themes/renew/{id}', 'Poster\ThemesController@renew');
+    Route::get('poster/themes/renew_edit/{id}', 'Poster\ThemesController@renewEdit');
+    Route::post('poster/themes/renew/{id}', 'Poster\ThemesController@renew');
 });
 
 /**

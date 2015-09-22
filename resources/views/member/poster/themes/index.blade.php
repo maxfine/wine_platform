@@ -75,16 +75,19 @@
                             <td>{{ $item->site_url }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td class="center" data-editable="disabled">
-                                <a href="{{ URL('poster/themes/renew/'.$item->id) }}" class="btn btn-danger">续费</a>
+                                <form action="{{ URL('member/poster/themes/renew/'.$item->id) }}" method="POST" data-amount="1000" style="display: inline;" class="renew-form">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-danger">续费</button>
+                                </form>
 
                                 <a href="javascript:;" data-url="{{ URL('poster/themes/get_js/'.$item->id) }}" class="btn btn-success get-js">获取JS</a>
 
                                 <a href="{{ URL('member/poster/themes/'.$item->id.'/edit') }}" class="btn btn-success">编辑</a>
 
-                                <form action="{{ URL('member/poster/themes/'.$item->id) }}" method="POST" style="display: inline;">
+                                <form action="{{ URL('member/poster/themes/'.$item->id) }}" method="POST" style="display: inline;" class="del-form">
                                     <input name="_method" type="hidden" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button onClick="delcfm()" type="submit" class="btn btn-danger">删除</button>
+                                    <button type="submit" class="btn btn-danger">删除</button>
                                 </form>
                             </td>
                         </tr>
@@ -127,7 +130,53 @@
                 });
                 return false;
             });
+
+            $('.renew').click(
+                function(){
+                    layer.confirm('is not?', {icon: 3, title:'提示'}, function(index){
+                        //do something
+                        //return false;
+                        layer.close(index);
+                    });
+                }
+            );
+
+            $('.del-form').click(function(){
+                //方法一
+                //var checkDel = confirm('确定要执行此操作吗?');
+                //return checkDel;
+
+                //方法二
+                $this = $(this);
+                layer.confirm('确认删除?', {icon: 3, title:'提示'},
+                    function(index){
+                        //do something
+                        $this.submit();
+                        layer.close(index);
+                    }
+                );
+                return false;
+            });
+
+            $('.renew-form').click(function(){
+                //方法一
+                //var checkDel = confirm('确定要执行此操作吗?');
+                //return checkDel;
+
+                //方法二
+                $this = $(this);
+                amount = $this.data('amount');
+                layer.confirm('确认支付'+amount+'元?', {icon: 3, title:'提示'},
+                        function(index){
+                            //do something
+                            $this.submit();
+                            layer.close(index);
+                        }
+                );
+                return false;
+            });
         });
+
 
         $(document).ready(function () {
             /* Init DataTables */

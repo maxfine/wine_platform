@@ -3,10 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Member\MemberController;
 
-use Faker\Provider\zh_TW\DateTime;
 use Illuminate\Http\Request;
 use App\Models\PosterTheme;
-use Redirect, Input, Auth, URL;
+use Redirect, Input, Auth, URL, DB;
 
 class ThemesController extends MemberController {
 
@@ -116,7 +115,7 @@ class ThemesController extends MemberController {
 	public function destroy($id)
 	{
         $posterTheme = PosterTheme::where(['id' => $id, 'user_id' => Auth::user()->id])->first();
-        $posterTheme->delete();
+        //$posterTheme->delete();
 
         return Redirect::to('member/poster/themes');
 	}
@@ -127,7 +126,20 @@ class ThemesController extends MemberController {
     }
 
     /**
+     * 续费页面
+     *
+     * @param $id
+     * @return \Illuminate\View\View
+     */
+    public function renewEdit($id)
+    {
+        $posterTheme = PosterTheme::findOrFail($id);
+        return view('member.poster.themes.renew_edit')->with('posterTheme', $posterTheme);
+    }
+
+    /**
      * 续费
+     * 修改end_at
      *
      * @param $id
      */
@@ -135,6 +147,8 @@ class ThemesController extends MemberController {
     {
         $years = 1; //再续多少年
         $posterTheme = PosterTheme::findOrFail($id);
+        $member = Auth::user();
+        $itemPrice = 1000;
 
         $end_at = new \DateTime($posterTheme->end_at);
         $now = new \DateTime();
@@ -143,12 +157,25 @@ class ThemesController extends MemberController {
         }else{
             $posterTheme->end_at = $end_at->modify('+'.$years.' Year');
         }
+        $member->amount = $member->amount - $years * $itemPrice;
 
-        if ($posterTheme->save()) {
-            //todo 减账户资金
-            return Redirect::to('member/poster/themes');
-        } else {
-            return Redirect::back()->withErrors('续费失败！');
+        DB::beginTransaction();
+        try{
+            if($member->amount >= 0){
+                //todo 减账户资金
+                if($member->save()){
+                    $posterTheme->save();
+                }
+                DB::commit();
+                return Redirect::to('member/poster/themes');
+            }
+            else{
+                //return Redirect::back()->withErrors('续费失败！');
+                return Redirect::back()->withErrors('续费失败, 余额不足！');
+            }
+        }catch (\Exception $e){
+            DB::rollBack();
+            throw $e;
         }
     }
 }
