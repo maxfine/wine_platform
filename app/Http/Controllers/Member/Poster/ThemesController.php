@@ -115,7 +115,7 @@ class ThemesController extends MemberController {
 	public function destroy($id)
 	{
         $posterTheme = PosterTheme::where(['id' => $id, 'user_id' => Auth::user()->id])->first();
-        //$posterTheme->delete();
+        $posterTheme->delete();
 
         return Redirect::to('member/poster/themes');
 	}
