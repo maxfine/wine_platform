@@ -37,4 +37,13 @@ return [
         'icon' => 'plus',
         'active' => false,
     ],
+    [
+        'id' => 4,
+        'parent_id' => 1,
+        'title' => '在线充值',
+        'slug' => '',
+        'url' => '/member/pay',
+        'icon' => 'rmb',
+        'active' => false,
+    ],
 ];

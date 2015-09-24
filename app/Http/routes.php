@@ -160,6 +160,9 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'au
     Route::resource('poster/themes', 'Poster\ThemesController');
     Route::get('poster/themes/renew_edit/{id}', 'Poster\ThemesController@renewEdit');
     Route::post('poster/themes/renew/{id}', 'Poster\ThemesController@renew');
+    Route::resource('pay/recharge', 'Pay\RechargeController');
+    Route::get('pay/recharge/respond_get', 'Pay\RechargeController@respondGet');
+    Route::post('pay/recharge/respond_post', 'Pay\RechargeController@respondPost');
 });
 
 /**
