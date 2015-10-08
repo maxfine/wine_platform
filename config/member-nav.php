@@ -42,7 +42,7 @@ return [
         'parent_id' => 1,
         'title' => '在线充值',
         'slug' => '',
-        'url' => '/member/pay',
+        'url' => '/member/pay/recharge/create',
         'icon' => 'rmb',
         'active' => false,
     ],
