@@ -17,4 +17,17 @@ class PayAccountRepository extends BaseRepository
         $this->model = $payAccount;
     }
 
+    public function store($inputs, $type = 'recharge', $user_id = 0, $pay_id = 0)
+    {
+        //todo
+    }
+
+    /**
+     * 创建唯一性订单号
+     *
+     * @return string
+     */
+    public function createOrderSn(){
+        return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+    }
 }
