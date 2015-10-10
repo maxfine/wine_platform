@@ -21,6 +21,7 @@ class CreatePayAccountsTable extends Migration {
             $table->string('contactname',60)->default('');
             $table->string('email',60)->default('');
             $table->string('telephone',20)->default('');
+            $table->decimal('money',10,2)->default(0.00);
             $table->decimal('discount',10,2)->default(0.00);
             $table->smallInteger('quantity')->default(1);
             $table->timestamp('pay_at')->default('0000-00-00 00:00:00');
@@ -36,8 +37,12 @@ class CreatePayAccountsTable extends Migration {
 
             $table->index('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+
+            /**
+             * 支付方式外键
             $table->index('pay_id');
             $table->foreign('pay_id')->references('id')->on('payments');
+            **/
 		});
 	}
 

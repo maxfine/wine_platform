@@ -634,6 +634,10 @@ function str_is($pattern, $value)
 *******************************END********************************/
 
 
+if('10' > 1) echo 'hello';
+
+if(is_int('10')) echo 'hhhh';
+
 
 
 

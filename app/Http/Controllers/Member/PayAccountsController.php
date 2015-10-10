@@ -19,9 +19,16 @@ class PayAccountsController extends MemberController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		//
+        $data = [
+            'trade_sn' => $request->input('trade_sn'),
+            'status' => $request->input('status'),
+        ];
+        $user_id = Auth::user()->id;
+        $payAccounts = $this->payAccount->index($data, $user_id, 10);
+
+        return view('member.pay_accounts.index')->with('payAccounts', $payAccounts);
 	}
 
 	/**
@@ -31,11 +38,11 @@ class PayAccountsController extends MemberController {
 	 */
 	public function create()
 	{
-        return view('member.recharge.create');
+        return view('member.pay_accounts.create');
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+     * 保存订单
 	 *
 	 * @return Response
 	 */
@@ -43,21 +50,16 @@ class PayAccountsController extends MemberController {
 	{
         //验证input信息
         $this->validate($request, [
-            'gateway' => 'required',
-            'total_fee' => 'required'
+            'payment' => 'required',
+            'money' => 'required'
         ]);
 
-        //创建订单...
-        $orderSn = $this->payAccount->createOrderSn();
-        $out_trade_no = $orderSn;
-        //保存订单
-        //TODO
-        //$this->payAccount->store();
-        //$payAccount = new PayAccount();
-        //$payAccount->trade_sn = $out_trade_no;
-        //$payAccount->user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
+        $this->payAccount->store(Input::all(), $user_id);
+
+        /**
         //订单数据,暂时使用测试数据
-        $data = ['out_trade_no' => $out_trade_no, 'subject' => $out_trade_no.'号订单产品', /*'total_fee' => '0.1',*/ 'quantity' => 1, 'defaultBank' => 'CCB']; //保证金额正确性, 订单号,主题,支付金额由订单决定
+        $data = ['out_trade_no' => $out_trade_no, 'subject' => $out_trade_no.'号订单产品',  'quantity' => 1, 'defaultBank' => 'CCB']; //保证金额正确性, 订单号,主题,支付金额由订单决定
         $data = $data + Input::all();
         //创建payway
         $gateway = Input::get('gateway');
@@ -71,8 +73,10 @@ class PayAccountsController extends MemberController {
         $resquest = Omnipay::purchase($parameters);
         //获取respond并跳转到第三方支付平台
         $response = $resquest->send();
-
         $response->redirect();
+        **/
+
+        return redirect('member/pay_accounts');
 	}
 
 	/**
@@ -116,7 +120,22 @@ class PayAccountsController extends MemberController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $this->payAccount->destroy($id);
+
+        return redirect('member/pay_accounts');
 	}
+
+    public function  payment($id)
+    {
+        $payAccount = $this->payAccount->getById($id);
+
+        if($payAccount->status != 'succ') {
+            return view('member.pay_accounts.payment')->with('payAccount', $payAccount);
+        }else{
+            //todo-提示错误信息:'此订单已经成功支付, 不能再支付'
+            return false;
+        }
+    }
+
 
 }
