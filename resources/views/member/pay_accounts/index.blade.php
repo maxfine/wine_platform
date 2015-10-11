@@ -77,11 +77,7 @@
                             <td>{{ $item->money }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td class="center" data-editable="disabled">
-                                <form action="{{ URL('member/poster/themes/renew/'.$item->id) }}" method="POST" data-amount="1000" style="display: inline;" class="renew-form">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button type="submit" class="btn btn-danger">在线支付</button>
-                                </form>
-
+                                <a href="{{ URL('member/pay_accounts/payment/'.$item->id) }}" class="btn btn-danger">在线支付</a>
                                 <form action="{{ URL('member/pay_accounts/'.$item->id) }}" method="POST" style="display: inline;" class="del-form">
                                     <input name="_method" type="hidden" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

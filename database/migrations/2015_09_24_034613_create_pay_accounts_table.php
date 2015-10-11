@@ -37,6 +37,7 @@ class CreatePayAccountsTable extends Migration {
 
             $table->index('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->index('trade_sn');
 
             /**
              * 支付方式外键

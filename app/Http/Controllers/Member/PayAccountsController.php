@@ -51,7 +51,7 @@ class PayAccountsController extends MemberController {
         //验证input信息
         $this->validate($request, [
             'payment' => 'required',
-            'money' => 'required'
+            'money' => 'required|numeric|min:0.1'
         ]);
 
         $user_id = Auth::user()->id;
@@ -125,6 +125,11 @@ class PayAccountsController extends MemberController {
         return redirect('member/pay_accounts');
 	}
 
+    /**
+     * 支付确认页
+     * @param $id
+     * @return $this|bool
+     */
     public function  payment($id)
     {
         $payAccount = $this->payAccount->getById($id);

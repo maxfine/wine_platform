@@ -22,6 +22,17 @@
     <div class="panel panel-default" data-example-id="togglable-tabs">
         <div class="panel-heading">在线充值</div>
         <div class="panel-body">
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             {{-- panel-body换成什么标签更好些?或者更好的排版? --}}
                 <form action="{{URL('member/pay_accounts')}}" method="POST" target="_blank" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
