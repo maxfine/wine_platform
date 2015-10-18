@@ -1,9 +1,17 @@
 @extends('layout._back_content')
 
+@section('content-header')
+    <div class="row  border-bottom white-bg dashboard-header">
+        <div class="col-sm-12">
+            <div class="pull-left"><a href="{{ URL('admin/article/cats/create/') }}" class="btn btn-primary"><i class="fa fa-plus"></i> 添加文章</a></div>
+        </div>
+    </div>
+@endsection
+
 @section('content')
-<div class="container">
+<div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">文章管理</div>
 

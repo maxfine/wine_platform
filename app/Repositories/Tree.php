@@ -347,7 +347,8 @@ class Tree {
                 $strHtml .= $aclass.'>';
                 $strHtml .= $arrow;
                 $strHtml .= $icon;
-                $strHtml .= $checkHasChild ?'<span class="nav-label">'.$item['title'].'</span>' : $item['title'];
+                $strHtml .= '<span class="nav-label">'.$item['title'].'</span>';
+                //$strHtml .= $checkHasChild ?'<span class="nav-label">'.$item['title'].'</span>' : $item['title'];
                 $strHtml .= '</a>';
                 $strHtml .= $checkHasChild ? '<ul class="nav '.$class.'">' : '';
 

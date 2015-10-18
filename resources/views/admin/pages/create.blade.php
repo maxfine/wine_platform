@@ -12,7 +12,7 @@
                     <a href="{{ URL('admin/pages') }}">内容管理 - 单页</a>
                 </li>
                 <li>
-                    <strong>创建单页</strong>
+                    <strong>添加单页</strong>
                 </li>
             </ol>
         </div>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">新增 Page</div>
+                    <div class="panel-heading">添加单页</div>
 
                     <div class="panel-body">
 

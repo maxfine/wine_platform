@@ -77,7 +77,7 @@
                             <td>{{ $item->money }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td class="center" data-editable="disabled">
-                                <a href="{{ URL('member/pay_accounts/payment/'.$item->id) }}" class="btn btn-danger">在线支付</a>
+                                <a href="{{ URL('member/pay_accounts/pay_config/'.$item->id) }}" class="btn btn-danger">在线支付</a>
                                 <form action="{{ URL('member/pay_accounts/'.$item->id) }}" method="POST" style="display: inline;" class="del-form">
                                     <input name="_method" type="hidden" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

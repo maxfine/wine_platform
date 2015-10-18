@@ -112,10 +112,28 @@ return [
     [
         'id' => 12,
         'parent_id' => 10,
+        'title' => '会员',
+        'slug' => 'admin/members',
+        'url' => '',
+        'icon' => '',
+        'active' => false,
+    ],
+    [
+        'id' => 13,
+        'parent_id' => 10,
         'title' => '权限',
         'slug' => 'admin/permissions',
         'url' => '',
         'icon' => '',
         'active' => false,
-    ]
+    ],
+    [
+        'id' => 14,
+        'parent_id' => 10,
+        'title' => '会员组',
+        'slug' => 'admin/member_groups',
+        'url' => '',
+        'icon' => '',
+        'active' => false,
+    ],
 ];

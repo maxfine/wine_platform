@@ -20,18 +20,25 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
 	 */
 	protected $table = 'users';
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['nickname', 'email', 'realname',  'pid', 'pid_card_thumb1', 'pid_card_thumb2', 'avatar', 'phone', 'address', 'amount'];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'confirmation_code', 'remember_token'];
+
+    #********
+    #* 此表为复合型的用户数据表，根据type不同确定不同用户
+    #* type : Manager 管理型用户
+    #* type : Customer 投资型客户
+    #********
+    //限定管理型用户
+    public function scopeManager($query)
+    {
+        return $query->where('user_type', '=', 'Manager');
+    }
+
+    //限定投资型客户
+    public function scopeCustomer($query)
+    {
+        return $query->where('user_type', '=', 'Customer');
+    }
 
 }

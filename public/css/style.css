@@ -418,6 +418,7 @@ body.mini-navbar .navbar-default .nav li a span {
     display: none;
 }
 
+
 body.canvas-menu .profile-element {
     display: block;
 }
@@ -489,6 +490,7 @@ body.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
     border-left-width: 0;
 }
 
+/*显示子栏目*/
 body.fixed-sidebar.mini-navbar .nav li:hover > .nav-second-level,
 body.canvas-menu.mini-navbar .nav li:hover > .nav-second-level {
     position: absolute;
@@ -501,6 +503,11 @@ body.canvas-menu.mini-navbar .nav li:hover > .nav-second-level {
     min-width: 140px;
     border-radius: 2px;
     z-index: 2002;
+}
+
+/*diy-修复:后台左侧mini导航, 当只有一级栏目时, 显示出了栏目名*/
+body.fixed-sidebar.mini-navbar .nav li:hover > .nav-second-level span.nav-label{
+    display: inline;
 }
 
 body.fixed-sidebar.mini-navbar .navbar-default .nav > li > .nav-second-level li a {

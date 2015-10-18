@@ -51,7 +51,7 @@ class PayAccountsController extends MemberController {
         //验证input信息
         $this->validate($request, [
             'payment' => 'required',
-            'money' => 'required|numeric|min:0.1'
+            'money' => 'required|numeric|min:0.01'
         ]);
 
         $user_id = Auth::user()->id;
@@ -130,15 +130,15 @@ class PayAccountsController extends MemberController {
      * @param $id
      * @return $this|bool
      */
-    public function  payment($id)
+    public function  payConfig($id)
     {
         $payAccount = $this->payAccount->getById($id);
+        $statusArr = ['succ', 'failed', 'error', 'timeout', 'cancel'];
 
-        if($payAccount->status != 'succ') {
-            return view('member.pay_accounts.payment')->with('payAccount', $payAccount);
+        if(!in_array($payAccount->status, $statusArr)) {
+            return view('member.pay_accounts.pay_config')->with('payAccount', $payAccount);
         }else{
-            //todo-提示错误信息:'此订单已经成功支付, 不能再支付'
-            return false;
+            return view('member.pay_accounts.pay_config')->withErrors('此订单已经成功支付或已经失效!');
         }
     }
 

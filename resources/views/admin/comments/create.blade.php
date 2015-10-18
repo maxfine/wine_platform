@@ -1,9 +1,28 @@
 @extends('layout._back_content')
 
+@section('content-header')
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-9">
+            <h2>评论</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{ route('admin') }}">主页</a>
+                </li>
+                <li>
+                    <a href="{{ URL('admin/comments') }}">评论管理 - 评论</a>
+                </li>
+                <li>
+                    <strong>添加评论</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+@endsection
+
 @section('content')
-<div class="container">
+<div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">添加评论</div>
 

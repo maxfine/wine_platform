@@ -34,9 +34,9 @@
             @endif
 
             {{-- panel-body换成什么标签更好些?或者更好的排版? --}}
-                <form action="{{URL('member/pay_accounts')}}" method="POST" target="_blank" class="form-horizontal">
+                <form action="{{URL('member/pay_accounts')}}" method="POST" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="payment" value="Alipay_Secured">
+                    <input type="hidden" name="payment" value="Alipay_Express">
                     <input type="hidden" name="quantity" value="1">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">充值金额 <small class="text-red">*</small></label>

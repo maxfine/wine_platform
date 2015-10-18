@@ -12,6 +12,8 @@ use App\Models\PayAccount;
 
 class PayAccountRepository extends BaseRepository
 {
+    protected $user;
+
     public function __construct(PayAccount $payAccount)
     {
         $this->model = $payAccount;
@@ -115,5 +117,64 @@ class PayAccountRepository extends BaseRepository
      */
     public function createOrderSn(){
         return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * 根据trade_sn获取充值记录
+     *
+     * @param $trade_sn
+     * @return bool
+     */
+    private function getPayAccountBySn($trade_sn)
+    {
+        $trade_sn = trim($trade_sn);
+        $payAccount = $this->model->where('trade_sn', '=', $trade_sn)->first();
+        $statusArr = ['succ', 'failed', 'error', 'timeout', 'cancel'];
+
+        if ($payAccount && !in_array($payAccount->status, $statusArr)) {
+            return $payAccount;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * 更新会员账户金额
+     *
+     * @param $trade_sn
+     * @return bool
+     */
+    public function updateMemberAmountBySn($trade_sn)
+    {
+        $payAccount = $this->getPayAccountBySn($trade_sn);
+        if($payAccount){
+            //获取订单金额
+            $money = $payAccount->money;
+            //获取用户
+            $user = $payAccount->user;
+            //修改用户账户金额
+            $user->amount = $user->amount + $money;
+            $user->save();
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 更新订单状态
+     *
+     * @param $trade_sn
+     * @param $status
+     * @return bool
+     */
+    public function updateRecodeStatusBySn($trade_sn, $status)
+    {
+        $payAccount = $this->getPayAccountBySn($trade_sn);
+        if($payAccount){
+            $payAccount->status = $status;
+            $payAccount->save();
+        }else{
+            return false;
+        }
     }
 }

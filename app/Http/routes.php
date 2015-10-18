@@ -161,11 +161,23 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => 'au
     Route::get('poster/themes/renew_edit/{id}', 'Poster\ThemesController@renewEdit');
     Route::post('poster/themes/renew/{id}', 'Poster\ThemesController@renew');
     Route::resource('pay_accounts', 'PayAccountsController');
-    Route::get('pay_accounts/payment/{id}', 'PayAccountsController@payment');
+    Route::get('pay_accounts/pay_config/{id}', 'PayAccountsController@payConfig');
 
-    Route::resource('pay/recharge', 'Pay\RechargeController');
-    Route::get('pay/recharge/respond_get', 'Pay\RechargeController@respondGet');
-    Route::post('pay/recharge/respond_post', 'Pay\RechargeController@respondPost');
+    //Route::resource('pay/recharge', 'Pay\RechargeController');
+    //Route::get('pay/recharge/respond_get', 'Pay\RechargeController@respondGet');
+    //Route::post('pay/recharge/respond_post', 'Pay\RechargeController@respondPost');
+});
+
+/**
+ * --------------------------------------------------------------------------------------
+ * 支付相关
+ * --------------------------------------------------------------------------------------
+ */
+Route::group(['prefix' => 'pay', 'namespace' => 'Pay'], function() {
+    Route::resource('payment', 'PaymentController');
+    //Route::resource('respond', 'RespondController');
+    Route::get('respond_get/{code}', 'RespondController@respondGet');
+    Route::post('respond_post/{code}', 'RespondController@respondPost');
 });
 
 /**
