@@ -10,9 +10,9 @@ use App\Repositories\UserRepository;
 
 class UserEventHandler {
 
-    public function __contruct()
+    public function __construct(UserRepository $user)
     {
-        $this->user = app()->make('App\Repositories\UserRepository');
+        $this->user = $user;
     }
 
     /**
@@ -20,7 +20,6 @@ class UserEventHandler {
      */
     public function onUserLogin($event)
     {
-        $this->user = app()->make('App\Repositories\UserRepository');
         $user = $event->user;
         $this->user->updateUserGroup($user);
     }
@@ -39,7 +38,6 @@ class UserEventHandler {
      */
     public function onUserPointUpdate($event)
     {
-        $this->user = app()->make('App\Repositories\UserRepository');
         $user = $event->user;
         $this->user->updateUserGroup($user);
     }
