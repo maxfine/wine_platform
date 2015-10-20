@@ -75,7 +75,7 @@
                             <td>{{ $item->site_url }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td class="center" data-editable="disabled">
-                                <form action="{{ URL('member/poster/themes/renew/'.$item->id) }}" method="POST" data-amount="1000" style="display: inline;" class="renew-form">
+                                <form action="{{ URL('member/poster/themes/renew/'.$item->id) }}" method="POST" data-amount="{{ $item->price }}" style="display: inline;" class="renew-form">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button type="submit" class="btn btn-danger">续费</button>
                                 </form>

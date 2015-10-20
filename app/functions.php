@@ -227,7 +227,7 @@ function user($ret = 'nickname')
                 return Auth::user()->nickname;  //返回昵称
                 break;
             case 'username':
-                return Auth::user()->username;  //返回登录名
+                return Auth::user()->name;  //返回登录名
                 break;
             case 'realname':
                 return Auth::user()->realname;  //返回真实姓名
@@ -247,7 +247,7 @@ function user($ret = 'nickname')
         }
     } else {
         if($ret === 'object'){
-            $user = app()->make('Douyasi\Repositories\UserRepository');
+            $user = app()->make('App\Repositories\UserRepository');
             return $user->manager(1);  //主要为了修正 `php artisan route:list` 命令出错问题
         }
         else{

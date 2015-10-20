@@ -4,7 +4,7 @@ use App\Events\Event;
 
 use Illuminate\Queue\SerializesModels;
 
-class UserLoggedIn extends Event {
+class UserPointUpdate extends Event {
 
 	use SerializesModels;
 
@@ -13,9 +13,9 @@ class UserLoggedIn extends Event {
 	 *
 	 * @return void
 	 */
-    public function __construct($user)
-    {
+	public function __construct($user)
+	{
         $this->user = $user;
-    }
+	}
 
 }

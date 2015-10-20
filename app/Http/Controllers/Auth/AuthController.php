@@ -5,6 +5,9 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Illuminate\Http\Request;
+use App\Events\UserLoggedIn;
+
 class AuthController extends Controller {
 
 	/*
@@ -52,7 +55,6 @@ class AuthController extends Controller {
      * 会员登录,管理员登陆
      * ----------------------------------------
      */
-    /*
     public function postLogin(Request $request)
 	{
 		$this->validate($request, [
@@ -63,6 +65,8 @@ class AuthController extends Controller {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
+            //$user = \Auth::user();
+            event(new UserLoggedIn(user('object')));  //触发登录事件
 			return redirect()->intended($this->redirectPath());
 		}
 
@@ -72,6 +76,5 @@ class AuthController extends Controller {
 						'email' => $this->getFailedLoginMessage(),
 					]);
     }
-    */
 
 }

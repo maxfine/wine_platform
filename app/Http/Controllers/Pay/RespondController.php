@@ -37,7 +37,7 @@ class RespondController extends CommonController {
             $out_trade_no = $data['request_params']['out_trade_no'];
             //验证成功
             //更新账户余额
-            $this->payAccount->updateMemberAmountBySn($out_trade_no);
+            $this->payAccount->updateMemberBySn($out_trade_no);
             //更新订单状态
             $this->payAccount->updateRecodeStatusBySn($out_trade_no, 'succ');
             die('success');
@@ -85,7 +85,7 @@ class RespondController extends CommonController {
             $out_trade_no = $data['request_params']['out_trade_no'];
             //验证成功
             //更新账户余额
-            $this->payAccount->updateMemberAmountBySn($out_trade_no);
+            $this->payAccount->updateMemberBySn($out_trade_no);
             //更新订单状态
             $this->payAccount->updateRecodeStatusBySn($out_trade_no, 'succ');
             //die('success');

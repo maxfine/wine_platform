@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\UserGroup;
 
 /**
  * 用户仓库UserRepository
@@ -24,12 +25,11 @@ class UserRepository extends BaseRepository
      * @param  App\Models\Role $role
      * @return void
      */
-    public function __construct(
-        User $user,
-        Role $role)
+    public function __construct( User $user, Role $role, UserGroup $userGroup)
     {
         $this->model = $user;
         $this->role = $role;
+        $this->userGroup = $userGroup;
     }
 
     /**
@@ -138,6 +138,56 @@ class UserRepository extends BaseRepository
     public function manager($id)
     {
         return $this->model->manager()->find($id);
+    }
+
+    /**
+     * 更新用户组
+     * @param $point int 积分数
+     */
+    public function updateUserGroup($user)
+    {
+        $point = $user->point;
+        $checkGroupId = $this->getUserGroupIdByPoint($point);
+
+        if(isset($checkGroupId) && $checkGroupId && $checkGroupId != $user->group_id){
+            $user->group_id = $checkGroupId;
+            $save = $user->save();
+            return $save;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * 根据积分获取用户组id
+     *
+     * @param int $point
+     * @return int|mixed
+     */
+    protected function getUserGroupIdByPoint($point = 0)
+    {
+        $groupId = 0;
+        $tmp_k = 0;
+        $groupList = $this->userGroup->all();
+
+        foreach ($groupList as $k=>$v) {
+            $groupPointList[$k] = $v['point'];
+        }
+        arsort($groupPointList);
+        //如果超出用户组积分设置则为积分最高的用户组
+        if($point > max($groupPointList)) {
+            $groupId = key($groupPointList);
+        } else {
+            foreach ($groupPointList as $k=>$v) {
+                if($point >= $v) {
+                    $groupId = $tmp_k;
+                    break;
+                }
+                $tmp_k = $k;
+            }
+        }
+
+        return $groupId;
     }
 
     #********
@@ -250,6 +300,7 @@ class UserRepository extends BaseRepository
             $user = $this->updateManager($user, $inputs);
         }
     }
+
     #********
     #* 资源 REST 相关的接口函数 END
     #********

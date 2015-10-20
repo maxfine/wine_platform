@@ -2,6 +2,7 @@
 
 use App\Repositories\BaseRepository;
 use App\Models\PayAccount;
+use App\Events\UserPointUpdate;
 
 /**
  * 充值订单仓库
@@ -139,6 +140,34 @@ class PayAccountRepository extends BaseRepository
     }
 
     /**
+     * 更新会员账户
+     *
+     * @param $trade_sn
+     * @return bool
+     */
+    public function updateMemberBySn($trade_sn)
+    {
+        $payAccount = $this->getPayAccountBySn($trade_sn);
+        if($payAccount){
+            //修改金额
+            $money = $payAccount->money;
+            $user = $payAccount->user;
+            $user->amount = $user->amount + $money;
+            //修改积分
+            $times = 1;
+            $point = $money * $times;
+            $user->point = $user->point + $point;
+
+            if($user->save()){
+                event(new UserPointUpdate($user)); //触发用户积分更新事件
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * 更新会员账户金额
      *
      * @param $trade_sn
@@ -154,7 +183,37 @@ class PayAccountRepository extends BaseRepository
             $user = $payAccount->user;
             //修改用户账户金额
             $user->amount = $user->amount + $money;
+
             $user->save();
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 更新会员账户积分
+     *
+     * @param $trade_sn
+     * @return bool
+     */
+    public function updateMemberPonitBySn($trade_sn)
+    {
+        $times = 1; //充值一元能获得多少积分
+        $payAccount = $this->getPayAccountBySn($trade_sn);
+        if($payAccount){
+            //获取订单金额
+            $money = $payAccount->money;
+            //获取需要增加的积分
+            $point = $money * $times;
+            //获取用户
+            $user = $payAccount->user;
+            //修改用户账户积分
+            $user->point = $user->point + $point;
+
+            if($user->save()){
+                event(new UserPointUpdate($user)); //触发用户积分更新事件
+                return true;
+            }
         } else {
             return false;
         }

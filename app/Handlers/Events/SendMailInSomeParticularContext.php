@@ -26,7 +26,7 @@ class SendMailInSomeParticularContext {
 	public function handle(ThingWasDone $event)
 	{
 		//
-        dd('hello');
+       echo 'hello';
 	}
 
 }

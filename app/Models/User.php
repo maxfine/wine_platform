@@ -20,7 +20,7 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
 	 */
 	protected $table = 'users';
 
-    protected $fillable = ['nickname', 'email', 'realname',  'pid', 'pid_card_thumb1', 'pid_card_thumb2', 'avatar', 'phone', 'address', 'amount'];
+    protected $fillable = ['nickname', 'group_id', 'email', 'realname',  'pid', 'pid_card_thumb1', 'pid_card_thumb2', 'avatar', 'phone', 'address', 'amount', 'point'];
 
     protected $hidden = ['password', 'confirmation_code', 'remember_token'];
 
@@ -41,4 +41,8 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
         return $query->where('user_type', '=', 'Customer');
     }
 
+    public function userGroup()
+    {
+        return $this->belongsTo('App\Models\UserGroup', 'group_id');
+    }
 }

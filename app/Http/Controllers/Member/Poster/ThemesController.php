@@ -16,8 +16,21 @@ class ThemesController extends MemberController {
 	 */
 	public function index()
 	{
+        //获取折扣
+        $member = Auth::user();
+        if($member->userGroup){
+            $discount = $member->userGroup->discount;
+        }
+
         $userId = Auth::user()->id;
         $posterThemes = PosterTheme::where('user_id', '=', $userId)->get();
+        foreach($posterThemes as $posterTheme){
+            $posterTheme->price = 1000;
+            if(isset($discount) && $discount){
+                $posterTheme->price = $posterTheme->price * $discount/100;
+            }
+        }
+
         return view('member.poster.themes.index')->with('posterThemes', $posterThemes);
 	}
 
@@ -149,6 +162,11 @@ class ThemesController extends MemberController {
         $posterTheme = PosterTheme::findOrFail($id);
         $member = Auth::user();
         $itemPrice = 1000;
+        //折扣后的价格
+        if($member->userGroup){
+            $discount = $member->userGroup->discount;
+            $discount && $itemPrice = $itemPrice * $discount/100;
+        }
 
         $end_at = new \DateTime($posterTheme->end_at);
         $now = new \DateTime();
