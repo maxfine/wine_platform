@@ -17,7 +17,7 @@ class UpdateUsersTable extends Migration {
         {
             //user_groups外键group_id
             $table->integer('group_id')->nullable()->unsigned()->after('password');
-            $table->smallInteger('point')->default(0);
+            $table->integer('point')->default(0)->unsigned();
 
             $table->index('group_id');
             $table->foreign('group_id')->references('id')->on('user_groups');

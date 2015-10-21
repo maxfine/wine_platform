@@ -17,7 +17,7 @@ class CreateUserGroupsTable extends Migration {
 			$table->increments('id');
             $table->string('name', 60)->default('');
             $table->decimal('discount', 5, 2)->default(0.00);
-            $table->smallInteger('point')->default(0);
+            $table->integer('point')->default(0)->unsigned();
 			$table->timestamps();
 		});
 	}

@@ -171,7 +171,7 @@ class UserRepository extends BaseRepository
         $groupList = $this->userGroup->all();
 
         foreach ($groupList as $k=>$v) {
-            $groupPointList[$k] = $v['point'];
+            $groupPointList[$v['id']] = $v['point'];
         }
         arsort($groupPointList);
         //如果超出用户组积分设置则为积分最高的用户组
