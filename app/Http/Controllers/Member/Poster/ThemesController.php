@@ -5,7 +5,7 @@ use App\Http\Controllers\Member\MemberController;
 
 use Illuminate\Http\Request;
 use App\Models\PosterTheme;
-use Redirect, Input, Auth, URL, DB;
+use Redirect, Input, Auth, URL, DB, Response;
 
 class ThemesController extends MemberController {
 

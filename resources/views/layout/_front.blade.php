@@ -23,7 +23,7 @@ modified by max_fine(max_fine@qq.com)
     <link href="{{ asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/front-style.css?v=2.2.0') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
 @stop
 
 @section('head_js')
@@ -50,8 +50,9 @@ modified by max_fine(max_fine@qq.com)
 
 @section('afterBody')
 	@section('bootstrapJS')
-    <script src="//apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="//apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('http://s1.sszimg.com/assets/js/jquery.scrollUp.js') }}"></script>
 	@show{{-- 添加一些bootstrap需要加载的JS --}}
 	@section('extraSection')
 	@show{{-- 用户后期扩展时需要补充的一些代码片段 --}}

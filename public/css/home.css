@@ -1,0 +1,271 @@
+@charset "utf-8";
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+body {
+    font-family: "Hiragino Sans GB","Microsoft Yahei",verdana,Helvetica,Arial,sans-serif;
+    padding-top: 70px;
+}
+::selection{
+    color:#fff;
+    background:#28a5a8
+}
+.hr-small {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+footer {
+    margin-top: 30px;
+    padding: 30px 0 0 0;
+    color: #cccccc;
+    background: #222;
+}
+footer a,footer a:hover {
+    color: #cccccc;
+}
+
+.footer {
+    background: #111;
+    text-shadow: none;
+    color: #ddd;
+    padding: 10px 0;
+    margin: 20px 0 0 0;
+}
+/*修改皮肤*/
+.change-skin {
+    float: left;
+    margin-left: 10px;
+    margin-top: 18px;
+}
+.change-skin a,.change-skin a:hover {
+    text-decoration: none;
+    margin-left: 5px;
+    width: 8px;
+    height: 8px;
+    display: block;
+    float:left;
+}
+/* 幻灯片 */
+.show {
+    padding: 30px 0;
+    color: #FFFFFF;
+    background: url("../img/home_bg_28a5a8.jpg") center no-repeat;
+    background-color: #28a5a8;
+}
+.show h1 {
+    font-size: 50px;
+}
+/* 字体样式 */
+/* 字体大小 */
+.font-12,.font-12 a {
+    font-size: 12px;
+}
+.font-16,.font-16 a {
+    font-size: 16px;
+}
+.font-18,.font-18 a {
+    font-size: 18px;
+}
+.font-20,.font-20 a {
+    font-size: 20px;
+}
+.font-24,.font-24 a {
+    font-size: 24px;
+}
+.font-26,.font-26 a {
+    font-size: 26px;
+}
+.font-30,.font-30 a {
+    font-size: 30px;
+}
+.font-36,.font-36 a {
+    font-size: 36px;
+}
+/* 顶部导航 */
+.navbar {
+    border-top: 3px solid #28a5a8;
+}
+.top {
+    padding-top: 15px;
+}
+.navbar-default {
+    background-color: #FaFaFa;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: #28a5a8;
+    color: #ffffff;
+    height: 32px;
+    padding: 6px 12px;
+    border-radius:3px;
+    margin-right: 50px;
+}
+.navbar-nav>li>a {
+    padding: 6px 12px;
+    margin-right: 50px;
+}
+.login>li,.login>li>a {
+    margin-right: 0px;
+    padding-right: 0px;
+}
+.navbar-brand {
+    padding: 5px 0;
+    height: 50px;
+    margin-bottom: 0px;
+    font-size: 26px;
+    letter-spacing: 0.1em;
+}
+/* 更多按钮 */
+.btn-more, .btn-more:hover {
+    background-color: #28a5a8;
+    margin-top: 10px;
+}
+.btn-more {
+    transition: all .2s ease-in-out;
+}
+.btn-more:hover {
+    transform: scale(1.2);
+}
+/* 特性 */
+.feature {
+}
+.feature-box {
+    padding: 25px 0px;
+}
+.feature-box-icon {
+    width: 72px;
+    height: 72px;
+    float: left;
+    line-height: 72px;
+    color: #28a5a8;
+}
+.feature-box-icon, .feature-box-icon h4 {
+    transition: all .2s ease-in-out;
+}
+.feature-box:hover .feature-box-icon {
+    transform: scale(1.4) rotate(-30deg);
+}
+.feature-box:hover .feature-box-text h4 {
+    color: #28a5a8;
+    font-weight: bolder;
+}
+.feature-box:hover .feature-box-text p {
+    color: #000000;
+    font-weight: bolder;
+}
+
+.icon-circled.icon-3x {
+    width: 72px !important;
+    height: 72px !important;
+    line-height: 72px !important;
+}
+.feature-box-text {
+    margin-left: 100px;
+}
+.feature-box-text h4 {
+    letter-spacing: 0.1em;
+}
+.feature-box-text p {
+    color: #999999;
+}
+/* 返回顶部 */
+#scrollUp {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    height: 40px;
+    color: #fff;
+    background: url("../img/top.png") left top no-repeat;
+}
+/* 功能与价格页 */
+/* 价格 */
+.price {
+    margin-top: 20px;
+}
+.price-box-icon {
+    width: 140px;
+    height: 140px;
+    float: left;
+    line-height: 140px;
+    color: #28a5a8;
+}
+h3.h-color a,h3.h-color a:hover {
+    color: #28a5a8;
+}
+.price-buy a {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+/* Start 价格标签 */
+/*iteminfo*/
+.iteminfo{}
+.iteminfo_tit{}
+.iteminfo_parameter{}
+.iteminfo_parameter_default{ color:#888;}
+.iteminfo_parameter dt{  float:left; display:inline; white-space:nowrap; text-align:right; padding-top: 10px; margin-right: 10px;}
+
+.iteminfo_mktprice{ font-size:12px; font-family:Arial, Helvetica, sans-serif; text-decoration:line-through;}
+.lh32 dt { padding-top: 20px; }
+.iteminfo_price{ font-size:16px;}
+.sys_item_price{ color:#c00; font-size:36px;}
+.iteminfo_buying{ }
+
+/*规格*/
+.sys_item_spec dl.iteminfo_parameter{ padding-top:5px; padding-bottom:5px; margin-bottom: 0px;}
+.sys_item_spec dl.iteminfo_parameter dt{ }
+
+/*一下正对图片*/
+.sys_spec_img{}
+.sys_spec_img li{ float:left; position:relative; margin:2px 6px 2px 0;}
+.sys_spec_img li a{padding:1px; border:1px solid #ccc; float:left; background:#fff; display:inline-block; outline:none;}
+.sys_spec_img li a img{ display:block;}
+.sys_spec_img li a:hover{ border:2px solid #e4393c; padding:0; text-decoration:none;}
+.sys_spec_img li i{ position:absolute; width:10px; height:10px; font-size:0; line-height:0; right:2px; bottom:2px; background:url(../img/sys_item_selected.gif) no-repeat right bottom; z-index:99; display:none;}
+.sys_spec_img li.selected a{ border:2px solid #e4393c; padding:0;}
+.sys_spec_img li.selected i{ display:block;}
+
+.sys_spec_text{
+    margin-bottom: 3px;}
+.sys_spec_text li{ float:left; position:relative; margin:2px 10px 2px 0; outline:none;}
+.sys_spec_text li a{ padding:7px 19px; border:1px solid #ccc; background:#fff; color: #000000; display:inline-block; text-decoration: none}
+.sys_spec_text li a:hover{ border:2px solid #e4393c; padding:6px 18px; text-decoration:none;}
+.sys_spec_text li i{ position:absolute; width:10px; height:10px; font-size:0; line-height:0; right:0px; bottom:0px; background:url(../img/sys_item_selected.gif) no-repeat right bottom; z-index:99; display:none;}
+.sys_spec_text li.selected a{ border:2px solid #e4393c; padding:6px 18px; text-decoration: none}
+.sys_spec_text li.selected i{ display:block;}
+/* End 价格标签 */
+/* 功能列表 */
+.feature-list {
+    margin-top: 50px;
+}
+ .table-feature>tbody>tr>td,  .table-feature>tbody>tr>th,  .table-feature>tfoot>tr>td,  .table-feature>tfoot>tr>th,  .table-feature>thead>tr>td, .table-feature>thead>tr>th {
+    vertical-align:middle;
+}
+.feature-rowspan {
+    background-color: #fff;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 16px;
+}
+/* 功能列表选项卡 */
+.nav-tabs a {
+    color: #000000;
+    font-weight: bolder;
+    font-size: 16px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #28a5a8;
+}
+.tab-pane {
+    margin-top: 10px;
+}
+
+.wrapper-content {
+    padding: 20px;
+}
+.wrapper {
+    padding: 0px 20px;
+}
+.margin-top-20 {
+    margin-top: 20px;
+}

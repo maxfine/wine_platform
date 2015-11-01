@@ -657,7 +657,92 @@ $t = new $test;
 var_dump($t);
  */
 
+/**
+ * --------------------------------------------------------------------------
+ * 测试性能
+ * --------------------------------------------------------------------------
+ini_set('memory_limit', '1024M');
 
+require "../vendor/autoload.php";
+
+use Illuminate\Support\Collection;
+use Symfony\Component\Stopwatch\Stopwatch;
+
+function formatSeconds($ms) {
+    return ($ms/1000000).'sec';
+}
+
+function formatBytes($size, $precision = 2) {
+    $base = log($size, 1024);
+    $suffixes = array('', 'k', 'M', 'G', 'T');
+
+    return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
+}
+
+$stopwatch = new Stopwatch();
+
+//测试数组
+$data = array_fill(0, $argv[1], [ //$argv全局变量, 控制台输入的参数 php index.php 10000, $argv[1] = 10000
+    'uuid' => 1,
+    'latitude' => 0,
+    'longitude' => 0,
+    'other' => '<foo>5</foo><bar>3</foo>',
+    'speed' => 50,
+]);
+
+$stopwatch->start('iterate');
+
+$speeding = [];
+
+foreach ($data as $item) {
+    if ($item['speed'] > 100) {
+        $speeding[] = $item['uuid'];
+    }
+}
+
+$iterate = $stopwatch->stop('iterate');
+
+var_dump(
+    formatSeconds($iterate->getDuration()), formatBytes($iterate->getMemory()), formatBytes(memory_get_peak_usage(true))
+);
+
+//测试集合
+$fill = array_fill(0, $argv[1], [
+    'uuid' => 1,
+    'latitude' => 0,
+    'longitude' => 0,
+    'other' => '<foo>5</foo><bar>3</foo>',
+    'speed' => 50,
+]);
+
+$stopwatch->start('iterate');
+
+$data = Collection::make($fill);
+$speeding = [];
+
+foreach ($data as $item) {
+    if ($item['speed'] > 100) {
+        $speeding[] = $item['uuid'];
+    }
+}
+
+$iterate = $stopwatch->stop('iterate');
+
+var_dump(
+    formatSeconds($iterate->getDuration()), formatBytes($iterate->getMemory()), formatBytes(memory_get_peak_usage(true))
+);
+
+******************************************************************************************/
+
+/**
+ * ||, 或运算优先级
+ * 优先级, 或运算 > '='
+ *
+$gender = 'kong';
+$gender2 = 'hansheng';
+$name = $gender || $gender2;
+print_r($name);
+************************/
 
 
 

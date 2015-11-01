@@ -63,8 +63,8 @@ Route::get('/test4', function(\App\Repositories\PayAccountRepository $pay){
     //\Event::fire(new App\Events\ThingWasDone);
     //\Event::subscribe(new App\Handlers\Events\UserEventHandler);
     //\Event::fire(new App\Events\UserLoggedIn(user('object')));
-    $user = App\Models\User::find(2);
-    \Event::fire(new App\Events\UserPointUpdate($user));
+    //$user = App\Models\User::find(2);
+    //\Event::fire(new App\Events\UserPointUpdate($user));
     //dd($pay);
 });
 
