@@ -62,22 +62,5 @@
         });
     });
 </script>
-<script type="text/javascript">
-    $(function(){
-        $(".change-skin-now").on("click", function(){
-            var color =  $(this).attr("id"),
-                    $_token = "{{ csrf_token() }}";
-            $.ajax({
-                type: "POST",
-                url: "{{ url('/skin') }}",
-                data: {color:color, '_token': $_token},
-                success:function()
-                {
-                    location.reload();
-                }
-            });
-        });
-    });
-</script>
 @endsection
 

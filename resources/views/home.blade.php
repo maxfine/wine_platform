@@ -10,13 +10,13 @@
                     <h3>集进销存管货、会员管理、活动营销为一体的新一代在线管店系统</h3>
                     <p>网站、微信多平台开放数据，营销功能更强大</p>
                     <p>&nbsp;</p>
-                    <p><a href="http://jiu.znyes.com/member" class="btn btn-default btn-xs">了解『随手账』全部功能</a></p>
+                    <p><a href="http://jiu.znyes.com/member" class="btn btn-default btn-xs">了解『产品』全部功能</a></p>
                     <p>&nbsp;</p>
                     <p class="font-36 hidden-xs">
-                        <a href="http://jiu.znyes.com/member" class="btn btn-danger">现在注册，免费使用 35 天 <i class="fa fa-sign-in"></i></a>
+                        <a href="http://jiu.znyes.com/member" class="btn btn-danger">现在注册，免费试用 3 天 <i class="fa fa-sign-in"></i></a>
                     </p>
                     <p class="font-20 visible-xs">
-                        <a href="http://jiu.znyes.com/member" class="btn btn-danger">现在注册，免费使用 35 天 <i class="fa fa-sign-in"></i></a>
+                        <a href="http://jiu.znyes.com/member" class="btn btn-danger">现在注册，免费试用 3 天 <i class="fa fa-sign-in"></i></a>
                     </p>
                     <p>&nbsp;</p>
                 </div>
