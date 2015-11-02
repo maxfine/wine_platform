@@ -5,18 +5,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 font-16 text-center">
-                    <h1>专为服装、鞋、包、内衣零售店主打造</h1>
+                    <h1>搜索引擎广告插件</h1>
                     <hr/>
                     <h3>集进销存管货、会员管理、活动营销为一体的新一代在线管店系统</h3>
                     <p>网站、微信多平台开放数据，营销功能更强大</p>
                     <p>&nbsp;</p>
-                    <p><a href="http://suishouzhang.com/price" class="btn btn-default btn-xs">了解『随手账』全部功能</a></p>
+                    <p><a href="http://jiu.znyes.com/member" class="btn btn-default btn-xs">了解『随手账』全部功能</a></p>
                     <p>&nbsp;</p>
                     <p class="font-36 hidden-xs">
-                        <a href="http://suishouzhang.com/app/register" class="btn btn-danger">现在注册，免费使用 35 天 <i class="fa fa-sign-in"></i></a>
+                        <a href="http://jiu.znyes.com/member" class="btn btn-danger">现在注册，免费使用 35 天 <i class="fa fa-sign-in"></i></a>
                     </p>
                     <p class="font-20 visible-xs">
-                        <a href="http://suishouzhang.com/app/register" class="btn btn-danger">现在注册，免费使用 35 天 <i class="fa fa-sign-in"></i></a>
+                        <a href="http://jiu.znyes.com/member" class="btn btn-danger">现在注册，免费使用 35 天 <i class="fa fa-sign-in"></i></a>
                     </p>
                     <p>&nbsp;</p>
                 </div>
@@ -158,7 +158,7 @@
             <hr/>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <a href="http://suishouzhang.com/price" class="btn btn-block btn-lg btn-info btn-more">点击查看详细『功能与价格』  <i class="fa fa-arrow-right"></i></a>
+                    <a href="http://jiu.znyes.com/member" class="btn btn-block btn-lg btn-info btn-more">点击查看详细『功能与价格』  <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

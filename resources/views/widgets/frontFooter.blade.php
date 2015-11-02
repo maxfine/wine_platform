@@ -4,20 +4,19 @@
             <div class="col-md-3">
                 <h4>服务链接</h4>
                 <ul>
-                    <li><a href="">随手账学堂</a></li>
-                    <li><a href="">申请发票</a></li>
+                    <li><a href="http://www.znyes.com/">正言网络科技</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <h4>服务电话</h4>
                 <ul>
-                    <li class="font-26">0371-8622 2159</li>
+                    <li class="font-26">400-666-2574</li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <h4>在线客服</h4>
                 <ul>
-                    <li><a href="" class="btn btn-info"><i class="fa fa-qq"></i> 188855761</a></li>
+                    <li><a href="tencent://message/?uin=358577184&Site=%E4%BA%A7%E5%93%81%E5%92%A8%E8%AF%A2&Menu=yes" class="btn btn-info"><i class="fa fa-qq"></i> 358577184</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -33,8 +32,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>Copyright © 2015 郑州睿简软件科技有限公司</p>
-                    <span class="font-12">豫 ICP 备 15009631 号</span>
+                    <p>版权所有 © 杭州正言网络科技有限公司 2008-2018</p>
+                    <span class="font-12">浙ICP备14012374号-1</span>
                 </div>
             </div>
         </div>
@@ -67,10 +66,10 @@
     $(function(){
         $(".change-skin-now").on("click", function(){
             var color =  $(this).attr("id"),
-                    $_token = "xhcjQ4OXg0rClWYJHmK1rHH38bxqr7YfWoKKjk1E";
+                    $_token = "{{ csrf_token() }}";
             $.ajax({
                 type: "POST",
-                url: "http://suishouzhang.com/skin",
+                url: "{{ url('/skin') }}",
                 data: {color:color, '_token': $_token},
                 success:function()
                 {

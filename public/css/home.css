@@ -269,3 +269,9 @@ h3.h-color a,h3.h-color a:hover {
 .margin-top-20 {
     margin-top: 20px;
 }
+
+.breadcrumb {
+    background-color: #ffffff;
+    padding: 0;
+    margin-bottom: 0;
+}
