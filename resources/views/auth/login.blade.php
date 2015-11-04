@@ -35,31 +35,33 @@
                                 </div>
                             @endif
 
-                            <form role="form" method="POST" action="{{ url('/auth/login') }}">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            {!! Form::open(['url'=>'auth/login', 'method' => 'POST', 'role' => 'form']) !!}
 
+                                <!--- Email Field --->
                                 <div class="form-group">
-                                    <label class="control-label">用户名：</label>
-                                    <input type="email" placeholder="你的邮箱" class="form-control input-lg" name="email" value="{{ old('email') }}">
+                                    {!! Form::label('email', 'Email:') !!}
+                                    {!! Form::email('email', null, ['class' => 'form-control input-lg', 'placeholder' => '你的邮箱']) !!}
                                 </div>
 
+                                <!--- Password Field --->
                                 <div class="form-group">
-                                    <label class="control-labe">密码：</label>
-                                    <input type="password" placeholder="密码" class="form-control input-lg" name="password">
+                                    {!! Form::label('password', '密码:') !!}
+                                    {!! Form::password('password', ['class' => 'form-control input-lg']) !!}
                                 </div>
 
                                 <div class="form-group text-left">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="remember"> 记住用户名
+                                                {!! Form::checkbox('remember', '') !!}记住用户名
                                             </label>
                                         </div>
                                 </div>
 
                                 <div class="form-group">
-                                        <button type="submit" class="btn btn-danger btn-lg btn-block">登录</button>
+                                        {!! Form::submit('登录', ['class' => 'btn btn-danger btn-lg btn-block']); !!}
                                 </div>
-                            </form>
+
+                            {!! Form::close() !!}
 
                             <p>
                                 <a class="text-muted" href="{{ url('/password/email') }}">忘记密码?</a>
