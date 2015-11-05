@@ -8,7 +8,7 @@
  */
 class CommonController extends Controller
 {
-
+    
     public function __construct()
     {
     }
