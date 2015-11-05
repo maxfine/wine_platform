@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => null, 'name' => null],
+	'from' => ['address' => 'max_fine4@163.com', 'name' => 'maxfine'],
 
 	/*
 	|--------------------------------------------------------------------------
