@@ -14,7 +14,8 @@
         "lokielse/omnipay-alipay": "dev-master",
         "doctrine/dbal": "2.5.0",
         "graham-campbell/navigation": "~2.2",
-        "patricktalmadge/bootstrapper": "~5"
+        "patricktalmadge/bootstrapper": "~5",
+        "captcha-com/captcha": "3.*"
 	},
 	"require-dev": {
         "barryvdh/laravel-ide-helper":"2.0.3",

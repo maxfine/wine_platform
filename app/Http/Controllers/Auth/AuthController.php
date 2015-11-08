@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Illuminate\Http\Request;
 use App\Events\UserLoggedIn;
+use Response;
 
 class AuthController extends Controller {
 
@@ -38,6 +39,22 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+    /**
+     * 验证email
+     *
+     * @param $email
+     * @return bool
+     */
+    public function checkEmail(Request $request)
+    {
+        $checkEmail = false;
+
+        if($request->ajax()){
+            $checkEmail = $this->registrar->checkEmail($request->all());
+        }
+
+        return Response::json($checkEmail);
+    }
 
     /**
      * ----------------------------------------

@@ -36,4 +36,18 @@ class Registrar implements RegistrarContract {
 		]);
 	}
 
+    /**
+     * 检查邮箱是否符号要求
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    public function checkEmail(array $data)
+    {
+        $validator = Validator::make(
+            $data,
+            ['email' => 'required|email|max:255|unique:users']
+        );
+        return !$validator->fails();
+    }
 }

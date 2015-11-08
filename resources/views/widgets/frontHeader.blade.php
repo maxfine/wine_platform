@@ -9,15 +9,6 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('/') }}">JIU.ZNYES.COM</a>
-                <span class="change-skin">
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="6dbd63" style="background-color:#6dbd63;">&nbsp;</a>
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="28a5a8" style="background-color:#28a5a8;">&nbsp;</a>
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="e96b56" style="background-color:#e96b56;">&nbsp;</a>
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="47c9af" style="background-color:#47c9af;">&nbsp;</a>
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="4c0066" style="background-color:#4C0066;">&nbsp;</a>
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="d6c05d" style="background-color:#d6c05d;">&nbsp;</a>
-                    <a href="Javascript:;" title="点击切换网站显示风格" class="change-skin-now" id="467da2" style="background-color:#467da2;">&nbsp;</a>
-                </span>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -49,5 +40,3 @@
 
     </div>
 </nav>
-
-

@@ -190,6 +190,22 @@ class UserRepository extends BaseRepository
         return $groupId;
     }
 
+    /**
+     * 检查email是否已经存在
+     *
+     * @param $email
+     * @return bool
+     */
+    public function existsEmail($email)
+    {
+        $user = $this->model->where('email', '=', $email);
+        if(is_null($user)){
+            return false;
+        }
+
+        return true;
+    }
+
     #********
     #* 资源 REST 相关的接口函数 START
     #********
