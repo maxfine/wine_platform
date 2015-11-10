@@ -11,5 +11,9 @@ class CommonController extends Controller
     
     public function __construct()
     {
+        $route = \Route::currentRouteAction();
+        list($controller, $action) = explode('@', $route);
+        $this->controller = $controller;
+        $this->action = $action;
     }
 }

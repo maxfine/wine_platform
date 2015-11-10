@@ -15,7 +15,8 @@
         "doctrine/dbal": "2.5.0",
         "graham-campbell/navigation": "~2.2",
         "patricktalmadge/bootstrapper": "~5",
-        "captcha-com/captcha": "3.*"
+        "captcha-com/captcha": "3.*",
+        "caouecs/laravel4-lang": "~2.0"
 	},
 	"require-dev": {
         "barryvdh/laravel-ide-helper":"2.0.3",

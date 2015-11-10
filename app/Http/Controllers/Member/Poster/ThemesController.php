@@ -89,7 +89,7 @@ class ThemesController extends MemberController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Request $request, $id)
 	{
         if($data = PosterTheme::where(['id' => $id, 'user_id' => Auth::user()->id])->first()) return view('member.poster.themes.edit')->with('data', $data);
         return Redirect::to('member/poster/themes')->withErrors('没有权限');

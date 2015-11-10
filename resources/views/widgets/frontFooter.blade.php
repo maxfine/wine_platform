@@ -1,25 +1,25 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <h4>服务链接</h4>
                 <ul>
                     <li><a href="http://www.znyes.com/">正言网络科技</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <h4>服务电话</h4>
                 <ul>
                     <li class="font-26">400-666-2574</li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <h4>在线客服</h4>
                 <ul>
                     <li><a href="tencent://message/?uin=358577184&Site=%E4%BA%A7%E5%93%81%E5%92%A8%E8%AF%A2&Menu=yes" class="btn btn-info"><i class="fa fa-qq"></i> 358577184</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <h4>微信公众号</h4>
                 <ul>
                     <li><img src="http://s1.sszimg.com/web/weixin/weixin.jpg" width="120" height="120" alt=""/></li>
