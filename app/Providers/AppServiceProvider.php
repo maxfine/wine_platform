@@ -1,6 +1,9 @@
 <?php namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use HTML;
+use Request;
+use URL;
 
 class AppServiceProvider extends ServiceProvider {
 

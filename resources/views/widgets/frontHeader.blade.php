@@ -32,8 +32,8 @@
                 </ul>
             @endif
             <ul class="nav navbar-nav navbar-right q-nav">
-                <li class='active'><a href="{{ url('/') }}">首页</a></li>
-                <li ><a href="{{ url('/') }}">功能与价格</a></li>
+                {!! \HTML::menu_active('/', '首页') !!}
+                {!! \HTML::menu_active('/', '功能与价格') !!}
             </ul>
 
         </div>

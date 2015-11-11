@@ -12,6 +12,26 @@ class MaxfineHtmlServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+
+        /**
+         * ---------------------------------------------------------
+         * 高亮当前菜单
+         * http://laravel.so/tricks/bcf5247b77fb838ce10115c6adf2fc68
+         * ---------------------------------------------------------
+         * HTML::macro不能放在AppServiceProvider::boot中, 应为在此处运行时, HTML还没有建立.
+         */
+        HTML::macro('menu_active', function($route,$name)
+        {
+            if (Request::is($route . '/*') || Request::is($route)) {
+                $active ='<li class="active"><a href="'.URL::to($route).'">'.$name.'</a></li>';
+            } else {
+                $active ='<li><a href="'.URL::to($route).'">'.$name.'</a></li>';
+            }
+
+            return $active;
+        });
+
+        /**
         HTML::macro('menu_active', function($route,$name)
         {
             if (Request::is($route . '/*') || Request::is($route)) {
@@ -22,6 +42,7 @@ class MaxfineHtmlServiceProvider extends ServiceProvider {
 
             return $active;
         });
+        **/
 	}
 
 	/**
