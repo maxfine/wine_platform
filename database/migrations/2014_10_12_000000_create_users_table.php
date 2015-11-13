@@ -34,6 +34,8 @@ class CreateUsersTable extends Migration {
             $table->enum('user_type', ['Visitor','Customer','Manager'])->default('Visitor');
             $table->string('confirmation_code')->default(''); //注册验证码
             $table->tinyInteger('confirmed')->default(0); //是否通过验证, 0:未通过, 1:通过
+            $table->decimal('amount',10,2)->default(0.00);
+            $table->integer('point')->default(0)->unsigned();
             //$table->index('group_id');
             //$table->foreign('group_id')->references('id')->on('user_groups');
 		});
