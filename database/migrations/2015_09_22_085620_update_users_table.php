@@ -12,7 +12,6 @@ class UpdateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-        //添加字段amount
         Schema::table('users', function(Blueprint $table)
         {
             $table->string('nickname', 20)->default('');
