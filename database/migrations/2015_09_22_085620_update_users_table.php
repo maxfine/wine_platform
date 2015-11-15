@@ -12,22 +12,13 @@ class UpdateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-        //添加字段amount
         Schema::table('users', function(Blueprint $table)
         {
-            $table->string('nickname', 20)->default('');
-            $table->string('realname', 20)->default('');
-            $table->string('pid', 20)->default('');
-            $table->string('pid_card_thumb1')->default('');
-            $table->string('pid_card_thumb2')->default('');
-            $table->string('avatar', 80)->default('');
-            $table->string('phone', 20)->default('');
-            $table->string('address')->default('');
-            $table->tinyInteger('is_lock')->default(0);
-            $table->enum('user_type', ['Visitor','Customer','Manager'])->default('Visitor');
-            $table->string('confirmation_code')->default(''); //注册验证码
-            $table->tinyInteger('confirmed')->default(0); //是否通过验证, 0:未通过, 1:通过
-            $table->decimal('amount',10,2)->default(0.00);
+            //user_groups外键group_id
+            $table->integer('group_id')->nullable()->unsigned()->after('password');
+
+            $table->index('group_id');
+            $table->foreign('group_id')->references('id')->on('user_groups');
         });
 	}
 

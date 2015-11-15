@@ -26,9 +26,52 @@
                     </div>
                     <img style="width:100%; max-width:140px;" src="http://jiu.znyes.com/img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
                 </div>
+<<<<<<< HEAD
             </div>
         </div>
     </div>
+=======
+                <div class="ibox-content">
+                    <!--<table class="table table-striped table-bordered table-hover " id="editable">-->
+                    <table class="table table-striped table-hover " id="editable">
+                        <thead>
+                        <tr class="info">
+                            <th><input type="checkbox" name="ckSelectAll" id="checkAll"></th>
+                            <th>ID</th>
+                            <th>网址</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach ($posterThemes as $item)
+                        <tr class="gradeA">
+                            <td><input type="checkbox" name="checkList"></td>
+                            <td>@if(isset($item->id)){{ $item->id}} @endif</td>
+                            <td>{{ $item->site_url }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            <td class="center" data-editable="disabled">
+                                <form action="{{ URL('member/poster/themes/renew/'.$item->id) }}" method="POST" data-amount="{{ $item->price }}" style="display: inline;" class="renew-form">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-danger">续费</button>
+                                </form>
+
+                                <a href="javascript:;" data-url="{{ URL('poster/themes/get_js/'.$item->id) }}" class="btn btn-success get-js">获取JS</a>
+
+                                <a href="{{ URL('member/poster/themes/'.$item->id.'/edit') }}" class="btn btn-success">编辑</a>
+
+                                <form action="{{ URL('member/poster/themes/'.$item->id) }}" method="POST" style="display: inline;" class="del-form">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-danger">删除</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+>>>>>>> origin/master
 
     <div class="wrapper wrapper-content">
         <div class="row">
@@ -96,11 +139,58 @@
                 });
                 return false;
             });
+
+            $('.renew').click(
+                function(){
+                    layer.confirm('is not?', {icon: 3, title:'提示'}, function(index){
+                        //do something
+                        //return false;
+                        layer.close(index);
+                    });
+                }
+            );
+
+            $('.del-form').click(function(){
+                //方法一
+                //var checkDel = confirm('确定要执行此操作吗?');
+                //return checkDel;
+
+                //方法二
+                $this = $(this);
+                layer.confirm('确认删除?', {icon: 3, title:'提示'},
+                    function(index){
+                        //do something
+                        $this.submit();
+                        layer.close(index);
+                    }
+                );
+                return false;
+            });
+
+            $('.renew-form').click(function(){
+                //方法一
+                //var checkDel = confirm('确定要执行此操作吗?');
+                //return checkDel;
+
+                //方法二
+                $this = $(this);
+                amount = $this.data('amount');
+                layer.confirm('确认支付'+amount+'元?', {icon: 3, title:'提示'},
+                        function(index){
+                            //do something
+                            $this.submit();
+                            layer.close(index);
+                        }
+                );
+                return false;
+            });
         });
+
 
         $(document).ready(function () {
             /* Init DataTables */
             var oTable = $('#editable').dataTable(
+<<<<<<< HEAD
                     {
                         "order": [[ 1, 'asc' ], [2, 'desc']],
                         "columnDefs": [
@@ -131,6 +221,38 @@
                             }
                         ]
                     }
+=======
+                {
+                    "order": [[ 1, 'asc' ], [2, 'desc']],
+                    "columnDefs": [
+                        {
+                            targets: [0],
+                            searchable: false,
+                            orderable: false
+                        },
+                        {
+                            targets: [1],
+                            searchable: true,
+                            orderData: [1, 2]
+                        },
+                        {
+                            targets: [2],
+                            searchable: true,
+                            orderable: false
+                        },
+                        {
+                            targets: [3],
+                            searchable: false,
+                            orderable: true
+                        },
+                        {
+                            targets: [4],
+                            searchable: false,
+                            orderable: false
+                        }
+                    ]
+                }
+>>>>>>> origin/master
             );
 
             /* Apply the jEditable handlers to the table */
