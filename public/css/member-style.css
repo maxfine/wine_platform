@@ -3345,6 +3345,7 @@ body {
 
 body.full-height-layout #wrapper,
 body.full-height-layout #page-wrapper {
+    /*height: 100%;-diy*/
     height: 100%;
 }
 

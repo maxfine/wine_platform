@@ -1,117 +1,77 @@
 @extends('layout._member')
 
 @section('head_css')
-@parent
-<link href="{{ asset('css/plugins/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet">
+    @parent
+    <link href="{{ asset('css/plugins/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet">
 @endsection
-
 
 @section('content-header')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-9">
-            <h2>网站列表</h2>
-            <ol class="breadcrumb">
-                <li>
-                    <a href="{{ URL('member') }}">会员中心</a>
-                </li>
-                <li>
-                    <strong>网站列表</strong>
-                </li>
-            </ol>
+            <h2>会员中心首页</h2>
         </div>
     </div>
-
-<div class="row  border-bottom white-bg dashboard-header">
-    <div class="col-sm-12">
-        <div class="pull-left"><a href="{{ URL('member/poster/themes/create/') }}" class="btn btn-primary"><i class="fa fa-plus"></i> 添加网站</a></div>
-    </div>
-</div>
 @endsection
 
 @section('content')
-<div class="wrapper wrapper-content">
-  <div class="row">
-      <div class="col-sm-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>网站管理 - 单页</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="{{ URL('member/poster/themes/create/') }}">新&nbsp&nbsp增</a></li>
-                            <li><a href="table_data_tables.html#">选项1</a>
-                            </li>
-                            <li><a href="table_data_tables.html#">选项2</a>
-                            </li>
-                        </ul>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
+    <div class="wrapper wrapper-content">
+        <!-- 会员信息 -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-head-color-box navy-bg p-lg text-center">
+                    <div class="m-b-md">
+                        <h2 class="font-bold no-margins">
+                            <p><span class="text-danger">{{ Auth::user()->nickname?:'' }}</span>&nbsp您好, 欢迎登陆!</p>
+                        </h2>
                     </div>
+                    <img style="width:100%; max-width:140px;" src="http://jiu.znyes.com/img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
                 </div>
-                <div class="ibox-content">
-                    <!--<table class="table table-striped table-bordered table-hover " id="editable">-->
-                    <table class="table table-striped table-hover " id="editable">
-                        <thead>
-                        <tr class="info">
-                            <th><input type="checkbox" name="ckSelectAll" id="checkAll"></th>
-                            <th>ID</th>
-                            <th>网址</th>
-                            <th>添加时间</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+            </div>
+        </div>
+    </div>
 
-                        @foreach ($posterThemes as $item)
-                        <tr class="gradeA">
-                            <td><input type="checkbox" name="checkList"></td>
-                            <td>@if(isset($item->id)){{ $item->id}} @endif</td>
-                            <td>{{ $item->site_url }}</td>
-                            <td>{{ $item->created_at }}</td>
-                            <td class="center" data-editable="disabled">
-                                <a href="{{ URL('poster/themes/renew/'.$item->id) }}" class="btn btn-danger">续费</a>
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h2>账户余额</h2>
+                    </div>
 
-                                <a href="javascript:;" data-url="{{ URL('poster/themes/get_js/'.$item->id) }}" class="btn btn-success get-js">获取JS</a>
-
-                                <a href="{{ URL('member/poster/themes/'.$item->id.'/edit') }}" class="btn btn-success">编辑</a>
-
-                                <form action="{{ URL('member/poster/themes/'.$item->id) }}" method="POST" style="display: inline;">
-                                    <input name="_method" type="hidden" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button onClick="delcfm()" type="submit" class="btn btn-danger">删除</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                        <tr class="danger">
-                            <th><input type="checkbox" name="ckSelectAll" id="checkAll"></th>
-                            <th>ID</th>
-                            <th>网址</th>
-                            <th>添加时间</th>
-                            <th>操作</th>
-                        </tr>
-                        </tfoot>
-                    </table>
-
+                    <div class="widget style1 navy-bg ibox-content">
+                        <div class="row vertical-align">
+                            <div class="col-sm-12">
+                                <span class="font-bold fa-3x text-danger">{{ Auth::user()->amount }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-      </div>
-  </div>
-</div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h2>网站数量</h2>
+                    </div>
+
+                    <div class="widget style1 navy-bg ibox-content">
+                        <div class="row vertical-align">
+                            <div class="col-sm-12">
+                                <span class="font-bold fa-3x">{{ isset($posterThemes) && count($posterThemes)?count($posterThemes) : '还没有添加网站' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 @endsection
 
 @section('extraPlugin')
     @parent
-    <!-- Data Tables -->
+            <!-- Data Tables -->
     <script src="{{ asset('js/plugins/jeditable/jquery.jeditable.js') }}"></script>
     <script src="{{ asset('js/plugins/dataTables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap.js') }}"></script>
@@ -141,36 +101,36 @@
         $(document).ready(function () {
             /* Init DataTables */
             var oTable = $('#editable').dataTable(
-                {
-                    "order": [[ 1, 'asc' ], [2, 'desc']],
-                    "columnDefs": [
-                        {
-                            targets: [0],
-                            searchable: false,
-                            orderable: false
-                        },
-                        {
-                            targets: [1],
-                            searchable: true,
-                            orderData: [1, 2]
-                        },
-                        {
-                            targets: [2],
-                            searchable: false,
-                            orderable: false
-                        },
-                        {
-                            targets: [3],
-                            searchable: false,
-                            orderable: true
-                        },
-                        {
-                            targets: [4],
-                            searchable: false,
-                            orderable: false
-                        }
-                    ]
-                }
+                    {
+                        "order": [[ 1, 'asc' ], [2, 'desc']],
+                        "columnDefs": [
+                            {
+                                targets: [0],
+                                searchable: false,
+                                orderable: false
+                            },
+                            {
+                                targets: [1],
+                                searchable: true,
+                                orderData: [1, 2]
+                            },
+                            {
+                                targets: [2],
+                                searchable: false,
+                                orderable: false
+                            },
+                            {
+                                targets: [3],
+                                searchable: false,
+                                orderable: true
+                            },
+                            {
+                                targets: [4],
+                                searchable: false,
+                                orderable: false
+                            }
+                        ]
+                    }
             );
 
             /* Apply the jEditable handlers to the table */
